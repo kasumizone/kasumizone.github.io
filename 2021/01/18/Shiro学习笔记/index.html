@@ -1,34 +1,777 @@
-extends _partial/layout.pug
 
-block content
-  - var post = page
-  - var post_type = getPropertyByType(post.type)
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Shiro学习笔记 | ☾ 霞 の 魔·域 ☽</title>
+        <meta name="author" content="Tokitou Muichirou" />
+        <meta name="description" content="☾ 分享博主懒得分享的一切 ☽" />
+        <meta name="keywords" content="技术 Java 生活 心情 程序员 bug 二次元 动漫" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/null" />
+        <script src="https://cdn.staticfile.org/vue/3.2.45/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.2.1/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
 
-  #post
-    article.hty-card.post-block(itemscope, itemtype='https://schema.org/Article')
-      include _partial/post/post-schema.pug
-      header.post-header
-        h1.post-title(itemprop='name headline', style=post.type ? `color: ${post_type.color}` : '')
-          if post.type
-            +icon(post_type.icon)
-          | #{post.title}
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
-          if theme.post_edit.enable
-            include _partial/post/post-edit.pug
 
-        include _partial/post/post-meta.pug
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
 
-        if post.url
-          a.hty-button.hty-button--raised(href=url_for(post.url), style=`margin-top: 1rem;background-color:${post_type.color}`)=__('post.view_link')
 
-      section.post-body(itemprop='articleBody')
-        .post-content.markdown-body(style=`--smc-primary:${theme.colors.primary};`)!=post.content
 
-        if theme.reward.enable && page.reward !== false
-          include _partial/post/reward.pug
+<script src="/js/lib/preview.js"></script>
 
-        if theme.creative_commons.license && theme.creative_commons.post
-          include _partial/post/post-copyright.pug
 
-    if post.prev || post.next
-      include _partial/post/post-nav.pug
+
+
+
+
+
+
+
+<script src="/js/lib/home.js"></script>
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 5.4.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/">
+            <span>☾ 霞 の 魔·域 ☽</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;☾ 霞 の 魔·域 ☽</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div class="article">
+    <div>
+        <h1>Shiro学习笔记</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2021/1/18
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                学习笔记
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Java/" style="color: #03a9f4">Java</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Spring-Boot/" style="color: #ff7d73">Spring Boot</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Shiro/" style="color: #00a596">Shiro</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Thymeleaf/" style="color: #ff7d73">Thymeleaf</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <span id="more"></span>
+
+<h1 id="一、Shiro核心组件"><a href="#一、Shiro核心组件" class="headerlink" title="一、Shiro核心组件"></a>一、Shiro核心组件</h1><blockquote>
+<p><strong>用户，角色，权限</strong></p>
+<p><strong>给角色赋予权限，给用户赋予角色</strong></p>
+</blockquote>
+<ol>
+<li>UsernamePasswordToken，shiro用来封装用户登录信息，使用用户的登录信息来创建令牌 Token 。</li>
+<li>SecurityManager，Shiro核心部分，负责安全认证和授权。</li>
+<li>Subject，Shiro的一个抽象概念，包含了用户信息。</li>
+<li>realm，开发者自定义的模块，根据项目的需求，验证和授权的逻辑全部写在 Realm 中。</li>
+<li>AuthenticationInfo，用户的角色信息集合，认证时使用。</li>
+<li>AuthorizationInfo，角色的权限信息集合，授权时使用</li>
+<li>DefaultWebSecurityManager，安全管理器，开发者自定义的Realm需要注入到 DefaultWebSecurityManager 进行管理才能生效。</li>
+<li>ShiroFilterFactoryBean，过滤器工厂，<strong>Shiro的基本运行机制是开发者定制规则，Shiro去执行，具体的执行操作就是由 ShiroFilterFactoryBean 创建的一个个Filter对象来完成的。</strong></li>
+</ol>
+<h1 id="二、Shiro运行机制"><a href="#二、Shiro运行机制" class="headerlink" title="二、Shiro运行机制"></a>二、Shiro运行机制</h1><p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510192248.png" alt="image-20210312131717372"></p>
+<hr>
+<h1 id="三、Spring-boot整合Shiro"><a href="#三、Spring-boot整合Shiro" class="headerlink" title="三、Spring boot整合Shiro"></a>三、Spring boot整合Shiro</h1><h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h2><h3 id="2-1-引入相关依赖"><a href="#2-1-引入相关依赖" class="headerlink" title="2.1 引入相关依赖"></a>2.1 引入相关依赖</h3><pre><code class="xml">&lt;!--Shiro-Spring--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.shiro&lt;/groupId&gt;
+    &lt;artifactId&gt;shiro-spring&lt;/artifactId&gt;
+    &lt;version&gt;1.7.1&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<blockquote>
+<p>mvn clean install        构建项目检查</p>
+</blockquote>
+<h3 id="2-2-配置数据源"><a href="#2-2-配置数据源" class="headerlink" title="2.2 配置数据源"></a>2.2 配置数据源</h3><p>数据库：表名Account</p>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510192459.png" alt="image-20210510192459186"></p>
+<h3 id="2-3-创建实体类"><a href="#2-3-创建实体类" class="headerlink" title="2.3 创建实体类"></a>2.3 创建实体类</h3><h2 id="2-自定义Shiro过滤器"><a href="#2-自定义Shiro过滤器" class="headerlink" title="2. 自定义Shiro过滤器"></a>2. 自定义Shiro过滤器</h2><p>在realm包下创建AccountRealm类</p>
+<pre><code class="java">package lover.alice.realm;
+
+import lover.alice.entity.Account;
+import lover.alice.service.AccountService;
+import org.apache.shiro.authc.*;
+import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.realm.AuthorizingRealm;
+import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class AccountRealm extends AuthorizingRealm &#123;        //继承这个类，并且实现其中的两个方法
+
+    @Autowired
+    AccountService accountService;
+    /**
+     * 授权
+     */
+    @Override
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection)     &#123;
+        return null;
+    &#125;
+    
+    /**
+     * 认证
+     * 登录验证
+     */
+    @Override
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException &#123;
+
+        //拿到一个token，封装拿到的username和password，
+        //这个token已经传进来了就是authenticationToken，给他强转成UsernamePasswordToken。
+        UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
+        //拿到token中传来的username，在数据库中查出对应的Account
+        Account account = accountService.getAccountByName(token.getUsername());
+        if (account!=null)&#123;       //判断用户名存在
+            /**
+             * 进行密码验证，用这个方法 SimpleAuthenticationInfo() 直接进行密码验证，直接返回这个对象
+             * 参数一：通过用户名查出来的对象
+             * 参数二：正确的密码
+             * 参数三：getName()
+             */
+            return new SimpleAuthenticationInfo(account,account.getPassword(),getName());
+        &#125;
+        return null;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="3-配置类config"><a href="#3-配置类config" class="headerlink" title="3. 配置类config"></a>3. 配置类config</h2><p>进行配置才能生效</p>
+<pre><code class="java">package lover.alice.config;
+
+import lover.alice.realm.AccountRealm;
+import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
+import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class ShiroConfig &#123;
+
+    /**
+     * 创建一个AccountRealm对象并且通过 @Bean 把他放到IOC容器中
+     * 因为开发者自定义的Realm需要注入到 DefaultWebSecurityManager 进行管理才能生效。
+     * 所以下一步
+     */
+    @Bean
+    public AccountRealm accountRealm()&#123;
+        return new AccountRealm();
+    &#125;
+
+    /**
+     * @param accountRealm  上一步注册到IOC中的对象，现在通过 @Qualifier 取出来并且注入到DefaultWebSecurityManager中
+     * @Qualifier 通过对象的名字，从容器中取出需要的对象，名字默认是方法名
+     * 同样要把它注入到IOC容器中，供最后干事的 ShiroFilterFactoryBean 使用
+     * 所以下一步
+     */
+    @Bean
+    public DefaultWebSecurityManager securityManager(@Qualifier(&quot;accountRealm&quot;) AccountRealm accountRealm)&#123;
+        DefaultWebSecurityManager manager = new DefaultWebSecurityManager();
+        manager.setRealm(accountRealm);
+        return manager;
+    &#125;
+
+    /**
+     * @Qualifier 同样通过它拿到 securityManager ，
+     * 注入进 ShiroFilterFactoryBean 即可
+     */
+    @Bean
+    public ShiroFilterFactoryBean shiroFilterFactoryBean(@Qualifier(&quot;securityManager&quot;) DefaultWebSecurityManager securityManager)&#123;
+        ShiroFilterFactoryBean factoryBean = new ShiroFilterFactoryBean();
+        factoryBean.setSecurityManager(securityManager);
+        return factoryBean;
+    &#125;
+
+
+&#125;
+</code></pre>
+<h2 id="4-认证和授权"><a href="#4-认证和授权" class="headerlink" title="4. 认证和授权"></a>4. 认证和授权</h2><blockquote>
+<p>认证过滤器：</p>
+</blockquote>
+<p>anon：无需认证；</p>
+<p>anthc：必须认证；</p>
+<p>anthcbasic：需要通过 HTTPBasic 认证；</p>
+<p>user：不一定需要认证，只要曾经被 Shiro 记住即可（记住我）；</p>
+<blockquote>
+<p>授权过滤器</p>
+</blockquote>
+<p>perms：必须拥有某个权限才能访问；</p>
+<p>roles：必须拥有某个角色才能访问；</p>
+<p>port：请求的端口必须是指定值才可以访问；</p>
+<p>rest：请求必须基于 RESTful：POST，GET，PUT，DELETE；</p>
+<p>ssl：必须是安全的URL请求，协议HTTPS。</p>
+<h2 id="5-配置认证和授权"><a href="#5-配置认证和授权" class="headerlink" title="5. 配置认证和授权"></a>5. 配置认证和授权</h2><blockquote>
+<p>创建 3 个页面，main.html、manage.html、administrator.html</p>
+<p><strong>访问权限如下：</strong></p>
+<p><strong>1、必须登录才能访问 main.html</strong></p>
+<p><strong>2、当前用户必须拥有 manage 授权才能访问 manage.html</strong></p>
+<p><strong>3、当前用户必须拥有 administrator 角色才能访问 administrator.html</strong></p>
+</blockquote>
+<h3 id="5-1-配置类中配置"><a href="#5-1-配置类中配置" class="headerlink" title="5.1 配置类中配置"></a>5.1 配置类中配置</h3><p><strong>在config配置类中</strong>，对访问三个页面的 <strong>请求</strong> 进行限制</p>
+<p>操作的是**<code>ShiroFilterFactoryBean</code><strong>方法中的</strong><code>factoryBean</code>**对象</p>
+<pre><code class="java">@Bean
+public ShiroFilterFactoryBean shiroFilterFactoryBean(@Qualifier(&quot;securityManager&quot;) DefaultWebSecurityManager securityManager)&#123;
+    ShiroFilterFactoryBean factoryBean = new ShiroFilterFactoryBean();
+    factoryBean.setSecurityManager(securityManager);
+
+    //权限设置，限制请求的访问权限
+    Map&lt;String,String&gt; map = new HashMap&lt;&gt;();               //规则存放在HashMap中
+    map.put(&quot;/main&quot;,&quot;authc&quot;);                               
+    //必须登录才能访问 main.html(&quot;/main&quot;请求)
+    map.put(&quot;/manager&quot;,&quot;perms[manager]&quot;);                   
+    //当前用户必须拥有 manage 授权才能访问 manage.html(&quot;/manager&quot;请求)
+    map.put(&quot;/administrator&quot;,&quot;roles[administrator]&quot;);       
+    //当前用户必须拥有 administrator 角色才能访问 administrator.html(&quot;/administrator&quot;请求)
+    factoryBean.setFilterChainDefinitionMap(map);           //把定义好的规则放进去
+    
+    //设置登录页面
+    factoryBean.setLoginUrl(&quot;/login&quot;);
+    
+    return factoryBean;
+&#125;
+</code></pre>
+<p>这样就对访问这三个页面的<strong>请求</strong>进行了限制</p>
+<p>这样再访问的话，就会默认自动跳转到 login.jsp 页面，但是我们没有这样的页面，</p>
+<p><strong>需要定制一个login页面并且把没有权限访问的请求自动跳转到我们定制的login页面</strong></p>
+<p>要写一个login页面，Controller要有一个”/login”请求到这个页面，</p>
+<p>然后配置</p>
+<pre><code class="java">factoryBean.setLoginUrl(&quot;/login&quot;);
+</code></pre>
+<h3 id="5-2-处理login登录验证的Controller"><a href="#5-2-处理login登录验证的Controller" class="headerlink" title="5.2 处理login登录验证的Controller"></a>5.2 处理login登录验证的Controller</h3><pre><code class="java">@GetMapping(&quot;&#123;url&#125;&quot;)                            //转到页面的处理
+public String tourl(@PathVariable String url)&#123;
+    return url;
+&#125;
+
+@PostMapping(&quot;/login&quot;)
+public String login(String username, String password, Model model)&#123;
+    //使用 Shiro 进行处理
+    //拿到Subject： Shiro的一个抽象概念，包含了用户信息。
+    Subject subject = SecurityUtils.getSubject();
+    //把用户输入的信息传到token中封装
+    UsernamePasswordToken token = new UsernamePasswordToken(username,password);
+    /**
+     * 执行了下面这一步，就会把登录请求交给Shiro去做，
+     * 进入到 AccountRealm 中，对拿到的token，对比数据库，执行登录验证的操作，
+     * 在 AccountRealm 中执行时，
+     * 用户名错误，也就是根据用户名查不到数据库中对应的对象，会返回UnknownAccountException异常
+     * 密码错误，返回IncorrectCredentialsException异常
+     * 我们可以在这里捕获异常，并返回给登录页面错误信息提示
+     */
+    try &#123;
+        subject.login(token);
+        return &quot;index&quot;;
+    &#125; catch (UnknownAccountException e) &#123;
+        e.printStackTrace();
+        model.addAttribute(&quot;msg&quot;,&quot;用户名不存在！&quot;);
+        return &quot;login&quot;;
+
+    &#125; catch (IncorrectCredentialsException e)&#123;
+        model.addAttribute(&quot;msg&quot;,&quot;密码错误！&quot;);
+        return &quot;login&quot;;
+    &#125;
+
+&#125;
+</code></pre>
+<h3 id="5-3-授权"><a href="#5-3-授权" class="headerlink" title="5.3 授权"></a>5.3 授权</h3><blockquote>
+<p>使用Set集合，防止重复。</p>
+</blockquote>
+<pre><code class="java">    /**
+     * 授权
+     */
+@Override
+protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) &#123;
+
+    //获取当前登录的用户信息
+    Subject subject = SecurityUtils.getSubject();
+    Account account = (Account) subject.getPrincipal();                 
+    //把认证时传进去的 account 对象拿出来，这是登陆成功才会传进去的对象
+
+    //设置角色
+    Set&lt;String&gt; roles = new HashSet&lt;&gt;();
+    roles.add(account.getRole());                  //获取数据库中存放的用户的角色信息，加到集合中
+    SimpleAuthorizationInfo info = new SimpleAuthorizationInfo(roles);  
+    //将用户的角色信息上传到SimpleAuthorizationInfo中
+
+    //设置权限
+    info.addStringPermission(account.getPerms());   //获取数据库中的权限信息，上传到SimpleAuthorizationInfo中
+
+    //上传
+    return info;
+&#125;
+</code></pre>
+<h3 id="5-补充操作"><a href="#5-补充操作" class="headerlink" title="5.+ 补充操作"></a>5.+ 补充操作</h3><p>==登陆成功后，拿已登录用户的数据，从 <strong>Subject</strong> 中拿==</p>
+<p>==Subject自带Session对象，不用HttpSession获取，直接用==</p>
+<h4 id="1）未授权页面"><a href="#1）未授权页面" class="headerlink" title="1）未授权页面"></a>1）未授权页面</h4><p>如果登录的用户没有对页面的访问权限，返回到未授权页面。</p>
+<p>config中添加配置</p>
+<pre><code class="java">//设置未授权页面，没权限访问的话，跳到这个请求
+factoryBean.setUnauthorizedUrl(&quot;/unauth&quot;);
+</code></pre>
+<p>Controller中处理</p>
+<pre><code class="java">@GetMapping(&quot;/unauth&quot;)
+@ResponseBody
+public String unauth()&#123;
+    return &quot;未授权，无法访问！&quot;;
+&#125;
+</code></pre>
+<h4 id="2）显示当前登录用户操作"><a href="#2）显示当前登录用户操作" class="headerlink" title="2）显示当前登录用户操作"></a>2）显示当前登录用户操作</h4><p>登录成功后，向Subject中自带的Session对象中存入已登录的用户，主页通过取Session中的数据显示</p>
+<p>Controller进行修改</p>
+<pre><code class="java">try &#123;
+    subject.login(token);
+
+    //拿到登录成功的用户的信息，存到Session中
+    Account account = (Account) subject.getPrincipal();
+    subject.getSession().setAttribute(&quot;account&quot;,account);
+
+    return &quot;index&quot;;
+&#125;
+</code></pre>
+<p>主页显示</p>
+<pre><code class="html">&lt;span th:text=&quot;$&#123;session.account.username&#125;+&#39;欢迎回来！&#39;&quot;&gt;&lt;/span&gt;
+</code></pre>
+<h4 id="3）退出已登录用户"><a href="#3）退出已登录用户" class="headerlink" title="3）退出已登录用户"></a>3）退出已登录用户</h4><p>退出已登录用户，然后返回到登陆页面</p>
+<pre><code class="html">a href=&quot;/logout&quot;&gt;退出&lt;/a&gt;
+</code></pre>
+<p>Controller如下</p>
+<pre><code class="java">@GetMapping(&quot;/logout&quot;)
+    public String logout()&#123;
+        Subject subject = SecurityUtils.getSubject();
+//        subject.getSession().removeAttribute(&quot;account&quot;);
+        subject.logout();  //直接调这个方法 ，直接销毁Session
+        return &quot;login&quot;;
+    &#125;
+</code></pre>
+<h2 id="6-Shiro整合thymeleaf"><a href="#6-Shiro整合thymeleaf" class="headerlink" title="6. Shiro整合thymeleaf"></a>6. Shiro整合thymeleaf</h2><h3 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a><strong>引入依赖</strong></h3><pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.github.theborakompanioni&lt;/groupId&gt;
+    &lt;artifactId&gt;thymeleaf-extras-shiro&lt;/artifactId&gt;
+    &lt;version&gt;2.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h3 id="配置方言ShiroDialect"><a href="#配置方言ShiroDialect" class="headerlink" title="配置方言ShiroDialect"></a>配置方言ShiroDialect</h3><pre><code class="java">@Bean
+public ShiroDialect shiroDialect()&#123;
+    return new ShiroDialect();
+&#125;
+</code></pre>
+<p>配置的方言Bean，thymeleaf模板才能识别Shiro的方言配置</p>
+<h3 id="引入命名空间"><a href="#引入命名空间" class="headerlink" title="引入命名空间"></a>引入命名空间</h3><pre><code class="html">xmlns:shiro=&quot;http://www.pollix.at/thymeleaf/shiro&quot;
+</code></pre>
+<h3 id="主页编写"><a href="#主页编写" class="headerlink" title="主页编写"></a>主页编写</h3><pre><code class="html">&lt;a href=&quot;/main&quot;&gt;main&lt;/a&gt; &lt;br/&gt;
+&lt;div shiro:hasPermission=&quot;manage&quot;&gt;             &lt;!--有对应权限才显示该标签--&gt;
+    &lt;a href=&quot;manage&quot;&gt;manage&lt;/a&gt; &lt;br/&gt;
+&lt;/div&gt;
+&lt;div shiro:hasRole=&quot;administrator&quot;&gt;             &lt;!--有对应角色才显示该标签--&gt;
+    &lt;a href=&quot;/administrator&quot;&gt;administrator&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<h1 id="四、核心代码总结"><a href="#四、核心代码总结" class="headerlink" title="四、核心代码总结"></a>四、核心代码总结</h1><h2 id="1-pom依赖"><a href="#1-pom依赖" class="headerlink" title="1. pom依赖"></a>1. pom依赖</h2><pre><code class="xml">&lt;!-- Shiro-thymeleaf  --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.github.theborakompanioni&lt;/groupId&gt;
+    &lt;artifactId&gt;thymeleaf-extras-shiro&lt;/artifactId&gt;
+    &lt;version&gt;2.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;!--Shiro-Spring--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.shiro&lt;/groupId&gt;
+    &lt;artifactId&gt;shiro-spring&lt;/artifactId&gt;
+    &lt;version&gt;1.7.1&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h2 id="2-Realm类"><a href="#2-Realm类" class="headerlink" title="2. Realm类"></a>2. Realm类</h2><pre><code class="java">package lover.alice.realm;
+
+import lover.alice.entity.Account;
+import lover.alice.service.AccountService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.*;
+import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
+import org.apache.shiro.realm.AuthorizingRealm;
+import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class AccountRealm extends AuthorizingRealm &#123;
+
+    @Autowired
+    AccountService accountService;
+    /**
+     * 授权
+     */
+    @Override
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) &#123;
+
+        //获取当前登录的用户信息
+        Subject subject = SecurityUtils.getSubject();
+        Account account = (Account) subject.getPrincipal();                 //把认证时传进去的 account 对象拿出来，这是登陆成功才会传进去的对象
+
+        //设置角色
+        Set&lt;String&gt; roles = new HashSet&lt;&gt;();
+        roles.add(account.getRole());                  //获取数据库中存放的用户的角色信息，加到集合中
+        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo(roles);  //将用户的角色信息上传到SimpleAuthorizationInfo中
+
+        //设置权限
+        info.addStringPermission(account.getPerms());   //获取数据库中的权限信息，上传到SimpleAuthorizationInfo中
+
+        //上传
+        return info;
+    &#125;
+
+    /**
+     * 认证
+     * 登录验证
+     */
+    @Override
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException &#123;
+
+        //拿到一个token，封装拿到的username和password，
+        //这个token已经传进来了就是authenticationToken，给他强转成UsernamePasswordToken。
+        UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
+        //拿到token中传来的username，在数据库中查出对应的Account
+        Account account = accountService.getAccountByName(token.getUsername());
+        if (account!=null)&#123;       //判断用户名存在
+            /**
+             * 进行密码验证，用这个方法 SimpleAuthenticationInfo() 直接进行密码验证，直接返回这个对象
+             * 参数一：被验证的对象
+             * 参数二：正确的密码
+             * 参数三：getName()
+             */
+            return new SimpleAuthenticationInfo(account,account.getPassword(),getName());
+        &#125;
+        return null;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="3-config配置类"><a href="#3-config配置类" class="headerlink" title="3. config配置类"></a>3. config配置类</h2><pre><code class="java">package lover.alice.config;
+
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
+import lover.alice.realm.AccountRealm;
+import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
+import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@Configuration
+public class ShiroConfig &#123;
+
+    /**
+     * 创建一个AccountRealm对象并且通过 @Bean 把他放到IOC容器中
+     * 因为开发者自定义的Realm需要注入到 DefaultWebSecurityManager 进行管理才能生效。
+     * 所以下一步
+     */
+    @Bean
+    public AccountRealm accountRealm()&#123;
+        return new AccountRealm();
+    &#125;
+
+    /**
+     * @param accountRealm  上一步注册到IOC中的对象，现在通过 @Qualifier 取出来并且注入到DefaultWebSecurityManager中
+     * @Qualifier 通过对象的名字，从容器中取出需要的对象，名字默认是方法名
+     * 同样要把它注入到IOC容器中，供最后干事的 ShiroFilterFactoryBean 使用
+     * 所以下一步
+     */
+    @Bean
+    public DefaultWebSecurityManager securityManager(@Qualifier(&quot;accountRealm&quot;) AccountRealm accountRealm)&#123;
+        DefaultWebSecurityManager manager = new DefaultWebSecurityManager();
+        manager.setRealm(accountRealm);
+        return manager;
+    &#125;
+
+    /**
+     * @Qualifier 同样通过它拿到 securityManager ，
+     * 注入进 ShiroFilterFactoryBean 即可
+     */
+    @Bean
+    public ShiroFilterFactoryBean shiroFilterFactoryBean(@Qualifier(&quot;securityManager&quot;) DefaultWebSecurityManager securityManager)&#123;
+        ShiroFilterFactoryBean factoryBean = new ShiroFilterFactoryBean();
+        factoryBean.setSecurityManager(securityManager);
+
+        //权限设置，限制请求的访问权限
+        Map&lt;String,String&gt; map = new HashMap&lt;&gt;();               //规则存放在HashMap中
+        map.put(&quot;/main&quot;,&quot;authc&quot;);                               //必须登录才能访问 main.html(&quot;/main&quot;请求)
+        map.put(&quot;/manage&quot;,&quot;perms[manage]&quot;);                     //当前用户必须拥有 manage 授权才能访问 manage.html(&quot;/manager&quot;请求)
+        map.put(&quot;/administrator&quot;,&quot;roles[administrator]&quot;);       //当前用户必须拥有 administrator 角色才能访问 administrator.html(&quot;/administrator&quot;请求)
+        factoryBean.setFilterChainDefinitionMap(map);           //把定义好的规则放进去
+        //设置登录页面
+        factoryBean.setLoginUrl(&quot;/login&quot;);
+
+        //设置未授权页面，没权限访问的话，跳到这
+        factoryBean.setUnauthorizedUrl(&quot;/unauth&quot;);
+
+        return factoryBean;
+    &#125;
+
+    @Bean
+    public ShiroDialect shiroDialect()&#123;
+        return new ShiroDialect();
+    &#125;
+
+
+&#125;
+</code></pre>
+<h2 id="4-Controller层"><a href="#4-Controller层" class="headerlink" title="4. Controller层"></a>4. Controller层</h2><pre><code class="java">package lover.alice.controller;
+
+import lover.alice.entity.Account;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+@Controller
+public class ShiroController &#123;
+    @GetMapping(&quot;&#123;url&#125;&quot;)                            //转到页面的处理
+    public String tourl(@PathVariable String url)&#123;
+        return url;
+    &#125;
+
+    @PostMapping(&quot;/login&quot;)
+    public String login(String username, String password, Model model)&#123;
+        //使用 Shiro 进行处理
+        //拿到Subject： Shiro的一个抽象概念，包含了用户信息。
+        Subject subject = SecurityUtils.getSubject();
+        //把用户输入的信息传到token中封装
+        UsernamePasswordToken token = new UsernamePasswordToken(username,password);
+        /**
+         * 执行了下面这一步，就会把登录请求交给Shiro去做，
+         * 进入到 AccountRealm 中，对拿到的token，对比数据库，执行登录验证的操作，
+         * 在 AccountRealm 中执行时，
+         * 用户名错误，也就是根据用户名查不到数据库中对应的对象，会返回UnknownAccountException异常
+         * 密码错误，返回IncorrectCredentialsException异常
+         * 我们可以在这里捕获异常，并返回给登录页面错误信息提示
+         */
+        try &#123;
+            subject.login(token);
+
+            //拿到登录成功的用户的信息，存到Session中
+            Account account = (Account) subject.getPrincipal();
+            subject.getSession().setAttribute(&quot;account&quot;,account);
+
+            return &quot;index&quot;;
+        &#125; catch (UnknownAccountException e) &#123;
+            e.printStackTrace();
+            model.addAttribute(&quot;msg&quot;,&quot;用户名不存在！&quot;);
+            return &quot;login&quot;;
+
+        &#125; catch (IncorrectCredentialsException e)&#123;
+            model.addAttribute(&quot;msg&quot;,&quot;密码错误！&quot;);
+            return &quot;login&quot;;
+        &#125;
+
+    &#125;
+
+    @GetMapping(&quot;/unauth&quot;)
+    @ResponseBody
+    public String unauth()&#123;
+        return &quot;未授权，无法访问！&quot;;
+    &#125;
+
+
+    @GetMapping(&quot;/logout&quot;)
+    public String logout()&#123;
+        Subject subject = SecurityUtils.getSubject();
+//        subject.getSession().removeAttribute(&quot;account&quot;);
+        subject.logout();  //直接调这个方法 ，直接销毁Session
+        return &quot;login&quot;;
+    &#125;
+
+&#125;
+</code></pre>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 ☾ 霞 の 魔·域 ☽
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Tokitou Muichirou
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    <script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

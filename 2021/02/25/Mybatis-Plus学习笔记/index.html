@@ -1,34 +1,937 @@
-extends _partial/layout.pug
 
-block content
-  - var post = page
-  - var post_type = getPropertyByType(post.type)
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Mybatis-Plus学习笔记 | ☾ 霞 の 魔·域 ☽</title>
+        <meta name="author" content="Tokitou Muichirou" />
+        <meta name="description" content="☾ 分享博主懒得分享的一切 ☽" />
+        <meta name="keywords" content="技术 Java 生活 心情 程序员 bug 二次元 动漫" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/null" />
+        <script src="https://cdn.staticfile.org/vue/3.2.45/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.2.1/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
 
-  #post
-    article.hty-card.post-block(itemscope, itemtype='https://schema.org/Article')
-      include _partial/post/post-schema.pug
-      header.post-header
-        h1.post-title(itemprop='name headline', style=post.type ? `color: ${post_type.color}` : '')
-          if post.type
-            +icon(post_type.icon)
-          | #{post.title}
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
-          if theme.post_edit.enable
-            include _partial/post/post-edit.pug
 
-        include _partial/post/post-meta.pug
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
 
-        if post.url
-          a.hty-button.hty-button--raised(href=url_for(post.url), style=`margin-top: 1rem;background-color:${post_type.color}`)=__('post.view_link')
 
-      section.post-body(itemprop='articleBody')
-        .post-content.markdown-body(style=`--smc-primary:${theme.colors.primary};`)!=post.content
 
-        if theme.reward.enable && page.reward !== false
-          include _partial/post/reward.pug
+<script src="/js/lib/preview.js"></script>
 
-        if theme.creative_commons.license && theme.creative_commons.post
-          include _partial/post/post-copyright.pug
 
-    if post.prev || post.next
-      include _partial/post/post-nav.pug
+
+
+
+
+
+
+
+<script src="/js/lib/home.js"></script>
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 5.4.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/">
+            <span>☾ 霞 の 魔·域 ☽</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;☾ 霞 の 魔·域 ☽</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div class="article">
+    <div>
+        <h1>Mybatis-Plus学习笔记</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2021/2/25
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                学习笔记
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Java/" style="color: #03a9f4">Java</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/MySQL/" style="color: #ffa2c4">MySQL</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Spring-Boot/" style="color: #00bcd4">Spring Boot</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Mybatis-Plus/" style="color: #00bcd4">Mybatis-Plus</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <span id="more"></span>
+
+<blockquote>
+<p>结合Spring boot使用</p>
+</blockquote>
+<hr>
+<h1 id="一、快速入门"><a href="#一、快速入门" class="headerlink" title="一、快速入门"></a>一、快速入门</h1><blockquote>
+<p>构建项目，初步体验MybatisPlus的简单功能</p>
+</blockquote>
+<h2 id="1-引入相关依赖"><a href="#1-引入相关依赖" class="headerlink" title="1. 引入相关依赖"></a>1. 引入相关依赖</h2><pre><code class="xml">&lt;!--        MySQL数据库驱动--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;mysql&lt;/groupId&gt;
+    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;!--        MybatisPlus(非官方)--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
+    &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;
+    &lt;version&gt;3.4.2&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;!--        代码生成器--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
+    &lt;artifactId&gt;mybatis-plus-generator&lt;/artifactId&gt;
+    &lt;version&gt;3.4.1&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;!--        代码生成器的默认模板引擎--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.velocity&lt;/groupId&gt;
+    &lt;artifactId&gt;velocity-engine-core&lt;/artifactId&gt;
+    &lt;version&gt;2.2&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>==引入了MybatisPlus，Mybatis和JDBC的依赖就不需要引入了，重复引入可能造成版本冲突==</p>
+<h2 id="2-配置数据源，连接数据库"><a href="#2-配置数据源，连接数据库" class="headerlink" title="2. 配置数据源，连接数据库"></a>2. 配置数据源，连接数据库</h2><pre><code class="yaml">spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://ip:port/db?useSSL=false&amp;serverTimezone=GMT%2B8
+    username: username
+    password: password
+</code></pre>
+<h2 id="3-加入测试数据"><a href="#3-加入测试数据" class="headerlink" title="3. 加入测试数据"></a>3. 加入测试数据</h2><pre><code class="sql">CREATE TABLE user
+(
+    id BIGINT(20) NOT NULL COMMENT &#39;主键ID&#39;,
+    name VARCHAR(30) NULL DEFAULT NULL COMMENT &#39;姓名&#39;,
+    age INT(11) NULL DEFAULT NULL COMMENT &#39;年龄&#39;,
+    email VARCHAR(50) NULL DEFAULT NULL COMMENT &#39;邮箱&#39;,
+    PRIMARY KEY (id)
+);
+INSERT INTO user (id, name, age, email) VALUES
+(1, &#39;Jone&#39;, 18, &#39;test1@baomidou.com&#39;),
+(2, &#39;Jack&#39;, 20, &#39;test2@baomidou.com&#39;),
+(3, &#39;Tom&#39;, 28, &#39;test3@baomidou.com&#39;),
+(4, &#39;Sandy&#39;, 21, &#39;test4@baomidou.com&#39;),
+(5, &#39;Billie&#39;, 24, &#39;test5@baomidou.com&#39;);
+</code></pre>
+<h2 id="4-各类的编写"><a href="#4-各类的编写" class="headerlink" title="4. 各类的编写"></a>4. 各类的编写</h2><pre><code class="java">@Mapper
+//在对应的Mapper接口上继承基本的类BaseMapper
+public interface UserMapper extends BaseMapper&lt;User&gt; &#123;
+    /**
+     * 继承了BaseMapper，所有方法都来自父类，也可以编写自己的扩展方法
+     */
+
+&#125;
+</code></pre>
+<h2 id="5-测试"><a href="#5-测试" class="headerlink" title="5.测试"></a>5.测试</h2><blockquote>
+<p>注意：不要忘了在Mapper接口上写@Mapper注解或者在主程序入口写@MapperScan(“xxx”)指明Mapper接口的包的位置</p>
+</blockquote>
+<h1 id="二、配置日志"><a href="#二、配置日志" class="headerlink" title="二、配置日志"></a>二、配置日志</h1><blockquote>
+<p>在开发过程中，使用MybatisPlus我们的SQL语句是不可见的，想要知道它是怎么执行的，需要日志</p>
+</blockquote>
+<p>在配置文件中进行以下配置</p>
+<pre><code class="yaml">#配置日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#这个配置是让日志在控制台进行输出
+</code></pre>
+<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191238.png" alt="image-20210307140704156" style="zoom:80%;" />
+
+<p>这样我们可以在开发时从控制台上看到执行时的连接池信息，SQL语句，和具体的执行操作</p>
+<h1 id="三、CRUD扩展"><a href="#三、CRUD扩展" class="headerlink" title="三、CRUD扩展"></a>三、CRUD扩展</h1><blockquote>
+<p>除了简单的CRUD操作外，扩展以下操作和注意点</p>
+</blockquote>
+<h2 id="1-插入-insert"><a href="#1-插入-insert" class="headerlink" title="1. 插入(insert)"></a>1. 插入(insert)</h2><p>有这样的测试方法</p>
+<pre><code class="java">@Test
+void insertTest()&#123;
+
+    User user = new User();
+    user.setName(&quot;zhangsan&quot;);
+    user.setAge(6);
+    user.setEmail(&quot;zhangsan@qq.com&quot;);
+
+    userMapper.insert(user);
+&#125;
+</code></pre>
+<p>插入操作中，没有对主键ID进行插入，结果如下</p>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191249.png" alt="image-20210307141403921"></p>
+<p>这里会发现自动生成了一个ID（原ID属性不自增）</p>
+<p>==这里插入的主键ID的默认值为全局的唯一ID==</p>
+<h3 id="1-1-主键生成策略"><a href="#1-1-主键生成策略" class="headerlink" title="1.1 主键生成策略"></a>1.1 主键生成策略</h3><blockquote>
+<p>雪花算法：</p>
+<p>Twitter的snowflake算法 <strong>几乎保证全球唯一</strong></p>
+<p>snowflake是Twitter开源的分布式ID生成算法，结果是一个long型的ID。其核心思想是：使用41bit作为毫秒数，10bit作为机器的ID（5个bit是数据中心，5个bit的机器ID），12bit作为毫秒内的流水号（意味着每个节点在每毫秒可以产生 4096 个 ID），最后还有一个符号位，永远是0。具体实现的代码可以参看<a target="_blank" rel="noopener" href="https://github.com/twitter/snowflake%E3%80%82">https://github.com/twitter/snowflake。</a></p>
+</blockquote>
+<p>不勾选自增，也不配置TableId 的话，默认是唯一ID</p>
+<h3 id="1-2-配置主键自增"><a href="#1-2-配置主键自增" class="headerlink" title="1.2 配置主键自增"></a>1.2 配置主键自增</h3><p>1.在实体类的主键（ID）属性上加上==@TableId(type=IdType.AUTO)==<br>2.数据库字段设置为自增</p>
+<p>然后再执行上述插入操作，得到</p>
+<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191252.png" alt="image-20210307141759985" style="zoom: 80%;" />
+
+<p>可以看到ID自增了1</p>
+<h3 id="1-3-其他主键生成策略"><a href="#1-3-其他主键生成策略" class="headerlink" title="1.3 其他主键生成策略"></a>1.3 其他主键生成策略</h3><blockquote>
+<p>AUTO(0),                        数据库ID自增<br>NONE(1),                       未设置主键<br>INPUT(2),                       手动输入<br>ASSIGN_ID(3),                默认的全局唯一ID<br>ASSIGN_UUID(4),          全局唯一ID</p>
+</blockquote>
+<h2 id="2-自动填充（Time）"><a href="#2-自动填充（Time）" class="headerlink" title="2. 自动填充（Time）"></a>2. 自动填充（Time）</h2><blockquote>
+<p>对于数据表中数据的<strong>创建时间</strong>，<strong>更新时间</strong>，我们希望自动完成。</p>
+<p>创建时间：create_time/gmt_create</p>
+<p>修改时间：update_time/gmt_modified</p>
+</blockquote>
+<h3 id="2-1-数据库级别（工作中不允许修改数据库，不推荐）"><a href="#2-1-数据库级别（工作中不允许修改数据库，不推荐）" class="headerlink" title="2.1 数据库级别（工作中不允许修改数据库，不推荐）"></a>2.1 数据库级别（工作中不允许修改数据库，不推荐）</h3><ol>
+<li>在表中新增字段：create_time, update_time</li>
+</ol>
+<p>进行如下修改<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191254.png" alt="image-20210307142532187"></p>
+<ol start="2">
+<li>先将实体类同步，然后再次执行插入方法</li>
+</ol>
+<pre><code class="java">private Date createTime;
+private Date updateTime;
+</code></pre>
+<p>结果如下：</p>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191258.png" alt="image-20210307142645901"></p>
+<h3 id="2-代码级别（推荐）"><a href="#2-代码级别（推荐）" class="headerlink" title="2. 代码级别（推荐）"></a>2. 代码级别（推荐）</h3><ol>
+<li>数据库去掉上面设置的默认值，只留属性</li>
+</ol>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191300.png" alt="image-20210307142813897"></p>
+<ol start="2">
+<li>实体类的属性字段上增加注解</li>
+</ol>
+<pre><code class="java">//字段添加填充内容
+@TableField(fill = FieldFill.INSERT)        //再插入的时候进行填充操作
+private Date createTime;
+
+@TableField(fill = FieldFill.INSERT_UPDATE)        //再更新的时候进行填充操作
+private Date updateTime;
+</code></pre>
+<ol start="3">
+<li><p>编写处理器处理上面的注解</p>
+<p><strong>handler包下配置</strong></p>
+</li>
+</ol>
+<pre><code class="java">@Slf4j
+@Component      //不要忘记加到容器里
+public class MyMetaObjectHandler implements MetaObjectHandler &#123;
+    //插入时的填充策略
+    @Override
+    public void insertFill(MetaObject metaObject) &#123;
+        log.info(&quot;start insert fill.........&quot;);
+
+        this.setFieldValByName(&quot;createTime&quot;,new Date(),metaObject);
+        this.setFieldValByName(&quot;updateTime&quot;,new Date(),metaObject);
+    &#125;
+
+    //更新时的填充处理
+    @Override
+    public void updateFill(MetaObject metaObject) &#123;
+        log.info(&quot;start update fill.........&quot;);
+        this.setFieldValByName(&quot;updateTime&quot;,new Date(),metaObject);
+    &#125;
+&#125;
+</code></pre>
+<ol start="4">
+<li>测试插入和更新操作，结 果与第一种方式一致</li>
+</ol>
+<h2 id="3-查询操作"><a href="#3-查询操作" class="headerlink" title="3. 查询操作"></a>3. 查询操作</h2><h3 id="3-1-批量查询，通过ID"><a href="#3-1-批量查询，通过ID" class="headerlink" title="3.1 批量查询，通过ID"></a>3.1 批量查询，通过ID</h3><pre><code class="java"> @Test
+void testSelectMore()&#123;
+    List&lt;User&gt; users = userMapper.selectBatchIds(Arrays.asList(1, 2, 3));
+    users.forEach(System.out::println);
+&#125;
+</code></pre>
+<h3 id="3-2-按条件批量查询，通过其他字段（Map）"><a href="#3-2-按条件批量查询，通过其他字段（Map）" class="headerlink" title="3.2 按条件批量查询，通过其他字段（Map）"></a>3.2 按条件批量查询，通过其他字段（Map）</h3><pre><code class="java">@Test
+void testSelectbtMap()&#123;
+    HashMap&lt;String,Object&gt; map = new HashMap&lt;&gt;();
+    map.put(&quot;name&quot;,&quot;zhangsan&quot;);
+    map.put(&quot;age&quot;,6);
+    List list = userMapper.selectByMap(map);
+    list.forEach(System.out::println);
+&#125;
+</code></pre>
+<h3 id="3-3-分页查询"><a href="#3-3-分页查询" class="headerlink" title="3.3 分页查询"></a>3.3 分页查询</h3><blockquote>
+<p>MybatisPlus自带分页查询插件</p>
+</blockquote>
+<ol>
+<li><p>配置类中配置分页插件拦截器组件</p>
+<p><strong>config包下配置</strong></p>
+</li>
+</ol>
+<pre><code class="java">@Configuration
+public class MybatisPlusConfig &#123;
+    // 分页插件
+    // 最新版
+    @Bean
+    public MybatisPlusInterceptor mybatisPlusInterceptor() &#123;
+        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.H2));    //注意这个H2，坑大，勿跳！
+        return interceptor;
+    &#125;
+&#125;
+
+
+
+
+
+//旧版
+@Configuration //配置类
+public class MybatisPlusConfig &#123;
+
+    // 分页插件
+    @Bean
+    public PaginationInterceptor paginationInterceptor() &#123;
+        return new PaginationInterceptor();
+    &#125;
+
+&#125;
+</code></pre>
+<ol start="2">
+<li>测试</li>
+</ol>
+<pre><code class="java">//测试分页
+@Test
+public void testPage()&#123;
+
+    //参数一：当前页
+    //参数二：页面大小
+    Page&lt;User&gt; page = new Page&lt;&gt;(2,5);
+    userMapper.selectPage(page, null);
+    page.getRecords().forEach(System.out::println);
+
+    System.out.println(page.getTotal());  //显示总数
+&#125;
+</code></pre>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191306.png" alt="计算机生成了可选文字: =&gt;Preparing:SELECTid,name,age,email,version,create_time,update_timFROMUserLIMIT？ =&gt;Parameters5(Long)"></p>
+<p>**page.getRecords()**这个操作得到的是一个查询得到的数据列表，可以在前端页面进行遍历</p>
+<hr>
+<blockquote>
+<p>补充：</p>
+</blockquote>
+<p>使用MybatisPlus提供的分页插件</p>
+<p><strong>config中配置，MybatisPlusConfig.java</strong></p>
+<pre><code class="java">// 分页插件
+// 最新版
+@Bean            //@Bean注解不能忘
+public MybatisPlusInterceptor mybatisPlusInterceptor() &#123;
+    MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+    interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.H2));
+    return interceptor;
+&#125;
+</code></pre>
+<p><strong>Controller层查询和传递数据</strong></p>
+<pre><code class="java">@RequestMapping(&quot;/getTypes&quot;)
+public String getTypes(Model model)&#123;
+    
+    Page&lt;Type&gt; page = new Page&lt;&gt;(1,5);        //参数一：第几页；参数二：一页几条数据
+    Page&lt;Type&gt; typePage = typeService.page(page, null);
+    List&lt;Type&gt; typeList = typePage.getRecords();
+
+    model.addAttribute(&quot;page&quot;,typeList);
+    return &quot;admin/types&quot;;
+&#125;
+</code></pre>
+<p>传到前端是一个List，然后用Thyemleaf模板进行遍历渲染</p>
+<pre><code class="html">&lt;tr th:each=&quot;type,stat:$&#123;page&#125;&quot;&gt;
+    &lt;td th:text=&quot;$&#123;stat.count&#125;&quot;&gt;1&lt;/td&gt;    &lt;!--计数--&gt;
+    &lt;td th:text=&quot;$&#123;type.typeName&#125;&quot;&gt;666&lt;/td&gt;
+
+    &lt;td&gt;
+        &lt;a href=&quot;&quot; class=&quot;ui mini green button&quot;&gt;编辑&lt;/a&gt;
+        &lt;a href=&quot;&quot; class=&quot;ui mini pink button&quot;&gt;删除&lt;/a&gt;
+    &lt;/td&gt;
+
+&lt;/tr&gt;
+</code></pre>
+<p>获取数据总数，总页数，当前页：</p>
+<p>先拿到Page<Type> typePage = typeService.page(page, null);这个对象，然后传到model中</p>
+<pre><code class="java">@RequestMapping(&quot;/getTypes&quot;)
+public String getTypes(Model model)&#123;
+
+    Page&lt;Type&gt; page = new Page&lt;&gt;(1,5);
+    Page&lt;Type&gt; typePage = typeService.page(page, null);
+    List&lt;Type&gt; typeList = typePage.getRecords();
+
+
+    model.addAttribute(&quot;page&quot;,typePage);
+    model.addAttribute(&quot;content&quot;,typeList);                 //内容
+    return &quot;admin/types&quot;;
+&#125;
+</code></pre>
+<pre><code class="html">&lt;p&gt;当前在第[[$&#123;page.current&#125;]]页，共[[$&#123;page.pages&#125;]]页，[[$&#123;page.total&#125;]]条数据&lt;/p&gt;
+</code></pre>
+<hr>
+<h2 id="4-逻辑删除-deleted"><a href="#4-逻辑删除-deleted" class="headerlink" title="4. 逻辑删除(deleted)"></a>4. 逻辑删除(deleted)</h2><blockquote>
+<p>物理删除：从数据库中直接删除</p>
+<p>逻辑删除：在数据库中仍然存在，通过改变一个值让他失效deleted=0  ==&gt; deleted=1</p>
+</blockquote>
+<blockquote>
+<p>管理员可以查看被删除的记录，类似于回收站</p>
+</blockquote>
+<ol>
+<li>在数据库中添加以下字段：<strong>将其默认值设置为0</strong>，表示未被删除</li>
+</ol>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191310.png" alt="image-20210307144248512"></p>
+<ol start="2">
+<li>在实体类中增加对于的属性与<strong>注解</strong></li>
+</ol>
+<pre><code class="java">@TableLogic     //逻辑删除
+private Integer deleted;
+</code></pre>
+<ol start="3">
+<li>在yaml（或properties）配置文件中进行配置</li>
+</ol>
+<pre><code class="yaml">mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-value: 1                #删除了的为1
+      logic-not-delete-value: 0            #没被删除的为0
+</code></pre>
+<ol start="4">
+<li>测试：</li>
+</ol>
+<pre><code class="java">//delete
+@Test
+void delete()&#123;
+    userMapper.deleteById(1L);
+&#125;
+</code></pre>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191312.png" alt="image-20210307144732849"></p>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191329.png" alt="1256416313"></p>
+<p>再查询1号User</p>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191332.png" alt="image-20210307144813141"></p>
+<h1 id="四、乐观锁（version）-旧版本"><a href="#四、乐观锁（version）-旧版本" class="headerlink" title="四、乐观锁（version）(旧版本)"></a>四、乐观锁（version）(旧版本)</h1><blockquote>
+<p>乐观锁 : 故名思意十分乐观，它总是认为不会出现问题，无论干什么不去上锁！如果出现了问题， 再次更新值测试 </p>
+<p>悲观锁：故名思意十分悲观，它总是认为总是出现问题，无论干什么都会上锁！再去操作！</p>
+</blockquote>
+<blockquote>
+<p>乐观锁的实现方式：</p>
+<pre><code>* 取出记录时，获取当前version属性的值
+* 更新时，检查version属性的值是否符合要求，如果否，则不执行更新操作
+* 执行更新时，对version值进行修改
+</code></pre>
+</blockquote>
+<p>测试：</p>
+<ol>
+<li>给数据库中加version字段，默认值为1</li>
+</ol>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191337.png" alt="凵 囗 囗 ㄇ  凵 囗 囗 ㄇ  凵 囗 囗 ㄇ  囗 ㄇ  1 "></p>
+<ol start="2">
+<li>实体类加上对应字段并标注@Version注解</li>
+</ol>
+<pre><code class="java">@Version   //乐观锁version注解
+private Integer version;
+</code></pre>
+<ol start="3">
+<li>注册组件(config包)</li>
+</ol>
+<pre><code class="java">@Configuration //配置类
+public class MybatisPlusConfig &#123;
+//    注册乐观锁插件
+    @Bean
+    public OptimisticLockerInterceptor optimisticLockerInterceptor() &#123;
+        return new OptimisticLockerInterceptor();
+    &#125;
+
+&#125;
+</code></pre>
+<ol start="4">
+<li>测试</li>
+</ol>
+<pre><code class="java"> @Test
+    void testop()&#123;
+        /**
+         * 1.查询用户信息
+         */
+        User user = userMapper.selectById(1);
+        //  2.修改用户信息
+        user.setName(&quot;leguan2&quot;);
+        user.setEmail(&quot;leguan2@ll.com&quot;);
+        //3.执行更新操作
+        userMapper.updateById(user);
+    &#125;
+</code></pre>
+<pre><code class="java">   // 测试乐观锁失败！多线程下
+    @Test
+    public void testOptimisticLocker2()&#123;
+// 线程 1
+        User user = userMapper.selectById(1L);
+        user.setName(&quot;kuangshen111&quot;);
+        user.setEmail(&quot;24736743@qq.com&quot;);
+// 模拟另外一个线程执行了插队操作
+        User user2 = userMapper.selectById(1L);
+        user2.setName(&quot;kuangshen222&quot;);
+        user2.setEmail(&quot;24736743@qq.com&quot;);
+        userMapper.updateById(user2);
+// 自旋锁来多次尝试提交！
+        userMapper.updateById(user); // 如果没有乐观锁就会覆盖插队线程的值！
+    &#125;
+</code></pre>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191341.png" alt="image-20210307145543128"></p>
+<blockquote>
+<p>总结</p>
+<p><em>多线程操作同一个对象的情况下，在第一个线程还没有更新的情况下，插队线程先修改并完成更新，如果没有乐观锁的话，那么第一个线程会覆盖掉第二个插队线程修改的值，有了乐观锁，第一个线程就不会覆盖插队线程修改的值，因为插队线程修改时，已经将乐观锁的version值+1了，第一个线程在进行修改是判断version的值与条件不符，所以将不会执行修改操作。</em></p>
+</blockquote>
+<h1 id="五、条件构造器"><a href="#五、条件构造器" class="headerlink" title="五、条件构造器"></a>五、条件构造器</h1><p>供复杂Sql语句使用</p>
+<p>测试：</p>
+<ol>
+<li></li>
+</ol>
+<pre><code class="java">@Test
+void test1()&#123;
+    //查询name不为空。email不为空，且age&gt;=12的用户
+
+    QueryWrapper&lt;User&gt; wrapper = new QueryWrapper&lt;&gt;();
+    wrapper
+        .isNotNull(&quot;name&quot;)              //name不为空
+        .isNotNull(&quot;email&quot;)             //Email不为空
+        .ge(&quot;age&quot;, 12);             //age&gt;=12
+    userMapper.selectList(wrapper).forEach(System.out::println);
+
+&#125;
+</code></pre>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191344.png" alt="image-20210307101521171"></p>
+<p>可以看见条件查询生效</p>
+<ol start="2">
+<li></li>
+</ol>
+<pre><code class="java">@Test
+void test2()&#123;
+    //查询name=Tom的用户
+    QueryWrapper&lt;User&gt; wrapper = new QueryWrapper&lt;&gt;();
+    wrapper
+        .eq(&quot;name&quot;,&quot;Tom&quot;);
+
+    System.out.println(userMapper.selectOne(wrapper));
+    //查询一个数据用SelectOne，多个用SelectList或Map
+&#125;
+</code></pre>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191348.png" alt="image-20210307102101498"></p>
+<ol start="3">
+<li>between</li>
+</ol>
+<pre><code class="java">@Test
+void test3()&#123;
+    //查询age在20——30的
+    QueryWrapper&lt;User&gt; wrapper = new QueryWrapper&lt;&gt;();
+    wrapper
+            .between(&quot;age&quot;,20,30);  //区间
+    Integer count = userMapper.selectCount(wrapper);
+    System.out.println(count);
+
+&#125;
+</code></pre>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191357.png" alt="image-20210307102744448"></p>
+<ol start="4">
+<li>模糊查询</li>
+</ol>
+<pre><code class="java">@Test
+void test4()&#123;
+    //查询name里不包含a,email中t打头的用户
+    QueryWrapper&lt;User&gt; wrapper = new QueryWrapper&lt;&gt;();
+    wrapper
+            .notLike(&quot;name&quot;,&quot;a&quot;)
+            .likeRight(&quot;email&quot;,&quot;t&quot;);        //t%
+            //%在右边，则用likeRight
+    List&lt;Map&lt;String, Object&gt;&gt; maps = userMapper.selectMaps(wrapper);
+    maps.forEach(System.out::println);
+&#125;
+</code></pre>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191400.png" alt="image-20210307103850692"></p>
+<ol start="5">
+<li>排序</li>
+</ol>
+<pre><code class="java">@Test
+void test4()&#123;
+    //通过ID降序排序
+    QueryWrapper&lt;User&gt; wrapper = new QueryWrapper&lt;&gt;();
+    wrapper.orderByDesc(&quot;id&quot;);
+    userMapper.selectMaps(wrapper).forEach(System.out::println);
+
+&#125;
+</code></pre>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191403.png" alt="image-20210307104612805"></p>
+<ol start="6">
+<li></li>
+</ol>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191405.png" alt="image-20210307105011938"></p>
+<h1 id="六、代码生成器"><a href="#六、代码生成器" class="headerlink" title="六、代码生成器"></a>六、代码生成器</h1><p>mapper（dao）、entity、service、controller自动生成代码</p>
+<p>AutoGenerator 是 MyBatis-Plus 的代码生成器，通过 AutoGenerator 可以快速生成 Entity、 Mapper、Mapper XML、Service、Controller 等各个模块的代码，极大的提升了开发效率。</p>
+<blockquote>
+<p>使用方法</p>
+</blockquote>
+<h2 id="1-加入依赖"><a href="#1-加入依赖" class="headerlink" title="1. 加入依赖"></a>1. 加入依赖</h2><pre><code class="xml">&lt;!--        MybatisPlus--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
+            &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;
+            &lt;version&gt;3.4.2&lt;/version&gt;
+        &lt;/dependency&gt;
+
+&lt;!--        代码生成器--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
+            &lt;artifactId&gt;mybatis-plus-generator&lt;/artifactId&gt;
+            &lt;version&gt;3.4.1&lt;/version&gt;
+        &lt;/dependency&gt;
+
+&lt;!--        代码生成器的默认模板引擎--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.velocity&lt;/groupId&gt;
+            &lt;artifactId&gt;velocity-engine-core&lt;/artifactId&gt;
+            &lt;version&gt;2.2&lt;/version&gt;
+        &lt;/dependency&gt;
+</code></pre>
+<h2 id="2-代码"><a href="#2-代码" class="headerlink" title="2. 代码"></a>2. 代码</h2><blockquote>
+<p> 代码生成器代码如下</p>
+</blockquote>
+<pre><code class="java">//代码自动生成器
+package lover.alice;
+
+import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.generator.AutoGenerator;
+import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
+import com.baomidou.mybatisplus.generator.config.GlobalConfig;
+import com.baomidou.mybatisplus.generator.config.PackageConfig;
+import com.baomidou.mybatisplus.generator.config.StrategyConfig;
+import com.baomidou.mybatisplus.generator.config.po.TableFill;
+import com.baomidou.mybatisplus.generator.config.rules.DateType;
+import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+import java.util.ArrayList;
+
+
+public class AliceCode &#123;
+    public static void main(String[] args) &#123;
+// 需要构建一个 代码自动生成器 对象
+        AutoGenerator mpg = new AutoGenerator();
+// 配置策略
+// 1、全局配置
+        GlobalConfig gc = new GlobalConfig();
+        String projectPath = System.getProperty(&quot;user.dir&quot;);
+        gc.setOutputDir(projectPath+&quot;/src/main/java&quot;);
+        gc.setAuthor(&quot;小爱の雨缘&quot;);
+        gc.setOpen(false);
+        gc.setFileOverride(false); // 是否覆盖
+        gc.setServiceName(&quot;%sService&quot;); // 去Service的I前缀
+        gc.setIdType(IdType.ID_WORKER);
+        gc.setDateType(DateType.ONLY_DATE);
+        gc.setSwagger2(true);
+        mpg.setGlobalConfig(gc);
+//2、设置数据源
+        DataSourceConfig dsc = new DataSourceConfig();
+        dsc.setUrl(&quot;jdbc:mysql://localhost:3306/db1?useSSL=false&amp;serverTimezone=GMT%2B8&quot;);
+        dsc.setDriverName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+        dsc.setUsername(&quot;root&quot;);
+        dsc.setPassword(&quot;skrskr666&quot;);
+        dsc.setDbType(DbType.MYSQL);
+        mpg.setDataSource(dsc);
+//3、包的配置
+        PackageConfig pc = new PackageConfig();
+//        pc.setModuleName(&quot;blog&quot;);
+        pc.setParent(&quot;lover.alice&quot;);
+        pc.setEntity(&quot;entity&quot;);
+        pc.setMapper(&quot;mapper&quot;);
+        pc.setService(&quot;service&quot;);
+        pc.setController(&quot;controller&quot;);
+        mpg.setPackageInfo(pc);
+//4、策略配置
+        StrategyConfig strategy = new StrategyConfig();
+        strategy.setInclude(&quot;student&quot;); // 设置要映射的表名
+        strategy.setNaming(NamingStrategy.underline_to_camel);
+        strategy.setColumnNaming(NamingStrategy.underline_to_camel);
+        strategy.setEntityLombokModel(true); // 自动lombok；
+        strategy.setLogicDeleteFieldName(&quot;deleted&quot;);
+// 自动填充配置
+        TableFill gmtCreate = new TableFill(&quot;gmt_create&quot;, FieldFill.INSERT);
+        TableFill gmtModified = new TableFill(&quot;gmt_modified&quot;,
+                FieldFill.INSERT_UPDATE);
+        ArrayList&lt;TableFill&gt; tableFills = new ArrayList&lt;&gt;();
+        tableFills.add(gmtCreate);
+        tableFills.add(gmtModified);
+        strategy.setTableFillList(tableFills);
+// 乐观锁
+        strategy.setVersionFieldName(&quot;version&quot;);
+        strategy.setRestControllerStyle(true);
+        strategy.setControllerMappingHyphenStyle(true); //localhost:8080/hello_id_2
+        mpg.setStrategy(strategy);
+        mpg.execute(); //执行
+    &#125;
+&#125;
+</code></pre>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><blockquote>
+<ol>
+<li>生成器代码中对应的数据库和表，已经生成的位置按需进行修改</li>
+<li>生成后的代码有引入一些项目没有引入的依赖和包，按需修改和删除</li>
+<li>生成的Mapper文件上没有@Mapper注解，记得加上</li>
+<li>生成的文件位置注意修改，尽量和手写的相同类型的文件放在同一级目录下，否则可能会因为配置原因报错</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>以上测试均为调用Mapper层进行测试，也可调用Service层进行操作。</p>
+<p>Service层与Mapper层方法名不同</p>
+</blockquote>
+<h1 id="七、补充"><a href="#七、补充" class="headerlink" title="七、补充"></a>七、补充</h1><blockquote>
+<p>自定义SQL语句使用Page分页和Wrapper条件查询</p>
+</blockquote>
+<h2 id="1-自定义SQL使用分页"><a href="#1-自定义SQL使用分页" class="headerlink" title="1. 自定义SQL使用分页"></a>1. 自定义SQL使用分页</h2><blockquote>
+<p>在Mapper层中，Mapper接口方法返回值为<code>IPage</code>对象参数加上一个<code>Page</code>对象，<code>并且必须放在第一位</code>，然后在Service层或Controller层new一个Page对象传进去即可</p>
+</blockquote>
+<h2 id="2-自定义SQL使用Wrapper"><a href="#2-自定义SQL使用Wrapper" class="headerlink" title="2. 自定义SQL使用Wrapper"></a>2. 自定义SQL使用Wrapper</h2><blockquote>
+<p>需要<code>mybatis-plus</code>版本 &gt;= <code>3.0.7</code> param 参数名要么叫<code>ew</code>,要么加上注解<code>@Param(Constants.WRAPPER)</code> 使用<code>$&#123;ew.customSqlSegment&#125;</code> 不支持 <code>Wrapper</code> 内的entity生成where语句</p>
+</blockquote>
+<h3 id="2-1-用注解"><a href="#2-1-用注解" class="headerlink" title="2.1 用注解"></a>2.1 用注解</h3><pre><code class="java">@Select(&quot;select * from mysql_data $&#123;ew.customSqlSegment&#125;&quot;)
+List&lt;MysqlData&gt; getAll(@Param(Constants.WRAPPER) Wrapper wrapper);
+</code></pre>
+<h3 id="2-2-用XML"><a href="#2-2-用XML" class="headerlink" title="2.2 用XML"></a>2.2 用XML</h3><pre><code class="java">List&lt;MysqlData&gt; getAll(Wrapper ew);
+</code></pre>
+<pre><code class="xml">&lt;select id=&quot;getAll&quot; resultType=&quot;MysqlData&quot;&gt;
+    SELECT * FROM mysql_data $&#123;ew.customSqlSegment&#125;
+&lt;/select&gt;
+</code></pre>
+<h3 id="2-3-用法实现"><a href="#2-3-用法实现" class="headerlink" title="2.3 用法实现"></a>2.3 用法实现</h3><p>1）Mapper接口(Page必须在第一位)</p>
+<pre><code class="java">public interface EduCourseMapper extends BaseMapper&lt;EduCourse&gt; &#123;
+    public IPage&lt;CoursePublishVo&gt; getCourseDisplayList(Page&lt;CoursePublishVo&gt; page,@Param(Constants.WRAPPER) Wrapper wrapper,Integer current, Integer limit,
+                                                       CourseQuery courseQuery);
+&#125;
+</code></pre>
+<p>2）Mapper.xml</p>
+<pre><code class="xml">&lt;select id=&quot;getCourseDisplayList&quot; resultType=&quot;lover.Alice.eduservice.entity.vo.CoursePublishVo&quot;&gt;
+    SELECT ec.`id`,
+           ec.`title`,
+           ec.`cover`,
+           ec.`lesson_num` AS lessonNum,
+           es1.`title` AS subjectLevelOne,
+           es2.`title` AS subjectLevelTwo,
+           et.`name` AS teacherName,
+           ec.`price`
+    FROM edu_course ec LEFT JOIN edu_course_description ecd ON ec.id=ecd.id
+                       LEFT JOIN edu_teacher et ON ec.`teacher_id`=et.`id`
+                       LEFT JOIN edu_subject es1 ON ec.`subject_parent_id`=es1.`id`
+                       LEFT JOIN edu_subject es2 ON ec.`subject_id`=es2.`id`
+        $&#123;ew.customSqlSegment&#125;
+&lt;/select&gt;
+</code></pre>
+<p>3）Service接口实现类</p>
+<pre><code class="java">//按条件分页查询课程列表
+@Override
+public IPage&lt;CoursePublishVo&gt; getCourseDisplayListService(Integer current, Integer limit, CourseQuery courseQuery) &#123;
+
+    Page&lt;CoursePublishVo&gt; page = new Page&lt;&gt;(current,limit);
+
+    QueryWrapper&lt;CourseQuery&gt; wrapper = new QueryWrapper&lt;&gt;();
+    String title = courseQuery.getTitle();
+    String teacherName = courseQuery.getTeacherName();
+    String subjectParentName = courseQuery.getSubjectParentName();
+    String subjectName = courseQuery.getSubjectName();
+    if (!StringUtils.isEmpty(title))&#123;
+        wrapper.like(&quot;ec.title&quot;,title);
+    &#125;
+    if (!StringUtils.isEmpty(teacherName))&#123;
+        wrapper.eq(&quot;ec.name&quot;,teacherName);
+    &#125;
+    if (!StringUtils.isEmpty(subjectParentName))&#123;
+        wrapper.eq(&quot;es1.title&quot;,subjectParentName);
+    &#125;
+    if (!StringUtils.isEmpty(subjectName))&#123;
+        wrapper.eq(&quot;es2.title&quot;,subjectName);
+    &#125;
+    IPage&lt;CoursePublishVo&gt; coursePage = baseMapper.getCourseDisplayList(page, wrapper, current, limit, courseQuery);
+    return coursePage;
+&#125;
+</code></pre>
+<p>4）Controller层</p>
+<pre><code class="java">//按条件分页查询课程列表
+@PostMapping(&quot;pageCourseCondition/&#123;current&#125;/&#123;limit&#125;&quot;)
+public R pageCourseCondition(@PathVariable Integer current, @PathVariable Integer limit,
+                             @RequestBody CourseQuery courseQuery)&#123;
+    IPage&lt;CoursePublishVo&gt; page = courseService.getCourseDisplayListService(current,limit,courseQuery);
+    return R.ok().data(&quot;rows&quot;,page.getRecords()).data(&quot;total&quot;,page.getTotal());
+&#125;
+</code></pre>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 ☾ 霞 の 魔·域 ☽
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Tokitou Muichirou
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    <script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

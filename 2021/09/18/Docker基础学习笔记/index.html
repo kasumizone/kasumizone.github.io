@@ -1,34 +1,901 @@
-extends _partial/layout.pug
 
-block content
-  - var post = page
-  - var post_type = getPropertyByType(post.type)
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Docker基础学习笔记（Delete） | ☾ 霞 の 魔·域 ☽</title>
+        <meta name="author" content="Tokitou Muichirou" />
+        <meta name="description" content="☾ 分享博主懒得分享的一切 ☽" />
+        <meta name="keywords" content="技术 Java 生活 心情 程序员 bug 二次元 动漫" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+        <link rel="icon" href="/null" />
+        <script src="https://cdn.staticfile.org/vue/3.2.45/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.2.1/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
 
-  #post
-    article.hty-card.post-block(itemscope, itemtype='https://schema.org/Article')
-      include _partial/post/post-schema.pug
-      header.post-header
-        h1.post-title(itemprop='name headline', style=post.type ? `color: ${post_type.color}` : '')
-          if post.type
-            +icon(post_type.icon)
-          | #{post.title}
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
-          if theme.post_edit.enable
-            include _partial/post/post-edit.pug
 
-        include _partial/post/post-meta.pug
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
 
-        if post.url
-          a.hty-button.hty-button--raised(href=url_for(post.url), style=`margin-top: 1rem;background-color:${post_type.color}`)=__('post.view_link')
 
-      section.post-body(itemprop='articleBody')
-        .post-content.markdown-body(style=`--smc-primary:${theme.colors.primary};`)!=post.content
 
-        if theme.reward.enable && page.reward !== false
-          include _partial/post/reward.pug
+<script src="/js/lib/preview.js"></script>
 
-        if theme.creative_commons.license && theme.creative_commons.post
-          include _partial/post/post-copyright.pug
 
-    if post.prev || post.next
-      include _partial/post/post-nav.pug
+
+
+
+
+
+
+
+<script src="/js/lib/home.js"></script>
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 5.4.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+            </transition>
+            <transition name="into">
+            <div id="main" v-show="!loading">
+                <nav id="menu" ref="menu">
+    <div class="desktop-menu">
+        <a class="title" href="/">
+            <span>☾ 霞 の 魔·域 ☽</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
+        <div class="title" @click="showMenu = !showMenu">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;☾ 霞 の 魔·域 ☽</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="showMenu">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                </div>
+            </a>
+            
+        </div>
+        </transition>
+    </div>
+</nav>
+
+                <div class="article">
+    <div>
+        <h1>Docker基础学习笔记（Delete）</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2021/9/18
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                学习笔记
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Linux/" style="color: #ff7d73">Linux</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Docker/" style="color: #03a9f4">Docker</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/CentOS/" style="color: #03a9f4">CentOS</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <span id="more"></span>
+
+<p>Docker：<a target="_blank" rel="noopener" href="https://hub.docker.com/">hub.docker.com</a></p>
+<p>参考视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1CJ411T7BK">黑马程序员Docker容器化技术，从零学会Docker教程</a></p>
+<h1 id="Ⅰ、初始Docker"><a href="#Ⅰ、初始Docker" class="headerlink" title="Ⅰ、初始Docker"></a>Ⅰ、初始Docker</h1><h2 id="一、安装Docker"><a href="#一、安装Docker" class="headerlink" title="一、安装Docker"></a>一、安装Docker</h2><pre><code class="shell"># 1、yum 包更新到最新 
+yum update
+# 2、安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的 
+yum install -y yum-utils device-mapper-persistent-data lvm2
+# 3、 设置yum源
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+# 4、 安装docker，出现输入的界面都按 y 
+yum install -y docker-ce
+# 5、 查看docker版本，验证是否验证成功
+docker -v
+</code></pre>
+<h2 id="二、Docker架构"><a href="#二、Docker架构" class="headerlink" title="二、Docker架构"></a>二、Docker架构</h2><p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210914191429.png" alt="image-20210914191422158"></p>
+<ul>
+<li><p><strong>镜像（Image）：Docker 镜像（Image），就相当于是一个 root 文件系统。比如官方镜像 ubuntu:16.04 就包含了完整的一套 Ubuntu16.04 最小系统的 root 文件系统。</strong></p>
+</li>
+<li><p><strong>容器（Container）：镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的类和对象一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。</strong></p>
+</li>
+<li><p><strong>仓库（Repository）：仓库可看成一个代码控制中心，用来保存镜像。</strong></p>
+</li>
+</ul>
+<h2 id="三、配置镜像加速器"><a href="#三、配置镜像加速器" class="headerlink" title="三、配置镜像加速器"></a>三、配置镜像加速器</h2><p>默认情况下，将来从docker hub（<a target="_blank" rel="noopener" href="https://hub.docker.com/%EF%BC%89%E4%B8%8A%E4%B8%8B%E8%BD%BDdocker%E9%95%9C%E5%83%8F">https://hub.docker.com/）上下载docker镜像</a></p>
+<p>速度慢，配置镜像加速器↓</p>
+<p><strong>阿里云容器镜像服务</strong></p>
+<hr>
+<h1 id="Ⅱ、Docker命令"><a href="#Ⅱ、Docker命令" class="headerlink" title="Ⅱ、Docker命令"></a>Ⅱ、Docker命令</h1><h2 id="一、服务相关命令"><a href="#一、服务相关命令" class="headerlink" title="一、服务相关命令"></a>一、服务相关命令</h2><pre><code class="bash">#启动docker服务:
+systemctl start docker 
+
+#停止docker服务:
+systemctl stop docker 
+
+#重启docker服务:
+systemctl restart docker
+
+#查看docker服务状态:
+systemctl status docker
+
+#设置开机启动docker服务:
+systemctl enable docker
+</code></pre>
+<h2 id="二、镜像相关命令"><a href="#二、镜像相关命令" class="headerlink" title="二、镜像相关命令"></a>二、镜像相关命令</h2><pre><code class="bash">#查看镜像: 查看本地所有的镜像
+docker images
+docker images –q # 查看所用镜像的id
+
+#搜索镜像:从网络中查找需要的镜像
+docker search 镜像名称
+
+#拉取镜像:从Docker仓库下载镜像到本地，镜像名称格式为 名称:版本号，如果版本号不指定则是最新的版本。如果不知道镜像版本，可以去docker hub 搜索对应镜像查看。
+docker pull 镜像名称
+
+#删除镜像: 删除本地镜像
+docker rmi 镜像id # 删除指定本地镜像
+docker rmi `docker images -q`  # 删除所有本地镜像
+</code></pre>
+<h2 id="三、容器相关命令"><a href="#三、容器相关命令" class="headerlink" title="三、容器相关命令"></a>三、容器相关命令</h2><pre><code class="bash">#查看容器
+docker ps # 查看正在运行的容器
+docker ps –a # 查看所有容器
+docker ps -aq #查看所有容器id
+
+#创建并启动容器
+docker run 参数
+
+#参数说明：
+-i：保持容器运行。通常与 -t 同时使用。加入it这两个参数后，容器创建后自动进入容器中，退出容器后，容器自动关闭。
+-t：为容器重新分配一个伪输入终端，通常与 -i 同时使用。
+-d：以守护（后台）模式运行容器。创建一个容器在后台运行，需要使用docker exec 进入容器。退出后，容器不会关闭。
+-it 创建的容器一般称为交互式容器，-id 创建的容器一般称为守护式容器
+--name：为创建的容器命名。
+</code></pre>
+<pre><code class="bash">#进入容器
+docker exec 参数 # 退出容器，容器不会关闭
+#example
+docker exec -it c_mysql /bin/bash
+
+#停止容器
+docker stop 容器名称
+
+#启动容器
+docker start 容器名称
+
+#删除容器：如果容器是运行状态则删除失败，需要停止容器才能删除
+docker rm 容器名称
+docker rm `docker ps -aq` #删除所有容器（不能删除正在运行的容器）
+
+#查看容器信息
+docker inspect 容器名称
+</code></pre>
+<h1 id="Ⅲ、Docker容器数据卷"><a href="#Ⅲ、Docker容器数据卷" class="headerlink" title="Ⅲ、Docker容器数据卷"></a>Ⅲ、Docker容器数据卷</h1><h2 id="一、数据卷概念及作用"><a href="#一、数据卷概念及作用" class="headerlink" title="一、数据卷概念及作用"></a>一、数据卷概念及作用</h2><p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210915102658.png" alt="image-20210915102651733"></p>
+<blockquote>
+<p>Docker 容器删除后，在容器中产生的数据也会随之销毁</p>
+</blockquote>
+<p>可以使用数据卷与容器中的文件挂载，同步容器中的文件，这样容器中的数据销毁，但会在数据卷中保留。</p>
+<blockquote>
+<p>Docker 容器和外部机器可以直接交换文件吗？</p>
+</blockquote>
+<p>不可以，但可以通过数据加与容器中的文件挂载，间接与外部交换文件</p>
+<blockquote>
+<p>容器之间想要进行数据交互？</p>
+</blockquote>
+<p>两个容器同时挂载一个数据卷，实现容器间的数据交互。</p>
+<h3 id="1-数据卷概念"><a href="#1-数据卷概念" class="headerlink" title="1. 数据卷概念"></a>1. 数据卷概念</h3><ol>
+<li><p>数据卷是宿主机中的一个目录或文件</p>
+</li>
+<li><p>当容器目录和数据卷目录绑定后，对方的修改会立即同步</p>
+</li>
+<li><p>一个数据卷可以被多个容器同时挂载</p>
+</li>
+<li><p>一个容器也可以被挂载多个数据卷</p>
+</li>
+</ol>
+<h3 id="2-数据卷作用"><a href="#2-数据卷作用" class="headerlink" title="2. 数据卷作用"></a>2. 数据卷作用</h3><ol>
+<li><p>容器数据持久化</p>
+</li>
+<li><p>外部机器和容器间接通信</p>
+</li>
+<li><p>容器之间数据交换</p>
+</li>
+</ol>
+<h2 id="二、配置数据卷"><a href="#二、配置数据卷" class="headerlink" title="二、配置数据卷"></a>二、配置数据卷</h2><pre><code class="bash">#创建启动容器时，使用 –v 参数 设置数据卷
+docker run ... –v 宿主机目录(文件):容器内目录(文件) ... 
+#example
+docker run -it --name=c1 -v ~/data:/root/data_container centos:7
+</code></pre>
+<p>注意事项：</p>
+<ol>
+<li><p>目录必须是绝对路径</p>
+</li>
+<li><p>如果目录不存在，会自动创建</p>
+</li>
+<li><p>可以挂载多个数据卷</p>
+</li>
+</ol>
+<blockquote>
+<p>多容器间进行数据交换</p>
+<ol>
+<li>多个容器挂载同一个数据卷</li>
+<li><strong>数据卷容器</strong></li>
+</ol>
+</blockquote>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210915113955.png" alt="image-20210915113955757"></p>
+<h2 id="三、数据卷容器"><a href="#三、数据卷容器" class="headerlink" title="三、数据卷容器"></a>三、数据卷容器</h2><p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210915114217.png" alt="image-20210915114217142"></p>
+<blockquote>
+<p>配置数据卷容器</p>
+</blockquote>
+<ol>
+<li>创建启动c3数据卷容器，使用 –v 参数 设置数据卷</li>
+</ol>
+<pre><code class="bash">docker run –it --name=c3 –v /volume centos:7 /bin/bash 
+#会默认在宿主机创建一个文件夹作为数据卷
+</code></pre>
+<ol start="2">
+<li>创建启动 c1 c2 容器，使用 –-volumes-from 参数 设置数据卷</li>
+</ol>
+<pre><code class="bash">docker run –it --name=c1 --volumes-from c3 centos:7 /bin/bash
+
+docker run –it --name=c2 --volumes-from c3 centos:7 /bin/bash  
+</code></pre>
+<p>这样三个容器会绑定同一个数据卷</p>
+<p><strong>创建一个容器，挂载一个目录，让其他容器继承自该容器（–volume-from）</strong></p>
+<hr>
+<h1 id="Ⅳ、Docker应用部署"><a href="#Ⅳ、Docker应用部署" class="headerlink" title="Ⅳ、Docker应用部署"></a>Ⅳ、Docker应用部署</h1><h2 id="一、MySQL部署"><a href="#一、MySQL部署" class="headerlink" title="一、MySQL部署"></a>一、MySQL部署</h2><ol>
+<li>搜索mysql镜像</li>
+</ol>
+<pre><code class="bash">docker search mysql
+</code></pre>
+<ol start="2">
+<li>拉取mysql镜像</li>
+</ol>
+<pre><code class="shell">docker pull mysql:5.6
+</code></pre>
+<ol start="3">
+<li>创建容器，设置端口映射、目录映射</li>
+</ol>
+<pre><code class="shell"># 在/root目录下创建mysql目录用于存储mysql数据信息
+mkdir ~/mysql
+cd ~/mysql
+</code></pre>
+<pre><code class="shell">docker run -id \
+-p 3307:3306 \                        # 端口映射：通常会将3306映射3306
+--name=c_mysql \                    # 容器名称
+-v $PWD/conf:/etc/mysql/conf.d \    # 这里$PWD 就是/root/mysql 这里是配置文件目录映射，在这里修改配置
+-v $PWD/logs:/logs \                # 这里是日志文件目录映射
+-v $PWD/data:/var/lib/mysql \        # 这里是数据文件目录映射
+-e MYSQL_ROOT_PASSWORD=123456 \        # MySQL对应环境变量，设置MySQL root用户的密码
+mysql:5.6                            # 使用MySQL镜像，版本5.6
+</code></pre>
+<ul>
+<li>参数说明：<ul>
+<li><strong>-p 3307:3306</strong>：将容器的 3306 端口映射到宿主机的 3307 端口。</li>
+<li><strong>-v $PWD/conf:/etc/mysql/conf.d</strong>：将主机当前目录下的 conf/my.cnf 挂载到容器的 /etc/mysql/my.cnf。配置目录</li>
+<li><strong>-v $PWD/logs:/logs</strong>：将主机当前目录下的 logs 目录挂载到容器的 /logs。日志目录</li>
+<li><strong>-v $PWD/data:/var/lib/mysql</strong> ：将主机当前目录下的data目录挂载到容器的 /var/lib/mysql 。数据目录</li>
+<li><strong>-e MYSQL_ROOT_PASSWORD=123456：</strong>初始化 root 用户的密码。</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li>进入容器，操作mysql</li>
+</ol>
+<pre><code class="bash">docker exec –it c_mysql /bin/bash
+</code></pre>
+<h2 id="二、Tomcat部署"><a href="#二、Tomcat部署" class="headerlink" title="二、Tomcat部署"></a>二、Tomcat部署</h2><h3 id=""><a href="#" class="headerlink" title=""></a></h3><ol>
+<li>搜索tomcat镜像</li>
+</ol>
+<pre><code class="shell">docker search tomcat
+</code></pre>
+<ol start="2">
+<li>拉取tomcat镜像</li>
+</ol>
+<pre><code class="shell">docker pull tomcat
+</code></pre>
+<ol start="3">
+<li>创建容器，设置端口映射、目录映射</li>
+</ol>
+<pre><code class="shell"># 在/root目录下创建tomcat目录用于存储tomcat数据信息
+mkdir ~/tomcat
+cd ~/tomcat
+</code></pre>
+<pre><code class="shell">docker run -id --name=c_tomcat \
+-p 8080:8080 \                            # 端口映射
+-v $PWD:/usr/local/tomcat/webapps \        #这里是把宿主机的~/tomcat目录映射到容器中的webapps目录
+tomcat 
+</code></pre>
+<ul>
+<li><p>参数说明：</p>
+<ul>
+<li><p><strong>-p 8080:8080：</strong>将容器的8080端口映射到主机的8080端口</p>
+<p><strong>-v $PWD:/usr/local/tomcat/webapps：</strong>将主机中当前目录挂载到容器的webapps</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="三、Nginx部署"><a href="#三、Nginx部署" class="headerlink" title="三、Nginx部署"></a>三、Nginx部署</h2><ol>
+<li>搜索nginx镜像</li>
+</ol>
+<pre><code class="shell">docker search nginx
+</code></pre>
+<ol start="2">
+<li>拉取nginx镜像</li>
+</ol>
+<pre><code class="shell">docker pull nginx
+</code></pre>
+<ol start="3">
+<li>创建容器，设置端口映射、目录映射</li>
+</ol>
+<pre><code class="shell"># 在/root目录下创建nginx目录用于存储nginx数据信息
+mkdir ~/nginx
+cd ~/nginx
+mkdir conf
+cd conf
+# 在~/nginx/conf/下创建nginx.conf文件,粘贴下面内容
+vim nginx.conf
+</code></pre>
+<pre><code class="shell">user  nginx;
+worker_processes  1;
+
+error_log  /var/log/nginx/error.log warn;
+pid        /var/run/nginx.pid;
+
+
+events &#123;
+    worker_connections  1024;
+&#125;
+
+
+http &#123;
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;
+                      &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;
+                      &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    include /etc/nginx/conf.d/*.conf;
+&#125;
+
+</code></pre>
+<pre><code class="shell">docker run -id --name=c_nginx \
+-p 80:80 \
+-v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf \
+-v $PWD/logs:/var/log/nginx \
+-v $PWD/html:/usr/share/nginx/html \
+nginx
+</code></pre>
+<ul>
+<li>参数说明：<ul>
+<li><strong>-p 80:80</strong>：将容器的 80端口映射到宿主机的 80 端口。</li>
+<li><strong>-v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf</strong>：将主机当前目录下的 /conf/nginx.conf 挂载到容器的 :/etc/nginx/nginx.conf。配置目录</li>
+<li><strong>-v $PWD/logs:/var/log/nginx</strong>：将主机当前目录下的 logs 目录挂载到容器的/var/log/nginx。日志目录</li>
+</ul>
+</li>
+</ul>
+<h2 id="四、Redis部署"><a href="#四、Redis部署" class="headerlink" title="四、Redis部署"></a>四、Redis部署</h2><ol>
+<li>搜索redis镜像</li>
+</ol>
+<pre><code class="shell">docker search redis
+</code></pre>
+<ol start="2">
+<li>拉取redis镜像</li>
+</ol>
+<pre><code class="shell">docker pull redis:5.0
+</code></pre>
+<ol start="3">
+<li>创建容器，设置端口映射</li>
+</ol>
+<pre><code class="shell">docker run -id --name=c_redis -p 6379:6379 redis:5.0
+</code></pre>
+<ol start="4">
+<li>使用外部机器连接redis</li>
+</ol>
+<pre><code class="shell">./redis-cli.exe -h 192.168.199.133 -p 6379
+</code></pre>
+<hr>
+<h1 id="Ⅴ、Dockerfile"><a href="#Ⅴ、Dockerfile" class="headerlink" title="Ⅴ、Dockerfile"></a>Ⅴ、Dockerfile</h1><h2 id="一、Docker镜像原理"><a href="#一、Docker镜像原理" class="headerlink" title="一、Docker镜像原理"></a>一、Docker镜像原理</h2><h3 id="1-Linux文件系统"><a href="#1-Linux文件系统" class="headerlink" title="1. Linux文件系统"></a>1. Linux文件系统</h3><p>Linux文件系统由bootfs和rootfs两部分组成</p>
+<ul>
+<li><p>bootfs：包含bootloader（引导加载程序）和 kernel（内核）</p>
+</li>
+<li><p>rootfs： root文件系统，包含的就是典型 Linux 系统中的/dev，/proc，/bin，/etc等标准目录和文件</p>
+</li>
+<li><p>不同的linux发行版，bootfs基本一样，而rootfs不同，如ubuntu，centos等</p>
+</li>
+</ul>
+<h3 id="2-镜像原理"><a href="#2-镜像原理" class="headerlink" title="2. 镜像原理"></a>2. 镜像原理</h3><ul>
+<li><p>Docker镜像是由特殊的文件系统叠加而成</p>
+</li>
+<li><p>最底端是 bootfs，并使用宿主机的bootfs </p>
+</li>
+<li><p>第二层是 root文件系统rootfs,称为base image</p>
+</li>
+<li><p>然后再往上可以叠加其他的镜像文件</p>
+</li>
+<li><p>统一文件系统（Union File System）技术能够将不同的层整合成一个文件系统，为这些层提供了一个统一的视角，这样就隐藏了多层的存在，在用户的角度看来，只存在一个文件系统。</p>
+</li>
+<li><p>一个镜像可以放在另一个镜像的上面。位于下面的镜像称为父镜像，最底部的镜像成为基础镜像。</p>
+</li>
+<li><p>当从一个镜像启动容器时，Docker会在最顶层加载一个读写文件系统作为容器</p>
+</li>
+</ul>
+<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210916131332.png" alt="image-20210916131325818" style="zoom:67%;" />
+
+
+
+
+
+<blockquote>
+<p>Docker 镜像本质是什么？</p>
+</blockquote>
+<ul>
+<li>是一个分层文件系统</li>
+</ul>
+<blockquote>
+<p>Docker 中一个centos镜像为什么只有200MB，而一个centos操作系统的iso文件要几个个G？</p>
+</blockquote>
+<ul>
+<li>Centos的iso镜像文件包含bootfs和rootfs，而docker的centos镜像复用操作系统的bootfs，只有rootfs和其他镜像层</li>
+</ul>
+<blockquote>
+<p>Docker 中一个tomcat镜像为什么有500MB，而一个tomcat安装包只有70多MB？</p>
+</blockquote>
+<ul>
+<li>由于docker中镜像是分层的，tomcat虽然只有70多MB，但他需要依赖于父镜像和基础镜像，所有整个对外暴露的tomcat镜像大小500多MB</li>
+</ul>
+<h3 id="3-镜像制作"><a href="#3-镜像制作" class="headerlink" title="3. 镜像制作"></a>3. 镜像制作</h3><p>Docker 镜像如何制作？</p>
+<blockquote>
+<p><strong>容器转为镜像</strong>(挂载不生效)</p>
+</blockquote>
+<p><strong>docker commit 容器id 镜像名称:版本号</strong></p>
+<p><strong>docker save -o 压缩文件名称 镜像名称:版本号</strong></p>
+<p><strong>docker load –i 压缩文件名称</strong></p>
+<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210916155843.png" alt="image-20210916155843898" style="zoom:67%;" />
+
+<h2 id="二、Dockerfile"><a href="#二、Dockerfile" class="headerlink" title="二、Dockerfile"></a>二、Dockerfile</h2><ul>
+<li><p>Dockerfile 是一个<strong>文本文件</strong></p>
+</li>
+<li><p>包含了一条条的<strong>指令</strong></p>
+</li>
+<li><p>每一条指令构建一层，<strong>基于基础镜像，最终构建出一个新的镜像</strong></p>
+</li>
+<li><p>对于开发人员：可以为开发团队提供一个<strong>完全一致的开发环境</strong></p>
+</li>
+<li><p>对于测试人员：可以直接拿开发时所构建的镜像或者通过Dockerfile文件<strong>构建一个新的镜像</strong>开始工作了</p>
+</li>
+<li><p>对于运维人员：在部署时，可以实现应用的<strong>无缝移植</strong></p>
+</li>
+</ul>
+<blockquote>
+<p>Dockerfile关键字</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>作用</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FROM</td>
+<td>指定父镜像</td>
+<td>指定dockerfile基于那个image构建</td>
+</tr>
+<tr>
+<td>MAINTAINER</td>
+<td>作者信息</td>
+<td>用来标明这个dockerfile谁写的</td>
+</tr>
+<tr>
+<td>LABEL</td>
+<td>标签</td>
+<td>用来标明dockerfile的标签 可以使用Label代替Maintainer 最终都是在docker image基本信息中可以查看</td>
+</tr>
+<tr>
+<td>RUN</td>
+<td>执行命令</td>
+<td>执行一段命令 默认是/bin/sh 格式: RUN command 或者 RUN [“command” , “param1”,”param2”]</td>
+</tr>
+<tr>
+<td>CMD</td>
+<td>容器启动命令</td>
+<td>提供启动容器时候的默认命令 和ENTRYPOINT配合使用.格式 CMD command param1 param2 或者 CMD [“command” , “param1”,”param2”]</td>
+</tr>
+<tr>
+<td>ENTRYPOINT</td>
+<td>入口</td>
+<td>一般在制作一些执行就关闭的容器中会使用</td>
+</tr>
+<tr>
+<td>COPY</td>
+<td>复制文件</td>
+<td>build的时候复制文件到image中</td>
+</tr>
+<tr>
+<td>ADD</td>
+<td>添加文件</td>
+<td>build的时候添加文件到image中 不仅仅局限于当前build上下文 可以来源于远程服务</td>
+</tr>
+<tr>
+<td>ENV</td>
+<td>环境变量</td>
+<td>指定build时候的环境变量 可以在启动的容器的时候 通过-e覆盖 格式ENV name=value</td>
+</tr>
+<tr>
+<td>ARG</td>
+<td>构建参数</td>
+<td>构建参数 只在构建的时候使用的参数 如果有ENV 那么ENV的相同名字的值始终覆盖arg的参数</td>
+</tr>
+<tr>
+<td>VOLUME</td>
+<td>定义外部可以挂载的数据卷</td>
+<td>指定build的image那些目录可以启动的时候挂载到文件系统中 启动容器的时候使用 -v 绑定 格式 VOLUME [“目录”]</td>
+</tr>
+<tr>
+<td>EXPOSE</td>
+<td>暴露端口</td>
+<td>定义容器运行的时候监听的端口 启动容器的使用-p来绑定暴露端口 格式: EXPOSE 8080 或者 EXPOSE 8080/udp</td>
+</tr>
+<tr>
+<td>WORKDIR</td>
+<td>工作目录</td>
+<td>指定容器内部的工作目录 如果没有创建则自动创建 如果指定/ 使用的是绝对地址 如果不是/开头那么是在上一条workdir的路径的相对路径</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>指定执行用户</td>
+<td>指定build或者启动的时候 用户 在RUN CMD ENTRYPONT执行的时候的用户</td>
+</tr>
+<tr>
+<td>HEALTHCHECK</td>
+<td>健康检查</td>
+<td>指定监测当前容器的健康监测的命令 基本上没用 因为很多时候 应用本身有健康监测机制</td>
+</tr>
+<tr>
+<td>ONBUILD</td>
+<td>触发器</td>
+<td>当存在ONBUILD关键字的镜像作为基础镜像的时候 当执行FROM完成之后 会执行 ONBUILD的命令 但是不影响当前镜像 用处也不怎么大</td>
+</tr>
+<tr>
+<td>STOPSIGNAL</td>
+<td>发送信号量到宿主机</td>
+<td>该STOPSIGNAL指令设置将发送到容器的系统调用信号以退出。</td>
+</tr>
+<tr>
+<td>SHELL</td>
+<td>指定执行脚本的shell</td>
+<td>指定RUN CMD ENTRYPOINT 执行命令的时候 使用的shell</td>
+</tr>
+</tbody></table>
+<h2 id="三、Dockerfile案例"><a href="#三、Dockerfile案例" class="headerlink" title="三、Dockerfile案例"></a>三、Dockerfile案例</h2><blockquote>
+<p>需求</p>
+</blockquote>
+<p>自定义centos7镜像。要求：</p>
+<ol>
+<li><p>默认登录路径为 /usr</p>
+</li>
+<li><p>可以使用vim</p>
+</li>
+</ol>
+<blockquote>
+<p>实现步骤</p>
+</blockquote>
+<ol>
+<li><p>定义父镜像：FROM java:8</p>
+</li>
+<li><p>定义作者信息：MAINTAINER  Tokitou &lt;<a href="mailto:&#x54;&#x6f;&#107;&#105;&#116;&#111;&#x75;&#x40;&#97;&#108;&#x69;&#121;&#x75;&#x6e;&#46;&#x63;&#111;&#109;">&#x54;&#x6f;&#107;&#105;&#116;&#111;&#x75;&#x40;&#97;&#108;&#x69;&#121;&#x75;&#x6e;&#46;&#x63;&#111;&#109;</a>&gt;</p>
+</li>
+<li><p>将jar包添加到容器： ADD springboot.jar app.jar</p>
+</li>
+<li><p>定义容器启动执行的命令：CMD java–jar app.jar</p>
+</li>
+<li><p>通过dockerfile构建镜像：docker bulid –f dockerfile文件路径 –t 镜像名称:版本</p>
+</li>
+</ol>
+<hr>
+<h1 id="Ⅵ、Docker服务编排"><a href="#Ⅵ、Docker服务编排" class="headerlink" title="Ⅵ、Docker服务编排"></a>Ⅵ、Docker服务编排</h1><h2 id="一、服务编排概述"><a href="#一、服务编排概述" class="headerlink" title="一、服务编排概述"></a>一、服务编排概述</h2><p>微服务架构的应用系统中一般包含若干个微服务，每个微服务一般都会部署多个实例，如果每个微服务都要手动启停，维护的工作量会很大。</p>
+<ul>
+<li><p>要从Dockerfile build image 或者去dockerhub拉取image</p>
+</li>
+<li><p>要创建多个container</p>
+</li>
+<li><p>要管理这些container（启动停止删除）</p>
+</li>
+</ul>
+<p><strong>服务编排：按照一定的业务规则批量管理容器</strong></p>
+<h2 id="二、Docker-Compose"><a href="#二、Docker-Compose" class="headerlink" title="二、Docker Compose"></a>二、Docker Compose</h2><p>Docker Compose是一个编排多容器分布式部署的工具，提供命令集管理容器化应用的完整开发周期，包括服务构建，启动和停止。使用步骤：</p>
+<ol>
+<li><p>利用 Dockerfile 定义运行环境镜像</p>
+</li>
+<li><p>使用 docker-compose.yml 定义组成应用的各服务</p>
+</li>
+<li><p>运行 docker-compose up 启动应用</p>
+</li>
+</ol>
+<h3 id="1-安装Docker-Compose"><a href="#1-安装Docker-Compose" class="headerlink" title="1. 安装Docker Compose"></a>1. 安装Docker Compose</h3><pre><code class="shell"># Compose目前已经完全支持Linux、Mac OS和Windows，在我们安装Compose之前，需要先安装Docker。下面我 们以编译好的二进制包方式安装在Linux系统中。 
+curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+# 设置文件可执行权限 
+chmod +x /usr/local/bin/docker-compose
+# 查看版本信息 
+docker-compose -version
+</code></pre>
+<h3 id="2-卸载Docker-Compose"><a href="#2-卸载Docker-Compose" class="headerlink" title="2. 卸载Docker Compose"></a>2. 卸载Docker Compose</h3><pre><code class="shell"># 二进制包方式安装的，删除二进制文件即可
+rm /usr/local/bin/docker-compose
+</code></pre>
+<h3 id="3-案例"><a href="#3-案例" class="headerlink" title="3. 案例"></a>3. 案例</h3><blockquote>
+<p>使用docker compose编排nginx+springboot项目</p>
+</blockquote>
+<ol>
+<li>创建docker-compose目录</li>
+</ol>
+<pre><code class="shell">mkdir ~/docker-compose
+cd ~/docker-compose
+</code></pre>
+<ol start="2">
+<li>编写 docker-compose.yml 文件</li>
+</ol>
+<pre><code class="shell">version: &#39;3&#39;
+services:
+  nginx:
+   image: nginx
+   ports:
+    - 80:80
+   links:
+    - app
+   volumes:
+    - ./nginx/conf.d:/etc/nginx/conf.d
+  app:
+    image: app
+    expose:
+      - &quot;8080&quot;
+</code></pre>
+<ol start="3">
+<li>创建./nginx/conf.d目录</li>
+</ol>
+<pre><code class="shell">mkdir -p ./nginx/conf.d
+</code></pre>
+<ol start="4">
+<li>在./nginx/conf.d目录下 编写itheima.conf文件</li>
+</ol>
+<pre><code class="shell">server &#123;
+    listen 80;
+    access_log off;
+
+    location / &#123;
+        proxy_pass http://app:8080;
+    &#125;
+   
+&#125;
+</code></pre>
+<ol start="5">
+<li>在~/docker-compose 目录下 使用docker-compose 启动容器</li>
+</ol>
+<pre><code class="shell">docker-compose up
+</code></pre>
+<ol start="6">
+<li>测试访问</li>
+</ol>
+<hr>
+<h1 id="Ⅶ、Docker私有仓库"><a href="#Ⅶ、Docker私有仓库" class="headerlink" title="Ⅶ、Docker私有仓库"></a>Ⅶ、Docker私有仓库</h1><p>​        Docker官方的Docker hub（<a target="_blank" rel="noopener" href="https://hub.docker.com)是一个用于管理公共镜像的仓库,我们可以从上面拉取镜像/">https://hub.docker.com）是一个用于管理公共镜像的仓库，我们可以从上面拉取镜像</a> 到本地，也可以把我们自己的镜像推送上去。但是，有时候我们的服务器无法访问互联网，或者你不希望将自己的镜 像放到公网当中，那么我们就需要搭建自己的私有仓库来存储和管理自己的镜像。</p>
+<h2 id="一、搭建私有仓库"><a href="#一、搭建私有仓库" class="headerlink" title="一、搭建私有仓库"></a>一、搭建私有仓库</h2><pre><code class="shell"># 1、拉取私有仓库镜像 
+docker pull registry
+# 2、启动私有仓库容器 
+docker run -id --name=registry -p 5000:5000 registry
+# 3、打开浏览器 输入地址http://私有仓库服务器ip:5000/v2/_catalog，看到&#123;&quot;repositories&quot;:[]&#125; 表示私有仓库 搭建成功
+# 4、修改daemon.json   
+vim /etc/docker/daemon.json    
+# 在上述文件中添加一个key，保存退出。此步用于让 docker 信任私有仓库地址；注意将私有仓库服务器ip修改为自己私有仓库服务器真实ip 
+&#123;&quot;insecure-registries&quot;:[&quot;私有仓库服务器ip:5000&quot;]&#125; 
+# 5、重启docker 服务 
+systemctl restart docker
+docker start registry
+</code></pre>
+<h2 id="二、上传镜像到私有仓库"><a href="#二、上传镜像到私有仓库" class="headerlink" title="二、上传镜像到私有仓库"></a>二、上传镜像到私有仓库</h2><pre><code class="shell"># 1、标记镜像为私有仓库的镜像     
+docker tag centos:7 私有仓库服务器IP:5000/centos:7
+ 
+# 2、上传标记的镜像     
+docker push 私有仓库服务器IP:5000/centos:7
+</code></pre>
+<h2 id="三、从私有仓库拉去镜像"><a href="#三、从私有仓库拉去镜像" class="headerlink" title="三、从私有仓库拉去镜像"></a>三、从私有仓库拉去镜像</h2><pre><code class="shell">#拉取镜像 
+docker pull 私有仓库服务器ip:5000/centos:7
+</code></pre>
+<h1 id="Ⅷ、Docker相关概念"><a href="#Ⅷ、Docker相关概念" class="headerlink" title="Ⅷ、Docker相关概念"></a>Ⅷ、Docker相关概念</h1><blockquote>
+<p>docker容器虚拟化 与 传统虚拟机比较</p>
+</blockquote>
+<p>容器就是<strong>将软件打包成标准化单元</strong>，以用于开发、交付和部署。</p>
+<ul>
+<li><p>容器镜像是轻量的、可执行的独立软件包 ，包含软件运行所需的所有内容：代码、运行时环境、系统工具、系统库和设置。</p>
+</li>
+<li><p>容器化软件在任何环境中都能够始终如一地运行。</p>
+</li>
+<li><p>容器赋予了软件独立性，使其免受外在环境差异的影响，从而有助于减少团队间在相同基础设施上运行不同软件时的冲突。</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210918155851.png" alt="image-20210918155844490"></p>
+<p><strong>相同：</strong></p>
+<ul>
+<li>容器和虚拟机具有相似的资源隔离和分配优势</li>
+</ul>
+<p><strong>不同：</strong></p>
+<ul>
+<li><p>容器虚拟化的是操作系统，虚拟机虚拟化的是硬件。</p>
+</li>
+<li><p>传统虚拟机可以运行不同的操作系统，容器只能运行同一类型操作系统</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210918155927.png" alt="image-20210918155927478"></p>
+<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210918160414.png" alt="image-20210918155932212"  />
+
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 ☾ 霞 の 魔·域 ☽
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Tokitou Muichirou
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+            </div>
+            </transition>
+            
+            <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    <script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
