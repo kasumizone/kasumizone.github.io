@@ -100,20 +100,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Mybatis-Plus学习笔记</title>
-    <url>/2021/02/25/Mybatis-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>MySQL</tag>
-        <tag>Spring Boot</tag>
-        <tag>Mybatis-Plus</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Shiro学习笔记</title>
     <url>/2021/01/18/Shiro%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[]]></content>
@@ -122,14 +108,14 @@
       </categories>
       <tags>
         <tag>Java</tag>
-        <tag>Spring Boot</tag>
         <tag>Shiro</tag>
+        <tag>Spring Boot</tag>
         <tag>Thymeleaf</tag>
       </tags>
   </entry>
   <entry>
-    <title>Spring Security学习笔记(1)</title>
-    <url>/2021/04/18/Spring%20Security%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(1)/</url>
+    <title>Mybatis-Plus学习笔记</title>
+    <url>/2021/02/25/Mybatis-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>学习笔记</category>
@@ -137,7 +123,8 @@
       <tags>
         <tag>Java</tag>
         <tag>Spring Boot</tag>
-        <tag>Spring Security</tag>
+        <tag>MySQL</tag>
+        <tag>Mybatis-Plus</tag>
       </tags>
   </entry>
   <entry>
@@ -151,6 +138,19 @@
         <tag>Java</tag>
         <tag>Spring Boot</tag>
         <tag>Spring Cloud</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring Security学习笔记(1)</title>
+    <url>/2021/04/18/Spring%20Security%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(1)/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring Boot</tag>
+        <tag>Spring Security</tag>
       </tags>
   </entry>
   <entry>
