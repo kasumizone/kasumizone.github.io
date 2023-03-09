@@ -1,254 +1,276 @@
-
 <!DOCTYPE html>
+
+
 <html lang="zh-CN">
+  
+
     <head>
-        <meta charset="UTF-8" />
-        <title>☾ 霞 の 魔·域 ☽</title>
-        <meta name="author" content="Tokitou Muichirou" />
-        <meta name="description" content="☾ 分享博主懒得分享的一切 ☽" />
-        <meta name="keywords" content="技术 Java 生活 心情 程序员 bug 二次元 动漫" />
-        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
-        <link rel="icon" href="/null" />
-        <script src="https://cdn.staticfile.org/vue/3.2.45/vue.global.prod.min.js"></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.2.1/css/all.min.css" />
-<link rel="stylesheet" href="/css/fonts.min.css" />
-<script> const mixins = {}; </script>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="技术 Java 生活 心情 程序员 bug 二次元 动漫" />
+       
+      <meta name="description" content="☾ 分享博主懒得分享的一切 ☽" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title> ☾ 霞 の 魔·域 ☽</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
 
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
 
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
 
-<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
-<link
-    rel="stylesheet"
-    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
-/>
-<script src="/js/lib/highlight.js"></script>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
 
-
-
-<script src="/js/lib/preview.js"></script>
-
-
-
-
-
-<script src="/js/lib/home.js"></script>
-
-<link rel="stylesheet" href="/css/main.css" />
-
-    <meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css" class="aplayer-style-marker">
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css" class="aplayer-style-marker">
 <script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" class="aplayer-script-marker"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js" class="meting-script-marker"></script>
 </head>
-    <body>
-        <div id="layout">
-            <transition name="fade">
-            <div id="loading" v-show="loading">
-                <div id="loading-circle">
-                    <h2>LOADING</h2>
-                    <p>加载过慢请开启缓存&ensp;浏览器默认开启</p>
-                    <img src="/images/loading.gif" />
-                </div>
-            </div>
-            </transition>
-            <transition name="into">
-            <div id="main" v-show="!loading">
-                <nav id="menu" ref="menu">
-    <div class="desktop-menu">
-        <a class="title" href="/">
-            <span>☾ 霞 の 魔·域 ☽</span>
-        </a>
-        
-        <a href="/">
-            <i class="fa-solid fa-house fa-fw"></i>
-            <span>&ensp;Home</span>
-        </a>
-        
-        <a href="/about">
-            <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;About</span>
-        </a>
-        
-        <a href="/archives">
-            <i class="fa-solid fa-box-archive fa-fw"></i>
-            <span>&ensp;Archives</span>
-        </a>
-        
-        <a href="/categories">
-            <i class="fa-solid fa-bookmark fa-fw"></i>
-            <span>&ensp;Categories</span>
-        </a>
-        
-        <a href="/tags">
-            <i class="fa-solid fa-tags fa-fw"></i>
-            <span>&ensp;Tags</span>
-        </a>
-        
-    </div>
-    <div id="mobile-menu">
-        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
-        <div class="title" @click="showMenu = !showMenu">
-            <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;☾ 霞 の 魔·域 ☽</span>
-        </div>
-        <transition name="slide">
-        <div class="items" v-show="showMenu">
-            
-            <a href="/">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-house fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
-                </div>
-            </a>
-            
-            <a href="/about">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-id-card fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
-                </div>
-            </a>
-            
-            <a href="/archives">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-box-archive fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
-                </div>
-            </a>
-            
-            <a href="/categories">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-bookmark fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
-                </div>
-            </a>
-            
-            <a href="/tags">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
-                </div>
-            </a>
-            
-        </div>
-        </transition>
-    </div>
-</nav>
+  </html>
+</html>
 
-                <div id="home-head">
-    <div id="home-background" ref="homeBackground" data-image="/null"></div>
+
+<body>
+  <div id="app">
     
-    <div id="home-info" @click="homeClick">
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="info">
-            <div class="wrap">
-                <h1>☾ 霞 の 魔·域 ☽</h1>
-                <h3>☾ 其实就是个博客 ☽</h3>
-                <h5>☾ 分享博主懒得分享的一切 ☽</h5>
-            </div>
-        </span>
+      
+    <main class="content on">
+      
+<section class="cover">
+    
+      
+      <a class="forkMe" href="https://github.com/Shen-Yu/hexo-theme-ayer"
+        target="_blank"><img width="149" height="149" src="/images/forkme.png"
+          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+    
+  <div class="cover-frame">
+    <div class="bg-box">
+      <img src="/images/cover1.jpg" alt="image frame" />
     </div>
+    <div class="cover-inner text-center text-white">
+      <h1><a href="/">☾ 霞 の 魔·域 ☽</a></h1>
+      <div id="subtitle-box">
+        
+        <span id="subtitle"></span>
+        
+      </div>
+      <div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="cover-learn-more">
+    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
+  </div>
+</section>
+
+
+
+<script src="https://cdn.staticfile.org/typed.js/2.0.12/typed.min.js"></script>
+
+
+<!-- Subtitle -->
+
+  <script>
+    try {
+      var typed = new Typed("#subtitle", {
+        strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+        startDelay: 0,
+        typeSpeed: 200,
+        loop: true,
+        backSpeed: 100,
+        showCursor: true
+      });
+    } catch (err) {
+      console.log(err)
+    }
+  </script>
+  
+<div id="main">
+  <section class="outer">
+  
+  <ul class="ads">
     
+        <li>
+            <a target="_blank" rel="noopener" href="https://curl.qcloud.com/kvO7hb43">
+                <img src="https://pic.imgdb.cn/item/62174b452ab3f51d912a5ccc.jpg" width="300" alt="云服务器限时秒杀">
+            </a>
+        </li>
+    
+        <li>
+            <a target="_blank" rel="noopener" href="https://www.vultr.com/?ref=8630075">
+                <img src="https://pic.imgdb.cn/item/62174b452ab3f51d912a5cd7.png" width="300" alt="vultr优惠vps">
+            </a>
+        </li>
+    
+</ul>
+  
+  
+  
+
+<div class="notice" style="margin-top:50px">
+    <i class="ri-heart-fill"></i>
+    <div class="notice-content" id="broad"></div>
 </div>
-<div id="home-posts-wrap"  ref="homePostsWrap">
-    <div id="home-posts">
-        <div id="posts">
-            
+<script type="text/javascript">
+    fetch('https://v1.hitokoto.cn')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("broad").innerHTML = data.hitokoto;
+        })
+        .catch(console.error)
+</script>
 
-<div class="post">
-    <a href="/2021/12/24/apple/">
-        <h2 class="post-title">送给杨逸春的超级甜的苹果🍎(*^▽^*)</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E7%8B%AC%E4%B8%80%E6%97%A0%E4%BA%8C%E7%9A%84%E5%88%86%E7%B1%BB/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                独一无二的分类
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2021/12/24
-        </span>
-        
-        
+<style>
+    .notice {
+        padding: 20px;
+        border: 1px dashed #e6e6e6;
+        color: #969696;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        background: #fbfbfb50;
+        border-radius: 10px;
+    }
+
+    .notice i {
+        float: left;
+        color: #999;
+        font-size: 16px;
+        padding-right: 10px;
+        vertical-align: middle;
+        margin-top: -2px;
+    }
+
+    .notice-content {
+        display: initial;
+        vertical-align: middle;
+    }
+</style>
+  
+  <article class="articles">
+    
+    
+    
+    
+    <article
+  id="post-apple"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/12/24/apple/"
+    >送给杨逸春的超级甜的苹果🍎(*^▽^*)</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/12/24/apple/" class="article-date">
+  <time datetime="2021-12-24T12:05:20.000Z" itemprop="datePublished">2021-12-24</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%8B%AC%E4%B8%80%E6%97%A0%E4%BA%8C%E7%9A%84%E5%88%86%E7%B1%BB/">独一无二的分类</a>
+  </div>
+   
     </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <blockquote>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
 <h1 id="BEST"><a href="#BEST" class="headerlink" title="BEST"></a>BEST</h1><h2 id="BEST-1"><a href="#BEST-1" class="headerlink" title="BEST"></a>BEST</h2><h3 id="BEST-2"><a href="#BEST-2" class="headerlink" title="BEST"></a>BEST</h3><h1 id="WISHES"><a href="#WISHES" class="headerlink" title="WISHES"></a>WISHES</h1><h2 id="TO-YOU✧-≖-◡-≖✿"><a href="#TO-YOU✧-≖-◡-≖✿" class="headerlink" title="TO YOU✧(≖ ◡ ≖✿)"></a>TO YOU✧(≖ ◡ ≖✿)</h2></blockquote>
 
-    <div id="aplayer-OqcfBUVR" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-YUDbVpVp" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="7137869957" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#FF4081"
-    ></div>
-            
-        </div>
+    ></div> 
+      <a class="article-more-link" href="/2021/12/24/apple/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
     </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/lovely/" style="color: #00bcd4">
-                lovely
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2021/12/24/apple/" class="go-post">阅读全文</a>
-</div>
+    
 
-<div class="post">
-    <a href="/2021/09/18/Docker%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-        <h2 class="post-title">Docker基础学习笔记（Delete）</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                学习笔记
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2021/9/18
-        </span>
-        
-        
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lovely/" rel="tag">lovely</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Docker基础学习笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/09/18/Docker%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+    >Docker基础学习笔记（Delete）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/09/18/Docker%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2021-09-18T08:03:20.000Z" itemprop="datePublished">2021-09-18</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+  </div>
+   
     </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <span id="more"></span>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <span id="more"></span>
 
 <p>Docker：<a target="_blank" rel="noopener" href="https://hub.docker.com/">hub.docker.com</a></p>
 <p>参考视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1CJ411T7BK">黑马程序员Docker容器化技术，从零学会Docker教程</a></p>
@@ -763,7 +785,7 @@ nginx
 <ol>
 <li><p>定义父镜像：FROM java:8</p>
 </li>
-<li><p>定义作者信息：MAINTAINER  Tokitou &lt;<a href="mailto:&#84;&#x6f;&#107;&#x69;&#x74;&#x6f;&#117;&#x40;&#x61;&#108;&#x69;&#121;&#117;&#x6e;&#x2e;&#x63;&#111;&#x6d;">&#84;&#x6f;&#107;&#x69;&#x74;&#x6f;&#117;&#x40;&#x61;&#108;&#x69;&#121;&#117;&#x6e;&#x2e;&#x63;&#111;&#x6d;</a>&gt;</p>
+<li><p>定义作者信息：MAINTAINER  Tokitou &lt;<a href="mailto:&#x54;&#111;&#x6b;&#x69;&#116;&#111;&#117;&#x40;&#97;&#108;&#105;&#x79;&#117;&#110;&#x2e;&#99;&#x6f;&#x6d;">&#x54;&#111;&#x6b;&#x69;&#116;&#111;&#117;&#x40;&#97;&#108;&#105;&#x79;&#117;&#110;&#x2e;&#99;&#x6f;&#x6d;</a>&gt;</p>
 </li>
 <li><p>将jar包添加到容器： ADD springboot.jar app.jar</p>
 </li>
@@ -906,184 +928,179 @@ docker pull 私有仓库服务器ip:5000/centos:7
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210918155927.png" alt="image-20210918155927478"></p>
 <img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210918160414.png" alt="image-20210918155932212"  />
 
+ 
+      <!-- reward -->
+      
+    </div>
+    
 
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/Linux/" style="color: #ff7d73">
-                Linux
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/Docker/" style="color: #ff7d73">
-                Docker
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/CentOS/" style="color: #ff7d73">
-                CentOS
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2021/09/18/Docker%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="go-post">阅读全文</a>
-</div>
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/" rel="tag">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
 
-<div class="post">
-    <a href="/2021/08/03/toaplayer/">
-        <h2 class="post-title">测试aplayer~其实是分享</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E9%AD%94%E5%9F%9F%E6%91%B8%E9%B1%BC/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                魔域摸鱼
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2021/8/3
-        </span>
-        
-        
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-toaplayer"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/08/03/toaplayer/"
+    >测试aplayer~其实是分享</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/08/03/toaplayer/" class="article-date">
+  <time datetime="2021-08-03T04:28:02.000Z" itemprop="datePublished">2021-08-03</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%AD%94%E5%9F%9F%E6%91%B8%E9%B1%BC/">魔域摸鱼</a>
+  </div>
+   
     </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <div id="aplayer-WmwEQuVV" class="aplayer aplayer-tag-marker meting-tag-marker"
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <div id="aplayer-HcscgWin" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="6897059777" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#FF4081"
     ></div>
 
 <blockquote>
 <h3 id="Emmm"><a href="#Emmm" class="headerlink" title="Emmm~"></a>Emmm~</h3><p>内容都在封面了，不用点进去的喔~</p>
 <p>测试结果：有时候能显示出来有时候显示不出来Σ( ° △ °|||)︴</p>
-</blockquote>
-            
-        </div>
+</blockquote> 
+      <a class="article-more-link" href="/2021/08/03/toaplayer/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
     </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/music/" style="color: #ffa2c4">
-                music
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2021/08/03/toaplayer/" class="go-post">阅读全文</a>
-</div>
+    
 
-<div class="post">
-    <a href="/2021/08/03/to-bilibili/">
-        <h2 class="post-title">【你的名字】致曾来过的你 | 有来世 甘愿再与你相遇</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E9%AD%94%E5%9F%9F%E6%91%B8%E9%B1%BC/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                魔域摸鱼
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2021/8/3
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <span id="more"></span>
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/music/" rel="tag">music</a></li></ul>
 
+    </footer>
+  </div>
 
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/video/" style="color: #ff7d73">
-                video
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/bilibili/" style="color: #00a596">
-                bilibili
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2021/08/03/to-bilibili/" class="go-post">阅读全文</a>
-</div>
+   
+   
+  
+</article>
 
-<div class="post">
-    <a href="/2021/07/30/CloudBase%E6%90%AD%E5%BB%BAHexo/">
-        <h2 class="post-title">齿轮？暂时是CloudBase搭建Hexo</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E5%85%B4%E8%B6%A3%E4%BD%BF%E7%84%B6/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                兴趣使然
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2021/7/30
-        </span>
-        
-        
+    
+    <article
+  id="post-to-bilibili"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/08/03/to-bilibili/"
+    >【你的名字】致曾来过的你 | 有来世 甘愿再与你相遇</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/08/03/to-bilibili/" class="article-date">
+  <time datetime="2021-08-03T04:28:01.000Z" itemprop="datePublished">2021-08-03</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%AD%94%E5%9F%9F%E6%91%B8%E9%B1%BC/">魔域摸鱼</a>
+  </div>
+   
     </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <blockquote>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <span id="more"></span>
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bilibili/" rel="tag">bilibili</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/video/" rel="tag">video</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-CloudBase搭建Hexo"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/07/30/CloudBase%E6%90%AD%E5%BB%BAHexo/"
+    >齿轮？暂时是CloudBase搭建Hexo</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/07/30/CloudBase%E6%90%AD%E5%BB%BAHexo/" class="article-date">
+  <time datetime="2021-07-30T09:49:00.000Z" itemprop="datePublished">2021-07-30</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B4%E8%B6%A3%E4%BD%BF%E7%84%B6/">兴趣使然</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
 <p><del>开门见山~废话不多的「建站博文」</del></p>
 </blockquote>
 <p>本文专为急于拥有个人网站的成功人士「量身定制」，秉承着绝不耽误读者大人时间的理念创作，将直接从最为核心的作者的降世之日说起，跳过繁杂的盘古开天辟地到上世纪末的发展历史，保证让您在「有生之年」完成建站！</p>
@@ -1091,117 +1108,126 @@ docker pull 私有仓库服务器ip:5000/centos:7
 
 <h2 id="内容简介"><a href="#内容简介" class="headerlink" title="内容简介"></a>内容简介</h2><blockquote>
 <p><del>其实，这是一段心路历程</del></p>
-</blockquote>
-            
-        </div>
+</blockquote> 
+      <a class="article-more-link" href="/2021/07/30/CloudBase%E6%90%AD%E5%BB%BAHexo/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
     </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/Hexo/" style="color: #03a9f4">
-                Hexo
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/CloudBase/" style="color: #ff7d73">
-                CloudBase
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2021/07/30/CloudBase%E6%90%AD%E5%BB%BAHexo/" class="go-post">阅读全文</a>
-</div>
+    
 
-<div class="post">
-    <a href="/2021/06/05/Java%E6%8B%86%E8%A3%85%E7%AE%B1/">
-        <h2 class="post-title">Java拆装箱详解</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E6%8A%80%E8%83%BD%E8%AF%A6%E8%A7%A3/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                技能详解
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2021/6/5
-        </span>
-        
-        
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CloudBase/" rel="tag">CloudBase</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Java拆装箱"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/06/05/Java%E6%8B%86%E8%A3%85%E7%AE%B1/"
+    >Java拆装箱详解</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/06/05/Java%E6%8B%86%E8%A3%85%E7%AE%B1/" class="article-date">
+  <time datetime="2021-06-05T12:25:12.000Z" itemprop="datePublished">2021-06-05</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E8%83%BD%E8%AF%A6%E8%A7%A3/">技能详解</a>
+  </div>
+   
     </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <blockquote>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
 <p>首先介绍<strong>基本数据类型</strong>和<strong>包装类型</strong>~</p>
 <p>然后引出<strong>拆装箱</strong>以及<strong>自动拆装箱</strong>的诞生~</p>
 <p>接着介绍自动拆装箱的<strong>使用场景</strong>和<strong>使用细节</strong>~</p>
 <p>最后总结自动拆装箱所<strong>存在的问题</strong>~</p>
-</blockquote>
-            
-        </div>
+</blockquote> 
+      <a class="article-more-link" href="/2021/06/05/Java%E6%8B%86%E8%A3%85%E7%AE%B1/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
     </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/Java/" style="color: #03a9f4">
-                Java
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2021/06/05/Java%E6%8B%86%E8%A3%85%E7%AE%B1/" class="go-post">阅读全文</a>
-</div>
+    
 
-<div class="post">
-    <a href="/2021/04/18/Spring%20Security%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(1)/">
-        <h2 class="post-title">Spring Security学习笔记(1)</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                学习笔记
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2021/4/18
-        </span>
-        
-        
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Spring Security学习笔记(1)"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/04/18/Spring%20Security%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(1)/"
+    >Spring Security学习笔记(1)</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/04/18/Spring%20Security%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(1)/" class="article-date">
+  <time datetime="2021-04-18T11:19:07.000Z" itemprop="datePublished">2021-04-18</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+  </div>
+   
     </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <span id="more"></span>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <span id="more"></span>
 
 <h1 id="一、入门案例"><a href="#一、入门案例" class="headerlink" title="一、入门案例"></a>一、入门案例</h1><h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h2><p><strong>创建Spring Boot工程（web），引入相关依赖</strong></p>
 <pre><code class="xml">&lt;!--  Spring Security   --&gt;
@@ -1655,70 +1681,60 @@ public PersistentTokenRepository persistentTokenRepository()&#123;
 <blockquote>
 <p>continue……</p>
 </blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
 
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/Java/" style="color: #ff7d73">
-                Java
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/Spring-Boot/" style="color: #ffa2c4">
-                Spring Boot
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/Spring-Security/" style="color: #ffa2c4">
-                Spring Security
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2021/04/18/Spring%20Security%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(1)/" class="go-post">阅读全文</a>
-</div>
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Security/" rel="tag">Spring Security</a></li></ul>
 
-<div class="post">
-    <a href="/2021/03/22/Spring%20Cloud%20Alibaba%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-        <h2 class="post-title">Spring Cloud Alibaba学习笔记</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                学习笔记
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2021/3/22
-        </span>
-        
-        
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Spring Cloud Alibaba学习笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/03/22/Spring%20Cloud%20Alibaba%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+    >Spring Cloud Alibaba学习笔记</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/03/22/Spring%20Cloud%20Alibaba%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2021-03-22T09:12:12.000Z" itemprop="datePublished">2021-03-22</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+  </div>
+   
     </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <span id="more"></span>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <span id="more"></span>
 
 <h1 id="一、创建Spring-Cloud-Alibaba工程"><a href="#一、创建Spring-Cloud-Alibaba工程" class="headerlink" title="一、创建Spring Cloud Alibaba工程"></a>一、创建Spring Cloud Alibaba工程</h1><p>Spring Cloud Alibaba使用2.2.1.RELEASE的情况下</p>
 <p>==spring boot版本过高不行==</p>
@@ -2170,70 +2186,60 @@ public class SentinelConfiguration &#123;
 </code></pre>
 <img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510194016.png" alt="image-20210317203539661" style="zoom:67%;" />
 
-<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510194019.png" alt="image-20210317203742149" style="zoom:67%;" />
-            
-        </div>
+<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510194019.png" alt="image-20210317203742149" style="zoom:67%;" /> 
+      <!-- reward -->
+      
     </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/Java/" style="color: #ffa2c4">
-                Java
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/Spring-Boot/" style="color: #00a596">
-                Spring Boot
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/Spring-Cloud/" style="color: #00bcd4">
-                Spring Cloud
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2021/03/22/Spring%20Cloud%20Alibaba%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="go-post">阅读全文</a>
-</div>
+    
 
-<div class="post">
-    <a href="/2021/03/16/URL%E4%B8%8E%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/">
-        <h2 class="post-title">URL传参中的特殊字符</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E6%8E%92%E9%94%99%E6%97%A5%E5%BF%97/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                排错日志
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2021/3/16
-        </span>
-        
-        
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Cloud/" rel="tag">Spring Cloud</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-URL与特殊字符"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/03/16/URL%E4%B8%8E%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/"
+    >URL传参中的特殊字符</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/03/16/URL%E4%B8%8E%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/" class="article-date">
+  <time datetime="2021-03-16T13:19:25.000Z" itemprop="datePublished">2021-03-16</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8E%92%E9%94%99%E6%97%A5%E5%BF%97/">排错日志</a>
+  </div>
+   
     </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <blockquote>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
 <p>今天在使用<code>阿里云OSS对象存储</code>，删除bucket中文图片时，发现问题。</p>
 </blockquote>
 <p>在前端页面使用axios发送请求到后端，传递的参数是要删除的图片的url，前端（vue项目）代码如下：<br>api目录下的js文件的方法声明：</p>
@@ -2373,77 +2379,60 @@ url = url.replace(&quot;%2F&quot;,&quot;/&quot;);
 <blockquote>
 <p>记住它，再接再厉</p>
 </blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
 
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/Java/" style="color: #03a9f4">
-                Java
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/Javascript/" style="color: #ffa2c4">
-                Javascript
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/OSS/" style="color: #00bcd4">
-                OSS
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/URL/" style="color: #03a9f4">
-                URL
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2021/03/16/URL%E4%B8%8E%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/" class="go-post">阅读全文</a>
-</div>
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/" rel="tag">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OSS/" rel="tag">OSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/URL/" rel="tag">URL</a></li></ul>
 
-<div class="post">
-    <a href="/2021/02/25/Mybatis-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-        <h2 class="post-title">Mybatis-Plus学习笔记</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                学习笔记
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2021/2/25
-        </span>
-        
-        
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Mybatis-Plus学习笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/02/25/Mybatis-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+    >Mybatis-Plus学习笔记</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/02/25/Mybatis-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2021-02-25T12:17:14.000Z" itemprop="datePublished">2021-02-25</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+  </div>
+   
     </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <span id="more"></span>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <span id="more"></span>
 
 <blockquote>
 <p>结合Spring boot使用</p>
@@ -3132,126 +3121,388 @@ public R pageCourseCondition(@PathVariable Integer current, @PathVariable Intege
     return R.ok().data(&quot;rows&quot;,page.getRecords()).data(&quot;total&quot;,page.getTotal());
 &#125;
 </code></pre>
+ 
+      <!-- reward -->
+      
+    </div>
+    
 
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/Java/" style="color: #00bcd4">
-                Java
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/MySQL/" style="color: #00bcd4">
-                MySQL
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/Spring-Boot/" style="color: #00a596">
-                Spring Boot
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/Mybatis-Plus/" style="color: #00a596">
-                Mybatis-Plus
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2021/02/25/Mybatis-Plus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="go-post">阅读全文</a>
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mybatis-Plus/" rel="tag">Mybatis-Plus</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+  </article>
+  
+
+  
+  <nav class="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+  </nav>
+  
+</section>
 </div>
 
-
-            <div class="page-current">
-    <div class="prev">
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2023
+        <i class="ri-heart-fill heart_icon"></i> Tokitou Muichirou
+      </li>
+    </ul>
+    <ul>
+      <li>
         
-    </div>
-    <div class="page-index">
+      </li>
+    </ul>
+    <ul>
+      <li>
         
-        <span class="current">1</span>
         
         <span>
-            <a class="page-num" href="/page/2/">2</a>
-            
-            
-        </span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
         
-    </div>
-    <div class="next">
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
         
-        <a class="page-num" href="/page/2/">
-            <i class="fa-solid fa-caret-right fa-fw"></i>
-        </a>
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
         
-    </div>
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
 </div>
 
-        </div>
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="☾ 霞 の 魔·域 ☽"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="http://shenyu-vip.lofter.com">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
     </div>
     
-    <div id="home-card">
-        <div id="card-div">
-    <div class="card-style" style="width: 300px">
-        <div class="avatar">
-            <img src="/null" alt="avatar" />
-        </div>
-        <div class="name">Tokitou Muichirou</div>
-        <div class="description">
-            <p>Description<br>…</p>
-
-        </div>
-        
-        
-    </div>
-</div>
-
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
     </div>
     
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 
-                <footer id="footer">
-    <div id="footer-wrap">
-        <div>
-            &copy;
-            2022 - 2023 ☾ 霞 の 魔·域 ☽
-            <span id="footer-icon">
-                <i class="fa-solid fa-font-awesome fa-fw"></i>
-            </span>
-            &commat;Tokitou Muichirou
-        </div>
-        <div>
-            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
-            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
-        </div>
-        
-    </div>
-</footer>
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
 
-            </div>
-            </transition>
-            
-            <transition name="fade">
-            <div id="preview" ref="preview" v-show="previewShow">
-                <img id="preview-content" ref="previewContent" />
-            </div>
-            </transition>
-            
-        </div>
-        <script src="/js/main.js"></script>
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
         
-    <script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+
 </html>
