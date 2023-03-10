@@ -682,7 +682,7 @@ url &#x3D; url.replace(&quot;%2F&quot;,&quot;&#x2F;&quot;);</code></pre>
     <title>测试aplayer~其实是分享</title>
     <url>/2021/08/03/toaplayer/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js"></script>
-    <div id="aplayer-vdScnzLY" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-WmxboPrn" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="6897059777" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#FF4081"
     ></div>
 
@@ -1233,7 +1233,7 @@ nginx</code></pre>
 <ol>
 <li><p>定义父镜像：FROM java:8</p>
 </li>
-<li><p>定义作者信息：MAINTAINER  Tokitou &lt;<a href="mailto:&#84;&#111;&#107;&#x69;&#116;&#111;&#x75;&#64;&#97;&#x6c;&#x69;&#121;&#x75;&#110;&#46;&#99;&#x6f;&#x6d;">&#84;&#111;&#107;&#x69;&#116;&#111;&#x75;&#64;&#97;&#x6c;&#x69;&#121;&#x75;&#110;&#46;&#99;&#x6f;&#x6d;</a>&gt;</p>
+<li><p>定义作者信息：MAINTAINER  Tokitou &lt;<a href="mailto:&#x54;&#111;&#x6b;&#105;&#116;&#111;&#x75;&#64;&#97;&#x6c;&#x69;&#121;&#117;&#x6e;&#x2e;&#99;&#111;&#109;">&#x54;&#111;&#x6b;&#105;&#116;&#111;&#x75;&#64;&#97;&#x6c;&#x69;&#121;&#117;&#x6e;&#x2e;&#99;&#111;&#109;</a>&gt;</p>
 </li>
 <li><p>将jar包添加到容器： ADD springboot.jar app.jar</p>
 </li>
@@ -2105,6 +2105,469 @@ public R pageCourseCondition(@PathVariable Integer current, @PathVariable Intege
       </tags>
   </entry>
   <entry>
+    <title>Spring Cloud Alibaba学习笔记</title>
+    <url>/2021/03/22/Spring%20Cloud%20Alibaba%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js"></script><p>这里是摘要</p>
+<span id="more"></span>
+
+<h1 id="一、创建Spring-Cloud-Alibaba工程"><a href="#一、创建Spring-Cloud-Alibaba工程" class="headerlink" title="一、创建Spring Cloud Alibaba工程"></a>一、创建Spring Cloud Alibaba工程</h1><p>Spring Cloud Alibaba使用2.2.1.RELEASE的情况下</p>
+<p>==spring boot版本过高不行==</p>
+<p><strong><code>2.3.4.RELEASE</code></strong> 可以</p>
+<p><strong><code>2.4.3</code></strong> 不行</p>
+<p>版本对应关系如下</p>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193242.png" alt="image-20210510193242793"><br>最新版本消息记得在官网查看<br><a href="https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E">Spring Cloud Alibaba/Spring Boot版本说明</a></p>
+<p><strong>创建父工程</strong></p>
+<p>Spring Cloud Alibaba 的环境在父工程中创建，微服务的各个组件作为子工程，继承父工程的环境。</p>
+<p>Spring Boot —》Spring Cloud —》Spring Cloud Alibaba</p>
+<h2 id="1-pom文件中引入"><a href="#1-pom文件中引入" class="headerlink" title="1. pom文件中引入"></a>1. pom文件中引入</h2><pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencyManagement</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">></span></span>
+        <span class="token comment">&lt;!-- Spring Cloud Hoxton --></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-dependencies<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>Hoxton.SR3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>pom<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+        <span class="token comment">&lt;!-- Spring Cloud Alibaba --></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-alibaba-dependencies<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.2.1.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>pom<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencyManagement</span><span class="token punctuation">></span></span></code></pre>
+
+<h2 id="2-Nacos-服务注册"><a href="#2-Nacos-服务注册" class="headerlink" title="2. Nacos 服务注册"></a>2. Nacos 服务注册</h2><p><strong>注册中心</strong></p>
+<p>nacos下载完成后，解压，启动即可使用</p>
+<p><a href="http://localhost:8848/nacos/">http://localhost:8848/nacos/</a></p>
+<h2 id="3-创建子工程，继承父工程"><a href="#3-创建子工程，继承父工程" class="headerlink" title="3. 创建子工程，继承父工程"></a>3. 创建子工程，继承父工程</h2><p>在父工程中 <strong><code>new module</code></strong> 创建子工程，不用引入任何依赖配置，直接继承父工程的</p>
+<h3 id="3-1-官方创建继承"><a href="#3-1-官方创建继承" class="headerlink" title="3.1 官方创建继承"></a>3.1 官方创建继承</h3><p>在子工程中的parent中写上父工程的内容即可</p>
+<p>父项目pom打包</p>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>packaging</span><span class="token punctuation">></span></span>pom<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>packaging</span><span class="token punctuation">></span></span></code></pre>
+
+<p>子项目修改parent为父工程</p>
+<h3 id="3-2-阿里云创建继承"><a href="#3-2-阿里云创建继承" class="headerlink" title="3.2 阿里云创建继承"></a>3.2 阿里云创建继承</h3><p>因为阿里云创建的 pom 文件中没有 parent 标签</p>
+<p>在父工程的pom文件中加上</p>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>packaging</span><span class="token punctuation">></span></span>pom<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>packaging</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>modules</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>module</span><span class="token punctuation">></span></span>&#123;子工程名&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>module</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>modules</span><span class="token punctuation">></span></span></code></pre>
+
+<p>在子工程的pom文件中加上</p>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>parent</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>lover.Alice<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>&#123;父工程名&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>0.0.1-SNAPSHOT<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>parent</span><span class="token punctuation">></span></span></code></pre>
+
+<h2 id="4-nacos"><a href="#4-nacos" class="headerlink" title="4. nacos"></a>4. nacos</h2><h3 id="4-1-引入nacos"><a href="#4-1-引入nacos" class="headerlink" title="4.1 引入nacos"></a>4.1 引入nacos</h3><pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!-- nacos --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-alibaba-nacos-discovery<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.2.1.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+
+<h3 id="4-2-配置nacos"><a href="#4-2-配置nacos" class="headerlink" title="4.2 配置nacos"></a>4.2 配置nacos</h3><p>（可以不写，默认就是下面这个）</p>
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml">spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  application:
+    name: provider</code></pre>
+
+<h2 id="5-服务注册"><a href="#5-服务注册" class="headerlink" title="5. 服务注册"></a>5. 服务注册</h2><blockquote>
+<p>启动子工程，去nacos中看</p>
+</blockquote>
+<blockquote>
+<p>同时启动多个实例</p>
+</blockquote>
+<p><strong>IDEA中配置</strong></p>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193848.png" alt="image-20210315202932474"><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193853.png" alt="image-20210315202948516"></p>
+<p>修改不同的端口号，就可以同时运行多次（同一个程序到不同端口）</p>
+<p>provider就有多个实例，可以进行配置负载均衡</p>
+<h2 id="6-服务发现"><a href="#6-服务发现" class="headerlink" title="6. 服务发现"></a>6. 服务发现</h2><blockquote>
+<p>RestTemplate</p>
+</blockquote>
+<p>在创建一个子工程 consumer</p>
+<p>引入nacos和父工程</p>
+<p>Controller层提供接口</p>
+<pre class="language-java" data-language="java"><code class="language-java">@ResponseBody
+@GetMapping(&quot;&#x2F;instances&quot;)
+public List&lt;ServiceInstance&gt; instances()&#123;
+    List&lt;ServiceInstance&gt; provider &#x3D; this.discoveryClient.getInstances(&quot;provider&quot;);	&#x2F;&#x2F;拿到provider实例
+    return provider;
+&#125;</code></pre>
+
+<p>访问接口就会根据实例名，</p>
+<p>得到注册到注册中心的实例。</p>
+<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193856.png" alt="image-20210315212721528" style="zoom:67%;" />
+
+<p>provider中提供简单的Controller方法，供consumer调用</p>
+<pre class="language-java" data-language="java"><code class="language-java">@Controller
+public class ProviderController &#123;
+
+    @Value(&quot;$&#123;server.port&#125;&quot;)
+    private String port;
+
+    @ResponseBody
+    @RequestMapping(&quot;&#x2F;index&quot;)
+    public String index()&#123;
+        return this.port;
+    &#125;
+&#125;</code></pre>
+
+<p>两个不同工程之间的调用需要用到</p>
+<p><strong><code>RestTemplate组件</code></strong></p>
+<p>spring容器中没有，要在配置类config中注册它：</p>
+<pre class="language-java" data-language="java"><code class="language-java">@Configuration
+public class ConsumerConfig &#123;
+    
+    @Bean
+    public RestTemplate restTemplate()&#123;
+        return new RestTemplate();
+    &#125;
+&#125;</code></pre>
+
+<p><strong>ConsumerController中进行调用provider实例中的 index 获取端口号的方法</strong></p>
+<pre class="language-java" data-language="java"><code class="language-java">@ResponseBody
+@RequestMapping(&quot;&#x2F;index&quot;)
+public String index()&#123;
+    &#x2F;&#x2F;1.拿到provider的某一个实例
+    List&lt;ServiceInstance&gt; provider &#x3D; this.discoveryClient.getInstances(&quot;provider&quot;);
+    int index &#x3D; ThreadLocalRandom.current().nextInt(provider.size());   
+    &#x2F;&#x2F;随机数，随即调用几个provider中的某一个&#x2F;&#x2F;真实项目不这么写，测试
+    ServiceInstance serviceInstance &#x3D; provider.get(index);              &#x2F;&#x2F;拿到一个provider实例
+
+    String url &#x3D; serviceInstance.getUri()+&quot;&#x2F;index&quot;;                     &#x2F;&#x2F;拼出完整调用路径
+    &#x2F;&#x2F;调用
+    String res &#x3D; restTemplate.getForObject(url, String.class);&#x2F;&#x2F;参数一：调用的URL，参数二：调用的方法的返回值类型
+    return &quot;调用了端口号为&quot;+serviceInstance.getPort()+&quot;的服务，得到的结果为&quot;+res;
+&#125;</code></pre>
+
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193859.png" alt="image-20210316171009441"></p>
+<p>调用就会随机调用provider中的一个，刷新端口号会变</p>
+<blockquote>
+<p>Feign</p>
+</blockquote>
+<p>将调用和被调用的服务都在Nacos注册中心进行注册</p>
+<p>Feign服务调用</p>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--        Feign--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-openfeign<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.2.6.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+
+<p>client中</p>
+<pre class="language-java" data-language="java"><code class="language-java">@FeignClient(&quot;Alice-blog-oss&quot;)
+@Component
+public interface OssClient &#123;
+    &#x2F;**
+     * 写vodController层中的方法，路径写成完整的，参数什么的和Controller中的一致
+     * @PathVariable(&quot;id&quot;) 这个注解在这里必须指定参数的名称，否则会出错
+     * 不能只写注解，要在（）中加对应名称
+     *&#x2F;
+    &#x2F;&#x2F;根据图片文件URL删除阿里云OSS中的文件（Alice-blog-oss中的方法）
+    &#x2F;&#x2F;删除OSS文件的方法
+    @DeleteMapping(&quot;&#x2F;aliceblog_oss&#x2F;fileoss&#x2F;deleteOne&#x2F;&#123;url&#125;&quot;)
+    public void deleteOssFile(@PathVariable(&quot;url&quot;) String url);
+&#125;</code></pre>
+
+<p>Controller层即可注入client调用方法</p>
+<h1 id="二、Ribbon"><a href="#二、Ribbon" class="headerlink" title="二、Ribbon"></a>二、Ribbon</h1><p><strong>引入Spring Cloud，自动引入Ribbon</strong></p>
+<p>对 RestTemplate 的整合</p>
+<h2 id="1-RestTemplate配置类上加注解"><a href="#1-RestTemplate配置类上加注解" class="headerlink" title="1. RestTemplate配置类上加注解"></a>1. RestTemplate配置类上加注解</h2><p>加 ==<strong>@LoadBalance</strong>== 注解</p>
+<pre class="language-java" data-language="java"><code class="language-java">@Configuration
+public class ConsumerConfig &#123;
+
+    @Bean
+    @LoadBalanced
+    public RestTemplate restTemplate()&#123;
+        return new RestTemplate();
+    &#125;
+&#125;</code></pre>
+
+<h2 id="2-ConsumerController-中调用provider中的方法"><a href="#2-ConsumerController-中调用provider中的方法" class="headerlink" title="2. ConsumerController 中调用provider中的方法"></a>2. ConsumerController 中调用provider中的方法</h2><pre class="language-java" data-language="java"><code class="language-java">@ResponseBody
+@RequestMapping(&quot;&#x2F;index&quot;)
+public String index()&#123;
+    return restTemplate.getForObject(&quot;http:&#x2F;&#x2F;provider&#x2F;index&quot;,String.class);	&#x2F;&#x2F;只需要这样写URL即可
+&#125;</code></pre>
+
+<p>直接调用RestTemplate的方法，==<u><em>URL：http://提供者实例名/提供者的方法</em></u>==  即可完成调用</p>
+<p><strong>会发现调用的provider实例是按顺序循环调用的</strong></p>
+<h2 id="3-Ribbon算法"><a href="#3-Ribbon算法" class="headerlink" title="3. Ribbon算法"></a>3. Ribbon算法</h2><h3 id="3-1-轮询算法"><a href="#3-1-轮询算法" class="headerlink" title="3.1 轮询算法"></a>3.1 轮询算法</h3><p>默认基于轮询算法依次调用：8082-8081-8080-8082-8081-8080……</p>
+<h3 id="3-2-随机算法"><a href="#3-2-随机算法" class="headerlink" title="3.2 随机算法"></a>3.2 随机算法</h3><p>yaml配置文件中加上</p>
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml">provider:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule</code></pre>
+
+<h2 id="4-权重算法"><a href="#4-权重算法" class="headerlink" title="4. 权重算法"></a>4. 权重算法</h2><p>基于nacos中对每个实例设置的权重进行选择，权重越大的实例被选中的概率越高</p>
+<p>写配置类：类名 <strong><code>NacosWeightedRule</code></strong></p>
+<pre class="language-java" data-language="java"><code class="language-java">import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
+import com.alibaba.cloud.nacos.ribbon.NacosServer;
+import com.alibaba.nacos.api.exception.NacosException;
+import com.alibaba.nacos.api.naming.NamingService;
+import com.alibaba.nacos.api.naming.pojo.Instance;
+import com.netflix.client.config.IClientConfig;
+import com.netflix.loadbalancer.AbstractLoadBalancerRule;
+import com.netflix.loadbalancer.BaseLoadBalancer;
+import com.netflix.loadbalancer.ILoadBalancer;
+import com.netflix.loadbalancer.Server;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+
+@Slf4j
+public class NacosWeightedRule extends AbstractLoadBalancerRule &#123;
+
+    @Autowired
+    private NacosDiscoveryProperties nacosDiscoveryProperties;
+
+    @Override
+    public void initWithNiwsConfig(IClientConfig iClientConfig) &#123;
+        &#x2F;&#x2F;读取配置文件
+    &#125;
+
+    @Override
+    public Server choose(Object o) &#123;
+        ILoadBalancer loadBalancer &#x3D; this.getLoadBalancer();
+        BaseLoadBalancer baseLoadBalancer &#x3D; (BaseLoadBalancer) loadBalancer;
+        &#x2F;&#x2F;获取要请求的微服务名称
+        String name &#x3D; baseLoadBalancer.getName();
+        &#x2F;&#x2F;获取服务发现的相关API
+        NamingService namingService &#x3D; nacosDiscoveryProperties.namingServiceInstance();
+        try &#123;
+            Instance instance &#x3D; namingService.selectOneHealthyInstance(name);
+            log.info(&quot;选择的实例是port&#x3D;&#123;&#125;,instance&#x3D;&#123;&#125;&quot;,instance.getPort(),instance);
+            return new NacosServer(instance);
+        &#125; catch (NacosException e) &#123;
+            e.printStackTrace();
+            return null;
+        &#125;
+    &#125;
+&#125;</code></pre>
+
+<p>yaml中配置</p>
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml">provider:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.southwind.configuration.NacosWeightedRule</code></pre>
+
+
+
+
+
+<hr>
+<h1 id="三、Sentinel-服务限流降级"><a href="#三、Sentinel-服务限流降级" class="headerlink" title="三、Sentinel 服务限流降级"></a>三、Sentinel 服务限流降级</h1><p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193908.png" alt="image-20210316205130291"></p>
+<h2 id="1-降级，限流，熔断"><a href="#1-降级，限流，熔断" class="headerlink" title="1. 降级，限流，熔断"></a>1. 降级，限流，熔断</h2><blockquote>
+<p>降级：访问量大的出现，限制一些功能的使用，只提供部分功能</p>
+<pre><code>        比如之前能提供5个功能，限制访问的太多，只给你提供三个功能，来减轻压力
+</code></pre>
+<p>限流：比如规定10个访问量，第11个就进不来，给你抛异常</p>
+<p>熔断：比如要调用别人，对方出现故障，则熔断不允许访问</p>
+<p>降级和限流是应对自身系统的故障，熔断是应对外部系统的故障</p>
+</blockquote>
+<h2 id="2-使用步骤"><a href="#2-使用步骤" class="headerlink" title="2. 使用步骤"></a>2. 使用步骤</h2><h3 id="2-1-引入相关依赖"><a href="#2-1-引入相关依赖" class="headerlink" title="2.1 引入相关依赖"></a>2.1 引入相关依赖</h3><p>provider 的 pom.xml中引入</p>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--  sentinel 对流量进行控制      --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-alibaba-sentinel<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.2.1.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+
+<span class="token comment">&lt;!--    actuator 对流量进行收集  --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-actuator<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+
+<h3 id="2-2-配置"><a href="#2-2-配置" class="headerlink" title="2.2 配置"></a>2.2 配置</h3><blockquote>
+<p><strong>把当前provider提供的服务全部开放出来，让actuator进行接收，让Sentinel进行流量控制</strong></p>
+</blockquote>
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml">management:
+  endpoints:
+    web:
+      exposure:
+        include: &#39;*&#39;
+
+
+# 配置Sentinel控制台
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+
+</code></pre>
+
+<h3 id="2-3-启动"><a href="#2-3-启动" class="headerlink" title="2.3 启动"></a>2.3 启动</h3><p>启动Sentinel.jar  默认8080端口</p>
+<p>启动nacos</p>
+<p>访问provider中的接口，即可在Sentinel中进行监控</p>
+<ul>
+<li><h4 id="阈值类型："><a href="#阈值类型：" class="headerlink" title="阈值类型："></a>阈值类型：</h4><ul>
+<li>QPS ：每秒访问次数</li>
+<li>线程数</li>
+</ul>
+</li>
+<li><h4 id="单机阈值：设置每秒最大被访问的次数。访问超过次数的请求就会返回错误Blocked-by-Sentinel-flow-limiting"><a href="#单机阈值：设置每秒最大被访问的次数。访问超过次数的请求就会返回错误Blocked-by-Sentinel-flow-limiting" class="headerlink" title="单机阈值：设置每秒最大被访问的次数。访问超过次数的请求就会返回错误Blocked by Sentinel (flow limiting)"></a>单机阈值：设置每秒最大被访问的次数。访问超过次数的请求就会返回错误<code>Blocked by Sentinel (flow limiting)</code></h4></li>
+</ul>
+<h2 id="3-流控模式"><a href="#3-流控模式" class="headerlink" title="3. 流控模式"></a>3. 流控模式</h2><ul>
+<li><h4 id="流控模式："><a href="#流控模式：" class="headerlink" title="流控模式："></a>流控模式：</h4><ul>
+<li><h5 id="直接"><a href="#直接" class="headerlink" title="直接"></a>直接</h5></li>
+<li><h5 id="关联：对-index设置一个关联资源-list，list访问量超过阈值，对-index进行限流"><a href="#关联：对-index设置一个关联资源-list，list访问量超过阈值，对-index进行限流" class="headerlink" title="关联：对/index设置一个关联资源/list，list访问量超过阈值，对/index进行限流"></a>关联：对/index设置一个关联资源/list，list访问量超过阈值，对/index进行限流</h5></li>
+<li><h4 id="链路：直接和关联限流只能对Controller层入口进行限流，链路限流可针对其他入口进行限流"><a href="#链路：直接和关联限流只能对Controller层入口进行限流，链路限流可针对其他入口进行限流" class="headerlink" title="链路：直接和关联限流只能对Controller层入口进行限流，链路限流可针对其他入口进行限流"></a>链路：直接和关联限流只能对Controller层入口进行限流，链路限流可针对其他入口进行限流</h4><ul>
+<li><p>高版本1.7以上Sentinel需要进行配置：默认对其他入口收敛，需要配置开放他们，进行限流</p>
+<ul>
+<li><p>pom文件中加入依赖：</p>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.csp<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>sentinel-core<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.7.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.csp<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>sentinel-web-servlet<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.7.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre></li>
+<li><p>加入以下yaml配置</p>
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml">spring:
+  cloud:
+    sentinel:
+      filter:
+        enabled: false</code></pre></li>
+<li><p>定义Filter配置类：</p>
+<pre class="language-java" data-language="java"><code class="language-java">package lover.alice.config;
+
+
+import com.alibaba.csp.sentinel.adapter.servlet.CommonFilter;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class FilterConfig &#123;
+    @Bean
+    public FilterRegistrationBean registrationBean()&#123;
+        FilterRegistrationBean registrationBean &#x3D; new FilterRegistrationBean();
+        registrationBean.setFilter(new CommonFilter());
+        registrationBean.addUrlPatterns(&quot;&#x2F;*&quot;);
+        registrationBean.addInitParameter(CommonFilter.WEB_CONTEXT_UNIFY,&quot;false&quot;);
+        registrationBean.setName(&quot;sentinelFilter&quot;);
+        return registrationBean;
+    &#125;
+&#125;
+</code></pre></li>
+<li><p>Service层</p>
+<pre class="language-java" data-language="java"><code class="language-java">@Service
+public class TestService &#123;
+
+    @SentinelResource(&quot;ServiceTest&quot;)
+    public String test()&#123;
+        return &quot;test&quot;;
+    &#125;
+&#125;
+</code></pre></li>
+<li><p>Controller层</p>
+<pre class="language-java" data-language="java"><code class="language-java">@ResponseBody
+@RequestMapping(&quot;&#x2F;ControllerTest&quot;)
+public String testService()&#123;
+    return service.test();
+&#125;</code></pre></li>
+<li><p>访问接口，观察Sentinel控制台</p>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193914.png" alt="image-20210317192435278"></p>
+</li>
+<li><p>然后就可以对Service层进行限流</p>
+</li>
+</ul>
+<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193915.png" alt="image-20210317192933834" style="zoom:67%;" />
+
+<ul>
+<li><p>对/ControllerTest访问ServiceTest进行限流，保护Service层</p>
+<p><strong>/ControllerTest访问ServiceTest每秒次数达到阈值，则进行限流，其他Controller访问ServiceTest不被限流</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-流控效果"><a href="#4-流控效果" class="headerlink" title="4. 流控效果"></a>4. 流控效果</h2><ul>
+<li><h3 id="快速失败：流量超标-gt-抛异常"><a href="#快速失败：流量超标-gt-抛异常" class="headerlink" title="快速失败：流量超标-&gt;抛异常"></a>快速失败：流量超标-&gt;抛异常</h3></li>
+<li><h3 id="Warm-Up"><a href="#Warm-Up" class="headerlink" title="Warm Up"></a>Warm Up</h3><p>程序刚启动，需要预热过程，刚启动到达到最佳状态需要预热时间</p>
+<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193917.png" alt="image-20210317194052665" style="zoom:67%;" /></li>
+<li><h3 id="排队等待"><a href="#排队等待" class="headerlink" title="排队等待"></a>排队等待</h3><p>请求调用失败，不会立即抛异常，会等待下一次调用，下次调用可以则调通，调不通则抛异常</p>
+<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193917.png" alt="image-20210317194635206" style="zoom:67%;" /></li>
+</ul>
+<h2 id="5-降级"><a href="#5-降级" class="headerlink" title="5. 降级"></a>5. 降级</h2><h3 id="5-1-RT"><a href="#5-1-RT" class="headerlink" title="5.1 RT"></a>5.1 RT</h3><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193926.png" alt="image-20210317195916257" style="zoom:67%;" />
+
+<p>0.1毫秒太苛刻，实际不会这么定</p>
+<h3 id="5-2-异常比例"><a href="#5-2-异常比例" class="headerlink" title="5.2 异常比例"></a>5.2 异常比例</h3><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193928.png" alt="image-20210317200304608" style="zoom:67%;" />
+
+<h3 id="5-3-异常数"><a href="#5-3-异常数" class="headerlink" title="5.3 异常数"></a>5.3 异常数</h3><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193932.png" alt="image-20210317200602057" style="zoom:67%;" />
+
+<h2 id="6-热点规则"><a href="#6-热点规则" class="headerlink" title="6. 热点规则"></a>6. 热点规则</h2><p>热点规则是流控规则的更细粒度操作，可以具体到对某个热点参数的限流，设置限流之后，如果带着限流参数的请求量超过阈值，则进行限流，时间为统计窗口时长。</p>
+<p>必须要添加 **<code>@SentinelResource</code>**，即对资源进行流控。</p>
+<pre class="language-java" data-language="java"><code class="language-java">@ResponseBody
+@GetMapping(&quot;&#x2F;hot&quot;)
+@SentinelResource(&quot;hot_Sentinel&quot;)
+public String hotMethod(
+        @RequestParam(value &#x3D; &quot;num1&quot;,required &#x3D; false) Integer num1,
+        @RequestParam(value &#x3D; &quot;num2&quot;,required &#x3D; false) Integer num2)&#123;
+    return num1+&quot;-&quot;+num2;
+&#125;</code></pre>
+
+<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193938.png" alt="image-20210317201756974" style="zoom:67%;" />
+
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193944.png" alt="image-20210317201956820" style="zoom:67%;" /><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193948.png" alt="image-20210317202259971"></p>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510194002.png" alt="image-20210317201956820" style="zoom:67%;" /><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510194006.png" alt="image-20210317202259971"></p>
+<h2 id="7-授权规则"><a href="#7-授权规则" class="headerlink" title="7. 授权规则"></a>7. 授权规则</h2><p>给指定的资源设置流控应用（追加参数），可以对流控应用进行访问权限的设置，具体就是添加白名单和黑名单。</p>
+<p>如何给请求指定流控应用，通过实现 RequestOriginParser 接口来完成，代码如下所示。</p>
+<blockquote>
+<p>配置下面的配置后，访问任何接口都需要带参数 **<code>“name”</code>**才能进行访问</p>
+</blockquote>
+<pre class="language-java" data-language="java"><code class="language-java">package lover.alice.config;
+
+import com.alibaba.csp.sentinel.adapter.servlet.callback.RequestOriginParser;
+import org.springframework.util.StringUtils;
+
+import javax.servlet.http.HttpServletRequest;
+
+public class RequestOriginParserDefinition implements RequestOriginParser &#123;
+    @Override
+    public String parseOrigin(HttpServletRequest httpServletRequest) &#123;
+        String name &#x3D; httpServletRequest.getParameter(&quot;name&quot;);
+        if(StringUtils.isEmpty(name))&#123;
+            throw new RuntimeException(&quot;name is null&quot;);
+        &#125;
+        return name;
+    &#125;
+&#125;</code></pre>
+
+<p>要让 RequestOriginParserDefinition 生效，需要在配置类中进行配置。</p>
+<pre class="language-java" data-language="java"><code class="language-java">@Configuration
+public class SentinelConfiguration &#123;
+
+    @PostConstruct
+    public void init()&#123;
+        WebCallbackManager.setRequestOriginParser(new RequestOriginParserDefinition());
+    &#125;
+&#125;</code></pre>
+
+<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510194016.png" alt="image-20210317203539661" style="zoom:67%;" />
+
+<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510194019.png" alt="image-20210317203742149" style="zoom:67%;" />]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring Boot</tag>
+        <tag>Spring Cloud</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Shiro学习笔记</title>
     <url>/2021/01/18/Shiro%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js"></script><p>这里是摘要</p>
@@ -2650,469 +3113,6 @@ public class ShiroController &#123;
         <tag>Spring Boot</tag>
         <tag>Shiro</tag>
         <tag>Thymeleaf</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spring Cloud Alibaba学习笔记</title>
-    <url>/2021/03/22/Spring%20Cloud%20Alibaba%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js"></script><p>这里是摘要</p>
-<span id="more"></span>
-
-<h1 id="一、创建Spring-Cloud-Alibaba工程"><a href="#一、创建Spring-Cloud-Alibaba工程" class="headerlink" title="一、创建Spring Cloud Alibaba工程"></a>一、创建Spring Cloud Alibaba工程</h1><p>Spring Cloud Alibaba使用2.2.1.RELEASE的情况下</p>
-<p>==spring boot版本过高不行==</p>
-<p><strong><code>2.3.4.RELEASE</code></strong> 可以</p>
-<p><strong><code>2.4.3</code></strong> 不行</p>
-<p>版本对应关系如下</p>
-<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193242.png" alt="image-20210510193242793"><br>最新版本消息记得在官网查看<br><a href="https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E">Spring Cloud Alibaba/Spring Boot版本说明</a></p>
-<p><strong>创建父工程</strong></p>
-<p>Spring Cloud Alibaba 的环境在父工程中创建，微服务的各个组件作为子工程，继承父工程的环境。</p>
-<p>Spring Boot —》Spring Cloud —》Spring Cloud Alibaba</p>
-<h2 id="1-pom文件中引入"><a href="#1-pom文件中引入" class="headerlink" title="1. pom文件中引入"></a>1. pom文件中引入</h2><pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencyManagement</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">></span></span>
-        <span class="token comment">&lt;!-- Spring Cloud Hoxton --></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-dependencies<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>Hoxton.SR3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>pom<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
-        <span class="token comment">&lt;!-- Spring Cloud Alibaba --></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-alibaba-dependencies<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.2.1.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>pom<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencyManagement</span><span class="token punctuation">></span></span></code></pre>
-
-<h2 id="2-Nacos-服务注册"><a href="#2-Nacos-服务注册" class="headerlink" title="2. Nacos 服务注册"></a>2. Nacos 服务注册</h2><p><strong>注册中心</strong></p>
-<p>nacos下载完成后，解压，启动即可使用</p>
-<p><a href="http://localhost:8848/nacos/">http://localhost:8848/nacos/</a></p>
-<h2 id="3-创建子工程，继承父工程"><a href="#3-创建子工程，继承父工程" class="headerlink" title="3. 创建子工程，继承父工程"></a>3. 创建子工程，继承父工程</h2><p>在父工程中 <strong><code>new module</code></strong> 创建子工程，不用引入任何依赖配置，直接继承父工程的</p>
-<h3 id="3-1-官方创建继承"><a href="#3-1-官方创建继承" class="headerlink" title="3.1 官方创建继承"></a>3.1 官方创建继承</h3><p>在子工程中的parent中写上父工程的内容即可</p>
-<p>父项目pom打包</p>
-<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>packaging</span><span class="token punctuation">></span></span>pom<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>packaging</span><span class="token punctuation">></span></span></code></pre>
-
-<p>子项目修改parent为父工程</p>
-<h3 id="3-2-阿里云创建继承"><a href="#3-2-阿里云创建继承" class="headerlink" title="3.2 阿里云创建继承"></a>3.2 阿里云创建继承</h3><p>因为阿里云创建的 pom 文件中没有 parent 标签</p>
-<p>在父工程的pom文件中加上</p>
-<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>packaging</span><span class="token punctuation">></span></span>pom<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>packaging</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>modules</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>module</span><span class="token punctuation">></span></span>&#123;子工程名&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>module</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>modules</span><span class="token punctuation">></span></span></code></pre>
-
-<p>在子工程的pom文件中加上</p>
-<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>parent</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>lover.Alice<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>&#123;父工程名&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>0.0.1-SNAPSHOT<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>parent</span><span class="token punctuation">></span></span></code></pre>
-
-<h2 id="4-nacos"><a href="#4-nacos" class="headerlink" title="4. nacos"></a>4. nacos</h2><h3 id="4-1-引入nacos"><a href="#4-1-引入nacos" class="headerlink" title="4.1 引入nacos"></a>4.1 引入nacos</h3><pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!-- nacos --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-alibaba-nacos-discovery<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.2.1.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
-
-<h3 id="4-2-配置nacos"><a href="#4-2-配置nacos" class="headerlink" title="4.2 配置nacos"></a>4.2 配置nacos</h3><p>（可以不写，默认就是下面这个）</p>
-<pre class="language-yaml" data-language="yaml"><code class="language-yaml">spring:
-  cloud:
-    nacos:
-      discovery:
-        server-addr: localhost:8848
-  application:
-    name: provider</code></pre>
-
-<h2 id="5-服务注册"><a href="#5-服务注册" class="headerlink" title="5. 服务注册"></a>5. 服务注册</h2><blockquote>
-<p>启动子工程，去nacos中看</p>
-</blockquote>
-<blockquote>
-<p>同时启动多个实例</p>
-</blockquote>
-<p><strong>IDEA中配置</strong></p>
-<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193848.png" alt="image-20210315202932474"><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193853.png" alt="image-20210315202948516"></p>
-<p>修改不同的端口号，就可以同时运行多次（同一个程序到不同端口）</p>
-<p>provider就有多个实例，可以进行配置负载均衡</p>
-<h2 id="6-服务发现"><a href="#6-服务发现" class="headerlink" title="6. 服务发现"></a>6. 服务发现</h2><blockquote>
-<p>RestTemplate</p>
-</blockquote>
-<p>在创建一个子工程 consumer</p>
-<p>引入nacos和父工程</p>
-<p>Controller层提供接口</p>
-<pre class="language-java" data-language="java"><code class="language-java">@ResponseBody
-@GetMapping(&quot;&#x2F;instances&quot;)
-public List&lt;ServiceInstance&gt; instances()&#123;
-    List&lt;ServiceInstance&gt; provider &#x3D; this.discoveryClient.getInstances(&quot;provider&quot;);	&#x2F;&#x2F;拿到provider实例
-    return provider;
-&#125;</code></pre>
-
-<p>访问接口就会根据实例名，</p>
-<p>得到注册到注册中心的实例。</p>
-<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193856.png" alt="image-20210315212721528" style="zoom:67%;" />
-
-<p>provider中提供简单的Controller方法，供consumer调用</p>
-<pre class="language-java" data-language="java"><code class="language-java">@Controller
-public class ProviderController &#123;
-
-    @Value(&quot;$&#123;server.port&#125;&quot;)
-    private String port;
-
-    @ResponseBody
-    @RequestMapping(&quot;&#x2F;index&quot;)
-    public String index()&#123;
-        return this.port;
-    &#125;
-&#125;</code></pre>
-
-<p>两个不同工程之间的调用需要用到</p>
-<p><strong><code>RestTemplate组件</code></strong></p>
-<p>spring容器中没有，要在配置类config中注册它：</p>
-<pre class="language-java" data-language="java"><code class="language-java">@Configuration
-public class ConsumerConfig &#123;
-    
-    @Bean
-    public RestTemplate restTemplate()&#123;
-        return new RestTemplate();
-    &#125;
-&#125;</code></pre>
-
-<p><strong>ConsumerController中进行调用provider实例中的 index 获取端口号的方法</strong></p>
-<pre class="language-java" data-language="java"><code class="language-java">@ResponseBody
-@RequestMapping(&quot;&#x2F;index&quot;)
-public String index()&#123;
-    &#x2F;&#x2F;1.拿到provider的某一个实例
-    List&lt;ServiceInstance&gt; provider &#x3D; this.discoveryClient.getInstances(&quot;provider&quot;);
-    int index &#x3D; ThreadLocalRandom.current().nextInt(provider.size());   
-    &#x2F;&#x2F;随机数，随即调用几个provider中的某一个&#x2F;&#x2F;真实项目不这么写，测试
-    ServiceInstance serviceInstance &#x3D; provider.get(index);              &#x2F;&#x2F;拿到一个provider实例
-
-    String url &#x3D; serviceInstance.getUri()+&quot;&#x2F;index&quot;;                     &#x2F;&#x2F;拼出完整调用路径
-    &#x2F;&#x2F;调用
-    String res &#x3D; restTemplate.getForObject(url, String.class);&#x2F;&#x2F;参数一：调用的URL，参数二：调用的方法的返回值类型
-    return &quot;调用了端口号为&quot;+serviceInstance.getPort()+&quot;的服务，得到的结果为&quot;+res;
-&#125;</code></pre>
-
-<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193859.png" alt="image-20210316171009441"></p>
-<p>调用就会随机调用provider中的一个，刷新端口号会变</p>
-<blockquote>
-<p>Feign</p>
-</blockquote>
-<p>将调用和被调用的服务都在Nacos注册中心进行注册</p>
-<p>Feign服务调用</p>
-<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--        Feign--></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-openfeign<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.2.6.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
-
-<p>client中</p>
-<pre class="language-java" data-language="java"><code class="language-java">@FeignClient(&quot;Alice-blog-oss&quot;)
-@Component
-public interface OssClient &#123;
-    &#x2F;**
-     * 写vodController层中的方法，路径写成完整的，参数什么的和Controller中的一致
-     * @PathVariable(&quot;id&quot;) 这个注解在这里必须指定参数的名称，否则会出错
-     * 不能只写注解，要在（）中加对应名称
-     *&#x2F;
-    &#x2F;&#x2F;根据图片文件URL删除阿里云OSS中的文件（Alice-blog-oss中的方法）
-    &#x2F;&#x2F;删除OSS文件的方法
-    @DeleteMapping(&quot;&#x2F;aliceblog_oss&#x2F;fileoss&#x2F;deleteOne&#x2F;&#123;url&#125;&quot;)
-    public void deleteOssFile(@PathVariable(&quot;url&quot;) String url);
-&#125;</code></pre>
-
-<p>Controller层即可注入client调用方法</p>
-<h1 id="二、Ribbon"><a href="#二、Ribbon" class="headerlink" title="二、Ribbon"></a>二、Ribbon</h1><p><strong>引入Spring Cloud，自动引入Ribbon</strong></p>
-<p>对 RestTemplate 的整合</p>
-<h2 id="1-RestTemplate配置类上加注解"><a href="#1-RestTemplate配置类上加注解" class="headerlink" title="1. RestTemplate配置类上加注解"></a>1. RestTemplate配置类上加注解</h2><p>加 ==<strong>@LoadBalance</strong>== 注解</p>
-<pre class="language-java" data-language="java"><code class="language-java">@Configuration
-public class ConsumerConfig &#123;
-
-    @Bean
-    @LoadBalanced
-    public RestTemplate restTemplate()&#123;
-        return new RestTemplate();
-    &#125;
-&#125;</code></pre>
-
-<h2 id="2-ConsumerController-中调用provider中的方法"><a href="#2-ConsumerController-中调用provider中的方法" class="headerlink" title="2. ConsumerController 中调用provider中的方法"></a>2. ConsumerController 中调用provider中的方法</h2><pre class="language-java" data-language="java"><code class="language-java">@ResponseBody
-@RequestMapping(&quot;&#x2F;index&quot;)
-public String index()&#123;
-    return restTemplate.getForObject(&quot;http:&#x2F;&#x2F;provider&#x2F;index&quot;,String.class);	&#x2F;&#x2F;只需要这样写URL即可
-&#125;</code></pre>
-
-<p>直接调用RestTemplate的方法，==<u><em>URL：http://提供者实例名/提供者的方法</em></u>==  即可完成调用</p>
-<p><strong>会发现调用的provider实例是按顺序循环调用的</strong></p>
-<h2 id="3-Ribbon算法"><a href="#3-Ribbon算法" class="headerlink" title="3. Ribbon算法"></a>3. Ribbon算法</h2><h3 id="3-1-轮询算法"><a href="#3-1-轮询算法" class="headerlink" title="3.1 轮询算法"></a>3.1 轮询算法</h3><p>默认基于轮询算法依次调用：8082-8081-8080-8082-8081-8080……</p>
-<h3 id="3-2-随机算法"><a href="#3-2-随机算法" class="headerlink" title="3.2 随机算法"></a>3.2 随机算法</h3><p>yaml配置文件中加上</p>
-<pre class="language-yaml" data-language="yaml"><code class="language-yaml">provider:
-  ribbon:
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule</code></pre>
-
-<h2 id="4-权重算法"><a href="#4-权重算法" class="headerlink" title="4. 权重算法"></a>4. 权重算法</h2><p>基于nacos中对每个实例设置的权重进行选择，权重越大的实例被选中的概率越高</p>
-<p>写配置类：类名 <strong><code>NacosWeightedRule</code></strong></p>
-<pre class="language-java" data-language="java"><code class="language-java">import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
-import com.alibaba.cloud.nacos.ribbon.NacosServer;
-import com.alibaba.nacos.api.exception.NacosException;
-import com.alibaba.nacos.api.naming.NamingService;
-import com.alibaba.nacos.api.naming.pojo.Instance;
-import com.netflix.client.config.IClientConfig;
-import com.netflix.loadbalancer.AbstractLoadBalancerRule;
-import com.netflix.loadbalancer.BaseLoadBalancer;
-import com.netflix.loadbalancer.ILoadBalancer;
-import com.netflix.loadbalancer.Server;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-
-@Slf4j
-public class NacosWeightedRule extends AbstractLoadBalancerRule &#123;
-
-    @Autowired
-    private NacosDiscoveryProperties nacosDiscoveryProperties;
-
-    @Override
-    public void initWithNiwsConfig(IClientConfig iClientConfig) &#123;
-        &#x2F;&#x2F;读取配置文件
-    &#125;
-
-    @Override
-    public Server choose(Object o) &#123;
-        ILoadBalancer loadBalancer &#x3D; this.getLoadBalancer();
-        BaseLoadBalancer baseLoadBalancer &#x3D; (BaseLoadBalancer) loadBalancer;
-        &#x2F;&#x2F;获取要请求的微服务名称
-        String name &#x3D; baseLoadBalancer.getName();
-        &#x2F;&#x2F;获取服务发现的相关API
-        NamingService namingService &#x3D; nacosDiscoveryProperties.namingServiceInstance();
-        try &#123;
-            Instance instance &#x3D; namingService.selectOneHealthyInstance(name);
-            log.info(&quot;选择的实例是port&#x3D;&#123;&#125;,instance&#x3D;&#123;&#125;&quot;,instance.getPort(),instance);
-            return new NacosServer(instance);
-        &#125; catch (NacosException e) &#123;
-            e.printStackTrace();
-            return null;
-        &#125;
-    &#125;
-&#125;</code></pre>
-
-<p>yaml中配置</p>
-<pre class="language-yaml" data-language="yaml"><code class="language-yaml">provider:
-  ribbon:
-    NFLoadBalancerRuleClassName: com.southwind.configuration.NacosWeightedRule</code></pre>
-
-
-
-
-
-<hr>
-<h1 id="三、Sentinel-服务限流降级"><a href="#三、Sentinel-服务限流降级" class="headerlink" title="三、Sentinel 服务限流降级"></a>三、Sentinel 服务限流降级</h1><p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193908.png" alt="image-20210316205130291"></p>
-<h2 id="1-降级，限流，熔断"><a href="#1-降级，限流，熔断" class="headerlink" title="1. 降级，限流，熔断"></a>1. 降级，限流，熔断</h2><blockquote>
-<p>降级：访问量大的出现，限制一些功能的使用，只提供部分功能</p>
-<pre><code>        比如之前能提供5个功能，限制访问的太多，只给你提供三个功能，来减轻压力
-</code></pre>
-<p>限流：比如规定10个访问量，第11个就进不来，给你抛异常</p>
-<p>熔断：比如要调用别人，对方出现故障，则熔断不允许访问</p>
-<p>降级和限流是应对自身系统的故障，熔断是应对外部系统的故障</p>
-</blockquote>
-<h2 id="2-使用步骤"><a href="#2-使用步骤" class="headerlink" title="2. 使用步骤"></a>2. 使用步骤</h2><h3 id="2-1-引入相关依赖"><a href="#2-1-引入相关依赖" class="headerlink" title="2.1 引入相关依赖"></a>2.1 引入相关依赖</h3><p>provider 的 pom.xml中引入</p>
-<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--  sentinel 对流量进行控制      --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-alibaba-sentinel<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.2.1.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
-
-<span class="token comment">&lt;!--    actuator 对流量进行收集  --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-actuator<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
-
-<h3 id="2-2-配置"><a href="#2-2-配置" class="headerlink" title="2.2 配置"></a>2.2 配置</h3><blockquote>
-<p><strong>把当前provider提供的服务全部开放出来，让actuator进行接收，让Sentinel进行流量控制</strong></p>
-</blockquote>
-<pre class="language-yaml" data-language="yaml"><code class="language-yaml">management:
-  endpoints:
-    web:
-      exposure:
-        include: &#39;*&#39;
-
-
-# 配置Sentinel控制台
-spring:
-  cloud:
-    sentinel:
-      transport:
-        dashboard: localhost:8080
-
-</code></pre>
-
-<h3 id="2-3-启动"><a href="#2-3-启动" class="headerlink" title="2.3 启动"></a>2.3 启动</h3><p>启动Sentinel.jar  默认8080端口</p>
-<p>启动nacos</p>
-<p>访问provider中的接口，即可在Sentinel中进行监控</p>
-<ul>
-<li><h4 id="阈值类型："><a href="#阈值类型：" class="headerlink" title="阈值类型："></a>阈值类型：</h4><ul>
-<li>QPS ：每秒访问次数</li>
-<li>线程数</li>
-</ul>
-</li>
-<li><h4 id="单机阈值：设置每秒最大被访问的次数。访问超过次数的请求就会返回错误Blocked-by-Sentinel-flow-limiting"><a href="#单机阈值：设置每秒最大被访问的次数。访问超过次数的请求就会返回错误Blocked-by-Sentinel-flow-limiting" class="headerlink" title="单机阈值：设置每秒最大被访问的次数。访问超过次数的请求就会返回错误Blocked by Sentinel (flow limiting)"></a>单机阈值：设置每秒最大被访问的次数。访问超过次数的请求就会返回错误<code>Blocked by Sentinel (flow limiting)</code></h4></li>
-</ul>
-<h2 id="3-流控模式"><a href="#3-流控模式" class="headerlink" title="3. 流控模式"></a>3. 流控模式</h2><ul>
-<li><h4 id="流控模式："><a href="#流控模式：" class="headerlink" title="流控模式："></a>流控模式：</h4><ul>
-<li><h5 id="直接"><a href="#直接" class="headerlink" title="直接"></a>直接</h5></li>
-<li><h5 id="关联：对-index设置一个关联资源-list，list访问量超过阈值，对-index进行限流"><a href="#关联：对-index设置一个关联资源-list，list访问量超过阈值，对-index进行限流" class="headerlink" title="关联：对/index设置一个关联资源/list，list访问量超过阈值，对/index进行限流"></a>关联：对/index设置一个关联资源/list，list访问量超过阈值，对/index进行限流</h5></li>
-<li><h4 id="链路：直接和关联限流只能对Controller层入口进行限流，链路限流可针对其他入口进行限流"><a href="#链路：直接和关联限流只能对Controller层入口进行限流，链路限流可针对其他入口进行限流" class="headerlink" title="链路：直接和关联限流只能对Controller层入口进行限流，链路限流可针对其他入口进行限流"></a>链路：直接和关联限流只能对Controller层入口进行限流，链路限流可针对其他入口进行限流</h4><ul>
-<li><p>高版本1.7以上Sentinel需要进行配置：默认对其他入口收敛，需要配置开放他们，进行限流</p>
-<ul>
-<li><p>pom文件中加入依赖：</p>
-<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.csp<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>sentinel-core<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.7.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.csp<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>sentinel-web-servlet<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.7.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre></li>
-<li><p>加入以下yaml配置</p>
-<pre class="language-yaml" data-language="yaml"><code class="language-yaml">spring:
-  cloud:
-    sentinel:
-      filter:
-        enabled: false</code></pre></li>
-<li><p>定义Filter配置类：</p>
-<pre class="language-java" data-language="java"><code class="language-java">package lover.alice.config;
-
-
-import com.alibaba.csp.sentinel.adapter.servlet.CommonFilter;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
-@Configuration
-public class FilterConfig &#123;
-    @Bean
-    public FilterRegistrationBean registrationBean()&#123;
-        FilterRegistrationBean registrationBean &#x3D; new FilterRegistrationBean();
-        registrationBean.setFilter(new CommonFilter());
-        registrationBean.addUrlPatterns(&quot;&#x2F;*&quot;);
-        registrationBean.addInitParameter(CommonFilter.WEB_CONTEXT_UNIFY,&quot;false&quot;);
-        registrationBean.setName(&quot;sentinelFilter&quot;);
-        return registrationBean;
-    &#125;
-&#125;
-</code></pre></li>
-<li><p>Service层</p>
-<pre class="language-java" data-language="java"><code class="language-java">@Service
-public class TestService &#123;
-
-    @SentinelResource(&quot;ServiceTest&quot;)
-    public String test()&#123;
-        return &quot;test&quot;;
-    &#125;
-&#125;
-</code></pre></li>
-<li><p>Controller层</p>
-<pre class="language-java" data-language="java"><code class="language-java">@ResponseBody
-@RequestMapping(&quot;&#x2F;ControllerTest&quot;)
-public String testService()&#123;
-    return service.test();
-&#125;</code></pre></li>
-<li><p>访问接口，观察Sentinel控制台</p>
-<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193914.png" alt="image-20210317192435278"></p>
-</li>
-<li><p>然后就可以对Service层进行限流</p>
-</li>
-</ul>
-<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193915.png" alt="image-20210317192933834" style="zoom:67%;" />
-
-<ul>
-<li><p>对/ControllerTest访问ServiceTest进行限流，保护Service层</p>
-<p><strong>/ControllerTest访问ServiceTest每秒次数达到阈值，则进行限流，其他Controller访问ServiceTest不被限流</strong></p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="4-流控效果"><a href="#4-流控效果" class="headerlink" title="4. 流控效果"></a>4. 流控效果</h2><ul>
-<li><h3 id="快速失败：流量超标-gt-抛异常"><a href="#快速失败：流量超标-gt-抛异常" class="headerlink" title="快速失败：流量超标-&gt;抛异常"></a>快速失败：流量超标-&gt;抛异常</h3></li>
-<li><h3 id="Warm-Up"><a href="#Warm-Up" class="headerlink" title="Warm Up"></a>Warm Up</h3><p>程序刚启动，需要预热过程，刚启动到达到最佳状态需要预热时间</p>
-<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193917.png" alt="image-20210317194052665" style="zoom:67%;" /></li>
-<li><h3 id="排队等待"><a href="#排队等待" class="headerlink" title="排队等待"></a>排队等待</h3><p>请求调用失败，不会立即抛异常，会等待下一次调用，下次调用可以则调通，调不通则抛异常</p>
-<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193917.png" alt="image-20210317194635206" style="zoom:67%;" /></li>
-</ul>
-<h2 id="5-降级"><a href="#5-降级" class="headerlink" title="5. 降级"></a>5. 降级</h2><h3 id="5-1-RT"><a href="#5-1-RT" class="headerlink" title="5.1 RT"></a>5.1 RT</h3><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193926.png" alt="image-20210317195916257" style="zoom:67%;" />
-
-<p>0.1毫秒太苛刻，实际不会这么定</p>
-<h3 id="5-2-异常比例"><a href="#5-2-异常比例" class="headerlink" title="5.2 异常比例"></a>5.2 异常比例</h3><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193928.png" alt="image-20210317200304608" style="zoom:67%;" />
-
-<h3 id="5-3-异常数"><a href="#5-3-异常数" class="headerlink" title="5.3 异常数"></a>5.3 异常数</h3><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193932.png" alt="image-20210317200602057" style="zoom:67%;" />
-
-<h2 id="6-热点规则"><a href="#6-热点规则" class="headerlink" title="6. 热点规则"></a>6. 热点规则</h2><p>热点规则是流控规则的更细粒度操作，可以具体到对某个热点参数的限流，设置限流之后，如果带着限流参数的请求量超过阈值，则进行限流，时间为统计窗口时长。</p>
-<p>必须要添加 **<code>@SentinelResource</code>**，即对资源进行流控。</p>
-<pre class="language-java" data-language="java"><code class="language-java">@ResponseBody
-@GetMapping(&quot;&#x2F;hot&quot;)
-@SentinelResource(&quot;hot_Sentinel&quot;)
-public String hotMethod(
-        @RequestParam(value &#x3D; &quot;num1&quot;,required &#x3D; false) Integer num1,
-        @RequestParam(value &#x3D; &quot;num2&quot;,required &#x3D; false) Integer num2)&#123;
-    return num1+&quot;-&quot;+num2;
-&#125;</code></pre>
-
-<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193938.png" alt="image-20210317201756974" style="zoom:67%;" />
-
-<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193944.png" alt="image-20210317201956820" style="zoom:67%;" /><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193948.png" alt="image-20210317202259971"></p>
-<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510194002.png" alt="image-20210317201956820" style="zoom:67%;" /><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510194006.png" alt="image-20210317202259971"></p>
-<h2 id="7-授权规则"><a href="#7-授权规则" class="headerlink" title="7. 授权规则"></a>7. 授权规则</h2><p>给指定的资源设置流控应用（追加参数），可以对流控应用进行访问权限的设置，具体就是添加白名单和黑名单。</p>
-<p>如何给请求指定流控应用，通过实现 RequestOriginParser 接口来完成，代码如下所示。</p>
-<blockquote>
-<p>配置下面的配置后，访问任何接口都需要带参数 **<code>“name”</code>**才能进行访问</p>
-</blockquote>
-<pre class="language-java" data-language="java"><code class="language-java">package lover.alice.config;
-
-import com.alibaba.csp.sentinel.adapter.servlet.callback.RequestOriginParser;
-import org.springframework.util.StringUtils;
-
-import javax.servlet.http.HttpServletRequest;
-
-public class RequestOriginParserDefinition implements RequestOriginParser &#123;
-    @Override
-    public String parseOrigin(HttpServletRequest httpServletRequest) &#123;
-        String name &#x3D; httpServletRequest.getParameter(&quot;name&quot;);
-        if(StringUtils.isEmpty(name))&#123;
-            throw new RuntimeException(&quot;name is null&quot;);
-        &#125;
-        return name;
-    &#125;
-&#125;</code></pre>
-
-<p>要让 RequestOriginParserDefinition 生效，需要在配置类中进行配置。</p>
-<pre class="language-java" data-language="java"><code class="language-java">@Configuration
-public class SentinelConfiguration &#123;
-
-    @PostConstruct
-    public void init()&#123;
-        WebCallbackManager.setRequestOriginParser(new RequestOriginParserDefinition());
-    &#125;
-&#125;</code></pre>
-
-<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510194016.png" alt="image-20210317203539661" style="zoom:67%;" />
-
-<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510194019.png" alt="image-20210317203742149" style="zoom:67%;" />]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Spring Boot</tag>
-        <tag>Spring Cloud</tag>
       </tags>
   </entry>
   <entry>
