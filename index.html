@@ -61,11 +61,6 @@
       
 <section class="cover">
     
-      
-      <a class="forkMe" href="https://github.com/Shen-Yu/hexo-theme-ayer"
-        target="_blank"><img width="149" height="149" src="/images/forkme.png"
-          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
-    
   <div class="cover-frame">
     <div class="bg-box">
       <img src="/images/cover1.jpg" alt="image frame" />
@@ -111,22 +106,6 @@
   
 <div id="main">
   <section class="outer">
-  
-  <ul class="ads">
-    
-        <li>
-            <a target="_blank" rel="noopener" href="https://curl.qcloud.com/kvO7hb43">
-                <img src="https://pic.imgdb.cn/item/62174b452ab3f51d912a5ccc.jpg" width="300" alt="云服务器限时秒杀">
-            </a>
-        </li>
-    
-        <li>
-            <a target="_blank" rel="noopener" href="https://www.vultr.com/?ref=8630075">
-                <img src="https://pic.imgdb.cn/item/62174b452ab3f51d912a5cd7.png" width="300" alt="vultr优惠vps">
-            </a>
-        </li>
-    
-</ul>
   
   
   
@@ -211,7 +190,7 @@
   <blockquote>
 <h1 id="BEST"><a href="#BEST" class="headerlink" title="BEST"></a>BEST</h1><h2 id="BEST-1"><a href="#BEST-1" class="headerlink" title="BEST"></a>BEST</h2><h3 id="BEST-2"><a href="#BEST-2" class="headerlink" title="BEST"></a>BEST</h3><h1 id="WISHES"><a href="#WISHES" class="headerlink" title="WISHES"></a>WISHES</h1><h2 id="TO-YOU✧-≖-◡-≖✿"><a href="#TO-YOU✧-≖-◡-≖✿" class="headerlink" title="TO YOU✧(≖ ◡ ≖✿)"></a>TO YOU✧(≖ ◡ ≖✿)</h2></blockquote>
 
-    <div id="aplayer-YUDbVpVp" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-PpIjieRq" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="7137869957" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#FF4081"
     ></div> 
       <a class="article-more-link" href="/2021/12/24/apple/"
@@ -274,17 +253,17 @@
 
 <p>Docker：<a target="_blank" rel="noopener" href="https://hub.docker.com/">hub.docker.com</a></p>
 <p>参考视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1CJ411T7BK">黑马程序员Docker容器化技术，从零学会Docker教程</a></p>
-<h1 id="Ⅰ、初始Docker"><a href="#Ⅰ、初始Docker" class="headerlink" title="Ⅰ、初始Docker"></a>Ⅰ、初始Docker</h1><h2 id="一、安装Docker"><a href="#一、安装Docker" class="headerlink" title="一、安装Docker"></a>一、安装Docker</h2><pre><code class="shell"># 1、yum 包更新到最新 
+<h1 id="Ⅰ、初始Docker"><a href="#Ⅰ、初始Docker" class="headerlink" title="Ⅰ、初始Docker"></a>Ⅰ、初始Docker</h1><h2 id="一、安装Docker"><a href="#一、安装Docker" class="headerlink" title="一、安装Docker"></a>一、安装Docker</h2><pre class="language-bash" data-language="bash"><code class="language-bash"># 1、yum 包更新到最新 
 yum update
 # 2、安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的 
 yum install -y yum-utils device-mapper-persistent-data lvm2
 # 3、 设置yum源
-yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+yum-config-manager --add-repo https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;centos&#x2F;docker-ce.repo
 # 4、 安装docker，出现输入的界面都按 y 
 yum install -y docker-ce
 # 5、 查看docker版本，验证是否验证成功
-docker -v
-</code></pre>
+docker -v</code></pre>
+
 <h2 id="二、Docker架构"><a href="#二、Docker架构" class="headerlink" title="二、Docker架构"></a>二、Docker架构</h2><p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210914191429.png" alt="image-20210914191422158"></p>
 <ul>
 <li><p><strong>镜像（Image）：Docker 镜像（Image），就相当于是一个 root 文件系统。比如官方镜像 ubuntu:16.04 就包含了完整的一套 Ubuntu16.04 最小系统的 root 文件系统。</strong></p>
@@ -298,7 +277,7 @@ docker -v
 <p>速度慢，配置镜像加速器↓</p>
 <p><strong>阿里云容器镜像服务</strong></p>
 <hr>
-<h1 id="Ⅱ、Docker命令"><a href="#Ⅱ、Docker命令" class="headerlink" title="Ⅱ、Docker命令"></a>Ⅱ、Docker命令</h1><h2 id="一、服务相关命令"><a href="#一、服务相关命令" class="headerlink" title="一、服务相关命令"></a>一、服务相关命令</h2><pre><code class="bash">#启动docker服务:
+<h1 id="Ⅱ、Docker命令"><a href="#Ⅱ、Docker命令" class="headerlink" title="Ⅱ、Docker命令"></a>Ⅱ、Docker命令</h1><h2 id="一、服务相关命令"><a href="#一、服务相关命令" class="headerlink" title="一、服务相关命令"></a>一、服务相关命令</h2><pre class="language-bash" data-language="bash"><code class="language-bash">#启动docker服务:
 systemctl start docker 
 
 #停止docker服务:
@@ -311,9 +290,9 @@ systemctl restart docker
 systemctl status docker
 
 #设置开机启动docker服务:
-systemctl enable docker
-</code></pre>
-<h2 id="二、镜像相关命令"><a href="#二、镜像相关命令" class="headerlink" title="二、镜像相关命令"></a>二、镜像相关命令</h2><pre><code class="bash">#查看镜像: 查看本地所有的镜像
+systemctl enable docker</code></pre>
+
+<h2 id="二、镜像相关命令"><a href="#二、镜像相关命令" class="headerlink" title="二、镜像相关命令"></a>二、镜像相关命令</h2><pre class="language-bash" data-language="bash"><code class="language-bash">#查看镜像: 查看本地所有的镜像
 docker images
 docker images –q # 查看所用镜像的id
 
@@ -325,9 +304,9 @@ docker pull 镜像名称
 
 #删除镜像: 删除本地镜像
 docker rmi 镜像id # 删除指定本地镜像
-docker rmi `docker images -q`  # 删除所有本地镜像
-</code></pre>
-<h2 id="三、容器相关命令"><a href="#三、容器相关命令" class="headerlink" title="三、容器相关命令"></a>三、容器相关命令</h2><pre><code class="bash">#查看容器
+docker rmi &#96;docker images -q&#96;  # 删除所有本地镜像</code></pre>
+
+<h2 id="三、容器相关命令"><a href="#三、容器相关命令" class="headerlink" title="三、容器相关命令"></a>三、容器相关命令</h2><pre class="language-bash" data-language="bash"><code class="language-bash">#查看容器
 docker ps # 查看正在运行的容器
 docker ps –a # 查看所有容器
 docker ps -aq #查看所有容器id
@@ -340,12 +319,14 @@ docker run 参数
 -t：为容器重新分配一个伪输入终端，通常与 -i 同时使用。
 -d：以守护（后台）模式运行容器。创建一个容器在后台运行，需要使用docker exec 进入容器。退出后，容器不会关闭。
 -it 创建的容器一般称为交互式容器，-id 创建的容器一般称为守护式容器
---name：为创建的容器命名。
-</code></pre>
-<pre><code class="bash">#进入容器
+--name：为创建的容器命名。</code></pre>
+
+
+
+<pre class="language-bash" data-language="bash"><code class="language-bash">#进入容器
 docker exec 参数 # 退出容器，容器不会关闭
 #example
-docker exec -it c_mysql /bin/bash
+docker exec -it c_mysql &#x2F;bin&#x2F;bash
 
 #停止容器
 docker stop 容器名称
@@ -355,11 +336,11 @@ docker start 容器名称
 
 #删除容器：如果容器是运行状态则删除失败，需要停止容器才能删除
 docker rm 容器名称
-docker rm `docker ps -aq` #删除所有容器（不能删除正在运行的容器）
+docker rm &#96;docker ps -aq&#96; #删除所有容器（不能删除正在运行的容器）
 
 #查看容器信息
-docker inspect 容器名称
-</code></pre>
+docker inspect 容器名称</code></pre>
+
 <h1 id="Ⅲ、Docker容器数据卷"><a href="#Ⅲ、Docker容器数据卷" class="headerlink" title="Ⅲ、Docker容器数据卷"></a>Ⅲ、Docker容器数据卷</h1><h2 id="一、数据卷概念及作用"><a href="#一、数据卷概念及作用" class="headerlink" title="一、数据卷概念及作用"></a>一、数据卷概念及作用</h2><p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210915102658.png" alt="image-20210915102651733"></p>
 <blockquote>
 <p>Docker 容器删除后，在容器中产生的数据也会随之销毁</p>
@@ -391,11 +372,11 @@ docker inspect 容器名称
 <li><p>容器之间数据交换</p>
 </li>
 </ol>
-<h2 id="二、配置数据卷"><a href="#二、配置数据卷" class="headerlink" title="二、配置数据卷"></a>二、配置数据卷</h2><pre><code class="bash">#创建启动容器时，使用 –v 参数 设置数据卷
+<h2 id="二、配置数据卷"><a href="#二、配置数据卷" class="headerlink" title="二、配置数据卷"></a>二、配置数据卷</h2><pre class="language-bash" data-language="bash"><code class="language-bash">#创建启动容器时，使用 –v 参数 设置数据卷
 docker run ... –v 宿主机目录(文件):容器内目录(文件) ... 
 #example
-docker run -it --name=c1 -v ~/data:/root/data_container centos:7
-</code></pre>
+docker run -it --name&#x3D;c1 -v ~&#x2F;data:&#x2F;root&#x2F;data_container centos:7</code></pre>
+
 <p>注意事项：</p>
 <ol>
 <li><p>目录必须是绝对路径</p>
@@ -420,45 +401,45 @@ docker run -it --name=c1 -v ~/data:/root/data_container centos:7
 <ol>
 <li>创建启动c3数据卷容器，使用 –v 参数 设置数据卷</li>
 </ol>
-<pre><code class="bash">docker run –it --name=c3 –v /volume centos:7 /bin/bash 
-#会默认在宿主机创建一个文件夹作为数据卷
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker run –it --name&#x3D;c3 –v &#x2F;volume centos:7 &#x2F;bin&#x2F;bash 
+#会默认在宿主机创建一个文件夹作为数据卷</code></pre>
+
 <ol start="2">
 <li>创建启动 c1 c2 容器，使用 –-volumes-from 参数 设置数据卷</li>
 </ol>
-<pre><code class="bash">docker run –it --name=c1 --volumes-from c3 centos:7 /bin/bash
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker run –it --name&#x3D;c1 --volumes-from c3 centos:7 &#x2F;bin&#x2F;bash
 
-docker run –it --name=c2 --volumes-from c3 centos:7 /bin/bash  
-</code></pre>
+docker run –it --name&#x3D;c2 --volumes-from c3 centos:7 &#x2F;bin&#x2F;bash  </code></pre>
+
 <p>这样三个容器会绑定同一个数据卷</p>
 <p><strong>创建一个容器，挂载一个目录，让其他容器继承自该容器（–volume-from）</strong></p>
 <hr>
 <h1 id="Ⅳ、Docker应用部署"><a href="#Ⅳ、Docker应用部署" class="headerlink" title="Ⅳ、Docker应用部署"></a>Ⅳ、Docker应用部署</h1><h2 id="一、MySQL部署"><a href="#一、MySQL部署" class="headerlink" title="一、MySQL部署"></a>一、MySQL部署</h2><ol>
 <li>搜索mysql镜像</li>
 </ol>
-<pre><code class="bash">docker search mysql
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker search mysql</code></pre>
+
 <ol start="2">
 <li>拉取mysql镜像</li>
 </ol>
-<pre><code class="shell">docker pull mysql:5.6
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker pull mysql:5.6</code></pre>
+
 <ol start="3">
 <li>创建容器，设置端口映射、目录映射</li>
 </ol>
-<pre><code class="shell"># 在/root目录下创建mysql目录用于存储mysql数据信息
-mkdir ~/mysql
-cd ~/mysql
-</code></pre>
-<pre><code class="shell">docker run -id \
--p 3307:3306 \                        # 端口映射：通常会将3306映射3306
---name=c_mysql \                    # 容器名称
--v $PWD/conf:/etc/mysql/conf.d \    # 这里$PWD 就是/root/mysql 这里是配置文件目录映射，在这里修改配置
--v $PWD/logs:/logs \                # 这里是日志文件目录映射
--v $PWD/data:/var/lib/mysql \        # 这里是数据文件目录映射
--e MYSQL_ROOT_PASSWORD=123456 \        # MySQL对应环境变量，设置MySQL root用户的密码
-mysql:5.6                            # 使用MySQL镜像，版本5.6
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash"># 在&#x2F;root目录下创建mysql目录用于存储mysql数据信息
+mkdir ~&#x2F;mysql
+cd ~&#x2F;mysql</code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker run -id \
+-p 3307:3306 \						# 端口映射：通常会将3306映射3306
+--name&#x3D;c_mysql \					# 容器名称
+-v $PWD&#x2F;conf:&#x2F;etc&#x2F;mysql&#x2F;conf.d \	# 这里$PWD 就是&#x2F;root&#x2F;mysql 这里是配置文件目录映射，在这里修改配置
+-v $PWD&#x2F;logs:&#x2F;logs \				# 这里是日志文件目录映射
+-v $PWD&#x2F;data:&#x2F;var&#x2F;lib&#x2F;mysql \		# 这里是数据文件目录映射
+-e MYSQL_ROOT_PASSWORD&#x3D;123456 \		# MySQL对应环境变量，设置MySQL root用户的密码
+mysql:5.6							# 使用MySQL镜像，版本5.6</code></pre>
+
 <ul>
 <li>参数说明：<ul>
 <li><strong>-p 3307:3306</strong>：将容器的 3306 端口映射到宿主机的 3307 端口。</li>
@@ -472,30 +453,30 @@ mysql:5.6                            # 使用MySQL镜像，版本5.6
 <ol start="4">
 <li>进入容器，操作mysql</li>
 </ol>
-<pre><code class="bash">docker exec –it c_mysql /bin/bash
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker exec –it c_mysql &#x2F;bin&#x2F;bash</code></pre>
+
 <h2 id="二、Tomcat部署"><a href="#二、Tomcat部署" class="headerlink" title="二、Tomcat部署"></a>二、Tomcat部署</h2><h3 id=""><a href="#" class="headerlink" title=""></a></h3><ol>
 <li>搜索tomcat镜像</li>
 </ol>
-<pre><code class="shell">docker search tomcat
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker search tomcat</code></pre>
+
 <ol start="2">
 <li>拉取tomcat镜像</li>
 </ol>
-<pre><code class="shell">docker pull tomcat
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker pull tomcat</code></pre>
+
 <ol start="3">
 <li>创建容器，设置端口映射、目录映射</li>
 </ol>
-<pre><code class="shell"># 在/root目录下创建tomcat目录用于存储tomcat数据信息
-mkdir ~/tomcat
-cd ~/tomcat
-</code></pre>
-<pre><code class="shell">docker run -id --name=c_tomcat \
--p 8080:8080 \                            # 端口映射
--v $PWD:/usr/local/tomcat/webapps \        #这里是把宿主机的~/tomcat目录映射到容器中的webapps目录
-tomcat 
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash"># 在&#x2F;root目录下创建tomcat目录用于存储tomcat数据信息
+mkdir ~&#x2F;tomcat
+cd ~&#x2F;tomcat</code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker run -id --name&#x3D;c_tomcat \
+-p 8080:8080 \							# 端口映射
+-v $PWD:&#x2F;usr&#x2F;local&#x2F;tomcat&#x2F;webapps \		#这里是把宿主机的~&#x2F;tomcat目录映射到容器中的webapps目录
+tomcat </code></pre>
+
 <ul>
 <li><p>参数说明：</p>
 <ul>
@@ -508,29 +489,29 @@ tomcat
 <h2 id="三、Nginx部署"><a href="#三、Nginx部署" class="headerlink" title="三、Nginx部署"></a>三、Nginx部署</h2><ol>
 <li>搜索nginx镜像</li>
 </ol>
-<pre><code class="shell">docker search nginx
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker search nginx</code></pre>
+
 <ol start="2">
 <li>拉取nginx镜像</li>
 </ol>
-<pre><code class="shell">docker pull nginx
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker pull nginx</code></pre>
+
 <ol start="3">
 <li>创建容器，设置端口映射、目录映射</li>
 </ol>
-<pre><code class="shell"># 在/root目录下创建nginx目录用于存储nginx数据信息
-mkdir ~/nginx
-cd ~/nginx
+<pre class="language-bash" data-language="bash"><code class="language-bash"># 在&#x2F;root目录下创建nginx目录用于存储nginx数据信息
+mkdir ~&#x2F;nginx
+cd ~&#x2F;nginx
 mkdir conf
 cd conf
-# 在~/nginx/conf/下创建nginx.conf文件,粘贴下面内容
-vim nginx.conf
-</code></pre>
-<pre><code class="shell">user  nginx;
+# 在~&#x2F;nginx&#x2F;conf&#x2F;下创建nginx.conf文件,粘贴下面内容
+vim nginx.conf</code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash">user  nginx;
 worker_processes  1;
 
-error_log  /var/log/nginx/error.log warn;
-pid        /var/run/nginx.pid;
+error_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;error.log warn;
+pid        &#x2F;var&#x2F;run&#x2F;nginx.pid;
 
 
 events &#123;
@@ -539,14 +520,14 @@ events &#123;
 
 
 http &#123;
-    include       /etc/nginx/mime.types;
-    default_type  application/octet-stream;
+    include       &#x2F;etc&#x2F;nginx&#x2F;mime.types;
+    default_type  application&#x2F;octet-stream;
 
     log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;
                       &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;
                       &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;
 
-    access_log  /var/log/nginx/access.log  main;
+    access_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log  main;
 
     sendfile        on;
     #tcp_nopush     on;
@@ -555,17 +536,21 @@ http &#123;
 
     #gzip  on;
 
-    include /etc/nginx/conf.d/*.conf;
+    include &#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;*.conf;
 &#125;
 
 </code></pre>
-<pre><code class="shell">docker run -id --name=c_nginx \
+
+
+
+
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker run -id --name&#x3D;c_nginx \
 -p 80:80 \
--v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf \
--v $PWD/logs:/var/log/nginx \
--v $PWD/html:/usr/share/nginx/html \
-nginx
-</code></pre>
+-v $PWD&#x2F;conf&#x2F;nginx.conf:&#x2F;etc&#x2F;nginx&#x2F;nginx.conf \
+-v $PWD&#x2F;logs:&#x2F;var&#x2F;log&#x2F;nginx \
+-v $PWD&#x2F;html:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html \
+nginx</code></pre>
+
 <ul>
 <li>参数说明：<ul>
 <li><strong>-p 80:80</strong>：将容器的 80端口映射到宿主机的 80 端口。</li>
@@ -577,23 +562,25 @@ nginx
 <h2 id="四、Redis部署"><a href="#四、Redis部署" class="headerlink" title="四、Redis部署"></a>四、Redis部署</h2><ol>
 <li>搜索redis镜像</li>
 </ol>
-<pre><code class="shell">docker search redis
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker search redis</code></pre>
+
 <ol start="2">
 <li>拉取redis镜像</li>
 </ol>
-<pre><code class="shell">docker pull redis:5.0
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker pull redis:5.0</code></pre>
+
 <ol start="3">
 <li>创建容器，设置端口映射</li>
 </ol>
-<pre><code class="shell">docker run -id --name=c_redis -p 6379:6379 redis:5.0
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker run -id --name&#x3D;c_redis -p 6379:6379 redis:5.0</code></pre>
+
 <ol start="4">
 <li>使用外部机器连接redis</li>
 </ol>
-<pre><code class="shell">./redis-cli.exe -h 192.168.199.133 -p 6379
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">.&#x2F;redis-cli.exe -h 192.168.199.133 -p 6379</code></pre>
+
+
+
 <hr>
 <h1 id="Ⅴ、Dockerfile"><a href="#Ⅴ、Dockerfile" class="headerlink" title="Ⅴ、Dockerfile"></a>Ⅴ、Dockerfile</h1><h2 id="一、Docker镜像原理"><a href="#一、Docker镜像原理" class="headerlink" title="一、Docker镜像原理"></a>一、Docker镜像原理</h2><h3 id="1-Linux文件系统"><a href="#1-Linux文件系统" class="headerlink" title="1. Linux文件系统"></a>1. Linux文件系统</h3><p>Linux文件系统由bootfs和rootfs两部分组成</p>
 <ul>
@@ -785,7 +772,7 @@ nginx
 <ol>
 <li><p>定义父镜像：FROM java:8</p>
 </li>
-<li><p>定义作者信息：MAINTAINER  Tokitou &lt;<a href="mailto:&#x54;&#111;&#x6b;&#x69;&#116;&#111;&#117;&#x40;&#97;&#108;&#105;&#x79;&#117;&#110;&#x2e;&#99;&#x6f;&#x6d;">&#x54;&#111;&#x6b;&#x69;&#116;&#111;&#117;&#x40;&#97;&#108;&#105;&#x79;&#117;&#110;&#x2e;&#99;&#x6f;&#x6d;</a>&gt;</p>
+<li><p>定义作者信息：MAINTAINER  Tokitou &lt;<a href="mailto:&#84;&#x6f;&#x6b;&#105;&#x74;&#x6f;&#x75;&#64;&#97;&#x6c;&#x69;&#121;&#x75;&#110;&#46;&#99;&#111;&#109;">&#84;&#x6f;&#x6b;&#105;&#x74;&#x6f;&#x75;&#64;&#97;&#x6c;&#x69;&#121;&#x75;&#110;&#46;&#99;&#111;&#109;</a>&gt;</p>
 </li>
 <li><p>将jar包添加到容器： ADD springboot.jar app.jar</p>
 </li>
@@ -814,29 +801,31 @@ nginx
 <li><p>运行 docker-compose up 启动应用</p>
 </li>
 </ol>
-<h3 id="1-安装Docker-Compose"><a href="#1-安装Docker-Compose" class="headerlink" title="1. 安装Docker Compose"></a>1. 安装Docker Compose</h3><pre><code class="shell"># Compose目前已经完全支持Linux、Mac OS和Windows，在我们安装Compose之前，需要先安装Docker。下面我 们以编译好的二进制包方式安装在Linux系统中。 
-curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+<h3 id="1-安装Docker-Compose"><a href="#1-安装Docker-Compose" class="headerlink" title="1. 安装Docker Compose"></a>1. 安装Docker Compose</h3><pre class="language-bash" data-language="bash"><code class="language-bash"># Compose目前已经完全支持Linux、Mac OS和Windows，在我们安装Compose之前，需要先安装Docker。下面我 们以编译好的二进制包方式安装在Linux系统中。 
+curl -L https:&#x2F;&#x2F;github.com&#x2F;docker&#x2F;compose&#x2F;releases&#x2F;download&#x2F;1.22.0&#x2F;docker-compose-&#96;uname -s&#96;-&#96;uname -m&#96; -o &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose
 # 设置文件可执行权限 
-chmod +x /usr/local/bin/docker-compose
+chmod +x &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose
 # 查看版本信息 
-docker-compose -version
-</code></pre>
-<h3 id="2-卸载Docker-Compose"><a href="#2-卸载Docker-Compose" class="headerlink" title="2. 卸载Docker Compose"></a>2. 卸载Docker Compose</h3><pre><code class="shell"># 二进制包方式安装的，删除二进制文件即可
-rm /usr/local/bin/docker-compose
-</code></pre>
+docker-compose -version</code></pre>
+
+<h3 id="2-卸载Docker-Compose"><a href="#2-卸载Docker-Compose" class="headerlink" title="2. 卸载Docker Compose"></a>2. 卸载Docker Compose</h3><pre class="language-bash" data-language="bash"><code class="language-bash"># 二进制包方式安装的，删除二进制文件即可
+rm &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose</code></pre>
+
+
+
 <h3 id="3-案例"><a href="#3-案例" class="headerlink" title="3. 案例"></a>3. 案例</h3><blockquote>
 <p>使用docker compose编排nginx+springboot项目</p>
 </blockquote>
 <ol>
 <li>创建docker-compose目录</li>
 </ol>
-<pre><code class="shell">mkdir ~/docker-compose
-cd ~/docker-compose
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">mkdir ~&#x2F;docker-compose
+cd ~&#x2F;docker-compose</code></pre>
+
 <ol start="2">
 <li>编写 docker-compose.yml 文件</li>
 </ol>
-<pre><code class="shell">version: &#39;3&#39;
+<pre class="language-bash" data-language="bash"><code class="language-bash">version: &#39;3&#39;
 services:
   nginx:
    image: nginx
@@ -845,62 +834,62 @@ services:
    links:
     - app
    volumes:
-    - ./nginx/conf.d:/etc/nginx/conf.d
+    - .&#x2F;nginx&#x2F;conf.d:&#x2F;etc&#x2F;nginx&#x2F;conf.d
   app:
     image: app
     expose:
-      - &quot;8080&quot;
-</code></pre>
+      - &quot;8080&quot;</code></pre>
+
 <ol start="3">
 <li>创建./nginx/conf.d目录</li>
 </ol>
-<pre><code class="shell">mkdir -p ./nginx/conf.d
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">mkdir -p .&#x2F;nginx&#x2F;conf.d</code></pre>
+
 <ol start="4">
 <li>在./nginx/conf.d目录下 编写itheima.conf文件</li>
 </ol>
-<pre><code class="shell">server &#123;
+<pre class="language-bash" data-language="bash"><code class="language-bash">server &#123;
     listen 80;
     access_log off;
 
-    location / &#123;
-        proxy_pass http://app:8080;
+    location &#x2F; &#123;
+        proxy_pass http:&#x2F;&#x2F;app:8080;
     &#125;
    
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <ol start="5">
 <li>在~/docker-compose 目录下 使用docker-compose 启动容器</li>
 </ol>
-<pre><code class="shell">docker-compose up
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker-compose up</code></pre>
+
 <ol start="6">
 <li>测试访问</li>
 </ol>
 <hr>
 <h1 id="Ⅶ、Docker私有仓库"><a href="#Ⅶ、Docker私有仓库" class="headerlink" title="Ⅶ、Docker私有仓库"></a>Ⅶ、Docker私有仓库</h1><p>​        Docker官方的Docker hub（<a target="_blank" rel="noopener" href="https://hub.docker.com)是一个用于管理公共镜像的仓库,我们可以从上面拉取镜像/">https://hub.docker.com）是一个用于管理公共镜像的仓库，我们可以从上面拉取镜像</a> 到本地，也可以把我们自己的镜像推送上去。但是，有时候我们的服务器无法访问互联网，或者你不希望将自己的镜 像放到公网当中，那么我们就需要搭建自己的私有仓库来存储和管理自己的镜像。</p>
-<h2 id="一、搭建私有仓库"><a href="#一、搭建私有仓库" class="headerlink" title="一、搭建私有仓库"></a>一、搭建私有仓库</h2><pre><code class="shell"># 1、拉取私有仓库镜像 
+<h2 id="一、搭建私有仓库"><a href="#一、搭建私有仓库" class="headerlink" title="一、搭建私有仓库"></a>一、搭建私有仓库</h2><pre class="language-bash" data-language="bash"><code class="language-bash"># 1、拉取私有仓库镜像 
 docker pull registry
 # 2、启动私有仓库容器 
-docker run -id --name=registry -p 5000:5000 registry
-# 3、打开浏览器 输入地址http://私有仓库服务器ip:5000/v2/_catalog，看到&#123;&quot;repositories&quot;:[]&#125; 表示私有仓库 搭建成功
+docker run -id --name&#x3D;registry -p 5000:5000 registry
+# 3、打开浏览器 输入地址http:&#x2F;&#x2F;私有仓库服务器ip:5000&#x2F;v2&#x2F;_catalog，看到&#123;&quot;repositories&quot;:[]&#125; 表示私有仓库 搭建成功
 # 4、修改daemon.json   
-vim /etc/docker/daemon.json    
+vim &#x2F;etc&#x2F;docker&#x2F;daemon.json    
 # 在上述文件中添加一个key，保存退出。此步用于让 docker 信任私有仓库地址；注意将私有仓库服务器ip修改为自己私有仓库服务器真实ip 
 &#123;&quot;insecure-registries&quot;:[&quot;私有仓库服务器ip:5000&quot;]&#125; 
 # 5、重启docker 服务 
 systemctl restart docker
-docker start registry
-</code></pre>
-<h2 id="二、上传镜像到私有仓库"><a href="#二、上传镜像到私有仓库" class="headerlink" title="二、上传镜像到私有仓库"></a>二、上传镜像到私有仓库</h2><pre><code class="shell"># 1、标记镜像为私有仓库的镜像     
-docker tag centos:7 私有仓库服务器IP:5000/centos:7
+docker start registry</code></pre>
+
+<h2 id="二、上传镜像到私有仓库"><a href="#二、上传镜像到私有仓库" class="headerlink" title="二、上传镜像到私有仓库"></a>二、上传镜像到私有仓库</h2><pre class="language-bash" data-language="bash"><code class="language-bash"># 1、标记镜像为私有仓库的镜像     
+docker tag centos:7 私有仓库服务器IP:5000&#x2F;centos:7
  
 # 2、上传标记的镜像     
-docker push 私有仓库服务器IP:5000/centos:7
-</code></pre>
-<h2 id="三、从私有仓库拉去镜像"><a href="#三、从私有仓库拉去镜像" class="headerlink" title="三、从私有仓库拉去镜像"></a>三、从私有仓库拉去镜像</h2><pre><code class="shell">#拉取镜像 
-docker pull 私有仓库服务器ip:5000/centos:7
-</code></pre>
+docker push 私有仓库服务器IP:5000&#x2F;centos:7</code></pre>
+
+<h2 id="三、从私有仓库拉去镜像"><a href="#三、从私有仓库拉去镜像" class="headerlink" title="三、从私有仓库拉去镜像"></a>三、从私有仓库拉去镜像</h2><pre class="language-bash" data-language="bash"><code class="language-bash">#拉取镜像 
+docker pull 私有仓库服务器ip:5000&#x2F;centos:7</code></pre>
+
 <h1 id="Ⅷ、Docker相关概念"><a href="#Ⅷ、Docker相关概念" class="headerlink" title="Ⅷ、Docker相关概念"></a>Ⅷ、Docker相关概念</h1><blockquote>
 <p>docker容器虚拟化 与 传统虚拟机比较</p>
 </blockquote>
@@ -981,7 +970,7 @@ docker pull 私有仓库服务器ip:5000/centos:7
       
     <div class="article-entry" itemprop="articleBody">
        
-  <div id="aplayer-HcscgWin" class="aplayer aplayer-tag-marker meting-tag-marker"
+  <div id="aplayer-jSEuhZSq" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="6897059777" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#FF4081"
     ></div>
 
@@ -1230,24 +1219,24 @@ docker pull 私有仓库服务器ip:5000/centos:7
   <span id="more"></span>
 
 <h1 id="一、入门案例"><a href="#一、入门案例" class="headerlink" title="一、入门案例"></a>一、入门案例</h1><h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h2><p><strong>创建Spring Boot工程（web），引入相关依赖</strong></p>
-<pre><code class="xml">&lt;!--  Spring Security   --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--  Spring Security   --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-security<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+
 <h2 id="2-初步测试"><a href="#2-初步测试" class="headerlink" title="2. 初步测试"></a>2. 初步测试</h2><blockquote>
 <p>写一个controller用于初步测试</p>
 </blockquote>
-<pre><code class="java">@RestController
+<pre class="language-java" data-language="java"><code class="language-java">@RestController
 @RequestMapping(&quot;test&quot;)
 public class TestController &#123;
     @GetMapping(&quot;hello&quot;)
     public String hello()&#123;
         return &quot;hello security!&quot;;
     &#125;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <blockquote>
 <p>启动项目，访问对应接口</p>
 </blockquote>
@@ -1299,11 +1288,11 @@ public class TestController &#123;
 <p>这个方法的返回值类型是<code>UserDetails</code>，可以自定义一个类，包含用户名，密码，权限等信息，去实现这个接口</p>
 <p>同时，Security框架提供了一个<code>User</code>类，实现了<code>UserDetails</code>接口，所以可以直接返回<code>User</code>对象即可</p>
 <p><code>User.class</code>中的有参构造方法：</p>
-<pre><code class="java">//用户名，密码，权限集合
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;用户名，密码，权限集合
 public User(String username, String password, Collection&lt;? extends GrantedAuthority&gt; authorities) &#123;
     this(username, password, true, true, true, true, authorities);
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <h3 id="PasswordEncoder"><a href="#PasswordEncoder" class="headerlink" title="PasswordEncoder"></a><code>PasswordEncoder</code></h3><blockquote>
 <p>数据加密的接口，用于返回<strong>User对象中密码的加密</strong></p>
 </blockquote>
@@ -1313,39 +1302,39 @@ public User(String username, String password, Collection&lt;? extends GrantedAut
 </blockquote>
 <h3 id="1-1-三种认证方式"><a href="#1-1-三种认证方式" class="headerlink" title="1.1 三种认证方式"></a>1.1 三种认证方式</h3><blockquote>
 <h3 id="1-通过application-properties-yaml配置文件进行配置"><a href="#1-通过application-properties-yaml配置文件进行配置" class="headerlink" title="1 通过application.properties/yaml配置文件进行配置"></a>1 通过<code>application.properties/yaml</code>配置文件进行配置</h3></blockquote>
-<pre><code class="properties">#设置用户名
-spring.security.user.name=Alice
+<pre class="language-properties" data-language="properties"><code class="language-properties">#设置用户名
+spring.security.user.name&#x3D;Alice
 #设置密码
-spring.security.user.password=123456
-</code></pre>
+spring.security.user.password&#x3D;123456</code></pre>
+
 <p>这样进行配置，启动项目将不再默认生成随机密码，即可使用配置文件中的用户名和密码进行登录</p>
 <blockquote>
 <h3 id="2-通过配置类进行配置"><a href="#2-通过配置类进行配置" class="headerlink" title="2 通过配置类进行配置"></a>2 通过配置类进行配置</h3></blockquote>
 <p>新建一个配置类，继承<code>WebSecurityConfigurerAdapter</code>，重写其中的<code>configure</code>方法，</p>
 <p>进行配置用户名，密码和角色</p>
-<pre><code class="java">@Configuration
+<pre class="language-java" data-language="java"><code class="language-java">@Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter &#123;
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception &#123;
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String password = passwordEncoder.encode(&quot;123123&quot;);
+        BCryptPasswordEncoder passwordEncoder &#x3D; new BCryptPasswordEncoder();
+        String password &#x3D; passwordEncoder.encode(&quot;123123&quot;);
         auth.inMemoryAuthentication().withUser(&quot;lover&quot;).password(password).roles(&quot;admin&quot;);
     &#125;
 
-    //需要创建PasswordEncoder对象，否则会报错
+    &#x2F;&#x2F;需要创建PasswordEncoder对象，否则会报错
     @Bean
     PasswordEncoder password()&#123;
         return new BCryptPasswordEncoder();
     &#125;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p>实际情况下，用户名和密码不会是固定的某个值，而是从数据库中查询，所以以上两种方式均不常用</p>
 <blockquote>
 <h3 id="3-自定义编写实现类（实现UserDetailsService接口）"><a href="#3-自定义编写实现类（实现UserDetailsService接口）" class="headerlink" title="3 自定义编写实现类（实现UserDetailsService接口）"></a>3 自定义编写实现类（实现<code>UserDetailsService</code>接口）</h3></blockquote>
 <p>Security认证过程中，会先查找配置文件和配置类中有没有进行用户名和密码的配置，</p>
 <p>如果找不到，则会找<code>UserDetailsService</code>接口</p>
 <p><strong>第一步：创建配置类，设置使用哪一个<code>UserDetailsService</code>接口的实现类</strong></p>
-<pre><code class="java">@Configuration        //注入到配置类中
+<pre class="language-java" data-language="java"><code class="language-java">@Configuration		&#x2F;&#x2F;注入到配置类中
 public class SecurityUserConfig extends WebSecurityConfigurerAdapter &#123;
 
     @Autowired
@@ -1353,126 +1342,126 @@ public class SecurityUserConfig extends WebSecurityConfigurerAdapter &#123;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception &#123;
-        //指定使用哪个UserDetailsService实现类
+        &#x2F;&#x2F;指定使用哪个UserDetailsService实现类
         auth.userDetailsService(userDetailsService).passwordEncoder(password());
     &#125;
 
-    //需要创建PasswordEncoder对象，否则会报错
+    &#x2F;&#x2F;需要创建PasswordEncoder对象，否则会报错
     @Bean
     PasswordEncoder password()&#123;
         return new BCryptPasswordEncoder();
     &#125;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p><strong>第二步，编写实现类，返回User对象，User对象中有用户名，密码和操作权限</strong></p>
 <p>查询数据库，得到用户名，密码和操作权限，封装到<code>User</code>对象中，进行返回</p>
 <blockquote>
 <p>固定用户名密码（仅供测试，不实用）</p>
 </blockquote>
-<pre><code class="java">@Service(&quot;userDetailsService&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@Service(&quot;userDetailsService&quot;)
 public class MyUserDetailsService implements UserDetailsService &#123;
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException &#123;
-        //模拟创建一个集合，使用其中的工具类，加角色
-        List&lt;GrantedAuthority&gt; auths = AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;role&quot;);
+        &#x2F;&#x2F;模拟创建一个集合，使用其中的工具类，加角色
+        List&lt;GrantedAuthority&gt; auths &#x3D; AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;role&quot;);
         return new User(&quot;Kaito&quot;,new BCryptPasswordEncoder().encode(&quot;666666&quot;),auths);
     &#125;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <blockquote>
 <p><strong>查询数据库得到用户名密码，完成用户认证</strong></p>
 </blockquote>
 <p>可以使用<code>JDBC</code>，<code>Mybatis</code>，<code>MybatisPlus</code>…</p>
 <p><strong>使用<code>MybatisPlus</code>整合，添加数据源信息</strong></p>
-<pre><code class="yaml">spring:
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml">spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ssmbuild?useSSL=false&amp;serverTimezone=GMT%2B8
+    url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;ssmbuild?useSSL&#x3D;false&amp;serverTimezone&#x3D;GMT%2B8
     username: root
-    password: skrskr666
-</code></pre>
+    password: skrskr666</code></pre>
+
 <p><strong>第一步，引入相关依赖：</strong></p>
-<pre><code class="xml">&lt;!--  MybatisPlus  --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
-    &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;
-    &lt;version&gt;3.4.2&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;!--  Mysql --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;mysql&lt;/groupId&gt;
-    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--  MybatisPlus  --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.baomidou<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mybatis-plus-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.4.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!--  Mysql --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>mysql<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mysql-connector-java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+
 <p><strong>第二步，创建简单的user表，包含用户名和密码字段</strong></p>
 <p><strong>第三步，创建user实体类</strong></p>
-<pre><code class="java">@Data
+<pre class="language-java" data-language="java"><code class="language-java">@Data
 public class User &#123;
     private Integer id;
     private String username;
     private String password;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p><strong>第四步，创建Mapper层，继承BaseMapper</strong></p>
 <p><strong>第五步，在UserDetailService接口的实现类中编写根据用户名查询用户名，密码和角色权限等信息的流程，</strong></p>
 <p><strong>并返回User对象</strong></p>
-<pre><code class="java">@Service(&quot;userDetailsService&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@Service(&quot;userDetailsService&quot;)
 public class MyUserDetailsService implements UserDetailsService &#123;
 
-    //调用Mapper中的方法
+    &#x2F;&#x2F;调用Mapper中的方法
     @Autowired
     private UsersMapper userMapper;
 
-    // String s 为表单传来的用户名
+    &#x2F;&#x2F; String s 为表单传来的用户名
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException &#123;
-        //根据用户名s，电泳UserMapper，查询数据库
-        QueryWrapper&lt;Users&gt; wrapper = new QueryWrapper&lt;&gt;();
+        &#x2F;&#x2F;根据用户名s，电泳UserMapper，查询数据库
+        QueryWrapper&lt;Users&gt; wrapper &#x3D; new QueryWrapper&lt;&gt;();
         wrapper.eq(&quot;username&quot;,s);
-        Users users = userMapper.selectOne(wrapper);
-        //判断
-        //数据库中没有用户名，则认证失败
-        if (users==null)&#123;
+        Users users &#x3D; userMapper.selectOne(wrapper);
+        &#x2F;&#x2F;判断
+        &#x2F;&#x2F;数据库中没有用户名，则认证失败
+        if (users&#x3D;&#x3D;null)&#123;
             throw new UsernameNotFoundException(&quot;用户名不存在&quot;);
         &#125;
 
-        //模拟创建一个集合，使用其中的工具类，加角色
-        List&lt;GrantedAuthority&gt; auths = AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;role&quot;);
-        //从查询数据库返回的的users对象中，得到用户名和密码进行返回
+        &#x2F;&#x2F;模拟创建一个集合，使用其中的工具类，加角色
+        List&lt;GrantedAuthority&gt; auths &#x3D; AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;role&quot;);
+        &#x2F;&#x2F;从查询数据库返回的的users对象中，得到用户名和密码进行返回
         return new User(users.getUsername(),new BCryptPasswordEncoder().encode(users.getPassword()),auths);
     &#125;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <h3 id="2-自定义登录页面和设置不需要认证的请求"><a href="#2-自定义登录页面和设置不需要认证的请求" class="headerlink" title="2. 自定义登录页面和设置不需要认证的请求"></a>2. 自定义登录页面和设置不需要认证的请求</h3><blockquote>
 <p>配置类中实现</p>
 </blockquote>
-<pre><code class="java">@Override
+<pre class="language-java" data-language="java"><code class="language-java">@Override
 protected void configure(HttpSecurity http) throws Exception &#123;
-    //自定义自己编写的登录页面
+    &#x2F;&#x2F;自定义自己编写的登录页面
     http.formLogin()
-            .loginPage(&quot;/login.html&quot;)           //登陆页面设置
-            .loginProcessingUrl(&quot;/user/login&quot;)  //提交登陆后访问的Controller路径，这个Controller不需要我们编写，Security框架已经做到了，只需要随便给定一个路径即可
-            .defaultSuccessUrl(&quot;/test/index&quot;).permitAll()   //登录成功后，要跳转到的路径
+            .loginPage(&quot;&#x2F;login.html&quot;)           &#x2F;&#x2F;登陆页面设置
+            .loginProcessingUrl(&quot;&#x2F;user&#x2F;login&quot;)  &#x2F;&#x2F;提交登陆后访问的Controller路径，这个Controller不需要我们编写，Security框架已经做到了，只需要随便给定一个路径即可
+            .defaultSuccessUrl(&quot;&#x2F;test&#x2F;index&quot;).permitAll()   &#x2F;&#x2F;登录成功后，要跳转到的路径
             .and().authorizeRequests()
-                .antMatchers(&quot;/&quot;,&quot;/test/hello&quot;,&quot;/user/login&quot;).permitAll() //设置访问的哪些路径不需要认证
+                .antMatchers(&quot;&#x2F;&quot;,&quot;&#x2F;test&#x2F;hello&quot;,&quot;&#x2F;user&#x2F;login&quot;).permitAll() &#x2F;&#x2F;设置访问的哪些路径不需要认证
             .anyRequest().authenticated()
-            .and().csrf().disable();            //关闭csrf防护
-&#125;
-</code></pre>
+            .and().csrf().disable();            &#x2F;&#x2F;关闭csrf防护
+&#125;</code></pre>
+
 <blockquote>
 <p>创建相关页面</p>
 </blockquote>
 <p><code>login.html</code></p>
-<pre><code class="html">&lt;body&gt;
-    &lt;!-- action中的路径要写对，和配置类中一样，security框架帮我们实现 --&gt;
-    &lt;form action=&quot;/user/login&quot; method=&quot;post&quot;&gt;    &lt;!-- 这里必须是post提交 --&gt;
-        &lt;!-- 两个输入框的名字必须叫做username和password，否则Security框架得不到提交的数据 --&gt;
-        用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;&lt;br&gt;
-        密码：&lt;input type=&quot;password&quot; name=&quot;password&quot;/&gt;&lt;br&gt;
-        &lt;input type=&quot;submit&quot; value=&quot;login&quot;/&gt;
-    &lt;/form&gt;
-&lt;/body&gt;
-</code></pre>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!-- action中的路径要写对，和配置类中一样，security框架帮我们实现 --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/user/login<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>	<span class="token comment">&lt;!-- 这里必须是post提交 --></span>
+        <span class="token comment">&lt;!-- 两个输入框的名字必须叫做username和password，否则Security框架得不到提交的数据 --></span>
+        用户名：<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
+        密码：<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>login<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span></code></pre>
+
 <h2 id="2-授权"><a href="#2-授权" class="headerlink" title="2. 授权"></a>2. 授权</h2><p><strong>基于<code>角色</code>或<code>权限</code>进行访问控制</strong></p>
 <h3 id="2-1-hasAuthority-方法"><a href="#2-1-hasAuthority-方法" class="headerlink" title="2.1 hasAuthority 方法"></a>2.1 <code>hasAuthority</code> 方法</h3><p><strong>如果当前的主体具有指定的权限，则返回 true,否则返回 false</strong></p>
 <p>比如访问的<code>/index</code>需要用管理员的角色或权限才能访问，</p>
@@ -1480,16 +1469,16 @@ protected void configure(HttpSecurity http) throws Exception &#123;
 <blockquote>
 <p>1 在配置类中设置当前访问地址需要有哪些权限才能访问</p>
 </blockquote>
-<pre><code class="java">.and().authorizeRequests()
-                    //该路径只有具有 admins 权限的用户才能访问
-                    .antMatchers(&quot;/test/index&quot;).hasAuthority(&quot;admins&quot;)
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">.and().authorizeRequests()
+                    &#x2F;&#x2F;该路径只有具有 admins 权限的用户才能访问
+                    .antMatchers(&quot;&#x2F;test&#x2F;index&quot;).hasAuthority(&quot;admins&quot;)</code></pre>
+
 <blockquote>
 <p>2 在<code>UserDetailsService</code>的实现类中给返回的<code>User</code>对象设置权限</p>
 </blockquote>
-<pre><code class="java">//模拟创建一个集合，使用其中的工具类，加角色
-List&lt;GrantedAuthority&gt; auths = AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;admins&quot;);
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;模拟创建一个集合，使用其中的工具类，加角色
+List&lt;GrantedAuthority&gt; auths &#x3D; AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;admins&quot;);</code></pre>
+
 <p>如果没有权限，则会报 <code>403</code> 错误  <code>(type=Forbidden, status=403)</code></p>
 <p><strong><code>hasAuthority</code> 方法只能做到单个权限的访问限制，多个需要用到<code>hasAnyAuthority</code> 方法</strong></p>
 <h3 id="2-2-hasAnyAuthority-方法"><a href="#2-2-hasAnyAuthority-方法" class="headerlink" title="2.2 hasAnyAuthority 方法"></a>2.2 <code>hasAnyAuthority</code> 方法</h3><p><strong>如果当前的主体有任何提供的角色（给定的作为一个逗号分隔的字符串列表）的话，返回 true</strong></p>
@@ -1498,105 +1487,107 @@ List&lt;GrantedAuthority&gt; auths = AuthorityUtils.commaSeparatedStringToAuthor
 <blockquote>
 <p>配置类中配置如下</p>
 </blockquote>
-<pre><code class="java">.and().authorizeRequests()
-    //该路径具有 admins,manager 中任意权限的用户才能访问
-    .antMatchers(&quot;/test/index&quot;).hasAnyAuthority(&quot;admins,manager&quot;)
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">.and().authorizeRequests()
+    &#x2F;&#x2F;该路径具有 admins,manager 中任意权限的用户才能访问
+    .antMatchers(&quot;&#x2F;test&#x2F;index&quot;).hasAnyAuthority(&quot;admins,manager&quot;)</code></pre>
+
 <h3 id="2-3-hasRole-方法"><a href="#2-3-hasRole-方法" class="headerlink" title="2.3 hasRole 方法"></a>2.3 <code>hasRole</code> 方法</h3><p><strong>如果当前主体具有指定的角色，则返回 true</strong></p>
 <p><code>hasRole</code>方法的源码中，在<code>role</code>前面有<code>ROLE_</code>，所以在给用户赋予角色时，需要加上<code>ROLE_</code><br><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20211112140024.png" alt="image-20210419134608716-377a9ea74bd44543b335fb3cf8c1f3e1"></p>
 <blockquote>
 <p>配置类中配置如下</p>
 </blockquote>
-<pre><code class="java">.antMatchers(&quot;/test/index&quot;).hasRole(&quot;sale&quot;)
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">.antMatchers(&quot;&#x2F;test&#x2F;index&quot;).hasRole(&quot;sale&quot;)</code></pre>
+
 <blockquote>
 <p>在<code>UserDetailsService</code>的实现类中给返回的<code>User</code>对象设置角色</p>
 </blockquote>
-<pre><code class="java">//模拟创建一个集合，使用其中的工具类，加角色
-List&lt;GrantedAuthority&gt; auths = AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;admins,ROLE_sale&quot;);
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;模拟创建一个集合，使用其中的工具类，加角色
+List&lt;GrantedAuthority&gt; auths &#x3D; AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;admins,ROLE_sale&quot;);</code></pre>
+
 <h3 id="2-4-hasAnyRole-方法"><a href="#2-4-hasAnyRole-方法" class="headerlink" title="2.4 hasAnyRole 方法"></a>2.4 <code>hasAnyRole</code> 方法</h3><p><strong>表示用户具备任何一个条件都可以访问</strong></p>
-<pre><code class="java">.antMatchers(&quot;/test/index&quot;).hasAnyRole(&quot;sale&quot;,&quot;admin&quot;)
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">.antMatchers(&quot;&#x2F;test&#x2F;index&quot;).hasAnyRole(&quot;sale&quot;,&quot;admin&quot;)</code></pre>
+
 <h3 id="2-5-自定义403没有权限访问的页面"><a href="#2-5-自定义403没有权限访问的页面" class="headerlink" title="2.5 自定义403没有权限访问的页面"></a>2.5 自定义<code>403</code>没有权限访问的页面</h3><p>配置类中写如下配置</p>
-<pre><code class="java">protected void configure(HttpSecurity http) throws Exception &#123;
+<pre class="language-java" data-language="java"><code class="language-java">protected void configure(HttpSecurity http) throws Exception &#123;
     ...;
-    //配置没有权限访问跳转的自定义页面
-    http.exceptionHandling().accessDeniedPage(&quot;/unauth.html&quot;);
+    &#x2F;&#x2F;配置没有权限访问跳转的自定义页面
+    http.exceptionHandling().accessDeniedPage(&quot;&#x2F;unauth.html&quot;);
     ...;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <h2 id="3-注解使用"><a href="#3-注解使用" class="headerlink" title="3. 注解使用"></a>3. 注解使用</h2><h3 id="3-1-Secured"><a href="#3-1-Secured" class="headerlink" title="3.1 @Secured"></a>3.1 <code>@Secured</code></h3><p>**判断用户是否具有指定角色，另外需要注意的是这里匹配的字符串需要添加前缀”<code>ROLE_</code>“</p>
 <blockquote>
 <p>1 在启动类/配置类上添加注解<code>@EnableGlobalMethodSecurity(securedEnabled=true)</code>开启注解功能</p>
 </blockquote>
-<pre><code class="java">@EnableGlobalMethodSecurity(securedEnabled = true)
+<pre class="language-java" data-language="java"><code class="language-java">@EnableGlobalMethodSecurity(securedEnabled &#x3D; true)
 @SpringBootApplication
 public class SpringSecurityDemo1Application &#123;
     public static void main(String[] args) &#123;
         SpringApplication.run(SpringSecurityDemo1Application.class, args);
     &#125;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <blockquote>
 <p>2 在<code>Controller</code>方法上使用注解，设置角色</p>
 </blockquote>
-<pre><code class="java">@Secured(&#123;&quot;ROLE_sale&quot;,&quot;ROLE_manager&quot;&#125;)
+<pre class="language-java" data-language="java"><code class="language-java">@Secured(&#123;&quot;ROLE_sale&quot;,&quot;ROLE_manager&quot;&#125;)
 @GetMapping(&quot;update&quot;)
 public String update()&#123;
     return &quot;hello update!&quot;;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <h3 id="3-2-PreAuthorize"><a href="#3-2-PreAuthorize" class="headerlink" title="3.2 @PreAuthorize"></a>3.2 <code>@PreAuthorize</code></h3><p><strong>在进入方法之前进行验证，看有没有权限进行访问</strong></p>
 <blockquote>
 <p>1 启动类/配置类开启注解</p>
 </blockquote>
-<pre><code class="java">@EnableGlobalMethodSecurity(prePostEnabled = true)
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">@EnableGlobalMethodSecurity(prePostEnabled &#x3D; true)</code></pre>
+
 <blockquote>
 <p>2 在<code>Controller</code>方法上使用注解</p>
 </blockquote>
-<pre><code class="java">@PreAuthorize(&quot;hasAnyAuthority(&#39;admins&#39;)&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@PreAuthorize(&quot;hasAnyAuthority(&#39;admins&#39;)&quot;)
 @GetMapping(&quot;update&quot;)
 public String update()&#123;
     return &quot;hello update!&quot;;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <h3 id="3-3-PostAuthorize"><a href="#3-3-PostAuthorize" class="headerlink" title="3.3 @PostAuthorize"></a>3.3 <code>@PostAuthorize</code></h3><p><strong>在方法执行之后进行校验</strong>（不常用）</p>
 <blockquote>
 <p>1 启动类/配置类开启注解</p>
 </blockquote>
-<pre><code class="java">@EnableGlobalMethodSecurity(prePostEnabled = true)
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">@EnableGlobalMethodSecurity(prePostEnabled &#x3D; true)</code></pre>
+
 <blockquote>
 <p>2 在<code>Controller</code>方法上使用注解</p>
 </blockquote>
-<pre><code class="java">@PostAuthorize(&quot;hasAnyAuthority(&#39;admins&#39;)&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@PostAuthorize(&quot;hasAnyAuthority(&#39;admins&#39;)&quot;)
 @GetMapping(&quot;update&quot;)
 public String update()&#123;
     System.out.println(&quot;update......&quot;);
     return &quot;hello update!&quot;;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p>因为是在方法执行之后进行校验，所以如果<strong>没有权限访问，也会执行控制台输出update……的代码</strong><br><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20211112140042.png" alt="image-20210419143800263-e22f3e15006a4bb7a4fdcacc8b263d0f"></p>
 <h3 id="3-4-PostFilter"><a href="#3-4-PostFilter" class="headerlink" title="3.4 @PostFilter"></a>3.4 <code>@PostFilter</code></h3><p><strong>对方法返回的数据进行过滤</strong>（不常用）</p>
 <p>权限验证之后对数据进行过滤 留下用户名是 <code>admin1</code> 的数据</p>
 <p>表达式中的 <code>filterObject</code> 引用的是方法返回值 <code>List</code> 中的某一个元素</p>
-<pre><code class="java">@RequestMapping(&quot;getAll&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@RequestMapping(&quot;getAll&quot;)
 @PreAuthorize(&quot;hasRole(&#39;ROLE_管理员&#39;)&quot;)
-@PostFilter(&quot;filterObject.username == &#39;admin1&#39;&quot;)
+@PostFilter(&quot;filterObject.username &#x3D;&#x3D; &#39;admin1&#39;&quot;)
 @ResponseBody
 public List&lt;UserInfo&gt; getAllUser()&#123;
-    ArrayList&lt;UserInfo&gt; list = new ArrayList&lt;&gt;();
+    ArrayList&lt;UserInfo&gt; list &#x3D; new ArrayList&lt;&gt;();
     list.add(new UserInfo(1l,&quot;admin1&quot;,&quot;6666&quot;));
     list.add(new UserInfo(2l,&quot;admin2&quot;,&quot;888&quot;));
     return list;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
+
+
 <h3 id="3-5-PreFilter"><a href="#3-5-PreFilter" class="headerlink" title="3.5 @PreFilter"></a>3.5 <code>@PreFilter</code></h3><p><strong>对传入方法的数据进行过过滤</strong>（不常用）</p>
-<pre><code class="java">@RequestMapping(&quot;getTestPreFilter&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@RequestMapping(&quot;getTestPreFilter&quot;)
 @PreAuthorize(&quot;hasRole(&#39;ROLE_管理员&#39;)&quot;)
-@PreFilter(value = &quot;filterObject.id%2==0&quot;)
+@PreFilter(value &#x3D; &quot;filterObject.id%2&#x3D;&#x3D;0&quot;)
 @ResponseBody
 public List&lt;UserInfo&gt; getTestPreFilter(@RequestBody List&lt;UserInfo&gt;
                                        list)&#123;
@@ -1604,15 +1595,15 @@ public List&lt;UserInfo&gt; getTestPreFilter(@RequestBody List&lt;UserInfo&gt;
         System.out.println(t.getId()+&quot;\t&quot;+t.getUsername());
     &#125;);
     return list;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <h2 id="4-用户注销"><a href="#4-用户注销" class="headerlink" title="4. 用户注销"></a>4. 用户注销</h2><blockquote>
 <p>1 在配置类中添加退出映射地址</p>
 </blockquote>
-<pre><code class="java">//退出
-//退出请求的路径随便写，由Security框架做到，和前端退出事件绑定即可
-http.logout().logoutUrl(&quot;/logout&quot;).logoutSuccessUrl(&quot;/test/hello&quot;).permitAll();
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;退出
+&#x2F;&#x2F;退出请求的路径随便写，由Security框架做到，和前端退出事件绑定即可
+http.logout().logoutUrl(&quot;&#x2F;logout&quot;).logoutSuccessUrl(&quot;&#x2F;test&#x2F;hello&quot;).permitAll();</code></pre>
+
 <blockquote>
 <p>2 前端加上退出按钮，且路径为上面配置的<code>logoutUrl</code></p>
 </blockquote>
@@ -1621,51 +1612,51 @@ http.logout().logoutUrl(&quot;/logout&quot;).logoutSuccessUrl(&quot;/test/hello&
 <p>1 创建数据库表，供存入Token和查询</p>
 <p>（源码中有提供建表语句，如果没有表，会帮我们建表）</p>
 </blockquote>
-<pre><code class="sql">CREATE TABLE `persistent_logins` (
-    `username` varchar(64) NOT NULL,
-    `series` varchar(64) NOT NULL,
-    `token` varchar(64) NOT NULL,
-    `last_used` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE
+<pre class="language-sql" data-language="sql"><code class="language-sql">CREATE TABLE &#96;persistent_logins&#96; (
+    &#96;username&#96; varchar(64) NOT NULL,
+    &#96;series&#96; varchar(64) NOT NULL,
+    &#96;token&#96; varchar(64) NOT NULL,
+    &#96;last_used&#96; timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE
     CURRENT_TIMESTAMP,
-    PRIMARY KEY (`series`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-</code></pre>
+    PRIMARY KEY (&#96;series&#96;)
+) ENGINE&#x3D;InnoDB DEFAULT CHARSET&#x3D;utf8;</code></pre>
+
 <blockquote>
 <p>2 在配置类中配置数据源，配置操作数据库对象</p>
 </blockquote>
-<pre><code class="java">//注入数据源
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;注入数据源
 @Autowired
 private DataSource dataSource;
 
-//配置操作数据库的对象
+&#x2F;&#x2F;配置操作数据库的对象
 @Bean
 public PersistentTokenRepository persistentTokenRepository()&#123;
-    JdbcTokenRepositoryImpl jdbcTokenRepository = new JdbcTokenRepositoryImpl();
+    JdbcTokenRepositoryImpl jdbcTokenRepository &#x3D; new JdbcTokenRepositoryImpl();
     jdbcTokenRepository.setDataSource(dataSource);
-    //jdbcTokenRepository.setCreateTableOnStartup(true);  //自动生成表
+    &#x2F;&#x2F;jdbcTokenRepository.setCreateTableOnStartup(true);  &#x2F;&#x2F;自动生成表
     return jdbcTokenRepository;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <blockquote>
 <p>3 配置类中配置自动登录</p>
 </blockquote>
-<pre><code class="java">.and().rememberMe().tokenRepository(persistentTokenRepository()) //配置操作数据库的对象
-.tokenValiditySeconds(60)       //是、设置Cookie有效时长，秒为单位
-.userDetailsService(userDetailsService) //使用这个注入的userDetailsService操作数据库
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">.and().rememberMe().tokenRepository(persistentTokenRepository()) &#x2F;&#x2F;配置操作数据库的对象
+.tokenValiditySeconds(60)       &#x2F;&#x2F;是、设置Cookie有效时长，秒为单位
+.userDetailsService(userDetailsService) &#x2F;&#x2F;使用这个注入的userDetailsService操作数据库</code></pre>
+
 <blockquote>
 <p>4 登录页面中加记住我复选框，<code>name=remember-me</code></p>
 </blockquote>
-<pre><code class="html">&lt;label&gt;
-    &lt;!-- name必须是remember-me --&gt;
-    记住我&lt;input type=&quot;checkbox&quot; name=&quot;remember-me&quot;&gt;   
-&lt;/label&gt;
-</code></pre>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!-- name必须是remember-me --></span>
+    记住我<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>remember-me<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>   
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span></code></pre>
+
 <h2 id="6-CSRF"><a href="#6-CSRF" class="headerlink" title="6. CSRF"></a>6. CSRF</h2><p><strong>跨站请求伪造</strong></p>
 <p>前面的测试中，将CSRF功能关闭了，这个功能默认是开启的</p>
 <p>将前的</p>
-<pre><code class="java">.and().csrf().disable();            //关闭csrf防护
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">.and().csrf().disable();            &#x2F;&#x2F;关闭csrf防护</code></pre>
+
 <p>注释掉，即可开启CSRF</p>
 <p>使用步骤：</p>
 <blockquote>
@@ -1674,9 +1665,9 @@ public PersistentTokenRepository persistentTokenRepository()&#123;
 <blockquote>
 <p>2 在登录页面中加上一个隐藏项</p>
 </blockquote>
-<pre><code class="html">&lt;!--  CSRF隐藏向传入Token  --&gt;
-&lt;input type=&quot;hidden&quot; th:if=&quot;$&#123;_csrf&#125;!=null&quot; th:value=&quot;$&#123;_csrf.token&#125;&quot; name=&quot;_csrf&quot;/&gt;
-</code></pre>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--  CSRF隐藏向传入Token  --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;_csrf&#125;!=null<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;_csrf.token&#125;<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>_csrf<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></code></pre>
+
 <p>需要<code>thymeleaf</code>模板支持</p>
 <blockquote>
 <p>continue……</p>
@@ -1745,64 +1736,64 @@ public PersistentTokenRepository persistentTokenRepository()&#123;
 <p><strong>创建父工程</strong></p>
 <p>Spring Cloud Alibaba 的环境在父工程中创建，微服务的各个组件作为子工程，继承父工程的环境。</p>
 <p>Spring Boot —》Spring Cloud —》Spring Cloud Alibaba</p>
-<h2 id="1-pom文件中引入"><a href="#1-pom文件中引入" class="headerlink" title="1. pom文件中引入"></a>1. pom文件中引入</h2><pre><code class="xml">&lt;dependencyManagement&gt;
-    &lt;dependencies&gt;
-        &lt;!-- Spring Cloud Hoxton --&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;
-            &lt;version&gt;Hoxton.SR3&lt;/version&gt;
-            &lt;type&gt;pom&lt;/type&gt;
-        &lt;/dependency&gt;
-        &lt;!-- Spring Cloud Alibaba --&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-cloud-alibaba-dependencies&lt;/artifactId&gt;
-            &lt;version&gt;2.2.1.RELEASE&lt;/version&gt;
-            &lt;type&gt;pom&lt;/type&gt;
-        &lt;/dependency&gt;
-    &lt;/dependencies&gt;
-&lt;/dependencyManagement&gt;
-</code></pre>
+<h2 id="1-pom文件中引入"><a href="#1-pom文件中引入" class="headerlink" title="1. pom文件中引入"></a>1. pom文件中引入</h2><pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencyManagement</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">></span></span>
+        <span class="token comment">&lt;!-- Spring Cloud Hoxton --></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-dependencies<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>Hoxton.SR3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>pom<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+        <span class="token comment">&lt;!-- Spring Cloud Alibaba --></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-alibaba-dependencies<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.2.1.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>pom<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencyManagement</span><span class="token punctuation">></span></span></code></pre>
+
 <h2 id="2-Nacos-服务注册"><a href="#2-Nacos-服务注册" class="headerlink" title="2. Nacos 服务注册"></a>2. Nacos 服务注册</h2><p><strong>注册中心</strong></p>
 <p>nacos下载完成后，解压，启动即可使用</p>
 <p><a target="_blank" rel="noopener" href="http://localhost:8848/nacos/">http://localhost:8848/nacos/</a></p>
 <h2 id="3-创建子工程，继承父工程"><a href="#3-创建子工程，继承父工程" class="headerlink" title="3. 创建子工程，继承父工程"></a>3. 创建子工程，继承父工程</h2><p>在父工程中 <strong><code>new module</code></strong> 创建子工程，不用引入任何依赖配置，直接继承父工程的</p>
 <h3 id="3-1-官方创建继承"><a href="#3-1-官方创建继承" class="headerlink" title="3.1 官方创建继承"></a>3.1 官方创建继承</h3><p>在子工程中的parent中写上父工程的内容即可</p>
 <p>父项目pom打包</p>
-<pre><code class="xml">&lt;packaging&gt;pom&lt;/packaging&gt;
-</code></pre>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>packaging</span><span class="token punctuation">></span></span>pom<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>packaging</span><span class="token punctuation">></span></span></code></pre>
+
 <p>子项目修改parent为父工程</p>
 <h3 id="3-2-阿里云创建继承"><a href="#3-2-阿里云创建继承" class="headerlink" title="3.2 阿里云创建继承"></a>3.2 阿里云创建继承</h3><p>因为阿里云创建的 pom 文件中没有 parent 标签</p>
 <p>在父工程的pom文件中加上</p>
-<pre><code class="xml">&lt;packaging&gt;pom&lt;/packaging&gt;
-&lt;modules&gt;
-    &lt;module&gt;&#123;子工程名&#125;&lt;/module&gt;
-&lt;/modules&gt;
-</code></pre>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>packaging</span><span class="token punctuation">></span></span>pom<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>packaging</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>modules</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>module</span><span class="token punctuation">></span></span>&#123;子工程名&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>module</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>modules</span><span class="token punctuation">></span></span></code></pre>
+
 <p>在子工程的pom文件中加上</p>
-<pre><code class="xml">&lt;parent&gt;
-    &lt;groupId&gt;lover.Alice&lt;/groupId&gt;
-    &lt;artifactId&gt;&#123;父工程名&#125;&lt;/artifactId&gt;
-    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
-&lt;/parent&gt;
-</code></pre>
-<h2 id="4-nacos"><a href="#4-nacos" class="headerlink" title="4. nacos"></a>4. nacos</h2><h3 id="4-1-引入nacos"><a href="#4-1-引入nacos" class="headerlink" title="4.1 引入nacos"></a>4.1 引入nacos</h3><pre><code class="xml">&lt;!-- nacos --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-discovery&lt;/artifactId&gt;
-    &lt;version&gt;2.2.1.RELEASE&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>parent</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>lover.Alice<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>&#123;父工程名&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>0.0.1-SNAPSHOT<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>parent</span><span class="token punctuation">></span></span></code></pre>
+
+<h2 id="4-nacos"><a href="#4-nacos" class="headerlink" title="4. nacos"></a>4. nacos</h2><h3 id="4-1-引入nacos"><a href="#4-1-引入nacos" class="headerlink" title="4.1 引入nacos"></a>4.1 引入nacos</h3><pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!-- nacos --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-alibaba-nacos-discovery<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.2.1.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+
 <h3 id="4-2-配置nacos"><a href="#4-2-配置nacos" class="headerlink" title="4.2 配置nacos"></a>4.2 配置nacos</h3><p>（可以不写，默认就是下面这个）</p>
-<pre><code class="yaml">spring:
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml">spring:
   cloud:
     nacos:
       discovery:
         server-addr: localhost:8848
   application:
-    name: provider
-</code></pre>
+    name: provider</code></pre>
+
 <h2 id="5-服务注册"><a href="#5-服务注册" class="headerlink" title="5. 服务注册"></a>5. 服务注册</h2><blockquote>
 <p>启动子工程，去nacos中看</p>
 </blockquote>
@@ -1819,59 +1810,59 @@ public PersistentTokenRepository persistentTokenRepository()&#123;
 <p>在创建一个子工程 consumer</p>
 <p>引入nacos和父工程</p>
 <p>Controller层提供接口</p>
-<pre><code class="java">@ResponseBody
-@GetMapping(&quot;/instances&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@ResponseBody
+@GetMapping(&quot;&#x2F;instances&quot;)
 public List&lt;ServiceInstance&gt; instances()&#123;
-    List&lt;ServiceInstance&gt; provider = this.discoveryClient.getInstances(&quot;provider&quot;);    //拿到provider实例
+    List&lt;ServiceInstance&gt; provider &#x3D; this.discoveryClient.getInstances(&quot;provider&quot;);	&#x2F;&#x2F;拿到provider实例
     return provider;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p>访问接口就会根据实例名，</p>
 <p>得到注册到注册中心的实例。</p>
 <img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193856.png" alt="image-20210315212721528" style="zoom:67%;" />
 
 <p>provider中提供简单的Controller方法，供consumer调用</p>
-<pre><code class="java">@Controller
+<pre class="language-java" data-language="java"><code class="language-java">@Controller
 public class ProviderController &#123;
 
     @Value(&quot;$&#123;server.port&#125;&quot;)
     private String port;
 
     @ResponseBody
-    @RequestMapping(&quot;/index&quot;)
+    @RequestMapping(&quot;&#x2F;index&quot;)
     public String index()&#123;
         return this.port;
     &#125;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p>两个不同工程之间的调用需要用到</p>
 <p><strong><code>RestTemplate组件</code></strong></p>
 <p>spring容器中没有，要在配置类config中注册它：</p>
-<pre><code class="java">@Configuration
+<pre class="language-java" data-language="java"><code class="language-java">@Configuration
 public class ConsumerConfig &#123;
     
     @Bean
     public RestTemplate restTemplate()&#123;
         return new RestTemplate();
     &#125;
-&#125;
-</code></pre>
-<p><strong>ConsumerController中进行调用provider实例中的 index 获取端口号的方法</strong></p>
-<pre><code class="java">@ResponseBody
-@RequestMapping(&quot;/index&quot;)
-public String index()&#123;
-    //1.拿到provider的某一个实例
-    List&lt;ServiceInstance&gt; provider = this.discoveryClient.getInstances(&quot;provider&quot;);
-    int index = ThreadLocalRandom.current().nextInt(provider.size());   
-    //随机数，随即调用几个provider中的某一个//真实项目不这么写，测试
-    ServiceInstance serviceInstance = provider.get(index);              //拿到一个provider实例
+&#125;</code></pre>
 
-    String url = serviceInstance.getUri()+&quot;/index&quot;;                     //拼出完整调用路径
-    //调用
-    String res = restTemplate.getForObject(url, String.class);//参数一：调用的URL，参数二：调用的方法的返回值类型
+<p><strong>ConsumerController中进行调用provider实例中的 index 获取端口号的方法</strong></p>
+<pre class="language-java" data-language="java"><code class="language-java">@ResponseBody
+@RequestMapping(&quot;&#x2F;index&quot;)
+public String index()&#123;
+    &#x2F;&#x2F;1.拿到provider的某一个实例
+    List&lt;ServiceInstance&gt; provider &#x3D; this.discoveryClient.getInstances(&quot;provider&quot;);
+    int index &#x3D; ThreadLocalRandom.current().nextInt(provider.size());   
+    &#x2F;&#x2F;随机数，随即调用几个provider中的某一个&#x2F;&#x2F;真实项目不这么写，测试
+    ServiceInstance serviceInstance &#x3D; provider.get(index);              &#x2F;&#x2F;拿到一个provider实例
+
+    String url &#x3D; serviceInstance.getUri()+&quot;&#x2F;index&quot;;                     &#x2F;&#x2F;拼出完整调用路径
+    &#x2F;&#x2F;调用
+    String res &#x3D; restTemplate.getForObject(url, String.class);&#x2F;&#x2F;参数一：调用的URL，参数二：调用的方法的返回值类型
     return &quot;调用了端口号为&quot;+serviceInstance.getPort()+&quot;的服务，得到的结果为&quot;+res;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193859.png" alt="image-20210316171009441"></p>
 <p>调用就会随机调用provider中的一个，刷新端口号会变</p>
 <blockquote>
@@ -1879,33 +1870,33 @@ public String index()&#123;
 </blockquote>
 <p>将调用和被调用的服务都在Nacos注册中心进行注册</p>
 <p>Feign服务调用</p>
-<pre><code class="xml">&lt;!--        Feign--&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;
-    &lt;version&gt;2.2.6.RELEASE&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--        Feign--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-openfeign<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.2.6.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+
 <p>client中</p>
-<pre><code class="java">@FeignClient(&quot;Alice-blog-oss&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@FeignClient(&quot;Alice-blog-oss&quot;)
 @Component
 public interface OssClient &#123;
-    /**
+    &#x2F;**
      * 写vodController层中的方法，路径写成完整的，参数什么的和Controller中的一致
      * @PathVariable(&quot;id&quot;) 这个注解在这里必须指定参数的名称，否则会出错
      * 不能只写注解，要在（）中加对应名称
-     */
-    //根据图片文件URL删除阿里云OSS中的文件（Alice-blog-oss中的方法）
-    //删除OSS文件的方法
-    @DeleteMapping(&quot;/aliceblog_oss/fileoss/deleteOne/&#123;url&#125;&quot;)
+     *&#x2F;
+    &#x2F;&#x2F;根据图片文件URL删除阿里云OSS中的文件（Alice-blog-oss中的方法）
+    &#x2F;&#x2F;删除OSS文件的方法
+    @DeleteMapping(&quot;&#x2F;aliceblog_oss&#x2F;fileoss&#x2F;deleteOne&#x2F;&#123;url&#125;&quot;)
     public void deleteOssFile(@PathVariable(&quot;url&quot;) String url);
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p>Controller层即可注入client调用方法</p>
 <h1 id="二、Ribbon"><a href="#二、Ribbon" class="headerlink" title="二、Ribbon"></a>二、Ribbon</h1><p><strong>引入Spring Cloud，自动引入Ribbon</strong></p>
 <p>对 RestTemplate 的整合</p>
 <h2 id="1-RestTemplate配置类上加注解"><a href="#1-RestTemplate配置类上加注解" class="headerlink" title="1. RestTemplate配置类上加注解"></a>1. RestTemplate配置类上加注解</h2><p>加 ==<strong>@LoadBalance</strong>== 注解</p>
-<pre><code class="java">@Configuration
+<pre class="language-java" data-language="java"><code class="language-java">@Configuration
 public class ConsumerConfig &#123;
 
     @Bean
@@ -1913,25 +1904,25 @@ public class ConsumerConfig &#123;
     public RestTemplate restTemplate()&#123;
         return new RestTemplate();
     &#125;
-&#125;
-</code></pre>
-<h2 id="2-ConsumerController-中调用provider中的方法"><a href="#2-ConsumerController-中调用provider中的方法" class="headerlink" title="2. ConsumerController 中调用provider中的方法"></a>2. ConsumerController 中调用provider中的方法</h2><pre><code class="java">@ResponseBody
-@RequestMapping(&quot;/index&quot;)
+&#125;</code></pre>
+
+<h2 id="2-ConsumerController-中调用provider中的方法"><a href="#2-ConsumerController-中调用provider中的方法" class="headerlink" title="2. ConsumerController 中调用provider中的方法"></a>2. ConsumerController 中调用provider中的方法</h2><pre class="language-java" data-language="java"><code class="language-java">@ResponseBody
+@RequestMapping(&quot;&#x2F;index&quot;)
 public String index()&#123;
-    return restTemplate.getForObject(&quot;http://provider/index&quot;,String.class);    //只需要这样写URL即可
-&#125;
-</code></pre>
+    return restTemplate.getForObject(&quot;http:&#x2F;&#x2F;provider&#x2F;index&quot;,String.class);	&#x2F;&#x2F;只需要这样写URL即可
+&#125;</code></pre>
+
 <p>直接调用RestTemplate的方法，==<u><em>URL：http://提供者实例名/提供者的方法</em></u>==  即可完成调用</p>
 <p><strong>会发现调用的provider实例是按顺序循环调用的</strong></p>
 <h2 id="3-Ribbon算法"><a href="#3-Ribbon算法" class="headerlink" title="3. Ribbon算法"></a>3. Ribbon算法</h2><h3 id="3-1-轮询算法"><a href="#3-1-轮询算法" class="headerlink" title="3.1 轮询算法"></a>3.1 轮询算法</h3><p>默认基于轮询算法依次调用：8082-8081-8080-8082-8081-8080……</p>
 <h3 id="3-2-随机算法"><a href="#3-2-随机算法" class="headerlink" title="3.2 随机算法"></a>3.2 随机算法</h3><p>yaml配置文件中加上</p>
-<pre><code class="yaml">provider:
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml">provider:
   ribbon:
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
-</code></pre>
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule</code></pre>
+
 <h2 id="4-权重算法"><a href="#4-权重算法" class="headerlink" title="4. 权重算法"></a>4. 权重算法</h2><p>基于nacos中对每个实例设置的权重进行选择，权重越大的实例被选中的概率越高</p>
 <p>写配置类：类名 <strong><code>NacosWeightedRule</code></strong></p>
-<pre><code class="java">import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
+<pre class="language-java" data-language="java"><code class="language-java">import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import com.alibaba.cloud.nacos.ribbon.NacosServer;
 import com.alibaba.nacos.api.exception.NacosException;
 import com.alibaba.nacos.api.naming.NamingService;
@@ -1952,33 +1943,37 @@ public class NacosWeightedRule extends AbstractLoadBalancerRule &#123;
 
     @Override
     public void initWithNiwsConfig(IClientConfig iClientConfig) &#123;
-        //读取配置文件
+        &#x2F;&#x2F;读取配置文件
     &#125;
 
     @Override
     public Server choose(Object o) &#123;
-        ILoadBalancer loadBalancer = this.getLoadBalancer();
-        BaseLoadBalancer baseLoadBalancer = (BaseLoadBalancer) loadBalancer;
-        //获取要请求的微服务名称
-        String name = baseLoadBalancer.getName();
-        //获取服务发现的相关API
-        NamingService namingService = nacosDiscoveryProperties.namingServiceInstance();
+        ILoadBalancer loadBalancer &#x3D; this.getLoadBalancer();
+        BaseLoadBalancer baseLoadBalancer &#x3D; (BaseLoadBalancer) loadBalancer;
+        &#x2F;&#x2F;获取要请求的微服务名称
+        String name &#x3D; baseLoadBalancer.getName();
+        &#x2F;&#x2F;获取服务发现的相关API
+        NamingService namingService &#x3D; nacosDiscoveryProperties.namingServiceInstance();
         try &#123;
-            Instance instance = namingService.selectOneHealthyInstance(name);
-            log.info(&quot;选择的实例是port=&#123;&#125;,instance=&#123;&#125;&quot;,instance.getPort(),instance);
+            Instance instance &#x3D; namingService.selectOneHealthyInstance(name);
+            log.info(&quot;选择的实例是port&#x3D;&#123;&#125;,instance&#x3D;&#123;&#125;&quot;,instance.getPort(),instance);
             return new NacosServer(instance);
         &#125; catch (NacosException e) &#123;
             e.printStackTrace();
             return null;
         &#125;
     &#125;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p>yaml中配置</p>
-<pre><code class="yaml">provider:
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml">provider:
   ribbon:
-    NFLoadBalancerRuleClassName: com.southwind.configuration.NacosWeightedRule
-</code></pre>
+    NFLoadBalancerRuleClassName: com.southwind.configuration.NacosWeightedRule</code></pre>
+
+
+
+
+
 <hr>
 <h1 id="三、Sentinel-服务限流降级"><a href="#三、Sentinel-服务限流降级" class="headerlink" title="三、Sentinel 服务限流降级"></a>三、Sentinel 服务限流降级</h1><p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193908.png" alt="image-20210316205130291"></p>
 <h2 id="1-降级，限流，熔断"><a href="#1-降级，限流，熔断" class="headerlink" title="1. 降级，限流，熔断"></a>1. 降级，限流，熔断</h2><blockquote>
@@ -1990,23 +1985,23 @@ public class NacosWeightedRule extends AbstractLoadBalancerRule &#123;
 <p>降级和限流是应对自身系统的故障，熔断是应对外部系统的故障</p>
 </blockquote>
 <h2 id="2-使用步骤"><a href="#2-使用步骤" class="headerlink" title="2. 使用步骤"></a>2. 使用步骤</h2><h3 id="2-1-引入相关依赖"><a href="#2-1-引入相关依赖" class="headerlink" title="2.1 引入相关依赖"></a>2.1 引入相关依赖</h3><p>provider 的 pom.xml中引入</p>
-<pre><code class="xml">&lt;!--  sentinel 对流量进行控制      --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-cloud-starter-alibaba-sentinel&lt;/artifactId&gt;
-    &lt;version&gt;2.2.1.RELEASE&lt;/version&gt;
-&lt;/dependency&gt;
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--  sentinel 对流量进行控制      --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-alibaba-sentinel<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.2.1.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
 
-&lt;!--    actuator 对流量进行收集  --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre>
+<span class="token comment">&lt;!--    actuator 对流量进行收集  --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-actuator<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+
 <h3 id="2-2-配置"><a href="#2-2-配置" class="headerlink" title="2.2 配置"></a>2.2 配置</h3><blockquote>
 <p><strong>把当前provider提供的服务全部开放出来，让actuator进行接收，让Sentinel进行流量控制</strong></p>
 </blockquote>
-<pre><code class="yaml">management:
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml">management:
   endpoints:
     web:
       exposure:
@@ -2021,6 +2016,7 @@ spring:
         dashboard: localhost:8080
 
 </code></pre>
+
 <h3 id="2-3-启动"><a href="#2-3-启动" class="headerlink" title="2.3 启动"></a>2.3 启动</h3><p>启动Sentinel.jar  默认8080端口</p>
 <p>启动nacos</p>
 <p>访问provider中的接口，即可在Sentinel中进行监控</p>
@@ -2040,29 +2036,25 @@ spring:
 <li><p>高版本1.7以上Sentinel需要进行配置：默认对其他入口收敛，需要配置开放他们，进行限流</p>
 <ul>
 <li><p>pom文件中加入依赖：</p>
-<pre><code class="xml">&lt;dependency&gt;
-    &lt;groupId&gt;com.alibaba.csp&lt;/groupId&gt;
-    &lt;artifactId&gt;sentinel-core&lt;/artifactId&gt;
-    &lt;version&gt;1.7.1&lt;/version&gt;
-&lt;/dependency&gt;
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.csp<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>sentinel-core<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.7.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
 
-&lt;dependency&gt;
-    &lt;groupId&gt;com.alibaba.csp&lt;/groupId&gt;
-    &lt;artifactId&gt;sentinel-web-servlet&lt;/artifactId&gt;
-    &lt;version&gt;1.7.1&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
-</li>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.csp<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>sentinel-web-servlet<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.7.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre></li>
 <li><p>加入以下yaml配置</p>
-<pre><code class="yaml">spring:
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml">spring:
   cloud:
     sentinel:
       filter:
-        enabled: false
-</code></pre>
-</li>
+        enabled: false</code></pre></li>
 <li><p>定义Filter配置类：</p>
-<pre><code class="java">package lover.alice.config;
+<pre class="language-java" data-language="java"><code class="language-java">package lover.alice.config;
 
 
 import com.alibaba.csp.sentinel.adapter.servlet.CommonFilter;
@@ -2074,18 +2066,17 @@ import org.springframework.context.annotation.Configuration;
 public class FilterConfig &#123;
     @Bean
     public FilterRegistrationBean registrationBean()&#123;
-        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+        FilterRegistrationBean registrationBean &#x3D; new FilterRegistrationBean();
         registrationBean.setFilter(new CommonFilter());
-        registrationBean.addUrlPatterns(&quot;/*&quot;);
+        registrationBean.addUrlPatterns(&quot;&#x2F;*&quot;);
         registrationBean.addInitParameter(CommonFilter.WEB_CONTEXT_UNIFY,&quot;false&quot;);
         registrationBean.setName(&quot;sentinelFilter&quot;);
         return registrationBean;
     &#125;
 &#125;
-</code></pre>
-</li>
+</code></pre></li>
 <li><p>Service层</p>
-<pre><code class="java">@Service
+<pre class="language-java" data-language="java"><code class="language-java">@Service
 public class TestService &#123;
 
     @SentinelResource(&quot;ServiceTest&quot;)
@@ -2093,16 +2084,13 @@ public class TestService &#123;
         return &quot;test&quot;;
     &#125;
 &#125;
-</code></pre>
-</li>
+</code></pre></li>
 <li><p>Controller层</p>
-<pre><code class="java">@ResponseBody
-@RequestMapping(&quot;/ControllerTest&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@ResponseBody
+@RequestMapping(&quot;&#x2F;ControllerTest&quot;)
 public String testService()&#123;
     return service.test();
-&#125;
-</code></pre>
-</li>
+&#125;</code></pre></li>
 <li><p>访问接口，观察Sentinel控制台</p>
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193914.png" alt="image-20210317192435278"></p>
 </li>
@@ -2138,15 +2126,15 @@ public String testService()&#123;
 
 <h2 id="6-热点规则"><a href="#6-热点规则" class="headerlink" title="6. 热点规则"></a>6. 热点规则</h2><p>热点规则是流控规则的更细粒度操作，可以具体到对某个热点参数的限流，设置限流之后，如果带着限流参数的请求量超过阈值，则进行限流，时间为统计窗口时长。</p>
 <p>必须要添加 **<code>@SentinelResource</code>**，即对资源进行流控。</p>
-<pre><code class="java">@ResponseBody
-@GetMapping(&quot;/hot&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@ResponseBody
+@GetMapping(&quot;&#x2F;hot&quot;)
 @SentinelResource(&quot;hot_Sentinel&quot;)
 public String hotMethod(
-        @RequestParam(value = &quot;num1&quot;,required = false) Integer num1,
-        @RequestParam(value = &quot;num2&quot;,required = false) Integer num2)&#123;
+        @RequestParam(value &#x3D; &quot;num1&quot;,required &#x3D; false) Integer num1,
+        @RequestParam(value &#x3D; &quot;num2&quot;,required &#x3D; false) Integer num2)&#123;
     return num1+&quot;-&quot;+num2;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193938.png" alt="image-20210317201756974" style="zoom:67%;" />
 
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193944.png" alt="image-20210317201956820" style="zoom:67%;" /><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510193948.png" alt="image-20210317202259971"></p>
@@ -2156,7 +2144,7 @@ public String hotMethod(
 <blockquote>
 <p>配置下面的配置后，访问任何接口都需要带参数 **<code>“name”</code>**才能进行访问</p>
 </blockquote>
-<pre><code class="java">package lover.alice.config;
+<pre class="language-java" data-language="java"><code class="language-java">package lover.alice.config;
 
 import com.alibaba.csp.sentinel.adapter.servlet.callback.RequestOriginParser;
 import org.springframework.util.StringUtils;
@@ -2166,24 +2154,24 @@ import javax.servlet.http.HttpServletRequest;
 public class RequestOriginParserDefinition implements RequestOriginParser &#123;
     @Override
     public String parseOrigin(HttpServletRequest httpServletRequest) &#123;
-        String name = httpServletRequest.getParameter(&quot;name&quot;);
+        String name &#x3D; httpServletRequest.getParameter(&quot;name&quot;);
         if(StringUtils.isEmpty(name))&#123;
             throw new RuntimeException(&quot;name is null&quot;);
         &#125;
         return name;
     &#125;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p>要让 RequestOriginParserDefinition 生效，需要在配置类中进行配置。</p>
-<pre><code class="java">@Configuration
+<pre class="language-java" data-language="java"><code class="language-java">@Configuration
 public class SentinelConfiguration &#123;
 
     @PostConstruct
     public void init()&#123;
         WebCallbackManager.setRequestOriginParser(new RequestOriginParserDefinition());
     &#125;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510194016.png" alt="image-20210317203539661" style="zoom:67%;" />
 
 <img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510194019.png" alt="image-20210317203742149" style="zoom:67%;" /> 
@@ -2243,54 +2231,50 @@ public class SentinelConfiguration &#123;
 <p>今天在使用<code>阿里云OSS对象存储</code>，删除bucket中文图片时，发现问题。</p>
 </blockquote>
 <p>在前端页面使用axios发送请求到后端，传递的参数是要删除的图片的url，前端（vue项目）代码如下：<br>api目录下的js文件的方法声明：</p>
-<pre><code class="javascript">  //放弃，阿里云OSS 删封面
-  giveUpBlog(url)&#123;
-    return request(&#123;
-      url: `/admin/blog/giveUpBlog/$&#123;url&#125;`,
-      method:&#39;post&#39;
-    &#125;)
-  &#125;,
-</code></pre>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//放弃，阿里云OSS 删封面</span>
+<span class="token function">giveUpBlog</span><span class="token punctuation">(</span><span class="token parameter">url</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+    url<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/admin/blog/giveUpBlog/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>url<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    method<span class="token operator">:</span><span class="token string">'post'</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span></code></pre>
 <p>前端页面的调用部分：</p>
-<pre><code class="javascript">//放弃本博客的编写，删掉阿里云中存的封面
-  GiveUp() &#123;
-    const url = this.blogInfo.cover.replace(/\//g, &quot;%2F&quot;);
-    console.log(url)
-    blogApi.giveUpBlog(url.toString()).then(response =&gt; &#123;
-      this.$message(&#123;
-        type: &#39;success&#39;,
-        message: &quot;博客已放弃编辑！&quot;
-      &#125;)
-      this.$router.push(&#123;
-        path: &#39;./blogList&#39;
-      &#125;)
-    &#125;)
-  &#125;,
-</code></pre>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//放弃本博客的编写，删掉阿里云中存的封面</span>
+  <span class="token function">GiveUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>blogInfo<span class="token punctuation">.</span>cover<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\/</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">"%2F"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+    blogApi<span class="token punctuation">.</span><span class="token function">giveUpBlog</span><span class="token punctuation">(</span>url<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        type<span class="token operator">:</span> <span class="token string">'success'</span><span class="token punctuation">,</span>
+        message<span class="token operator">:</span> <span class="token string">"博客已放弃编辑！"</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        path<span class="token operator">:</span> <span class="token string">'./blogList'</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></code></pre>
 <p>后端对‘/’字符进行反向的转义</p>
-<pre><code class="java">// 将前端替换的替换回
-url = url.replace(&quot;%2F&quot;,&quot;/&quot;);
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 将前端替换的替换回
+url &#x3D; url.replace(&quot;%2F&quot;,&quot;&#x2F;&quot;);</code></pre>
 <p>传递的参数字符串是<br><code>https:%2F%2Farilia.oss-cn-chengdu.aliyuncs.com%2F2021%2F04%2F24%2F399992eff3694b8c922c92578814bb99asn.png</code><br>对于url，处理了里面的‘/’字符，转换成了对应的url转义编码。<br>这样进行处理，使用Swagger进行测试时，是正常运行不会报错的，阿里云中的视频也能正常删除掉。<br>但是这样的处理直接使用浏览器点击事件，调用方法发送请求，却无法正常执行，报错如下：<br><img src="http://47.108.156.251:8090/upload/2021/04/image-57b282f6717a47d8b3dd32e0011e46b7.png" alt="image.png"><br>这里参数http:…后面还有很长<br>swagger测试，输入和这里一样转换过‘/’的字符串是正确的，但是这里总是报错。。。</p>
 <p>我这里将Swagger和浏览器请求的Request URL截取做了对比，发现是不一样的<br>这里是Swagger的Request URL<br><code>http://localhost:6661/admin/blog/giveUpBlog/https%3A%252F%252Farilia.oss-cn-chengdu.aliyuncs.com%252F2021%252F04%252F24%252F399992eff3694b8c922c92578814bb99asn.png</code><br>这里是浏览器的Request URL<br><code>http://localhost:6661/admin/blog/giveUpBlog/https:%2F%2Farilia.oss-cn-chengdu.aliyuncs.com%2F2021%2F04%2F24%2F399992eff3694b8c922c92578814bb99asn.png</code><br>一眼看去，Swagger的请求比浏览器发出的要长一些，仔细看就会发现，Swagger发送的请求，将参数中的所有特殊字符按照相应规则进行了转义编码，发现特殊字符不只是有‘/’，只是‘/’连Swagger也无法进行判断帮你转义。<br>所以在前端像后端请求时，参数一定要将其中的所有特殊字符按照相应规则进行转义编码，才能正常发送到后端进行处理。</p>
 <p>进行这样的修改：</p>
-<pre><code class="javascript">//放弃本博客的编写，删掉阿里云中存的封面
-   GiveUp() &#123;
-    let url = this.blogInfo.cover.replace(/\//g, &quot;%2F&quot;);
-    url = url.replace(/\%/g,&quot;%25&quot;)
-    url = url.replace(/\:/g,&quot;%3A&quot;)
-    console.log(url)
-    blogApi.giveUpBlog(url.toString()).then(response =&gt; &#123;
-      this.$message(&#123;
-        type: &#39;success&#39;,
-        message: &quot;博客已放弃编辑！&quot;
-      &#125;)
-      this.$router.push(&#123;
-        path: &#39;./blogList&#39;
-      &#125;)
-    &#125;)
-  &#125;,
-</code></pre>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//放弃本博客的编写，删掉阿里云中存的封面</span>
+   <span class="token function">GiveUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">let</span> url <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>blogInfo<span class="token punctuation">.</span>cover<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\/</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">"%2F"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    url <span class="token operator">=</span> url<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\%</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span><span class="token string">"%25"</span><span class="token punctuation">)</span>
+    url <span class="token operator">=</span> url<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\:</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span><span class="token string">"%3A"</span><span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+    blogApi<span class="token punctuation">.</span><span class="token function">giveUpBlog</span><span class="token punctuation">(</span>url<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        type<span class="token operator">:</span> <span class="token string">'success'</span><span class="token punctuation">,</span>
+        message<span class="token operator">:</span> <span class="token string">"博客已放弃编辑！"</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        path<span class="token operator">:</span> <span class="token string">'./blogList'</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></code></pre>
 <p>这样进行处理后，便可以正常发送请求到后端，正常执行，<br>而且，后端只需要处理‘/’字符的反向转义即可，其他字符均会和Swagger帮你转义一样反向转义回来。。。</p>
 <blockquote>
 <p>同时，在使用Feign远程调用的时候，传入的参数同样不能带有‘/’，需要将它进行转义编码，才能调用远程的服务，否则会发现调用的接口url的前半部分不是要调用的服务IP地址而变成服务名了。。。</p>
@@ -2441,63 +2425,65 @@ url = url.replace(&quot;%2F&quot;,&quot;/&quot;);
 <h1 id="一、快速入门"><a href="#一、快速入门" class="headerlink" title="一、快速入门"></a>一、快速入门</h1><blockquote>
 <p>构建项目，初步体验MybatisPlus的简单功能</p>
 </blockquote>
-<h2 id="1-引入相关依赖"><a href="#1-引入相关依赖" class="headerlink" title="1. 引入相关依赖"></a>1. 引入相关依赖</h2><pre><code class="xml">&lt;!--        MySQL数据库驱动--&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;mysql&lt;/groupId&gt;
-    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
-&lt;/dependency&gt;
-&lt;!--        MybatisPlus(非官方)--&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
-    &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;
-    &lt;version&gt;3.4.2&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;!--        代码生成器--&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
-    &lt;artifactId&gt;mybatis-plus-generator&lt;/artifactId&gt;
-    &lt;version&gt;3.4.1&lt;/version&gt;
-&lt;/dependency&gt;
+<h2 id="1-引入相关依赖"><a href="#1-引入相关依赖" class="headerlink" title="1. 引入相关依赖"></a>1. 引入相关依赖</h2><pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--        MySQL数据库驱动--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>mysql<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mysql-connector-java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!--        MybatisPlus(非官方)--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.baomidou<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mybatis-plus-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.4.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!--        代码生成器--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.baomidou<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mybatis-plus-generator<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.4.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
 
-&lt;!--        代码生成器的默认模板引擎--&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.apache.velocity&lt;/groupId&gt;
-    &lt;artifactId&gt;velocity-engine-core&lt;/artifactId&gt;
-    &lt;version&gt;2.2&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
+<span class="token comment">&lt;!--        代码生成器的默认模板引擎--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.velocity<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>velocity-engine-core<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+
 <p>==引入了MybatisPlus，Mybatis和JDBC的依赖就不需要引入了，重复引入可能造成版本冲突==</p>
-<h2 id="2-配置数据源，连接数据库"><a href="#2-配置数据源，连接数据库" class="headerlink" title="2. 配置数据源，连接数据库"></a>2. 配置数据源，连接数据库</h2><pre><code class="yaml">spring:
+<h2 id="2-配置数据源，连接数据库"><a href="#2-配置数据源，连接数据库" class="headerlink" title="2. 配置数据源，连接数据库"></a>2. 配置数据源，连接数据库</h2><pre class="language-yaml" data-language="yaml"><code class="language-yaml">spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://ip:port/db?useSSL=false&amp;serverTimezone=GMT%2B8
+    url: jdbc:mysql:&#x2F;&#x2F;ip:port&#x2F;db?useSSL&#x3D;false&amp;serverTimezone&#x3D;GMT%2B8
     username: username
-    password: password
-</code></pre>
-<h2 id="3-加入测试数据"><a href="#3-加入测试数据" class="headerlink" title="3. 加入测试数据"></a>3. 加入测试数据</h2><pre><code class="sql">CREATE TABLE user
+    password: password</code></pre>
+
+<h2 id="3-加入测试数据"><a href="#3-加入测试数据" class="headerlink" title="3. 加入测试数据"></a>3. 加入测试数据</h2><pre class="language-sql" data-language="sql"><code class="language-sql">CREATE TABLE user
 (
-    id BIGINT(20) NOT NULL COMMENT &#39;主键ID&#39;,
-    name VARCHAR(30) NULL DEFAULT NULL COMMENT &#39;姓名&#39;,
-    age INT(11) NULL DEFAULT NULL COMMENT &#39;年龄&#39;,
-    email VARCHAR(50) NULL DEFAULT NULL COMMENT &#39;邮箱&#39;,
-    PRIMARY KEY (id)
+	id BIGINT(20) NOT NULL COMMENT &#39;主键ID&#39;,
+	name VARCHAR(30) NULL DEFAULT NULL COMMENT &#39;姓名&#39;,
+	age INT(11) NULL DEFAULT NULL COMMENT &#39;年龄&#39;,
+	email VARCHAR(50) NULL DEFAULT NULL COMMENT &#39;邮箱&#39;,
+	PRIMARY KEY (id)
 );
 INSERT INTO user (id, name, age, email) VALUES
 (1, &#39;Jone&#39;, 18, &#39;test1@baomidou.com&#39;),
 (2, &#39;Jack&#39;, 20, &#39;test2@baomidou.com&#39;),
 (3, &#39;Tom&#39;, 28, &#39;test3@baomidou.com&#39;),
 (4, &#39;Sandy&#39;, 21, &#39;test4@baomidou.com&#39;),
-(5, &#39;Billie&#39;, 24, &#39;test5@baomidou.com&#39;);
-</code></pre>
-<h2 id="4-各类的编写"><a href="#4-各类的编写" class="headerlink" title="4. 各类的编写"></a>4. 各类的编写</h2><pre><code class="java">@Mapper
-//在对应的Mapper接口上继承基本的类BaseMapper
-public interface UserMapper extends BaseMapper&lt;User&gt; &#123;
-    /**
-     * 继承了BaseMapper，所有方法都来自父类，也可以编写自己的扩展方法
-     */
+(5, &#39;Billie&#39;, 24, &#39;test5@baomidou.com&#39;);</code></pre>
 
-&#125;
-</code></pre>
+
+
+<h2 id="4-各类的编写"><a href="#4-各类的编写" class="headerlink" title="4. 各类的编写"></a>4. 各类的编写</h2><pre class="language-java" data-language="java"><code class="language-java">@Mapper
+&#x2F;&#x2F;在对应的Mapper接口上继承基本的类BaseMapper
+public interface UserMapper extends BaseMapper&lt;User&gt; &#123;
+    &#x2F;**
+     * 继承了BaseMapper，所有方法都来自父类，也可以编写自己的扩展方法
+     *&#x2F;
+
+&#125;</code></pre>
+
 <h2 id="5-测试"><a href="#5-测试" class="headerlink" title="5.测试"></a>5.测试</h2><blockquote>
 <p>注意：不要忘了在Mapper接口上写@Mapper注解或者在主程序入口写@MapperScan(“xxx”)指明Mapper接口的包的位置</p>
 </blockquote>
@@ -2505,12 +2491,12 @@ public interface UserMapper extends BaseMapper&lt;User&gt; &#123;
 <p>在开发过程中，使用MybatisPlus我们的SQL语句是不可见的，想要知道它是怎么执行的，需要日志</p>
 </blockquote>
 <p>在配置文件中进行以下配置</p>
-<pre><code class="yaml">#配置日志
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml">#配置日志
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-#这个配置是让日志在控制台进行输出
-</code></pre>
+#这个配置是让日志在控制台进行输出</code></pre>
+
 <img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191238.png" alt="image-20210307140704156" style="zoom:80%;" />
 
 <p>这样我们可以在开发时从控制台上看到执行时的连接池信息，SQL语句，和具体的执行操作</p>
@@ -2518,17 +2504,17 @@ mybatis-plus:
 <p>除了简单的CRUD操作外，扩展以下操作和注意点</p>
 </blockquote>
 <h2 id="1-插入-insert"><a href="#1-插入-insert" class="headerlink" title="1. 插入(insert)"></a>1. 插入(insert)</h2><p>有这样的测试方法</p>
-<pre><code class="java">@Test
+<pre class="language-java" data-language="java"><code class="language-java">@Test
 void insertTest()&#123;
 
-    User user = new User();
+    User user &#x3D; new User();
     user.setName(&quot;zhangsan&quot;);
     user.setAge(6);
     user.setEmail(&quot;zhangsan@qq.com&quot;);
 
     userMapper.insert(user);
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p>插入操作中，没有对主键ID进行插入，结果如下</p>
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191249.png" alt="image-20210307141403921"></p>
 <p>这里会发现自动生成了一个ID（原ID属性不自增）</p>
@@ -2559,9 +2545,9 @@ void insertTest()&#123;
 <ol start="2">
 <li>先将实体类同步，然后再次执行插入方法</li>
 </ol>
-<pre><code class="java">private Date createTime;
-private Date updateTime;
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">private Date createTime;
+private Date updateTime;</code></pre>
+
 <p>结果如下：</p>
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191258.png" alt="image-20210307142645901"></p>
 <h3 id="2-代码级别（推荐）"><a href="#2-代码级别（推荐）" class="headerlink" title="2. 代码级别（推荐）"></a>2. 代码级别（推荐）</h3><ol>
@@ -2571,22 +2557,22 @@ private Date updateTime;
 <ol start="2">
 <li>实体类的属性字段上增加注解</li>
 </ol>
-<pre><code class="java">//字段添加填充内容
-@TableField(fill = FieldFill.INSERT)        //再插入的时候进行填充操作
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;字段添加填充内容
+@TableField(fill &#x3D; FieldFill.INSERT)        &#x2F;&#x2F;再插入的时候进行填充操作
 private Date createTime;
 
-@TableField(fill = FieldFill.INSERT_UPDATE)        //再更新的时候进行填充操作
-private Date updateTime;
-</code></pre>
+@TableField(fill &#x3D; FieldFill.INSERT_UPDATE)        &#x2F;&#x2F;再更新的时候进行填充操作
+private Date updateTime;</code></pre>
+
 <ol start="3">
 <li><p>编写处理器处理上面的注解</p>
 <p><strong>handler包下配置</strong></p>
 </li>
 </ol>
-<pre><code class="java">@Slf4j
-@Component      //不要忘记加到容器里
+<pre class="language-java" data-language="java"><code class="language-java">@Slf4j
+@Component      &#x2F;&#x2F;不要忘记加到容器里
 public class MyMetaObjectHandler implements MetaObjectHandler &#123;
-    //插入时的填充策略
+    &#x2F;&#x2F;插入时的填充策略
     @Override
     public void insertFill(MetaObject metaObject) &#123;
         log.info(&quot;start insert fill.........&quot;);
@@ -2595,7 +2581,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler &#123;
         this.setFieldValByName(&quot;updateTime&quot;,new Date(),metaObject);
     &#125;
 
-    //更新时的填充处理
+    &#x2F;&#x2F;更新时的填充处理
     @Override
     public void updateFill(MetaObject metaObject) &#123;
         log.info(&quot;start update fill.........&quot;);
@@ -2603,24 +2589,27 @@ public class MyMetaObjectHandler implements MetaObjectHandler &#123;
     &#125;
 &#125;
 </code></pre>
+
 <ol start="4">
 <li>测试插入和更新操作，结 果与第一种方式一致</li>
 </ol>
-<h2 id="3-查询操作"><a href="#3-查询操作" class="headerlink" title="3. 查询操作"></a>3. 查询操作</h2><h3 id="3-1-批量查询，通过ID"><a href="#3-1-批量查询，通过ID" class="headerlink" title="3.1 批量查询，通过ID"></a>3.1 批量查询，通过ID</h3><pre><code class="java"> @Test
+<h2 id="3-查询操作"><a href="#3-查询操作" class="headerlink" title="3. 查询操作"></a>3. 查询操作</h2><h3 id="3-1-批量查询，通过ID"><a href="#3-1-批量查询，通过ID" class="headerlink" title="3.1 批量查询，通过ID"></a>3.1 批量查询，通过ID</h3><pre class="language-java" data-language="java"><code class="language-java"> @Test
 void testSelectMore()&#123;
-    List&lt;User&gt; users = userMapper.selectBatchIds(Arrays.asList(1, 2, 3));
+    List&lt;User&gt; users &#x3D; userMapper.selectBatchIds(Arrays.asList(1, 2, 3));
     users.forEach(System.out::println);
-&#125;
-</code></pre>
-<h3 id="3-2-按条件批量查询，通过其他字段（Map）"><a href="#3-2-按条件批量查询，通过其他字段（Map）" class="headerlink" title="3.2 按条件批量查询，通过其他字段（Map）"></a>3.2 按条件批量查询，通过其他字段（Map）</h3><pre><code class="java">@Test
+&#125;</code></pre>
+
+<h3 id="3-2-按条件批量查询，通过其他字段（Map）"><a href="#3-2-按条件批量查询，通过其他字段（Map）" class="headerlink" title="3.2 按条件批量查询，通过其他字段（Map）"></a>3.2 按条件批量查询，通过其他字段（Map）</h3><pre class="language-java" data-language="java"><code class="language-java">@Test
 void testSelectbtMap()&#123;
-    HashMap&lt;String,Object&gt; map = new HashMap&lt;&gt;();
+    HashMap&lt;String,Object&gt; map &#x3D; new HashMap&lt;&gt;();
     map.put(&quot;name&quot;,&quot;zhangsan&quot;);
     map.put(&quot;age&quot;,6);
-    List list = userMapper.selectByMap(map);
+    List list &#x3D; userMapper.selectByMap(map);
     list.forEach(System.out::println);
-&#125;
-</code></pre>
+&#125;</code></pre>
+
+
+
 <h3 id="3-3-分页查询"><a href="#3-3-分页查询" class="headerlink" title="3.3 分页查询"></a>3.3 分页查询</h3><blockquote>
 <p>MybatisPlus自带分页查询插件</p>
 </blockquote>
@@ -2629,14 +2618,14 @@ void testSelectbtMap()&#123;
 <p><strong>config包下配置</strong></p>
 </li>
 </ol>
-<pre><code class="java">@Configuration
+<pre class="language-java" data-language="java"><code class="language-java">@Configuration
 public class MybatisPlusConfig &#123;
-    // 分页插件
-    // 最新版
+    &#x2F;&#x2F; 分页插件
+    &#x2F;&#x2F; 最新版
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() &#123;
-        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
-        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.H2));    //注意这个H2，坑大，勿跳！
+        MybatisPlusInterceptor interceptor &#x3D; new MybatisPlusInterceptor();
+        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.H2));	&#x2F;&#x2F;注意这个H2，坑大，勿跳！
         return interceptor;
     &#125;
 &#125;
@@ -2645,11 +2634,11 @@ public class MybatisPlusConfig &#123;
 
 
 
-//旧版
-@Configuration //配置类
+&#x2F;&#x2F;旧版
+@Configuration &#x2F;&#x2F;配置类
 public class MybatisPlusConfig &#123;
 
-    // 分页插件
+    &#x2F;&#x2F; 分页插件
     @Bean
     public PaginationInterceptor paginationInterceptor() &#123;
         return new PaginationInterceptor();
@@ -2657,22 +2646,23 @@ public class MybatisPlusConfig &#123;
 
 &#125;
 </code></pre>
+
 <ol start="2">
 <li>测试</li>
 </ol>
-<pre><code class="java">//测试分页
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;测试分页
 @Test
 public void testPage()&#123;
 
-    //参数一：当前页
-    //参数二：页面大小
-    Page&lt;User&gt; page = new Page&lt;&gt;(2,5);
+    &#x2F;&#x2F;参数一：当前页
+    &#x2F;&#x2F;参数二：页面大小
+    Page&lt;User&gt; page &#x3D; new Page&lt;&gt;(2,5);
     userMapper.selectPage(page, null);
     page.getRecords().forEach(System.out::println);
 
-    System.out.println(page.getTotal());  //显示总数
-&#125;
-</code></pre>
+    System.out.println(page.getTotal());  &#x2F;&#x2F;显示总数
+&#125;</code></pre>
+
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191306.png" alt="计算机生成了可选文字: =&gt;Preparing:SELECTid,name,age,email,version,create_time,update_timFROMUserLIMIT？ =&gt;Parameters5(Long)"></p>
 <p>**page.getRecords()**这个操作得到的是一个查询得到的数据列表，可以在前端页面进行遍历</p>
 <hr>
@@ -2681,56 +2671,60 @@ public void testPage()&#123;
 </blockquote>
 <p>使用MybatisPlus提供的分页插件</p>
 <p><strong>config中配置，MybatisPlusConfig.java</strong></p>
-<pre><code class="java">// 分页插件
-// 最新版
-@Bean            //@Bean注解不能忘
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 分页插件
+&#x2F;&#x2F; 最新版
+@Bean			&#x2F;&#x2F;@Bean注解不能忘
 public MybatisPlusInterceptor mybatisPlusInterceptor() &#123;
-    MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+    MybatisPlusInterceptor interceptor &#x3D; new MybatisPlusInterceptor();
     interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.H2));
     return interceptor;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p><strong>Controller层查询和传递数据</strong></p>
-<pre><code class="java">@RequestMapping(&quot;/getTypes&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@RequestMapping(&quot;&#x2F;getTypes&quot;)
 public String getTypes(Model model)&#123;
-    
-    Page&lt;Type&gt; page = new Page&lt;&gt;(1,5);        //参数一：第几页；参数二：一页几条数据
-    Page&lt;Type&gt; typePage = typeService.page(page, null);
-    List&lt;Type&gt; typeList = typePage.getRecords();
+	
+    Page&lt;Type&gt; page &#x3D; new Page&lt;&gt;(1,5);		&#x2F;&#x2F;参数一：第几页；参数二：一页几条数据
+    Page&lt;Type&gt; typePage &#x3D; typeService.page(page, null);
+    List&lt;Type&gt; typeList &#x3D; typePage.getRecords();
 
     model.addAttribute(&quot;page&quot;,typeList);
-    return &quot;admin/types&quot;;
-&#125;
-</code></pre>
+    return &quot;admin&#x2F;types&quot;;
+&#125;</code></pre>
+
 <p>传到前端是一个List，然后用Thyemleaf模板进行遍历渲染</p>
-<pre><code class="html">&lt;tr th:each=&quot;type,stat:$&#123;page&#125;&quot;&gt;
-    &lt;td th:text=&quot;$&#123;stat.count&#125;&quot;&gt;1&lt;/td&gt;    &lt;!--计数--&gt;
-    &lt;td th:text=&quot;$&#123;type.typeName&#125;&quot;&gt;666&lt;/td&gt;
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span> <span class="token attr-name"><span class="token namespace">th:</span>each</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>type,stat:$&#123;page&#125;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;stat.count&#125;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>    <span class="token comment">&lt;!--计数--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;type.typeName&#125;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>666<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
 
-    &lt;td&gt;
-        &lt;a href=&quot;&quot; class=&quot;ui mini green button&quot;&gt;编辑&lt;/a&gt;
-        &lt;a href=&quot;&quot; class=&quot;ui mini pink button&quot;&gt;删除&lt;/a&gt;
-    &lt;/td&gt;
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ui mini green button<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>编辑<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ui mini pink button<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>删除<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
 
-&lt;/tr&gt;
-</code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span></code></pre>
+
 <p>获取数据总数，总页数，当前页：</p>
 <p>先拿到Page<Type> typePage = typeService.page(page, null);这个对象，然后传到model中</p>
-<pre><code class="java">@RequestMapping(&quot;/getTypes&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@RequestMapping(&quot;&#x2F;getTypes&quot;)
 public String getTypes(Model model)&#123;
 
-    Page&lt;Type&gt; page = new Page&lt;&gt;(1,5);
-    Page&lt;Type&gt; typePage = typeService.page(page, null);
-    List&lt;Type&gt; typeList = typePage.getRecords();
+    Page&lt;Type&gt; page &#x3D; new Page&lt;&gt;(1,5);
+    Page&lt;Type&gt; typePage &#x3D; typeService.page(page, null);
+    List&lt;Type&gt; typeList &#x3D; typePage.getRecords();
 
 
     model.addAttribute(&quot;page&quot;,typePage);
-    model.addAttribute(&quot;content&quot;,typeList);                 //内容
-    return &quot;admin/types&quot;;
-&#125;
-</code></pre>
-<pre><code class="html">&lt;p&gt;当前在第[[$&#123;page.current&#125;]]页，共[[$&#123;page.pages&#125;]]页，[[$&#123;page.total&#125;]]条数据&lt;/p&gt;
-</code></pre>
+    model.addAttribute(&quot;content&quot;,typeList);                 &#x2F;&#x2F;内容
+    return &quot;admin&#x2F;types&quot;;
+&#125;</code></pre>
+
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>当前在第[[$&#123;page.current&#125;]]页，共[[$&#123;page.pages&#125;]]页，[[$&#123;page.total&#125;]]条数据<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></code></pre>
+
+
+
+
+
 <hr>
 <h2 id="4-逻辑删除-deleted"><a href="#4-逻辑删除-deleted" class="headerlink" title="4. 逻辑删除(deleted)"></a>4. 逻辑删除(deleted)</h2><blockquote>
 <p>物理删除：从数据库中直接删除</p>
@@ -2746,27 +2740,27 @@ public String getTypes(Model model)&#123;
 <ol start="2">
 <li>在实体类中增加对于的属性与<strong>注解</strong></li>
 </ol>
-<pre><code class="java">@TableLogic     //逻辑删除
-private Integer deleted;
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">@TableLogic     &#x2F;&#x2F;逻辑删除
+private Integer deleted;</code></pre>
+
 <ol start="3">
 <li>在yaml（或properties）配置文件中进行配置</li>
 </ol>
-<pre><code class="yaml">mybatis-plus:
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml">mybatis-plus:
   global-config:
     db-config:
-      logic-delete-value: 1                #删除了的为1
-      logic-not-delete-value: 0            #没被删除的为0
-</code></pre>
+      logic-delete-value: 1				#删除了的为1
+      logic-not-delete-value: 0			#没被删除的为0</code></pre>
+
 <ol start="4">
 <li>测试：</li>
 </ol>
-<pre><code class="java">//delete
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;delete
 @Test
 void delete()&#123;
     userMapper.deleteById(1L);
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191312.png" alt="image-20210307144732849"></p>
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191329.png" alt="1256416313"></p>
 <p>再查询1号User</p>
@@ -2790,54 +2784,55 @@ void delete()&#123;
 <ol start="2">
 <li>实体类加上对应字段并标注@Version注解</li>
 </ol>
-<pre><code class="java">@Version   //乐观锁version注解
-private Integer version;
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">@Version   &#x2F;&#x2F;乐观锁version注解
+private Integer version;</code></pre>
+
 <ol start="3">
 <li>注册组件(config包)</li>
 </ol>
-<pre><code class="java">@Configuration //配置类
+<pre class="language-java" data-language="java"><code class="language-java">@Configuration &#x2F;&#x2F;配置类
 public class MybatisPlusConfig &#123;
-//    注册乐观锁插件
+&#x2F;&#x2F;    注册乐观锁插件
     @Bean
     public OptimisticLockerInterceptor optimisticLockerInterceptor() &#123;
         return new OptimisticLockerInterceptor();
     &#125;
 
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <ol start="4">
 <li>测试</li>
 </ol>
-<pre><code class="java"> @Test
-    void testop()&#123;
-        /**
-         * 1.查询用户信息
-         */
-        User user = userMapper.selectById(1);
-        //  2.修改用户信息
-        user.setName(&quot;leguan2&quot;);
-        user.setEmail(&quot;leguan2@ll.com&quot;);
-        //3.执行更新操作
-        userMapper.updateById(user);
-    &#125;
-</code></pre>
-<pre><code class="java">   // 测试乐观锁失败！多线程下
+<pre class="language-java" data-language="java"><code class="language-java">@Test
+   void testop()&#123;
+       &#x2F;**
+        * 1.查询用户信息
+        *&#x2F;
+       User user &#x3D; userMapper.selectById(1);
+	&#x2F;&#x2F;  2.修改用户信息
+       user.setName(&quot;leguan2&quot;);
+       user.setEmail(&quot;leguan2@ll.com&quot;);
+       &#x2F;&#x2F;3.执行更新操作
+       userMapper.updateById(user);
+   &#125;</code></pre>
+
+<pre class="language-java" data-language="java"><code class="language-java">   &#x2F;&#x2F; 测试乐观锁失败！多线程下
     @Test
     public void testOptimisticLocker2()&#123;
-// 线程 1
-        User user = userMapper.selectById(1L);
+&#x2F;&#x2F; 线程 1
+        User user &#x3D; userMapper.selectById(1L);
         user.setName(&quot;kuangshen111&quot;);
         user.setEmail(&quot;24736743@qq.com&quot;);
-// 模拟另外一个线程执行了插队操作
-        User user2 = userMapper.selectById(1L);
+&#x2F;&#x2F; 模拟另外一个线程执行了插队操作
+        User user2 &#x3D; userMapper.selectById(1L);
         user2.setName(&quot;kuangshen222&quot;);
         user2.setEmail(&quot;24736743@qq.com&quot;);
         userMapper.updateById(user2);
-// 自旋锁来多次尝试提交！
-        userMapper.updateById(user); // 如果没有乐观锁就会覆盖插队线程的值！
+&#x2F;&#x2F; 自旋锁来多次尝试提交！
+        userMapper.updateById(user); &#x2F;&#x2F; 如果没有乐观锁就会覆盖插队线程的值！
     &#125;
 </code></pre>
+
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191341.png" alt="image-20210307145543128"></p>
 <blockquote>
 <p>总结</p>
@@ -2848,79 +2843,79 @@ public class MybatisPlusConfig &#123;
 <ol>
 <li></li>
 </ol>
-<pre><code class="java">@Test
+<pre class="language-java" data-language="java"><code class="language-java">@Test
 void test1()&#123;
-    //查询name不为空。email不为空，且age&gt;=12的用户
+    &#x2F;&#x2F;查询name不为空。email不为空，且age&gt;&#x3D;12的用户
 
-    QueryWrapper&lt;User&gt; wrapper = new QueryWrapper&lt;&gt;();
+    QueryWrapper&lt;User&gt; wrapper &#x3D; new QueryWrapper&lt;&gt;();
     wrapper
-        .isNotNull(&quot;name&quot;)              //name不为空
-        .isNotNull(&quot;email&quot;)             //Email不为空
-        .ge(&quot;age&quot;, 12);             //age&gt;=12
+        .isNotNull(&quot;name&quot;)              &#x2F;&#x2F;name不为空
+        .isNotNull(&quot;email&quot;)             &#x2F;&#x2F;Email不为空
+        .ge(&quot;age&quot;, 12);             &#x2F;&#x2F;age&gt;&#x3D;12
     userMapper.selectList(wrapper).forEach(System.out::println);
 
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191344.png" alt="image-20210307101521171"></p>
 <p>可以看见条件查询生效</p>
 <ol start="2">
 <li></li>
 </ol>
-<pre><code class="java">@Test
+<pre class="language-java" data-language="java"><code class="language-java">@Test
 void test2()&#123;
-    //查询name=Tom的用户
-    QueryWrapper&lt;User&gt; wrapper = new QueryWrapper&lt;&gt;();
+    &#x2F;&#x2F;查询name&#x3D;Tom的用户
+    QueryWrapper&lt;User&gt; wrapper &#x3D; new QueryWrapper&lt;&gt;();
     wrapper
         .eq(&quot;name&quot;,&quot;Tom&quot;);
 
     System.out.println(userMapper.selectOne(wrapper));
-    //查询一个数据用SelectOne，多个用SelectList或Map
-&#125;
-</code></pre>
+    &#x2F;&#x2F;查询一个数据用SelectOne，多个用SelectList或Map
+&#125;</code></pre>
+
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191348.png" alt="image-20210307102101498"></p>
 <ol start="3">
 <li>between</li>
 </ol>
-<pre><code class="java">@Test
+<pre class="language-java" data-language="java"><code class="language-java">@Test
 void test3()&#123;
-    //查询age在20——30的
-    QueryWrapper&lt;User&gt; wrapper = new QueryWrapper&lt;&gt;();
+    &#x2F;&#x2F;查询age在20——30的
+    QueryWrapper&lt;User&gt; wrapper &#x3D; new QueryWrapper&lt;&gt;();
     wrapper
-            .between(&quot;age&quot;,20,30);  //区间
-    Integer count = userMapper.selectCount(wrapper);
+            .between(&quot;age&quot;,20,30);  &#x2F;&#x2F;区间
+    Integer count &#x3D; userMapper.selectCount(wrapper);
     System.out.println(count);
 
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191357.png" alt="image-20210307102744448"></p>
 <ol start="4">
 <li>模糊查询</li>
 </ol>
-<pre><code class="java">@Test
+<pre class="language-java" data-language="java"><code class="language-java">@Test
 void test4()&#123;
-    //查询name里不包含a,email中t打头的用户
-    QueryWrapper&lt;User&gt; wrapper = new QueryWrapper&lt;&gt;();
+    &#x2F;&#x2F;查询name里不包含a,email中t打头的用户
+    QueryWrapper&lt;User&gt; wrapper &#x3D; new QueryWrapper&lt;&gt;();
     wrapper
             .notLike(&quot;name&quot;,&quot;a&quot;)
-            .likeRight(&quot;email&quot;,&quot;t&quot;);        //t%
-            //%在右边，则用likeRight
-    List&lt;Map&lt;String, Object&gt;&gt; maps = userMapper.selectMaps(wrapper);
+            .likeRight(&quot;email&quot;,&quot;t&quot;);        &#x2F;&#x2F;t%
+            &#x2F;&#x2F;%在右边，则用likeRight
+    List&lt;Map&lt;String, Object&gt;&gt; maps &#x3D; userMapper.selectMaps(wrapper);
     maps.forEach(System.out::println);
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191400.png" alt="image-20210307103850692"></p>
 <ol start="5">
 <li>排序</li>
 </ol>
-<pre><code class="java">@Test
+<pre class="language-java" data-language="java"><code class="language-java">@Test
 void test4()&#123;
-    //通过ID降序排序
-    QueryWrapper&lt;User&gt; wrapper = new QueryWrapper&lt;&gt;();
+    &#x2F;&#x2F;通过ID降序排序
+    QueryWrapper&lt;User&gt; wrapper &#x3D; new QueryWrapper&lt;&gt;();
     wrapper.orderByDesc(&quot;id&quot;);
     userMapper.selectMaps(wrapper).forEach(System.out::println);
 
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191403.png" alt="image-20210307104612805"></p>
 <ol start="6">
 <li></li>
@@ -2931,31 +2926,31 @@ void test4()&#123;
 <blockquote>
 <p>使用方法</p>
 </blockquote>
-<h2 id="1-加入依赖"><a href="#1-加入依赖" class="headerlink" title="1. 加入依赖"></a>1. 加入依赖</h2><pre><code class="xml">&lt;!--        MybatisPlus--&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
-            &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;
-            &lt;version&gt;3.4.2&lt;/version&gt;
-        &lt;/dependency&gt;
+<h2 id="1-加入依赖"><a href="#1-加入依赖" class="headerlink" title="1. 加入依赖"></a>1. 加入依赖</h2><pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--        MybatisPlus--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.baomidou<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mybatis-plus-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.4.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
 
-&lt;!--        代码生成器--&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
-            &lt;artifactId&gt;mybatis-plus-generator&lt;/artifactId&gt;
-            &lt;version&gt;3.4.1&lt;/version&gt;
-        &lt;/dependency&gt;
+<span class="token comment">&lt;!--        代码生成器--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.baomidou<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mybatis-plus-generator<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.4.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
 
-&lt;!--        代码生成器的默认模板引擎--&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.apache.velocity&lt;/groupId&gt;
-            &lt;artifactId&gt;velocity-engine-core&lt;/artifactId&gt;
-            &lt;version&gt;2.2&lt;/version&gt;
-        &lt;/dependency&gt;
-</code></pre>
+<span class="token comment">&lt;!--        代码生成器的默认模板引擎--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.velocity<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>velocity-engine-core<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+
 <h2 id="2-代码"><a href="#2-代码" class="headerlink" title="2. 代码"></a>2. 代码</h2><blockquote>
 <p> 代码生成器代码如下</p>
 </blockquote>
-<pre><code class="java">//代码自动生成器
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;代码自动生成器
 package lover.alice;
 
 import com.baomidou.mybatisplus.annotation.DbType;
@@ -2975,62 +2970,63 @@ import java.util.ArrayList;
 
 public class AliceCode &#123;
     public static void main(String[] args) &#123;
-// 需要构建一个 代码自动生成器 对象
-        AutoGenerator mpg = new AutoGenerator();
-// 配置策略
-// 1、全局配置
-        GlobalConfig gc = new GlobalConfig();
-        String projectPath = System.getProperty(&quot;user.dir&quot;);
-        gc.setOutputDir(projectPath+&quot;/src/main/java&quot;);
+&#x2F;&#x2F; 需要构建一个 代码自动生成器 对象
+        AutoGenerator mpg &#x3D; new AutoGenerator();
+&#x2F;&#x2F; 配置策略
+&#x2F;&#x2F; 1、全局配置
+        GlobalConfig gc &#x3D; new GlobalConfig();
+        String projectPath &#x3D; System.getProperty(&quot;user.dir&quot;);
+        gc.setOutputDir(projectPath+&quot;&#x2F;src&#x2F;main&#x2F;java&quot;);
         gc.setAuthor(&quot;小爱の雨缘&quot;);
         gc.setOpen(false);
-        gc.setFileOverride(false); // 是否覆盖
-        gc.setServiceName(&quot;%sService&quot;); // 去Service的I前缀
+        gc.setFileOverride(false); &#x2F;&#x2F; 是否覆盖
+        gc.setServiceName(&quot;%sService&quot;); &#x2F;&#x2F; 去Service的I前缀
         gc.setIdType(IdType.ID_WORKER);
         gc.setDateType(DateType.ONLY_DATE);
         gc.setSwagger2(true);
         mpg.setGlobalConfig(gc);
-//2、设置数据源
-        DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl(&quot;jdbc:mysql://localhost:3306/db1?useSSL=false&amp;serverTimezone=GMT%2B8&quot;);
+&#x2F;&#x2F;2、设置数据源
+        DataSourceConfig dsc &#x3D; new DataSourceConfig();
+        dsc.setUrl(&quot;jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;db1?useSSL&#x3D;false&amp;serverTimezone&#x3D;GMT%2B8&quot;);
         dsc.setDriverName(&quot;com.mysql.cj.jdbc.Driver&quot;);
         dsc.setUsername(&quot;root&quot;);
         dsc.setPassword(&quot;skrskr666&quot;);
         dsc.setDbType(DbType.MYSQL);
         mpg.setDataSource(dsc);
-//3、包的配置
-        PackageConfig pc = new PackageConfig();
-//        pc.setModuleName(&quot;blog&quot;);
+&#x2F;&#x2F;3、包的配置
+        PackageConfig pc &#x3D; new PackageConfig();
+&#x2F;&#x2F;        pc.setModuleName(&quot;blog&quot;);
         pc.setParent(&quot;lover.alice&quot;);
         pc.setEntity(&quot;entity&quot;);
         pc.setMapper(&quot;mapper&quot;);
         pc.setService(&quot;service&quot;);
         pc.setController(&quot;controller&quot;);
         mpg.setPackageInfo(pc);
-//4、策略配置
-        StrategyConfig strategy = new StrategyConfig();
-        strategy.setInclude(&quot;student&quot;); // 设置要映射的表名
+&#x2F;&#x2F;4、策略配置
+        StrategyConfig strategy &#x3D; new StrategyConfig();
+        strategy.setInclude(&quot;student&quot;); &#x2F;&#x2F; 设置要映射的表名
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setEntityLombokModel(true); // 自动lombok；
+        strategy.setEntityLombokModel(true); &#x2F;&#x2F; 自动lombok；
         strategy.setLogicDeleteFieldName(&quot;deleted&quot;);
-// 自动填充配置
-        TableFill gmtCreate = new TableFill(&quot;gmt_create&quot;, FieldFill.INSERT);
-        TableFill gmtModified = new TableFill(&quot;gmt_modified&quot;,
+&#x2F;&#x2F; 自动填充配置
+        TableFill gmtCreate &#x3D; new TableFill(&quot;gmt_create&quot;, FieldFill.INSERT);
+        TableFill gmtModified &#x3D; new TableFill(&quot;gmt_modified&quot;,
                 FieldFill.INSERT_UPDATE);
-        ArrayList&lt;TableFill&gt; tableFills = new ArrayList&lt;&gt;();
+        ArrayList&lt;TableFill&gt; tableFills &#x3D; new ArrayList&lt;&gt;();
         tableFills.add(gmtCreate);
         tableFills.add(gmtModified);
         strategy.setTableFillList(tableFills);
-// 乐观锁
+&#x2F;&#x2F; 乐观锁
         strategy.setVersionFieldName(&quot;version&quot;);
         strategy.setRestControllerStyle(true);
-        strategy.setControllerMappingHyphenStyle(true); //localhost:8080/hello_id_2
+        strategy.setControllerMappingHyphenStyle(true); &#x2F;&#x2F;localhost:8080&#x2F;hello_id_2
         mpg.setStrategy(strategy);
-        mpg.execute(); //执行
+        mpg.execute(); &#x2F;&#x2F;执行
     &#125;
 &#125;
 </code></pre>
+
 <h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><blockquote>
 <ol>
 <li>生成器代码中对应的数据库和表，已经生成的位置按需进行修改</li>
@@ -3052,23 +3048,23 @@ public class AliceCode &#123;
 <h2 id="2-自定义SQL使用Wrapper"><a href="#2-自定义SQL使用Wrapper" class="headerlink" title="2. 自定义SQL使用Wrapper"></a>2. 自定义SQL使用Wrapper</h2><blockquote>
 <p>需要<code>mybatis-plus</code>版本 &gt;= <code>3.0.7</code> param 参数名要么叫<code>ew</code>,要么加上注解<code>@Param(Constants.WRAPPER)</code> 使用<code>$&#123;ew.customSqlSegment&#125;</code> 不支持 <code>Wrapper</code> 内的entity生成where语句</p>
 </blockquote>
-<h3 id="2-1-用注解"><a href="#2-1-用注解" class="headerlink" title="2.1 用注解"></a>2.1 用注解</h3><pre><code class="java">@Select(&quot;select * from mysql_data $&#123;ew.customSqlSegment&#125;&quot;)
-List&lt;MysqlData&gt; getAll(@Param(Constants.WRAPPER) Wrapper wrapper);
-</code></pre>
-<h3 id="2-2-用XML"><a href="#2-2-用XML" class="headerlink" title="2.2 用XML"></a>2.2 用XML</h3><pre><code class="java">List&lt;MysqlData&gt; getAll(Wrapper ew);
-</code></pre>
-<pre><code class="xml">&lt;select id=&quot;getAll&quot; resultType=&quot;MysqlData&quot;&gt;
-    SELECT * FROM mysql_data $&#123;ew.customSqlSegment&#125;
-&lt;/select&gt;
-</code></pre>
+<h3 id="2-1-用注解"><a href="#2-1-用注解" class="headerlink" title="2.1 用注解"></a>2.1 用注解</h3><pre class="language-java" data-language="java"><code class="language-java">@Select(&quot;select * from mysql_data $&#123;ew.customSqlSegment&#125;&quot;)
+List&lt;MysqlData&gt; getAll(@Param(Constants.WRAPPER) Wrapper wrapper);</code></pre>
+
+<h3 id="2-2-用XML"><a href="#2-2-用XML" class="headerlink" title="2.2 用XML"></a>2.2 用XML</h3><pre class="language-java" data-language="java"><code class="language-java">List&lt;MysqlData&gt; getAll(Wrapper ew);</code></pre>
+
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>getAll<span class="token punctuation">"</span></span> <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>MysqlData<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+	SELECT * FROM mysql_data $&#123;ew.customSqlSegment&#125;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre>
+
 <h3 id="2-3-用法实现"><a href="#2-3-用法实现" class="headerlink" title="2.3 用法实现"></a>2.3 用法实现</h3><p>1）Mapper接口(Page必须在第一位)</p>
-<pre><code class="java">public interface EduCourseMapper extends BaseMapper&lt;EduCourse&gt; &#123;
+<pre class="language-java" data-language="java"><code class="language-java">public interface EduCourseMapper extends BaseMapper&lt;EduCourse&gt; &#123;
     public IPage&lt;CoursePublishVo&gt; getCourseDisplayList(Page&lt;CoursePublishVo&gt; page,@Param(Constants.WRAPPER) Wrapper wrapper,Integer current, Integer limit,
                                                        CourseQuery courseQuery);
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p>2）Mapper.xml</p>
-<pre><code class="xml">&lt;select id=&quot;getCourseDisplayList&quot; resultType=&quot;lover.Alice.eduservice.entity.vo.CoursePublishVo&quot;&gt;
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>getCourseDisplayList<span class="token punctuation">"</span></span> <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>lover.Alice.eduservice.entity.vo.CoursePublishVo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     SELECT ec.`id`,
            ec.`title`,
            ec.`cover`,
@@ -3082,20 +3078,20 @@ List&lt;MysqlData&gt; getAll(@Param(Constants.WRAPPER) Wrapper wrapper);
                        LEFT JOIN edu_subject es1 ON ec.`subject_parent_id`=es1.`id`
                        LEFT JOIN edu_subject es2 ON ec.`subject_id`=es2.`id`
         $&#123;ew.customSqlSegment&#125;
-&lt;/select&gt;
-</code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre>
+
 <p>3）Service接口实现类</p>
-<pre><code class="java">//按条件分页查询课程列表
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;按条件分页查询课程列表
 @Override
 public IPage&lt;CoursePublishVo&gt; getCourseDisplayListService(Integer current, Integer limit, CourseQuery courseQuery) &#123;
 
-    Page&lt;CoursePublishVo&gt; page = new Page&lt;&gt;(current,limit);
+    Page&lt;CoursePublishVo&gt; page &#x3D; new Page&lt;&gt;(current,limit);
 
-    QueryWrapper&lt;CourseQuery&gt; wrapper = new QueryWrapper&lt;&gt;();
-    String title = courseQuery.getTitle();
-    String teacherName = courseQuery.getTeacherName();
-    String subjectParentName = courseQuery.getSubjectParentName();
-    String subjectName = courseQuery.getSubjectName();
+    QueryWrapper&lt;CourseQuery&gt; wrapper &#x3D; new QueryWrapper&lt;&gt;();
+    String title &#x3D; courseQuery.getTitle();
+    String teacherName &#x3D; courseQuery.getTeacherName();
+    String subjectParentName &#x3D; courseQuery.getSubjectParentName();
+    String subjectName &#x3D; courseQuery.getSubjectName();
     if (!StringUtils.isEmpty(title))&#123;
         wrapper.like(&quot;ec.title&quot;,title);
     &#125;
@@ -3108,19 +3104,19 @@ public IPage&lt;CoursePublishVo&gt; getCourseDisplayListService(Integer current,
     if (!StringUtils.isEmpty(subjectName))&#123;
         wrapper.eq(&quot;es2.title&quot;,subjectName);
     &#125;
-    IPage&lt;CoursePublishVo&gt; coursePage = baseMapper.getCourseDisplayList(page, wrapper, current, limit, courseQuery);
+    IPage&lt;CoursePublishVo&gt; coursePage &#x3D; baseMapper.getCourseDisplayList(page, wrapper, current, limit, courseQuery);
     return coursePage;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p>4）Controller层</p>
-<pre><code class="java">//按条件分页查询课程列表
-@PostMapping(&quot;pageCourseCondition/&#123;current&#125;/&#123;limit&#125;&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;按条件分页查询课程列表
+@PostMapping(&quot;pageCourseCondition&#x2F;&#123;current&#125;&#x2F;&#123;limit&#125;&quot;)
 public R pageCourseCondition(@PathVariable Integer current, @PathVariable Integer limit,
                              @RequestBody CourseQuery courseQuery)&#123;
-    IPage&lt;CoursePublishVo&gt; page = courseService.getCourseDisplayListService(current,limit,courseQuery);
+    IPage&lt;CoursePublishVo&gt; page &#x3D; courseService.getCourseDisplayListService(current,limit,courseQuery);
     return R.ok().data(&quot;rows&quot;,page.getRecords()).data(&quot;total&quot;,page.getTotal());
-&#125;
-</code></pre>
+&#125;</code></pre>
+
  
       <!-- reward -->
       
@@ -3159,7 +3155,7 @@ public R pageCourseCondition(@PathVariable Integer current, @PathVariable Intege
     <ul>
       <li>
         Copyrights &copy;
-        2015-2023
+        2020-2023
         <i class="ri-heart-fill heart_icon"></i> Tokitou Muichirou
       </li>
     </ul>
@@ -3499,6 +3495,23 @@ public R pageCourseCondition(@PathVariable Integer current, @PathVariable Intege
 </script>
 
 
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=22707008&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
     
     
 

@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">4.6k</span>
+            <span class="post-count">4.8k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">18 分钟</span>
+            <span class="post-count">19 分钟</span>
         </span>
     </span>
 </div>
@@ -116,17 +116,17 @@
 
 <p>Docker：<a target="_blank" rel="noopener" href="https://hub.docker.com/">hub.docker.com</a></p>
 <p>参考视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1CJ411T7BK">黑马程序员Docker容器化技术，从零学会Docker教程</a></p>
-<h1 id="Ⅰ、初始Docker"><a href="#Ⅰ、初始Docker" class="headerlink" title="Ⅰ、初始Docker"></a>Ⅰ、初始Docker</h1><h2 id="一、安装Docker"><a href="#一、安装Docker" class="headerlink" title="一、安装Docker"></a>一、安装Docker</h2><pre><code class="shell"># 1、yum 包更新到最新 
+<h1 id="Ⅰ、初始Docker"><a href="#Ⅰ、初始Docker" class="headerlink" title="Ⅰ、初始Docker"></a>Ⅰ、初始Docker</h1><h2 id="一、安装Docker"><a href="#一、安装Docker" class="headerlink" title="一、安装Docker"></a>一、安装Docker</h2><pre class="language-bash" data-language="bash"><code class="language-bash"># 1、yum 包更新到最新 
 yum update
 # 2、安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的 
 yum install -y yum-utils device-mapper-persistent-data lvm2
 # 3、 设置yum源
-yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+yum-config-manager --add-repo https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;centos&#x2F;docker-ce.repo
 # 4、 安装docker，出现输入的界面都按 y 
 yum install -y docker-ce
 # 5、 查看docker版本，验证是否验证成功
-docker -v
-</code></pre>
+docker -v</code></pre>
+
 <h2 id="二、Docker架构"><a href="#二、Docker架构" class="headerlink" title="二、Docker架构"></a>二、Docker架构</h2><p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210914191429.png" alt="image-20210914191422158"></p>
 <ul>
 <li><p><strong>镜像（Image）：Docker 镜像（Image），就相当于是一个 root 文件系统。比如官方镜像 ubuntu:16.04 就包含了完整的一套 Ubuntu16.04 最小系统的 root 文件系统。</strong></p>
@@ -140,7 +140,7 @@ docker -v
 <p>速度慢，配置镜像加速器↓</p>
 <p><strong>阿里云容器镜像服务</strong></p>
 <hr>
-<h1 id="Ⅱ、Docker命令"><a href="#Ⅱ、Docker命令" class="headerlink" title="Ⅱ、Docker命令"></a>Ⅱ、Docker命令</h1><h2 id="一、服务相关命令"><a href="#一、服务相关命令" class="headerlink" title="一、服务相关命令"></a>一、服务相关命令</h2><pre><code class="bash">#启动docker服务:
+<h1 id="Ⅱ、Docker命令"><a href="#Ⅱ、Docker命令" class="headerlink" title="Ⅱ、Docker命令"></a>Ⅱ、Docker命令</h1><h2 id="一、服务相关命令"><a href="#一、服务相关命令" class="headerlink" title="一、服务相关命令"></a>一、服务相关命令</h2><pre class="language-bash" data-language="bash"><code class="language-bash">#启动docker服务:
 systemctl start docker 
 
 #停止docker服务:
@@ -153,9 +153,9 @@ systemctl restart docker
 systemctl status docker
 
 #设置开机启动docker服务:
-systemctl enable docker
-</code></pre>
-<h2 id="二、镜像相关命令"><a href="#二、镜像相关命令" class="headerlink" title="二、镜像相关命令"></a>二、镜像相关命令</h2><pre><code class="bash">#查看镜像: 查看本地所有的镜像
+systemctl enable docker</code></pre>
+
+<h2 id="二、镜像相关命令"><a href="#二、镜像相关命令" class="headerlink" title="二、镜像相关命令"></a>二、镜像相关命令</h2><pre class="language-bash" data-language="bash"><code class="language-bash">#查看镜像: 查看本地所有的镜像
 docker images
 docker images –q # 查看所用镜像的id
 
@@ -167,9 +167,9 @@ docker pull 镜像名称
 
 #删除镜像: 删除本地镜像
 docker rmi 镜像id # 删除指定本地镜像
-docker rmi `docker images -q`  # 删除所有本地镜像
-</code></pre>
-<h2 id="三、容器相关命令"><a href="#三、容器相关命令" class="headerlink" title="三、容器相关命令"></a>三、容器相关命令</h2><pre><code class="bash">#查看容器
+docker rmi &#96;docker images -q&#96;  # 删除所有本地镜像</code></pre>
+
+<h2 id="三、容器相关命令"><a href="#三、容器相关命令" class="headerlink" title="三、容器相关命令"></a>三、容器相关命令</h2><pre class="language-bash" data-language="bash"><code class="language-bash">#查看容器
 docker ps # 查看正在运行的容器
 docker ps –a # 查看所有容器
 docker ps -aq #查看所有容器id
@@ -182,12 +182,14 @@ docker run 参数
 -t：为容器重新分配一个伪输入终端，通常与 -i 同时使用。
 -d：以守护（后台）模式运行容器。创建一个容器在后台运行，需要使用docker exec 进入容器。退出后，容器不会关闭。
 -it 创建的容器一般称为交互式容器，-id 创建的容器一般称为守护式容器
---name：为创建的容器命名。
-</code></pre>
-<pre><code class="bash">#进入容器
+--name：为创建的容器命名。</code></pre>
+
+
+
+<pre class="language-bash" data-language="bash"><code class="language-bash">#进入容器
 docker exec 参数 # 退出容器，容器不会关闭
 #example
-docker exec -it c_mysql /bin/bash
+docker exec -it c_mysql &#x2F;bin&#x2F;bash
 
 #停止容器
 docker stop 容器名称
@@ -197,11 +199,11 @@ docker start 容器名称
 
 #删除容器：如果容器是运行状态则删除失败，需要停止容器才能删除
 docker rm 容器名称
-docker rm `docker ps -aq` #删除所有容器（不能删除正在运行的容器）
+docker rm &#96;docker ps -aq&#96; #删除所有容器（不能删除正在运行的容器）
 
 #查看容器信息
-docker inspect 容器名称
-</code></pre>
+docker inspect 容器名称</code></pre>
+
 <h1 id="Ⅲ、Docker容器数据卷"><a href="#Ⅲ、Docker容器数据卷" class="headerlink" title="Ⅲ、Docker容器数据卷"></a>Ⅲ、Docker容器数据卷</h1><h2 id="一、数据卷概念及作用"><a href="#一、数据卷概念及作用" class="headerlink" title="一、数据卷概念及作用"></a>一、数据卷概念及作用</h2><p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210915102658.png" alt="image-20210915102651733"></p>
 <blockquote>
 <p>Docker 容器删除后，在容器中产生的数据也会随之销毁</p>
@@ -233,11 +235,11 @@ docker inspect 容器名称
 <li><p>容器之间数据交换</p>
 </li>
 </ol>
-<h2 id="二、配置数据卷"><a href="#二、配置数据卷" class="headerlink" title="二、配置数据卷"></a>二、配置数据卷</h2><pre><code class="bash">#创建启动容器时，使用 –v 参数 设置数据卷
+<h2 id="二、配置数据卷"><a href="#二、配置数据卷" class="headerlink" title="二、配置数据卷"></a>二、配置数据卷</h2><pre class="language-bash" data-language="bash"><code class="language-bash">#创建启动容器时，使用 –v 参数 设置数据卷
 docker run ... –v 宿主机目录(文件):容器内目录(文件) ... 
 #example
-docker run -it --name=c1 -v ~/data:/root/data_container centos:7
-</code></pre>
+docker run -it --name&#x3D;c1 -v ~&#x2F;data:&#x2F;root&#x2F;data_container centos:7</code></pre>
+
 <p>注意事项：</p>
 <ol>
 <li><p>目录必须是绝对路径</p>
@@ -262,45 +264,45 @@ docker run -it --name=c1 -v ~/data:/root/data_container centos:7
 <ol>
 <li>创建启动c3数据卷容器，使用 –v 参数 设置数据卷</li>
 </ol>
-<pre><code class="bash">docker run –it --name=c3 –v /volume centos:7 /bin/bash 
-#会默认在宿主机创建一个文件夹作为数据卷
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker run –it --name&#x3D;c3 –v &#x2F;volume centos:7 &#x2F;bin&#x2F;bash 
+#会默认在宿主机创建一个文件夹作为数据卷</code></pre>
+
 <ol start="2">
 <li>创建启动 c1 c2 容器，使用 –-volumes-from 参数 设置数据卷</li>
 </ol>
-<pre><code class="bash">docker run –it --name=c1 --volumes-from c3 centos:7 /bin/bash
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker run –it --name&#x3D;c1 --volumes-from c3 centos:7 &#x2F;bin&#x2F;bash
 
-docker run –it --name=c2 --volumes-from c3 centos:7 /bin/bash  
-</code></pre>
+docker run –it --name&#x3D;c2 --volumes-from c3 centos:7 &#x2F;bin&#x2F;bash  </code></pre>
+
 <p>这样三个容器会绑定同一个数据卷</p>
 <p><strong>创建一个容器，挂载一个目录，让其他容器继承自该容器（–volume-from）</strong></p>
 <hr>
 <h1 id="Ⅳ、Docker应用部署"><a href="#Ⅳ、Docker应用部署" class="headerlink" title="Ⅳ、Docker应用部署"></a>Ⅳ、Docker应用部署</h1><h2 id="一、MySQL部署"><a href="#一、MySQL部署" class="headerlink" title="一、MySQL部署"></a>一、MySQL部署</h2><ol>
 <li>搜索mysql镜像</li>
 </ol>
-<pre><code class="bash">docker search mysql
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker search mysql</code></pre>
+
 <ol start="2">
 <li>拉取mysql镜像</li>
 </ol>
-<pre><code class="shell">docker pull mysql:5.6
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker pull mysql:5.6</code></pre>
+
 <ol start="3">
 <li>创建容器，设置端口映射、目录映射</li>
 </ol>
-<pre><code class="shell"># 在/root目录下创建mysql目录用于存储mysql数据信息
-mkdir ~/mysql
-cd ~/mysql
-</code></pre>
-<pre><code class="shell">docker run -id \
--p 3307:3306 \                        # 端口映射：通常会将3306映射3306
---name=c_mysql \                    # 容器名称
--v $PWD/conf:/etc/mysql/conf.d \    # 这里$PWD 就是/root/mysql 这里是配置文件目录映射，在这里修改配置
--v $PWD/logs:/logs \                # 这里是日志文件目录映射
--v $PWD/data:/var/lib/mysql \        # 这里是数据文件目录映射
--e MYSQL_ROOT_PASSWORD=123456 \        # MySQL对应环境变量，设置MySQL root用户的密码
-mysql:5.6                            # 使用MySQL镜像，版本5.6
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash"># 在&#x2F;root目录下创建mysql目录用于存储mysql数据信息
+mkdir ~&#x2F;mysql
+cd ~&#x2F;mysql</code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker run -id \
+-p 3307:3306 \						# 端口映射：通常会将3306映射3306
+--name&#x3D;c_mysql \					# 容器名称
+-v $PWD&#x2F;conf:&#x2F;etc&#x2F;mysql&#x2F;conf.d \	# 这里$PWD 就是&#x2F;root&#x2F;mysql 这里是配置文件目录映射，在这里修改配置
+-v $PWD&#x2F;logs:&#x2F;logs \				# 这里是日志文件目录映射
+-v $PWD&#x2F;data:&#x2F;var&#x2F;lib&#x2F;mysql \		# 这里是数据文件目录映射
+-e MYSQL_ROOT_PASSWORD&#x3D;123456 \		# MySQL对应环境变量，设置MySQL root用户的密码
+mysql:5.6							# 使用MySQL镜像，版本5.6</code></pre>
+
 <ul>
 <li>参数说明：<ul>
 <li><strong>-p 3307:3306</strong>：将容器的 3306 端口映射到宿主机的 3307 端口。</li>
@@ -314,30 +316,30 @@ mysql:5.6                            # 使用MySQL镜像，版本5.6
 <ol start="4">
 <li>进入容器，操作mysql</li>
 </ol>
-<pre><code class="bash">docker exec –it c_mysql /bin/bash
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker exec –it c_mysql &#x2F;bin&#x2F;bash</code></pre>
+
 <h2 id="二、Tomcat部署"><a href="#二、Tomcat部署" class="headerlink" title="二、Tomcat部署"></a>二、Tomcat部署</h2><h3 id=""><a href="#" class="headerlink" title=""></a></h3><ol>
 <li>搜索tomcat镜像</li>
 </ol>
-<pre><code class="shell">docker search tomcat
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker search tomcat</code></pre>
+
 <ol start="2">
 <li>拉取tomcat镜像</li>
 </ol>
-<pre><code class="shell">docker pull tomcat
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker pull tomcat</code></pre>
+
 <ol start="3">
 <li>创建容器，设置端口映射、目录映射</li>
 </ol>
-<pre><code class="shell"># 在/root目录下创建tomcat目录用于存储tomcat数据信息
-mkdir ~/tomcat
-cd ~/tomcat
-</code></pre>
-<pre><code class="shell">docker run -id --name=c_tomcat \
--p 8080:8080 \                            # 端口映射
--v $PWD:/usr/local/tomcat/webapps \        #这里是把宿主机的~/tomcat目录映射到容器中的webapps目录
-tomcat 
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash"># 在&#x2F;root目录下创建tomcat目录用于存储tomcat数据信息
+mkdir ~&#x2F;tomcat
+cd ~&#x2F;tomcat</code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker run -id --name&#x3D;c_tomcat \
+-p 8080:8080 \							# 端口映射
+-v $PWD:&#x2F;usr&#x2F;local&#x2F;tomcat&#x2F;webapps \		#这里是把宿主机的~&#x2F;tomcat目录映射到容器中的webapps目录
+tomcat </code></pre>
+
 <ul>
 <li><p>参数说明：</p>
 <ul>
@@ -350,29 +352,29 @@ tomcat
 <h2 id="三、Nginx部署"><a href="#三、Nginx部署" class="headerlink" title="三、Nginx部署"></a>三、Nginx部署</h2><ol>
 <li>搜索nginx镜像</li>
 </ol>
-<pre><code class="shell">docker search nginx
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker search nginx</code></pre>
+
 <ol start="2">
 <li>拉取nginx镜像</li>
 </ol>
-<pre><code class="shell">docker pull nginx
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker pull nginx</code></pre>
+
 <ol start="3">
 <li>创建容器，设置端口映射、目录映射</li>
 </ol>
-<pre><code class="shell"># 在/root目录下创建nginx目录用于存储nginx数据信息
-mkdir ~/nginx
-cd ~/nginx
+<pre class="language-bash" data-language="bash"><code class="language-bash"># 在&#x2F;root目录下创建nginx目录用于存储nginx数据信息
+mkdir ~&#x2F;nginx
+cd ~&#x2F;nginx
 mkdir conf
 cd conf
-# 在~/nginx/conf/下创建nginx.conf文件,粘贴下面内容
-vim nginx.conf
-</code></pre>
-<pre><code class="shell">user  nginx;
+# 在~&#x2F;nginx&#x2F;conf&#x2F;下创建nginx.conf文件,粘贴下面内容
+vim nginx.conf</code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash">user  nginx;
 worker_processes  1;
 
-error_log  /var/log/nginx/error.log warn;
-pid        /var/run/nginx.pid;
+error_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;error.log warn;
+pid        &#x2F;var&#x2F;run&#x2F;nginx.pid;
 
 
 events &#123;
@@ -381,14 +383,14 @@ events &#123;
 
 
 http &#123;
-    include       /etc/nginx/mime.types;
-    default_type  application/octet-stream;
+    include       &#x2F;etc&#x2F;nginx&#x2F;mime.types;
+    default_type  application&#x2F;octet-stream;
 
     log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;
                       &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;
                       &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;
 
-    access_log  /var/log/nginx/access.log  main;
+    access_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log  main;
 
     sendfile        on;
     #tcp_nopush     on;
@@ -397,17 +399,21 @@ http &#123;
 
     #gzip  on;
 
-    include /etc/nginx/conf.d/*.conf;
+    include &#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;*.conf;
 &#125;
 
 </code></pre>
-<pre><code class="shell">docker run -id --name=c_nginx \
+
+
+
+
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker run -id --name&#x3D;c_nginx \
 -p 80:80 \
--v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf \
--v $PWD/logs:/var/log/nginx \
--v $PWD/html:/usr/share/nginx/html \
-nginx
-</code></pre>
+-v $PWD&#x2F;conf&#x2F;nginx.conf:&#x2F;etc&#x2F;nginx&#x2F;nginx.conf \
+-v $PWD&#x2F;logs:&#x2F;var&#x2F;log&#x2F;nginx \
+-v $PWD&#x2F;html:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html \
+nginx</code></pre>
+
 <ul>
 <li>参数说明：<ul>
 <li><strong>-p 80:80</strong>：将容器的 80端口映射到宿主机的 80 端口。</li>
@@ -419,23 +425,25 @@ nginx
 <h2 id="四、Redis部署"><a href="#四、Redis部署" class="headerlink" title="四、Redis部署"></a>四、Redis部署</h2><ol>
 <li>搜索redis镜像</li>
 </ol>
-<pre><code class="shell">docker search redis
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker search redis</code></pre>
+
 <ol start="2">
 <li>拉取redis镜像</li>
 </ol>
-<pre><code class="shell">docker pull redis:5.0
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker pull redis:5.0</code></pre>
+
 <ol start="3">
 <li>创建容器，设置端口映射</li>
 </ol>
-<pre><code class="shell">docker run -id --name=c_redis -p 6379:6379 redis:5.0
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker run -id --name&#x3D;c_redis -p 6379:6379 redis:5.0</code></pre>
+
 <ol start="4">
 <li>使用外部机器连接redis</li>
 </ol>
-<pre><code class="shell">./redis-cli.exe -h 192.168.199.133 -p 6379
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">.&#x2F;redis-cli.exe -h 192.168.199.133 -p 6379</code></pre>
+
+
+
 <hr>
 <h1 id="Ⅴ、Dockerfile"><a href="#Ⅴ、Dockerfile" class="headerlink" title="Ⅴ、Dockerfile"></a>Ⅴ、Dockerfile</h1><h2 id="一、Docker镜像原理"><a href="#一、Docker镜像原理" class="headerlink" title="一、Docker镜像原理"></a>一、Docker镜像原理</h2><h3 id="1-Linux文件系统"><a href="#1-Linux文件系统" class="headerlink" title="1. Linux文件系统"></a>1. Linux文件系统</h3><p>Linux文件系统由bootfs和rootfs两部分组成</p>
 <ul>
@@ -627,7 +635,7 @@ nginx
 <ol>
 <li><p>定义父镜像：FROM java:8</p>
 </li>
-<li><p>定义作者信息：MAINTAINER  Tokitou &lt;<a href="mailto:&#x54;&#111;&#x6b;&#x69;&#116;&#111;&#117;&#x40;&#97;&#108;&#105;&#x79;&#117;&#110;&#x2e;&#99;&#x6f;&#x6d;">&#x54;&#111;&#x6b;&#x69;&#116;&#111;&#117;&#x40;&#97;&#108;&#105;&#x79;&#117;&#110;&#x2e;&#99;&#x6f;&#x6d;</a>&gt;</p>
+<li><p>定义作者信息：MAINTAINER  Tokitou &lt;<a href="mailto:&#84;&#x6f;&#x6b;&#105;&#x74;&#x6f;&#x75;&#64;&#97;&#x6c;&#x69;&#121;&#x75;&#110;&#46;&#99;&#111;&#109;">&#84;&#x6f;&#x6b;&#105;&#x74;&#x6f;&#x75;&#64;&#97;&#x6c;&#x69;&#121;&#x75;&#110;&#46;&#99;&#111;&#109;</a>&gt;</p>
 </li>
 <li><p>将jar包添加到容器： ADD springboot.jar app.jar</p>
 </li>
@@ -656,29 +664,31 @@ nginx
 <li><p>运行 docker-compose up 启动应用</p>
 </li>
 </ol>
-<h3 id="1-安装Docker-Compose"><a href="#1-安装Docker-Compose" class="headerlink" title="1. 安装Docker Compose"></a>1. 安装Docker Compose</h3><pre><code class="shell"># Compose目前已经完全支持Linux、Mac OS和Windows，在我们安装Compose之前，需要先安装Docker。下面我 们以编译好的二进制包方式安装在Linux系统中。 
-curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+<h3 id="1-安装Docker-Compose"><a href="#1-安装Docker-Compose" class="headerlink" title="1. 安装Docker Compose"></a>1. 安装Docker Compose</h3><pre class="language-bash" data-language="bash"><code class="language-bash"># Compose目前已经完全支持Linux、Mac OS和Windows，在我们安装Compose之前，需要先安装Docker。下面我 们以编译好的二进制包方式安装在Linux系统中。 
+curl -L https:&#x2F;&#x2F;github.com&#x2F;docker&#x2F;compose&#x2F;releases&#x2F;download&#x2F;1.22.0&#x2F;docker-compose-&#96;uname -s&#96;-&#96;uname -m&#96; -o &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose
 # 设置文件可执行权限 
-chmod +x /usr/local/bin/docker-compose
+chmod +x &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose
 # 查看版本信息 
-docker-compose -version
-</code></pre>
-<h3 id="2-卸载Docker-Compose"><a href="#2-卸载Docker-Compose" class="headerlink" title="2. 卸载Docker Compose"></a>2. 卸载Docker Compose</h3><pre><code class="shell"># 二进制包方式安装的，删除二进制文件即可
-rm /usr/local/bin/docker-compose
-</code></pre>
+docker-compose -version</code></pre>
+
+<h3 id="2-卸载Docker-Compose"><a href="#2-卸载Docker-Compose" class="headerlink" title="2. 卸载Docker Compose"></a>2. 卸载Docker Compose</h3><pre class="language-bash" data-language="bash"><code class="language-bash"># 二进制包方式安装的，删除二进制文件即可
+rm &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose</code></pre>
+
+
+
 <h3 id="3-案例"><a href="#3-案例" class="headerlink" title="3. 案例"></a>3. 案例</h3><blockquote>
 <p>使用docker compose编排nginx+springboot项目</p>
 </blockquote>
 <ol>
 <li>创建docker-compose目录</li>
 </ol>
-<pre><code class="shell">mkdir ~/docker-compose
-cd ~/docker-compose
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">mkdir ~&#x2F;docker-compose
+cd ~&#x2F;docker-compose</code></pre>
+
 <ol start="2">
 <li>编写 docker-compose.yml 文件</li>
 </ol>
-<pre><code class="shell">version: &#39;3&#39;
+<pre class="language-bash" data-language="bash"><code class="language-bash">version: &#39;3&#39;
 services:
   nginx:
    image: nginx
@@ -687,62 +697,62 @@ services:
    links:
     - app
    volumes:
-    - ./nginx/conf.d:/etc/nginx/conf.d
+    - .&#x2F;nginx&#x2F;conf.d:&#x2F;etc&#x2F;nginx&#x2F;conf.d
   app:
     image: app
     expose:
-      - &quot;8080&quot;
-</code></pre>
+      - &quot;8080&quot;</code></pre>
+
 <ol start="3">
 <li>创建./nginx/conf.d目录</li>
 </ol>
-<pre><code class="shell">mkdir -p ./nginx/conf.d
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">mkdir -p .&#x2F;nginx&#x2F;conf.d</code></pre>
+
 <ol start="4">
 <li>在./nginx/conf.d目录下 编写itheima.conf文件</li>
 </ol>
-<pre><code class="shell">server &#123;
+<pre class="language-bash" data-language="bash"><code class="language-bash">server &#123;
     listen 80;
     access_log off;
 
-    location / &#123;
-        proxy_pass http://app:8080;
+    location &#x2F; &#123;
+        proxy_pass http:&#x2F;&#x2F;app:8080;
     &#125;
    
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <ol start="5">
 <li>在~/docker-compose 目录下 使用docker-compose 启动容器</li>
 </ol>
-<pre><code class="shell">docker-compose up
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker-compose up</code></pre>
+
 <ol start="6">
 <li>测试访问</li>
 </ol>
 <hr>
 <h1 id="Ⅶ、Docker私有仓库"><a href="#Ⅶ、Docker私有仓库" class="headerlink" title="Ⅶ、Docker私有仓库"></a>Ⅶ、Docker私有仓库</h1><p>​        Docker官方的Docker hub（<a target="_blank" rel="noopener" href="https://hub.docker.com)是一个用于管理公共镜像的仓库,我们可以从上面拉取镜像/">https://hub.docker.com）是一个用于管理公共镜像的仓库，我们可以从上面拉取镜像</a> 到本地，也可以把我们自己的镜像推送上去。但是，有时候我们的服务器无法访问互联网，或者你不希望将自己的镜 像放到公网当中，那么我们就需要搭建自己的私有仓库来存储和管理自己的镜像。</p>
-<h2 id="一、搭建私有仓库"><a href="#一、搭建私有仓库" class="headerlink" title="一、搭建私有仓库"></a>一、搭建私有仓库</h2><pre><code class="shell"># 1、拉取私有仓库镜像 
+<h2 id="一、搭建私有仓库"><a href="#一、搭建私有仓库" class="headerlink" title="一、搭建私有仓库"></a>一、搭建私有仓库</h2><pre class="language-bash" data-language="bash"><code class="language-bash"># 1、拉取私有仓库镜像 
 docker pull registry
 # 2、启动私有仓库容器 
-docker run -id --name=registry -p 5000:5000 registry
-# 3、打开浏览器 输入地址http://私有仓库服务器ip:5000/v2/_catalog，看到&#123;&quot;repositories&quot;:[]&#125; 表示私有仓库 搭建成功
+docker run -id --name&#x3D;registry -p 5000:5000 registry
+# 3、打开浏览器 输入地址http:&#x2F;&#x2F;私有仓库服务器ip:5000&#x2F;v2&#x2F;_catalog，看到&#123;&quot;repositories&quot;:[]&#125; 表示私有仓库 搭建成功
 # 4、修改daemon.json   
-vim /etc/docker/daemon.json    
+vim &#x2F;etc&#x2F;docker&#x2F;daemon.json    
 # 在上述文件中添加一个key，保存退出。此步用于让 docker 信任私有仓库地址；注意将私有仓库服务器ip修改为自己私有仓库服务器真实ip 
 &#123;&quot;insecure-registries&quot;:[&quot;私有仓库服务器ip:5000&quot;]&#125; 
 # 5、重启docker 服务 
 systemctl restart docker
-docker start registry
-</code></pre>
-<h2 id="二、上传镜像到私有仓库"><a href="#二、上传镜像到私有仓库" class="headerlink" title="二、上传镜像到私有仓库"></a>二、上传镜像到私有仓库</h2><pre><code class="shell"># 1、标记镜像为私有仓库的镜像     
-docker tag centos:7 私有仓库服务器IP:5000/centos:7
+docker start registry</code></pre>
+
+<h2 id="二、上传镜像到私有仓库"><a href="#二、上传镜像到私有仓库" class="headerlink" title="二、上传镜像到私有仓库"></a>二、上传镜像到私有仓库</h2><pre class="language-bash" data-language="bash"><code class="language-bash"># 1、标记镜像为私有仓库的镜像     
+docker tag centos:7 私有仓库服务器IP:5000&#x2F;centos:7
  
 # 2、上传标记的镜像     
-docker push 私有仓库服务器IP:5000/centos:7
-</code></pre>
-<h2 id="三、从私有仓库拉去镜像"><a href="#三、从私有仓库拉去镜像" class="headerlink" title="三、从私有仓库拉去镜像"></a>三、从私有仓库拉去镜像</h2><pre><code class="shell">#拉取镜像 
-docker pull 私有仓库服务器ip:5000/centos:7
-</code></pre>
+docker push 私有仓库服务器IP:5000&#x2F;centos:7</code></pre>
+
+<h2 id="三、从私有仓库拉去镜像"><a href="#三、从私有仓库拉去镜像" class="headerlink" title="三、从私有仓库拉去镜像"></a>三、从私有仓库拉去镜像</h2><pre class="language-bash" data-language="bash"><code class="language-bash">#拉取镜像 
+docker pull 私有仓库服务器ip:5000&#x2F;centos:7</code></pre>
+
 <h1 id="Ⅷ、Docker相关概念"><a href="#Ⅷ、Docker相关概念" class="headerlink" title="Ⅷ、Docker相关概念"></a>Ⅷ、Docker相关概念</h1><blockquote>
 <p>docker容器虚拟化 与 传统虚拟机比较</p>
 </blockquote>
@@ -890,7 +900,7 @@ docker pull 私有仓库服务器ip:5000/centos:7
     <ul>
       <li>
         Copyrights &copy;
-        2015-2023
+        2020-2023
         <i class="ri-heart-fill heart_icon"></i> Tokitou Muichirou
       </li>
     </ul>
@@ -1246,6 +1256,23 @@ docker pull 私有仓库服务器ip:5000/centos:7
 </script>
 
 
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=22707008&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
     
     
 

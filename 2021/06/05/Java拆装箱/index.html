@@ -151,13 +151,13 @@
 </li>
 </ul>
 <p>在程序中有些计算会导致超出表示范围，即溢出。如以下代码：</p>
-<pre><code class="java">int i = Integer.MAX_VALUE;
-int j = Integer.MAX_VALUE;
+<pre class="language-java" data-language="java"><code class="language-java">int i &#x3D; Integer.MAX_VALUE;
+int j &#x3D; Integer.MAX_VALUE;
  
-int k = i + j;
-System.out.println(&quot;i (&quot; + i + &quot;) + j (&quot; + j + &quot;) = k (&quot; + k + &quot;)&quot;);
-输出结果：i (2147483647) + j (2147483647) = k (-2)
-</code></pre>
+int k &#x3D; i + j;
+System.out.println(&quot;i (&quot; + i + &quot;) + j (&quot; + j + &quot;) &#x3D; k (&quot; + k + &quot;)&quot;);
+输出结果：i (2147483647) + j (2147483647) &#x3D; k (-2)</code></pre>
+
 <p><strong>这就是发生了溢出，溢出的时候并不会抛异常，也没有任何提示。</strong>所以，在程序中，使用同类型的数据进行运算的时候，<strong>一定要注意数据溢出的问题。</strong></p>
 <h1 id="二、包装类型"><a href="#二、包装类型" class="headerlink" title="二、包装类型"></a>二、包装类型</h1><p>Java语言是一个面向对象的语言，但是Java中的基本数据类型却是不面向对象的，这在实际使用时存在很多的不便，为了解决这个不足，在设计类时为每个基本数据类型设计了一个对应的类进行代表，这样八个和基本数据类型对应的类统称为包装类(Wrapper Class)。</p>
 <p>包装类均位于java.lang包，包装类和基本数据类型的对应关系如下表所示</p>
@@ -212,82 +212,82 @@ System.out.println(&quot;i (&quot; + i + &quot;) + j (&quot; + j + &quot;) = k (
 <p>我们认为包装类是对基本类型的包装，所以，把基本数据类型转换成包装类的过程就是打包装，英文对应于boxing，中文翻译为装箱。</p>
 <p>反之，把包装类转换成基本数据类型的过程就是拆包装，英文对应于unboxing，中文翻译为拆箱。</p>
 <p>在Java SE5之前，要进行装箱，可以通过以下代码：</p>
-<pre><code class="java">Integer i = new Integer(10);
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">Integer i &#x3D; new Integer(10);</code></pre>
+
 <h1 id="四、自动拆箱与自动装箱"><a href="#四、自动拆箱与自动装箱" class="headerlink" title="四、自动拆箱与自动装箱"></a>四、自动拆箱与自动装箱</h1><p>在Java SE5中，为了减少开发人员的工作，Java提供了自动拆箱与自动装箱功能。</p>
 <p>自动装箱: 就是将基本数据类型自动转换成对应的包装类。</p>
 <p>自动拆箱：就是将包装类自动转换成对应的基本数据类型。</p>
-<pre><code class="java">Integer i =10;  //自动装箱
-int b= i;     //自动拆箱
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">Integer i &#x3D;10;  &#x2F;&#x2F;自动装箱
+int b&#x3D; i;     &#x2F;&#x2F;自动拆箱</code></pre>
+
 <p><code>Integer i=10</code> 可以替代 <code>Integer i = new Integer(10);</code>，这就是因为Java帮我们提供了自动装箱的功能，不需要开发者手动去new一个Integer对象。</p>
 <h1 id="五、自动装箱与自动拆箱的实现原理"><a href="#五、自动装箱与自动拆箱的实现原理" class="headerlink" title="五、自动装箱与自动拆箱的实现原理"></a>五、自动装箱与自动拆箱的实现原理</h1><p>既然Java提供了自动拆装箱的能力，那么，我们就来看一下，到底是什么原理，Java是如何实现的自动拆装箱功能。</p>
 <p>我们有以下自动拆装箱的代码：</p>
-<pre><code class="java">public static  void main(String[]args)&#123;
-    Integer integer=1; //装箱
-    int i=integer; //拆箱
-&#125;
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">public static  void main(String[]args)&#123;
+    Integer integer&#x3D;1; &#x2F;&#x2F;装箱
+    int i&#x3D;integer; &#x2F;&#x2F;拆箱
+&#125;</code></pre>
+
 <p>对以上代码进行反编译后可以得到以下代码：</p>
-<pre><code class="java">public static  void main(String[]args)&#123;
-    Integer integer=Integer.valueOf(1); 
-    int i=integer.intValue(); 
-&#125;
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">public static  void main(String[]args)&#123;
+    Integer integer&#x3D;Integer.valueOf(1); 
+    int i&#x3D;integer.intValue(); 
+&#125;</code></pre>
+
 <p>从上面反编译后的代码可以看出，int的自动装箱都是通过<code>Integer.valueOf()</code>方法来实现的，Integer的自动拆箱都是通过<code>integer.intValue</code>来实现的。如果读者感兴趣，可以试着将八种类型都反编译一遍 ，你会发现以下规律：</p>
 <p>自动装箱都是通过包装类的<code>valueOf()</code>方法来实现的.自动拆箱都是通过包装类对象的<code>xxxValue()</code>来实现的。</p>
 <h1 id="六、哪些地方会自动拆装箱"><a href="#六、哪些地方会自动拆装箱" class="headerlink" title="六、哪些地方会自动拆装箱"></a>六、哪些地方会自动拆装箱</h1><p>我们了解过原理之后，在来看一下，什么情况下，Java会帮我们进行自动拆装箱。前面提到的变量的初始化和赋值的场景就不介绍了，那是最简单的也最容易理解的。</p>
 <p>我们主要来看一下，那些可能被忽略的场景。</p>
 <h2 id="场景一、将基本数据类型放入集合类"><a href="#场景一、将基本数据类型放入集合类" class="headerlink" title="场景一、将基本数据类型放入集合类"></a>场景一、将基本数据类型放入集合类</h2><p>我们知道，Java中的集合类只能接收对象类型，那么以下代码为什么会不报错呢？</p>
-<pre><code class="java">List&lt;Integer&gt; li = new ArrayList&lt;&gt;();
-for (int i = 1; i &lt; 50; i ++)&#123;
+<pre class="language-java" data-language="java"><code class="language-java">List&lt;Integer&gt; li &#x3D; new ArrayList&lt;&gt;();
+for (int i &#x3D; 1; i &lt; 50; i ++)&#123;
     li.add(i);
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p>将上面代码进行反编译，可以得到以下代码：</p>
-<pre><code class="java">List&lt;Integer&gt; li = new ArrayList&lt;&gt;();
-for (int i = 1; i &lt; 50; i += 2)&#123;
+<pre class="language-java" data-language="java"><code class="language-java">List&lt;Integer&gt; li &#x3D; new ArrayList&lt;&gt;();
+for (int i &#x3D; 1; i &lt; 50; i +&#x3D; 2)&#123;
     li.add(Integer.valueOf(i));
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p>以上，我们可以得出结论，当我们把基本数据类型放入集合类中的时候，会进行自动装箱。</p>
 <h2 id="场景二、包装类型和基本类型的大小比较"><a href="#场景二、包装类型和基本类型的大小比较" class="headerlink" title="场景二、包装类型和基本类型的大小比较"></a>场景二、包装类型和基本类型的大小比较</h2><p>有没有人想过，当我们对Integer对象与基本类型进行大小比较的时候，实际上比较的是什么内容呢？看以下代码：</p>
-<pre><code class="java">Integer a=1;
-System.out.println(a==1?&quot;等于&quot;:&quot;不等于&quot;);
-Boolean bool=false;
-System.out.println(bool?&quot;真&quot;:&quot;假&quot;);
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">Integer a&#x3D;1;
+System.out.println(a&#x3D;&#x3D;1?&quot;等于&quot;:&quot;不等于&quot;);
+Boolean bool&#x3D;false;
+System.out.println(bool?&quot;真&quot;:&quot;假&quot;);</code></pre>
+
 <p>对以上代码进行反编译，得到以下代码：</p>
-<pre><code class="java">Integer a=1;System.out.println(a.intValue()==1?&quot;等于&quot;:&quot;不等于&quot;);Boolean bool=false;System.out.println(bool.booleanValue?&quot;真&quot;:&quot;假&quot;);
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">Integer a&#x3D;1;System.out.println(a.intValue()&#x3D;&#x3D;1?&quot;等于&quot;:&quot;不等于&quot;);Boolean bool&#x3D;false;System.out.println(bool.booleanValue?&quot;真&quot;:&quot;假&quot;);</code></pre>
+
 <p>可以看到，包装类与基本数据类型进行比较运算，是先将包装类进行拆箱成基本数据类型，然后进行比较的。</p>
 <h2 id="场景三、包装类型的运算"><a href="#场景三、包装类型的运算" class="headerlink" title="场景三、包装类型的运算"></a>场景三、包装类型的运算</h2><p>有没有人想过，当我们对Integer对象进行四则运算的时候，是如何进行的呢？看以下代码：</p>
-<pre><code class="java">Integer i = 10;Integer j = 20; System.out.println(i+j);
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">Integer i &#x3D; 10;Integer j &#x3D; 20; System.out.println(i+j);</code></pre>
+
 <p>反编译后代码如下：</p>
-<pre><code class="java">Integer i = Integer.valueOf(10);Integer j = Integer.valueOf(20);System.out.println(i.intValue() + j.intValue());
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">Integer i &#x3D; Integer.valueOf(10);Integer j &#x3D; Integer.valueOf(20);System.out.println(i.intValue() + j.intValue());</code></pre>
+
 <p>我们发现，两个包装类型之间的运算，会被自动拆箱成基本类型进行。</p>
 <h2 id="场景四、三目运算符的使用"><a href="#场景四、三目运算符的使用" class="headerlink" title="场景四、三目运算符的使用"></a>场景四、三目运算符的使用</h2><p>这是很多人不知道的一个场景，作者也是一次线上的血淋淋的Bug发生后才了解到的一种案例。看一个简单的三目运算符的代码：</p>
-<pre><code class="java">boolean flag = true;Integer i = 0;int j = 1;int k = flag ? i : j;
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">boolean flag &#x3D; true;Integer i &#x3D; 0;int j &#x3D; 1;int k &#x3D; flag ? i : j;</code></pre>
+
 <p>很多人不知道，其实在<code>int k = flag ? i : j;</code>这一行，会发生自动拆箱。反编译后代码如下：</p>
-<pre><code class="java">boolean flag = true;Integer i = Integer.valueOf(0);int j = 1;int k = flag ? i.intValue() : j;
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">boolean flag &#x3D; true;Integer i &#x3D; Integer.valueOf(0);int j &#x3D; 1;int k &#x3D; flag ? i.intValue() : j;</code></pre>
+
 <p>这其实是三目运算符的语法规范：当第二，第三位操作数分别为基本类型和对象时，其中的对象就会拆箱为基本类型进行操作。</p>
 <p>因为例子中，<code>flag ? i : j;</code>片段中，第二段的i是一个包装类型的对象，而第三段的j是一个基本类型，所以会对包装类进行自动拆箱。如果这个时候i的值为<code>null</code>，那么久会发生NPE。</p>
 <h2 id="场景五、函数参数与返回值"><a href="#场景五、函数参数与返回值" class="headerlink" title="场景五、函数参数与返回值"></a>场景五、函数参数与返回值</h2><p>这个比较容易理解，直接上代码了：</p>
-<pre><code class="java">//自动拆箱public int getNum1(Integer num) &#123; return num;&#125;//自动装箱public Integer getNum2(int num) &#123; return num;&#125;
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;自动拆箱public int getNum1(Integer num) &#123; return num;&#125;&#x2F;&#x2F;自动装箱public Integer getNum2(int num) &#123; return num;&#125;</code></pre>
+
 <h1 id="七、自动拆装箱与缓存"><a href="#七、自动拆装箱与缓存" class="headerlink" title="七、自动拆装箱与缓存"></a>七、自动拆装箱与缓存</h1><p>Java SE的自动拆装箱还提供了一个和缓存有关的功能，我们先来看以下代码，猜测一下输出结果：</p>
-<pre><code class="java">public static void main(String... strings) &#123;     Integer integer1 = 3;    Integer integer2 = 3;     if (integer1 == integer2)        System.out.println(&quot;integer1 == integer2&quot;);    else        System.out.println(&quot;integer1 != integer2&quot;);     Integer integer3 = 300;    Integer integer4 = 300;     if (integer3 == integer4)        System.out.println(&quot;integer3 == integer4&quot;);    else        System.out.println(&quot;integer3 != integer4&quot;); &#125;
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">public static void main(String... strings) &#123;     Integer integer1 &#x3D; 3;    Integer integer2 &#x3D; 3;     if (integer1 &#x3D;&#x3D; integer2)        System.out.println(&quot;integer1 &#x3D;&#x3D; integer2&quot;);    else        System.out.println(&quot;integer1 !&#x3D; integer2&quot;);     Integer integer3 &#x3D; 300;    Integer integer4 &#x3D; 300;     if (integer3 &#x3D;&#x3D; integer4)        System.out.println(&quot;integer3 &#x3D;&#x3D; integer4&quot;);    else        System.out.println(&quot;integer3 !&#x3D; integer4&quot;); &#125;</code></pre>
+
 <p>我们普遍认为上面的两个判断的结果都是false。虽然比较的值是相等的，但是由于比较的是对象，而对象的引用不一样，所以会认为两个if判断都是false的。</p>
 <p>在Java中，==比较的是对象应用，而equals比较的是值。</p>
 <p>所以，在这个例子中，不同的对象有不同的引用，所以在进行比较的时候都将返回false。奇怪的是，这里两个类似的if条件判断返回不同的布尔值。</p>
 <p>上面这段代码真正的输出结果：</p>
-<pre><code class="java">integer1 == integer2integer3 != integer4
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">integer1 &#x3D;&#x3D; integer2integer3 !&#x3D; integer4</code></pre>
+
 <p><strong>原因就和Integer中的缓存机制有关。</strong>在Java 5中，在Integer的操作上引入了一个新功能来节省内存和提高性能。整型对象通过使用相同的对象引用实现了缓存和重用。</p>
 <blockquote>
 <p>适用于整数值区间-128 至 +127。 </p>
@@ -299,8 +299,8 @@ System.out.println(bool?&quot;真&quot;:&quot;假&quot;);
 <p>这使我们可以根据应用程序的实际情况灵活地调整来提高性能。到底是什么原因选择这个-128到127范围呢？因为这个范围的数字是最被广泛使用的。 在程序中，第一次使用Integer的时候也需要一定的额外时间来初始化这个缓存。</p>
 <p>在Boxing Conversion部分的Java语言规范(JLS)规定如下：</p>
 <p>如果一个变量p的值是：</p>
-<pre><code class="test">-128至127之间的整数(§3.10.1) true 和 false的布尔值 (§3.10.3) ‘\u0000’至 ‘\u007f’之间的字符(§3.10.4)
-</code></pre>
+<pre class="language-test" data-language="test"><code class="language-test">-128至127之间的整数(§3.10.1) true 和 false的布尔值 (§3.10.3) ‘\u0000’至 ‘\u007f’之间的字符(§3.10.4)</code></pre>
+
 <p>范围内的时，将p包装成a和b两个对象时，可以直接使用a==b判断a和b的值是否相等。</p>
 <h1 id="八、自动拆装箱带来的问题"><a href="#八、自动拆装箱带来的问题" class="headerlink" title="八、自动拆装箱带来的问题"></a>八、自动拆装箱带来的问题</h1><p>当然，自动拆装箱是一个很好的功能，大大节省了开发人员的精力，不再需要关心到底什么时候需要拆装箱。但是，他也会引入一些问题。</p>
 <ul>
@@ -434,7 +434,7 @@ System.out.println(bool?&quot;真&quot;:&quot;假&quot;);
     <ul>
       <li>
         Copyrights &copy;
-        2015-2023
+        2020-2023
         <i class="ri-heart-fill heart_icon"></i> Tokitou Muichirou
       </li>
     </ul>
@@ -790,6 +790,23 @@ System.out.println(bool?&quot;真&quot;:&quot;假&quot;);
 </script>
 
 
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=22707008&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
     
     
 

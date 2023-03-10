@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">4.1k</span>
+            <span class="post-count">4.2k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">19 分钟</span>
+            <span class="post-count">20 分钟</span>
         </span>
     </span>
 </div>
@@ -121,63 +121,65 @@
 <h1 id="一、快速入门"><a href="#一、快速入门" class="headerlink" title="一、快速入门"></a>一、快速入门</h1><blockquote>
 <p>构建项目，初步体验MybatisPlus的简单功能</p>
 </blockquote>
-<h2 id="1-引入相关依赖"><a href="#1-引入相关依赖" class="headerlink" title="1. 引入相关依赖"></a>1. 引入相关依赖</h2><pre><code class="xml">&lt;!--        MySQL数据库驱动--&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;mysql&lt;/groupId&gt;
-    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
-&lt;/dependency&gt;
-&lt;!--        MybatisPlus(非官方)--&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
-    &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;
-    &lt;version&gt;3.4.2&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;!--        代码生成器--&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
-    &lt;artifactId&gt;mybatis-plus-generator&lt;/artifactId&gt;
-    &lt;version&gt;3.4.1&lt;/version&gt;
-&lt;/dependency&gt;
+<h2 id="1-引入相关依赖"><a href="#1-引入相关依赖" class="headerlink" title="1. 引入相关依赖"></a>1. 引入相关依赖</h2><pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--        MySQL数据库驱动--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>mysql<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mysql-connector-java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!--        MybatisPlus(非官方)--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.baomidou<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mybatis-plus-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.4.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!--        代码生成器--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.baomidou<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mybatis-plus-generator<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.4.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
 
-&lt;!--        代码生成器的默认模板引擎--&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.apache.velocity&lt;/groupId&gt;
-    &lt;artifactId&gt;velocity-engine-core&lt;/artifactId&gt;
-    &lt;version&gt;2.2&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
+<span class="token comment">&lt;!--        代码生成器的默认模板引擎--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.velocity<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>velocity-engine-core<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+
 <p>==引入了MybatisPlus，Mybatis和JDBC的依赖就不需要引入了，重复引入可能造成版本冲突==</p>
-<h2 id="2-配置数据源，连接数据库"><a href="#2-配置数据源，连接数据库" class="headerlink" title="2. 配置数据源，连接数据库"></a>2. 配置数据源，连接数据库</h2><pre><code class="yaml">spring:
+<h2 id="2-配置数据源，连接数据库"><a href="#2-配置数据源，连接数据库" class="headerlink" title="2. 配置数据源，连接数据库"></a>2. 配置数据源，连接数据库</h2><pre class="language-yaml" data-language="yaml"><code class="language-yaml">spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://ip:port/db?useSSL=false&amp;serverTimezone=GMT%2B8
+    url: jdbc:mysql:&#x2F;&#x2F;ip:port&#x2F;db?useSSL&#x3D;false&amp;serverTimezone&#x3D;GMT%2B8
     username: username
-    password: password
-</code></pre>
-<h2 id="3-加入测试数据"><a href="#3-加入测试数据" class="headerlink" title="3. 加入测试数据"></a>3. 加入测试数据</h2><pre><code class="sql">CREATE TABLE user
+    password: password</code></pre>
+
+<h2 id="3-加入测试数据"><a href="#3-加入测试数据" class="headerlink" title="3. 加入测试数据"></a>3. 加入测试数据</h2><pre class="language-sql" data-language="sql"><code class="language-sql">CREATE TABLE user
 (
-    id BIGINT(20) NOT NULL COMMENT &#39;主键ID&#39;,
-    name VARCHAR(30) NULL DEFAULT NULL COMMENT &#39;姓名&#39;,
-    age INT(11) NULL DEFAULT NULL COMMENT &#39;年龄&#39;,
-    email VARCHAR(50) NULL DEFAULT NULL COMMENT &#39;邮箱&#39;,
-    PRIMARY KEY (id)
+	id BIGINT(20) NOT NULL COMMENT &#39;主键ID&#39;,
+	name VARCHAR(30) NULL DEFAULT NULL COMMENT &#39;姓名&#39;,
+	age INT(11) NULL DEFAULT NULL COMMENT &#39;年龄&#39;,
+	email VARCHAR(50) NULL DEFAULT NULL COMMENT &#39;邮箱&#39;,
+	PRIMARY KEY (id)
 );
 INSERT INTO user (id, name, age, email) VALUES
 (1, &#39;Jone&#39;, 18, &#39;test1@baomidou.com&#39;),
 (2, &#39;Jack&#39;, 20, &#39;test2@baomidou.com&#39;),
 (3, &#39;Tom&#39;, 28, &#39;test3@baomidou.com&#39;),
 (4, &#39;Sandy&#39;, 21, &#39;test4@baomidou.com&#39;),
-(5, &#39;Billie&#39;, 24, &#39;test5@baomidou.com&#39;);
-</code></pre>
-<h2 id="4-各类的编写"><a href="#4-各类的编写" class="headerlink" title="4. 各类的编写"></a>4. 各类的编写</h2><pre><code class="java">@Mapper
-//在对应的Mapper接口上继承基本的类BaseMapper
-public interface UserMapper extends BaseMapper&lt;User&gt; &#123;
-    /**
-     * 继承了BaseMapper，所有方法都来自父类，也可以编写自己的扩展方法
-     */
+(5, &#39;Billie&#39;, 24, &#39;test5@baomidou.com&#39;);</code></pre>
 
-&#125;
-</code></pre>
+
+
+<h2 id="4-各类的编写"><a href="#4-各类的编写" class="headerlink" title="4. 各类的编写"></a>4. 各类的编写</h2><pre class="language-java" data-language="java"><code class="language-java">@Mapper
+&#x2F;&#x2F;在对应的Mapper接口上继承基本的类BaseMapper
+public interface UserMapper extends BaseMapper&lt;User&gt; &#123;
+    &#x2F;**
+     * 继承了BaseMapper，所有方法都来自父类，也可以编写自己的扩展方法
+     *&#x2F;
+
+&#125;</code></pre>
+
 <h2 id="5-测试"><a href="#5-测试" class="headerlink" title="5.测试"></a>5.测试</h2><blockquote>
 <p>注意：不要忘了在Mapper接口上写@Mapper注解或者在主程序入口写@MapperScan(“xxx”)指明Mapper接口的包的位置</p>
 </blockquote>
@@ -185,12 +187,12 @@ public interface UserMapper extends BaseMapper&lt;User&gt; &#123;
 <p>在开发过程中，使用MybatisPlus我们的SQL语句是不可见的，想要知道它是怎么执行的，需要日志</p>
 </blockquote>
 <p>在配置文件中进行以下配置</p>
-<pre><code class="yaml">#配置日志
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml">#配置日志
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-#这个配置是让日志在控制台进行输出
-</code></pre>
+#这个配置是让日志在控制台进行输出</code></pre>
+
 <img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191238.png" alt="image-20210307140704156" style="zoom:80%;" />
 
 <p>这样我们可以在开发时从控制台上看到执行时的连接池信息，SQL语句，和具体的执行操作</p>
@@ -198,17 +200,17 @@ mybatis-plus:
 <p>除了简单的CRUD操作外，扩展以下操作和注意点</p>
 </blockquote>
 <h2 id="1-插入-insert"><a href="#1-插入-insert" class="headerlink" title="1. 插入(insert)"></a>1. 插入(insert)</h2><p>有这样的测试方法</p>
-<pre><code class="java">@Test
+<pre class="language-java" data-language="java"><code class="language-java">@Test
 void insertTest()&#123;
 
-    User user = new User();
+    User user &#x3D; new User();
     user.setName(&quot;zhangsan&quot;);
     user.setAge(6);
     user.setEmail(&quot;zhangsan@qq.com&quot;);
 
     userMapper.insert(user);
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p>插入操作中，没有对主键ID进行插入，结果如下</p>
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191249.png" alt="image-20210307141403921"></p>
 <p>这里会发现自动生成了一个ID（原ID属性不自增）</p>
@@ -239,9 +241,9 @@ void insertTest()&#123;
 <ol start="2">
 <li>先将实体类同步，然后再次执行插入方法</li>
 </ol>
-<pre><code class="java">private Date createTime;
-private Date updateTime;
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">private Date createTime;
+private Date updateTime;</code></pre>
+
 <p>结果如下：</p>
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191258.png" alt="image-20210307142645901"></p>
 <h3 id="2-代码级别（推荐）"><a href="#2-代码级别（推荐）" class="headerlink" title="2. 代码级别（推荐）"></a>2. 代码级别（推荐）</h3><ol>
@@ -251,22 +253,22 @@ private Date updateTime;
 <ol start="2">
 <li>实体类的属性字段上增加注解</li>
 </ol>
-<pre><code class="java">//字段添加填充内容
-@TableField(fill = FieldFill.INSERT)        //再插入的时候进行填充操作
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;字段添加填充内容
+@TableField(fill &#x3D; FieldFill.INSERT)        &#x2F;&#x2F;再插入的时候进行填充操作
 private Date createTime;
 
-@TableField(fill = FieldFill.INSERT_UPDATE)        //再更新的时候进行填充操作
-private Date updateTime;
-</code></pre>
+@TableField(fill &#x3D; FieldFill.INSERT_UPDATE)        &#x2F;&#x2F;再更新的时候进行填充操作
+private Date updateTime;</code></pre>
+
 <ol start="3">
 <li><p>编写处理器处理上面的注解</p>
 <p><strong>handler包下配置</strong></p>
 </li>
 </ol>
-<pre><code class="java">@Slf4j
-@Component      //不要忘记加到容器里
+<pre class="language-java" data-language="java"><code class="language-java">@Slf4j
+@Component      &#x2F;&#x2F;不要忘记加到容器里
 public class MyMetaObjectHandler implements MetaObjectHandler &#123;
-    //插入时的填充策略
+    &#x2F;&#x2F;插入时的填充策略
     @Override
     public void insertFill(MetaObject metaObject) &#123;
         log.info(&quot;start insert fill.........&quot;);
@@ -275,7 +277,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler &#123;
         this.setFieldValByName(&quot;updateTime&quot;,new Date(),metaObject);
     &#125;
 
-    //更新时的填充处理
+    &#x2F;&#x2F;更新时的填充处理
     @Override
     public void updateFill(MetaObject metaObject) &#123;
         log.info(&quot;start update fill.........&quot;);
@@ -283,24 +285,27 @@ public class MyMetaObjectHandler implements MetaObjectHandler &#123;
     &#125;
 &#125;
 </code></pre>
+
 <ol start="4">
 <li>测试插入和更新操作，结 果与第一种方式一致</li>
 </ol>
-<h2 id="3-查询操作"><a href="#3-查询操作" class="headerlink" title="3. 查询操作"></a>3. 查询操作</h2><h3 id="3-1-批量查询，通过ID"><a href="#3-1-批量查询，通过ID" class="headerlink" title="3.1 批量查询，通过ID"></a>3.1 批量查询，通过ID</h3><pre><code class="java"> @Test
+<h2 id="3-查询操作"><a href="#3-查询操作" class="headerlink" title="3. 查询操作"></a>3. 查询操作</h2><h3 id="3-1-批量查询，通过ID"><a href="#3-1-批量查询，通过ID" class="headerlink" title="3.1 批量查询，通过ID"></a>3.1 批量查询，通过ID</h3><pre class="language-java" data-language="java"><code class="language-java"> @Test
 void testSelectMore()&#123;
-    List&lt;User&gt; users = userMapper.selectBatchIds(Arrays.asList(1, 2, 3));
+    List&lt;User&gt; users &#x3D; userMapper.selectBatchIds(Arrays.asList(1, 2, 3));
     users.forEach(System.out::println);
-&#125;
-</code></pre>
-<h3 id="3-2-按条件批量查询，通过其他字段（Map）"><a href="#3-2-按条件批量查询，通过其他字段（Map）" class="headerlink" title="3.2 按条件批量查询，通过其他字段（Map）"></a>3.2 按条件批量查询，通过其他字段（Map）</h3><pre><code class="java">@Test
+&#125;</code></pre>
+
+<h3 id="3-2-按条件批量查询，通过其他字段（Map）"><a href="#3-2-按条件批量查询，通过其他字段（Map）" class="headerlink" title="3.2 按条件批量查询，通过其他字段（Map）"></a>3.2 按条件批量查询，通过其他字段（Map）</h3><pre class="language-java" data-language="java"><code class="language-java">@Test
 void testSelectbtMap()&#123;
-    HashMap&lt;String,Object&gt; map = new HashMap&lt;&gt;();
+    HashMap&lt;String,Object&gt; map &#x3D; new HashMap&lt;&gt;();
     map.put(&quot;name&quot;,&quot;zhangsan&quot;);
     map.put(&quot;age&quot;,6);
-    List list = userMapper.selectByMap(map);
+    List list &#x3D; userMapper.selectByMap(map);
     list.forEach(System.out::println);
-&#125;
-</code></pre>
+&#125;</code></pre>
+
+
+
 <h3 id="3-3-分页查询"><a href="#3-3-分页查询" class="headerlink" title="3.3 分页查询"></a>3.3 分页查询</h3><blockquote>
 <p>MybatisPlus自带分页查询插件</p>
 </blockquote>
@@ -309,14 +314,14 @@ void testSelectbtMap()&#123;
 <p><strong>config包下配置</strong></p>
 </li>
 </ol>
-<pre><code class="java">@Configuration
+<pre class="language-java" data-language="java"><code class="language-java">@Configuration
 public class MybatisPlusConfig &#123;
-    // 分页插件
-    // 最新版
+    &#x2F;&#x2F; 分页插件
+    &#x2F;&#x2F; 最新版
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() &#123;
-        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
-        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.H2));    //注意这个H2，坑大，勿跳！
+        MybatisPlusInterceptor interceptor &#x3D; new MybatisPlusInterceptor();
+        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.H2));	&#x2F;&#x2F;注意这个H2，坑大，勿跳！
         return interceptor;
     &#125;
 &#125;
@@ -325,11 +330,11 @@ public class MybatisPlusConfig &#123;
 
 
 
-//旧版
-@Configuration //配置类
+&#x2F;&#x2F;旧版
+@Configuration &#x2F;&#x2F;配置类
 public class MybatisPlusConfig &#123;
 
-    // 分页插件
+    &#x2F;&#x2F; 分页插件
     @Bean
     public PaginationInterceptor paginationInterceptor() &#123;
         return new PaginationInterceptor();
@@ -337,22 +342,23 @@ public class MybatisPlusConfig &#123;
 
 &#125;
 </code></pre>
+
 <ol start="2">
 <li>测试</li>
 </ol>
-<pre><code class="java">//测试分页
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;测试分页
 @Test
 public void testPage()&#123;
 
-    //参数一：当前页
-    //参数二：页面大小
-    Page&lt;User&gt; page = new Page&lt;&gt;(2,5);
+    &#x2F;&#x2F;参数一：当前页
+    &#x2F;&#x2F;参数二：页面大小
+    Page&lt;User&gt; page &#x3D; new Page&lt;&gt;(2,5);
     userMapper.selectPage(page, null);
     page.getRecords().forEach(System.out::println);
 
-    System.out.println(page.getTotal());  //显示总数
-&#125;
-</code></pre>
+    System.out.println(page.getTotal());  &#x2F;&#x2F;显示总数
+&#125;</code></pre>
+
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191306.png" alt="计算机生成了可选文字: =&gt;Preparing:SELECTid,name,age,email,version,create_time,update_timFROMUserLIMIT？ =&gt;Parameters5(Long)"></p>
 <p>**page.getRecords()**这个操作得到的是一个查询得到的数据列表，可以在前端页面进行遍历</p>
 <hr>
@@ -361,56 +367,60 @@ public void testPage()&#123;
 </blockquote>
 <p>使用MybatisPlus提供的分页插件</p>
 <p><strong>config中配置，MybatisPlusConfig.java</strong></p>
-<pre><code class="java">// 分页插件
-// 最新版
-@Bean            //@Bean注解不能忘
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 分页插件
+&#x2F;&#x2F; 最新版
+@Bean			&#x2F;&#x2F;@Bean注解不能忘
 public MybatisPlusInterceptor mybatisPlusInterceptor() &#123;
-    MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+    MybatisPlusInterceptor interceptor &#x3D; new MybatisPlusInterceptor();
     interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.H2));
     return interceptor;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p><strong>Controller层查询和传递数据</strong></p>
-<pre><code class="java">@RequestMapping(&quot;/getTypes&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@RequestMapping(&quot;&#x2F;getTypes&quot;)
 public String getTypes(Model model)&#123;
-    
-    Page&lt;Type&gt; page = new Page&lt;&gt;(1,5);        //参数一：第几页；参数二：一页几条数据
-    Page&lt;Type&gt; typePage = typeService.page(page, null);
-    List&lt;Type&gt; typeList = typePage.getRecords();
+	
+    Page&lt;Type&gt; page &#x3D; new Page&lt;&gt;(1,5);		&#x2F;&#x2F;参数一：第几页；参数二：一页几条数据
+    Page&lt;Type&gt; typePage &#x3D; typeService.page(page, null);
+    List&lt;Type&gt; typeList &#x3D; typePage.getRecords();
 
     model.addAttribute(&quot;page&quot;,typeList);
-    return &quot;admin/types&quot;;
-&#125;
-</code></pre>
+    return &quot;admin&#x2F;types&quot;;
+&#125;</code></pre>
+
 <p>传到前端是一个List，然后用Thyemleaf模板进行遍历渲染</p>
-<pre><code class="html">&lt;tr th:each=&quot;type,stat:$&#123;page&#125;&quot;&gt;
-    &lt;td th:text=&quot;$&#123;stat.count&#125;&quot;&gt;1&lt;/td&gt;    &lt;!--计数--&gt;
-    &lt;td th:text=&quot;$&#123;type.typeName&#125;&quot;&gt;666&lt;/td&gt;
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span> <span class="token attr-name"><span class="token namespace">th:</span>each</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>type,stat:$&#123;page&#125;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;stat.count&#125;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>    <span class="token comment">&lt;!--计数--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;type.typeName&#125;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>666<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
 
-    &lt;td&gt;
-        &lt;a href=&quot;&quot; class=&quot;ui mini green button&quot;&gt;编辑&lt;/a&gt;
-        &lt;a href=&quot;&quot; class=&quot;ui mini pink button&quot;&gt;删除&lt;/a&gt;
-    &lt;/td&gt;
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ui mini green button<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>编辑<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ui mini pink button<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>删除<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
 
-&lt;/tr&gt;
-</code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span></code></pre>
+
 <p>获取数据总数，总页数，当前页：</p>
 <p>先拿到Page<Type> typePage = typeService.page(page, null);这个对象，然后传到model中</p>
-<pre><code class="java">@RequestMapping(&quot;/getTypes&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@RequestMapping(&quot;&#x2F;getTypes&quot;)
 public String getTypes(Model model)&#123;
 
-    Page&lt;Type&gt; page = new Page&lt;&gt;(1,5);
-    Page&lt;Type&gt; typePage = typeService.page(page, null);
-    List&lt;Type&gt; typeList = typePage.getRecords();
+    Page&lt;Type&gt; page &#x3D; new Page&lt;&gt;(1,5);
+    Page&lt;Type&gt; typePage &#x3D; typeService.page(page, null);
+    List&lt;Type&gt; typeList &#x3D; typePage.getRecords();
 
 
     model.addAttribute(&quot;page&quot;,typePage);
-    model.addAttribute(&quot;content&quot;,typeList);                 //内容
-    return &quot;admin/types&quot;;
-&#125;
-</code></pre>
-<pre><code class="html">&lt;p&gt;当前在第[[$&#123;page.current&#125;]]页，共[[$&#123;page.pages&#125;]]页，[[$&#123;page.total&#125;]]条数据&lt;/p&gt;
-</code></pre>
+    model.addAttribute(&quot;content&quot;,typeList);                 &#x2F;&#x2F;内容
+    return &quot;admin&#x2F;types&quot;;
+&#125;</code></pre>
+
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>当前在第[[$&#123;page.current&#125;]]页，共[[$&#123;page.pages&#125;]]页，[[$&#123;page.total&#125;]]条数据<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></code></pre>
+
+
+
+
+
 <hr>
 <h2 id="4-逻辑删除-deleted"><a href="#4-逻辑删除-deleted" class="headerlink" title="4. 逻辑删除(deleted)"></a>4. 逻辑删除(deleted)</h2><blockquote>
 <p>物理删除：从数据库中直接删除</p>
@@ -426,27 +436,27 @@ public String getTypes(Model model)&#123;
 <ol start="2">
 <li>在实体类中增加对于的属性与<strong>注解</strong></li>
 </ol>
-<pre><code class="java">@TableLogic     //逻辑删除
-private Integer deleted;
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">@TableLogic     &#x2F;&#x2F;逻辑删除
+private Integer deleted;</code></pre>
+
 <ol start="3">
 <li>在yaml（或properties）配置文件中进行配置</li>
 </ol>
-<pre><code class="yaml">mybatis-plus:
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml">mybatis-plus:
   global-config:
     db-config:
-      logic-delete-value: 1                #删除了的为1
-      logic-not-delete-value: 0            #没被删除的为0
-</code></pre>
+      logic-delete-value: 1				#删除了的为1
+      logic-not-delete-value: 0			#没被删除的为0</code></pre>
+
 <ol start="4">
 <li>测试：</li>
 </ol>
-<pre><code class="java">//delete
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;delete
 @Test
 void delete()&#123;
     userMapper.deleteById(1L);
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191312.png" alt="image-20210307144732849"></p>
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191329.png" alt="1256416313"></p>
 <p>再查询1号User</p>
@@ -470,54 +480,55 @@ void delete()&#123;
 <ol start="2">
 <li>实体类加上对应字段并标注@Version注解</li>
 </ol>
-<pre><code class="java">@Version   //乐观锁version注解
-private Integer version;
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">@Version   &#x2F;&#x2F;乐观锁version注解
+private Integer version;</code></pre>
+
 <ol start="3">
 <li>注册组件(config包)</li>
 </ol>
-<pre><code class="java">@Configuration //配置类
+<pre class="language-java" data-language="java"><code class="language-java">@Configuration &#x2F;&#x2F;配置类
 public class MybatisPlusConfig &#123;
-//    注册乐观锁插件
+&#x2F;&#x2F;    注册乐观锁插件
     @Bean
     public OptimisticLockerInterceptor optimisticLockerInterceptor() &#123;
         return new OptimisticLockerInterceptor();
     &#125;
 
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <ol start="4">
 <li>测试</li>
 </ol>
-<pre><code class="java"> @Test
-    void testop()&#123;
-        /**
-         * 1.查询用户信息
-         */
-        User user = userMapper.selectById(1);
-        //  2.修改用户信息
-        user.setName(&quot;leguan2&quot;);
-        user.setEmail(&quot;leguan2@ll.com&quot;);
-        //3.执行更新操作
-        userMapper.updateById(user);
-    &#125;
-</code></pre>
-<pre><code class="java">   // 测试乐观锁失败！多线程下
+<pre class="language-java" data-language="java"><code class="language-java">@Test
+   void testop()&#123;
+       &#x2F;**
+        * 1.查询用户信息
+        *&#x2F;
+       User user &#x3D; userMapper.selectById(1);
+	&#x2F;&#x2F;  2.修改用户信息
+       user.setName(&quot;leguan2&quot;);
+       user.setEmail(&quot;leguan2@ll.com&quot;);
+       &#x2F;&#x2F;3.执行更新操作
+       userMapper.updateById(user);
+   &#125;</code></pre>
+
+<pre class="language-java" data-language="java"><code class="language-java">   &#x2F;&#x2F; 测试乐观锁失败！多线程下
     @Test
     public void testOptimisticLocker2()&#123;
-// 线程 1
-        User user = userMapper.selectById(1L);
+&#x2F;&#x2F; 线程 1
+        User user &#x3D; userMapper.selectById(1L);
         user.setName(&quot;kuangshen111&quot;);
         user.setEmail(&quot;24736743@qq.com&quot;);
-// 模拟另外一个线程执行了插队操作
-        User user2 = userMapper.selectById(1L);
+&#x2F;&#x2F; 模拟另外一个线程执行了插队操作
+        User user2 &#x3D; userMapper.selectById(1L);
         user2.setName(&quot;kuangshen222&quot;);
         user2.setEmail(&quot;24736743@qq.com&quot;);
         userMapper.updateById(user2);
-// 自旋锁来多次尝试提交！
-        userMapper.updateById(user); // 如果没有乐观锁就会覆盖插队线程的值！
+&#x2F;&#x2F; 自旋锁来多次尝试提交！
+        userMapper.updateById(user); &#x2F;&#x2F; 如果没有乐观锁就会覆盖插队线程的值！
     &#125;
 </code></pre>
+
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191341.png" alt="image-20210307145543128"></p>
 <blockquote>
 <p>总结</p>
@@ -528,79 +539,79 @@ public class MybatisPlusConfig &#123;
 <ol>
 <li></li>
 </ol>
-<pre><code class="java">@Test
+<pre class="language-java" data-language="java"><code class="language-java">@Test
 void test1()&#123;
-    //查询name不为空。email不为空，且age&gt;=12的用户
+    &#x2F;&#x2F;查询name不为空。email不为空，且age&gt;&#x3D;12的用户
 
-    QueryWrapper&lt;User&gt; wrapper = new QueryWrapper&lt;&gt;();
+    QueryWrapper&lt;User&gt; wrapper &#x3D; new QueryWrapper&lt;&gt;();
     wrapper
-        .isNotNull(&quot;name&quot;)              //name不为空
-        .isNotNull(&quot;email&quot;)             //Email不为空
-        .ge(&quot;age&quot;, 12);             //age&gt;=12
+        .isNotNull(&quot;name&quot;)              &#x2F;&#x2F;name不为空
+        .isNotNull(&quot;email&quot;)             &#x2F;&#x2F;Email不为空
+        .ge(&quot;age&quot;, 12);             &#x2F;&#x2F;age&gt;&#x3D;12
     userMapper.selectList(wrapper).forEach(System.out::println);
 
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191344.png" alt="image-20210307101521171"></p>
 <p>可以看见条件查询生效</p>
 <ol start="2">
 <li></li>
 </ol>
-<pre><code class="java">@Test
+<pre class="language-java" data-language="java"><code class="language-java">@Test
 void test2()&#123;
-    //查询name=Tom的用户
-    QueryWrapper&lt;User&gt; wrapper = new QueryWrapper&lt;&gt;();
+    &#x2F;&#x2F;查询name&#x3D;Tom的用户
+    QueryWrapper&lt;User&gt; wrapper &#x3D; new QueryWrapper&lt;&gt;();
     wrapper
         .eq(&quot;name&quot;,&quot;Tom&quot;);
 
     System.out.println(userMapper.selectOne(wrapper));
-    //查询一个数据用SelectOne，多个用SelectList或Map
-&#125;
-</code></pre>
+    &#x2F;&#x2F;查询一个数据用SelectOne，多个用SelectList或Map
+&#125;</code></pre>
+
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191348.png" alt="image-20210307102101498"></p>
 <ol start="3">
 <li>between</li>
 </ol>
-<pre><code class="java">@Test
+<pre class="language-java" data-language="java"><code class="language-java">@Test
 void test3()&#123;
-    //查询age在20——30的
-    QueryWrapper&lt;User&gt; wrapper = new QueryWrapper&lt;&gt;();
+    &#x2F;&#x2F;查询age在20——30的
+    QueryWrapper&lt;User&gt; wrapper &#x3D; new QueryWrapper&lt;&gt;();
     wrapper
-            .between(&quot;age&quot;,20,30);  //区间
-    Integer count = userMapper.selectCount(wrapper);
+            .between(&quot;age&quot;,20,30);  &#x2F;&#x2F;区间
+    Integer count &#x3D; userMapper.selectCount(wrapper);
     System.out.println(count);
 
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191357.png" alt="image-20210307102744448"></p>
 <ol start="4">
 <li>模糊查询</li>
 </ol>
-<pre><code class="java">@Test
+<pre class="language-java" data-language="java"><code class="language-java">@Test
 void test4()&#123;
-    //查询name里不包含a,email中t打头的用户
-    QueryWrapper&lt;User&gt; wrapper = new QueryWrapper&lt;&gt;();
+    &#x2F;&#x2F;查询name里不包含a,email中t打头的用户
+    QueryWrapper&lt;User&gt; wrapper &#x3D; new QueryWrapper&lt;&gt;();
     wrapper
             .notLike(&quot;name&quot;,&quot;a&quot;)
-            .likeRight(&quot;email&quot;,&quot;t&quot;);        //t%
-            //%在右边，则用likeRight
-    List&lt;Map&lt;String, Object&gt;&gt; maps = userMapper.selectMaps(wrapper);
+            .likeRight(&quot;email&quot;,&quot;t&quot;);        &#x2F;&#x2F;t%
+            &#x2F;&#x2F;%在右边，则用likeRight
+    List&lt;Map&lt;String, Object&gt;&gt; maps &#x3D; userMapper.selectMaps(wrapper);
     maps.forEach(System.out::println);
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191400.png" alt="image-20210307103850692"></p>
 <ol start="5">
 <li>排序</li>
 </ol>
-<pre><code class="java">@Test
+<pre class="language-java" data-language="java"><code class="language-java">@Test
 void test4()&#123;
-    //通过ID降序排序
-    QueryWrapper&lt;User&gt; wrapper = new QueryWrapper&lt;&gt;();
+    &#x2F;&#x2F;通过ID降序排序
+    QueryWrapper&lt;User&gt; wrapper &#x3D; new QueryWrapper&lt;&gt;();
     wrapper.orderByDesc(&quot;id&quot;);
     userMapper.selectMaps(wrapper).forEach(System.out::println);
 
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510191403.png" alt="image-20210307104612805"></p>
 <ol start="6">
 <li></li>
@@ -611,31 +622,31 @@ void test4()&#123;
 <blockquote>
 <p>使用方法</p>
 </blockquote>
-<h2 id="1-加入依赖"><a href="#1-加入依赖" class="headerlink" title="1. 加入依赖"></a>1. 加入依赖</h2><pre><code class="xml">&lt;!--        MybatisPlus--&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
-            &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;
-            &lt;version&gt;3.4.2&lt;/version&gt;
-        &lt;/dependency&gt;
+<h2 id="1-加入依赖"><a href="#1-加入依赖" class="headerlink" title="1. 加入依赖"></a>1. 加入依赖</h2><pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--        MybatisPlus--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.baomidou<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mybatis-plus-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.4.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
 
-&lt;!--        代码生成器--&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
-            &lt;artifactId&gt;mybatis-plus-generator&lt;/artifactId&gt;
-            &lt;version&gt;3.4.1&lt;/version&gt;
-        &lt;/dependency&gt;
+<span class="token comment">&lt;!--        代码生成器--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.baomidou<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mybatis-plus-generator<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.4.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
 
-&lt;!--        代码生成器的默认模板引擎--&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.apache.velocity&lt;/groupId&gt;
-            &lt;artifactId&gt;velocity-engine-core&lt;/artifactId&gt;
-            &lt;version&gt;2.2&lt;/version&gt;
-        &lt;/dependency&gt;
-</code></pre>
+<span class="token comment">&lt;!--        代码生成器的默认模板引擎--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.velocity<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>velocity-engine-core<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+
 <h2 id="2-代码"><a href="#2-代码" class="headerlink" title="2. 代码"></a>2. 代码</h2><blockquote>
 <p> 代码生成器代码如下</p>
 </blockquote>
-<pre><code class="java">//代码自动生成器
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;代码自动生成器
 package lover.alice;
 
 import com.baomidou.mybatisplus.annotation.DbType;
@@ -655,62 +666,63 @@ import java.util.ArrayList;
 
 public class AliceCode &#123;
     public static void main(String[] args) &#123;
-// 需要构建一个 代码自动生成器 对象
-        AutoGenerator mpg = new AutoGenerator();
-// 配置策略
-// 1、全局配置
-        GlobalConfig gc = new GlobalConfig();
-        String projectPath = System.getProperty(&quot;user.dir&quot;);
-        gc.setOutputDir(projectPath+&quot;/src/main/java&quot;);
+&#x2F;&#x2F; 需要构建一个 代码自动生成器 对象
+        AutoGenerator mpg &#x3D; new AutoGenerator();
+&#x2F;&#x2F; 配置策略
+&#x2F;&#x2F; 1、全局配置
+        GlobalConfig gc &#x3D; new GlobalConfig();
+        String projectPath &#x3D; System.getProperty(&quot;user.dir&quot;);
+        gc.setOutputDir(projectPath+&quot;&#x2F;src&#x2F;main&#x2F;java&quot;);
         gc.setAuthor(&quot;小爱の雨缘&quot;);
         gc.setOpen(false);
-        gc.setFileOverride(false); // 是否覆盖
-        gc.setServiceName(&quot;%sService&quot;); // 去Service的I前缀
+        gc.setFileOverride(false); &#x2F;&#x2F; 是否覆盖
+        gc.setServiceName(&quot;%sService&quot;); &#x2F;&#x2F; 去Service的I前缀
         gc.setIdType(IdType.ID_WORKER);
         gc.setDateType(DateType.ONLY_DATE);
         gc.setSwagger2(true);
         mpg.setGlobalConfig(gc);
-//2、设置数据源
-        DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl(&quot;jdbc:mysql://localhost:3306/db1?useSSL=false&amp;serverTimezone=GMT%2B8&quot;);
+&#x2F;&#x2F;2、设置数据源
+        DataSourceConfig dsc &#x3D; new DataSourceConfig();
+        dsc.setUrl(&quot;jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;db1?useSSL&#x3D;false&amp;serverTimezone&#x3D;GMT%2B8&quot;);
         dsc.setDriverName(&quot;com.mysql.cj.jdbc.Driver&quot;);
         dsc.setUsername(&quot;root&quot;);
         dsc.setPassword(&quot;skrskr666&quot;);
         dsc.setDbType(DbType.MYSQL);
         mpg.setDataSource(dsc);
-//3、包的配置
-        PackageConfig pc = new PackageConfig();
-//        pc.setModuleName(&quot;blog&quot;);
+&#x2F;&#x2F;3、包的配置
+        PackageConfig pc &#x3D; new PackageConfig();
+&#x2F;&#x2F;        pc.setModuleName(&quot;blog&quot;);
         pc.setParent(&quot;lover.alice&quot;);
         pc.setEntity(&quot;entity&quot;);
         pc.setMapper(&quot;mapper&quot;);
         pc.setService(&quot;service&quot;);
         pc.setController(&quot;controller&quot;);
         mpg.setPackageInfo(pc);
-//4、策略配置
-        StrategyConfig strategy = new StrategyConfig();
-        strategy.setInclude(&quot;student&quot;); // 设置要映射的表名
+&#x2F;&#x2F;4、策略配置
+        StrategyConfig strategy &#x3D; new StrategyConfig();
+        strategy.setInclude(&quot;student&quot;); &#x2F;&#x2F; 设置要映射的表名
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setEntityLombokModel(true); // 自动lombok；
+        strategy.setEntityLombokModel(true); &#x2F;&#x2F; 自动lombok；
         strategy.setLogicDeleteFieldName(&quot;deleted&quot;);
-// 自动填充配置
-        TableFill gmtCreate = new TableFill(&quot;gmt_create&quot;, FieldFill.INSERT);
-        TableFill gmtModified = new TableFill(&quot;gmt_modified&quot;,
+&#x2F;&#x2F; 自动填充配置
+        TableFill gmtCreate &#x3D; new TableFill(&quot;gmt_create&quot;, FieldFill.INSERT);
+        TableFill gmtModified &#x3D; new TableFill(&quot;gmt_modified&quot;,
                 FieldFill.INSERT_UPDATE);
-        ArrayList&lt;TableFill&gt; tableFills = new ArrayList&lt;&gt;();
+        ArrayList&lt;TableFill&gt; tableFills &#x3D; new ArrayList&lt;&gt;();
         tableFills.add(gmtCreate);
         tableFills.add(gmtModified);
         strategy.setTableFillList(tableFills);
-// 乐观锁
+&#x2F;&#x2F; 乐观锁
         strategy.setVersionFieldName(&quot;version&quot;);
         strategy.setRestControllerStyle(true);
-        strategy.setControllerMappingHyphenStyle(true); //localhost:8080/hello_id_2
+        strategy.setControllerMappingHyphenStyle(true); &#x2F;&#x2F;localhost:8080&#x2F;hello_id_2
         mpg.setStrategy(strategy);
-        mpg.execute(); //执行
+        mpg.execute(); &#x2F;&#x2F;执行
     &#125;
 &#125;
 </code></pre>
+
 <h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><blockquote>
 <ol>
 <li>生成器代码中对应的数据库和表，已经生成的位置按需进行修改</li>
@@ -732,23 +744,23 @@ public class AliceCode &#123;
 <h2 id="2-自定义SQL使用Wrapper"><a href="#2-自定义SQL使用Wrapper" class="headerlink" title="2. 自定义SQL使用Wrapper"></a>2. 自定义SQL使用Wrapper</h2><blockquote>
 <p>需要<code>mybatis-plus</code>版本 &gt;= <code>3.0.7</code> param 参数名要么叫<code>ew</code>,要么加上注解<code>@Param(Constants.WRAPPER)</code> 使用<code>$&#123;ew.customSqlSegment&#125;</code> 不支持 <code>Wrapper</code> 内的entity生成where语句</p>
 </blockquote>
-<h3 id="2-1-用注解"><a href="#2-1-用注解" class="headerlink" title="2.1 用注解"></a>2.1 用注解</h3><pre><code class="java">@Select(&quot;select * from mysql_data $&#123;ew.customSqlSegment&#125;&quot;)
-List&lt;MysqlData&gt; getAll(@Param(Constants.WRAPPER) Wrapper wrapper);
-</code></pre>
-<h3 id="2-2-用XML"><a href="#2-2-用XML" class="headerlink" title="2.2 用XML"></a>2.2 用XML</h3><pre><code class="java">List&lt;MysqlData&gt; getAll(Wrapper ew);
-</code></pre>
-<pre><code class="xml">&lt;select id=&quot;getAll&quot; resultType=&quot;MysqlData&quot;&gt;
-    SELECT * FROM mysql_data $&#123;ew.customSqlSegment&#125;
-&lt;/select&gt;
-</code></pre>
+<h3 id="2-1-用注解"><a href="#2-1-用注解" class="headerlink" title="2.1 用注解"></a>2.1 用注解</h3><pre class="language-java" data-language="java"><code class="language-java">@Select(&quot;select * from mysql_data $&#123;ew.customSqlSegment&#125;&quot;)
+List&lt;MysqlData&gt; getAll(@Param(Constants.WRAPPER) Wrapper wrapper);</code></pre>
+
+<h3 id="2-2-用XML"><a href="#2-2-用XML" class="headerlink" title="2.2 用XML"></a>2.2 用XML</h3><pre class="language-java" data-language="java"><code class="language-java">List&lt;MysqlData&gt; getAll(Wrapper ew);</code></pre>
+
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>getAll<span class="token punctuation">"</span></span> <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>MysqlData<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+	SELECT * FROM mysql_data $&#123;ew.customSqlSegment&#125;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre>
+
 <h3 id="2-3-用法实现"><a href="#2-3-用法实现" class="headerlink" title="2.3 用法实现"></a>2.3 用法实现</h3><p>1）Mapper接口(Page必须在第一位)</p>
-<pre><code class="java">public interface EduCourseMapper extends BaseMapper&lt;EduCourse&gt; &#123;
+<pre class="language-java" data-language="java"><code class="language-java">public interface EduCourseMapper extends BaseMapper&lt;EduCourse&gt; &#123;
     public IPage&lt;CoursePublishVo&gt; getCourseDisplayList(Page&lt;CoursePublishVo&gt; page,@Param(Constants.WRAPPER) Wrapper wrapper,Integer current, Integer limit,
                                                        CourseQuery courseQuery);
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p>2）Mapper.xml</p>
-<pre><code class="xml">&lt;select id=&quot;getCourseDisplayList&quot; resultType=&quot;lover.Alice.eduservice.entity.vo.CoursePublishVo&quot;&gt;
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>getCourseDisplayList<span class="token punctuation">"</span></span> <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>lover.Alice.eduservice.entity.vo.CoursePublishVo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     SELECT ec.`id`,
            ec.`title`,
            ec.`cover`,
@@ -762,20 +774,20 @@ List&lt;MysqlData&gt; getAll(@Param(Constants.WRAPPER) Wrapper wrapper);
                        LEFT JOIN edu_subject es1 ON ec.`subject_parent_id`=es1.`id`
                        LEFT JOIN edu_subject es2 ON ec.`subject_id`=es2.`id`
         $&#123;ew.customSqlSegment&#125;
-&lt;/select&gt;
-</code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre>
+
 <p>3）Service接口实现类</p>
-<pre><code class="java">//按条件分页查询课程列表
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;按条件分页查询课程列表
 @Override
 public IPage&lt;CoursePublishVo&gt; getCourseDisplayListService(Integer current, Integer limit, CourseQuery courseQuery) &#123;
 
-    Page&lt;CoursePublishVo&gt; page = new Page&lt;&gt;(current,limit);
+    Page&lt;CoursePublishVo&gt; page &#x3D; new Page&lt;&gt;(current,limit);
 
-    QueryWrapper&lt;CourseQuery&gt; wrapper = new QueryWrapper&lt;&gt;();
-    String title = courseQuery.getTitle();
-    String teacherName = courseQuery.getTeacherName();
-    String subjectParentName = courseQuery.getSubjectParentName();
-    String subjectName = courseQuery.getSubjectName();
+    QueryWrapper&lt;CourseQuery&gt; wrapper &#x3D; new QueryWrapper&lt;&gt;();
+    String title &#x3D; courseQuery.getTitle();
+    String teacherName &#x3D; courseQuery.getTeacherName();
+    String subjectParentName &#x3D; courseQuery.getSubjectParentName();
+    String subjectName &#x3D; courseQuery.getSubjectName();
     if (!StringUtils.isEmpty(title))&#123;
         wrapper.like(&quot;ec.title&quot;,title);
     &#125;
@@ -788,19 +800,19 @@ public IPage&lt;CoursePublishVo&gt; getCourseDisplayListService(Integer current,
     if (!StringUtils.isEmpty(subjectName))&#123;
         wrapper.eq(&quot;es2.title&quot;,subjectName);
     &#125;
-    IPage&lt;CoursePublishVo&gt; coursePage = baseMapper.getCourseDisplayList(page, wrapper, current, limit, courseQuery);
+    IPage&lt;CoursePublishVo&gt; coursePage &#x3D; baseMapper.getCourseDisplayList(page, wrapper, current, limit, courseQuery);
     return coursePage;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p>4）Controller层</p>
-<pre><code class="java">//按条件分页查询课程列表
-@PostMapping(&quot;pageCourseCondition/&#123;current&#125;/&#123;limit&#125;&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;按条件分页查询课程列表
+@PostMapping(&quot;pageCourseCondition&#x2F;&#123;current&#125;&#x2F;&#123;limit&#125;&quot;)
 public R pageCourseCondition(@PathVariable Integer current, @PathVariable Integer limit,
                              @RequestBody CourseQuery courseQuery)&#123;
-    IPage&lt;CoursePublishVo&gt; page = courseService.getCourseDisplayListService(current,limit,courseQuery);
+    IPage&lt;CoursePublishVo&gt; page &#x3D; courseService.getCourseDisplayListService(current,limit,courseQuery);
     return R.ok().data(&quot;rows&quot;,page.getRecords()).data(&quot;total&quot;,page.getTotal());
-&#125;
-</code></pre>
+&#125;</code></pre>
+
  
       <!-- reward -->
       
@@ -921,7 +933,7 @@ public R pageCourseCondition(@PathVariable Integer current, @PathVariable Intege
     <ul>
       <li>
         Copyrights &copy;
-        2015-2023
+        2020-2023
         <i class="ri-heart-fill heart_icon"></i> Tokitou Muichirou
       </li>
     </ul>
@@ -1277,6 +1289,23 @@ public R pageCourseCondition(@PathVariable Integer current, @PathVariable Intege
 </script>
 
 
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=22707008&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
     
     
 

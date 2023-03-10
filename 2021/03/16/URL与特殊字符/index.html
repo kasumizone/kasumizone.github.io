@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">901</span>
+            <span class="post-count">881</span>
         </span>
     </span>
 
@@ -114,54 +114,50 @@
 <p>今天在使用<code>阿里云OSS对象存储</code>，删除bucket中文图片时，发现问题。</p>
 </blockquote>
 <p>在前端页面使用axios发送请求到后端，传递的参数是要删除的图片的url，前端（vue项目）代码如下：<br>api目录下的js文件的方法声明：</p>
-<pre><code class="javascript">  //放弃，阿里云OSS 删封面
-  giveUpBlog(url)&#123;
-    return request(&#123;
-      url: `/admin/blog/giveUpBlog/$&#123;url&#125;`,
-      method:&#39;post&#39;
-    &#125;)
-  &#125;,
-</code></pre>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//放弃，阿里云OSS 删封面</span>
+<span class="token function">giveUpBlog</span><span class="token punctuation">(</span><span class="token parameter">url</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+    url<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/admin/blog/giveUpBlog/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>url<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    method<span class="token operator">:</span><span class="token string">'post'</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span></code></pre>
 <p>前端页面的调用部分：</p>
-<pre><code class="javascript">//放弃本博客的编写，删掉阿里云中存的封面
-  GiveUp() &#123;
-    const url = this.blogInfo.cover.replace(/\//g, &quot;%2F&quot;);
-    console.log(url)
-    blogApi.giveUpBlog(url.toString()).then(response =&gt; &#123;
-      this.$message(&#123;
-        type: &#39;success&#39;,
-        message: &quot;博客已放弃编辑！&quot;
-      &#125;)
-      this.$router.push(&#123;
-        path: &#39;./blogList&#39;
-      &#125;)
-    &#125;)
-  &#125;,
-</code></pre>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//放弃本博客的编写，删掉阿里云中存的封面</span>
+  <span class="token function">GiveUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>blogInfo<span class="token punctuation">.</span>cover<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\/</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">"%2F"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+    blogApi<span class="token punctuation">.</span><span class="token function">giveUpBlog</span><span class="token punctuation">(</span>url<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        type<span class="token operator">:</span> <span class="token string">'success'</span><span class="token punctuation">,</span>
+        message<span class="token operator">:</span> <span class="token string">"博客已放弃编辑！"</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        path<span class="token operator">:</span> <span class="token string">'./blogList'</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></code></pre>
 <p>后端对‘/’字符进行反向的转义</p>
-<pre><code class="java">// 将前端替换的替换回
-url = url.replace(&quot;%2F&quot;,&quot;/&quot;);
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 将前端替换的替换回
+url &#x3D; url.replace(&quot;%2F&quot;,&quot;&#x2F;&quot;);</code></pre>
 <p>传递的参数字符串是<br><code>https:%2F%2Farilia.oss-cn-chengdu.aliyuncs.com%2F2021%2F04%2F24%2F399992eff3694b8c922c92578814bb99asn.png</code><br>对于url，处理了里面的‘/’字符，转换成了对应的url转义编码。<br>这样进行处理，使用Swagger进行测试时，是正常运行不会报错的，阿里云中的视频也能正常删除掉。<br>但是这样的处理直接使用浏览器点击事件，调用方法发送请求，却无法正常执行，报错如下：<br><img src="http://47.108.156.251:8090/upload/2021/04/image-57b282f6717a47d8b3dd32e0011e46b7.png" alt="image.png"><br>这里参数http:…后面还有很长<br>swagger测试，输入和这里一样转换过‘/’的字符串是正确的，但是这里总是报错。。。</p>
 <p>我这里将Swagger和浏览器请求的Request URL截取做了对比，发现是不一样的<br>这里是Swagger的Request URL<br><code>http://localhost:6661/admin/blog/giveUpBlog/https%3A%252F%252Farilia.oss-cn-chengdu.aliyuncs.com%252F2021%252F04%252F24%252F399992eff3694b8c922c92578814bb99asn.png</code><br>这里是浏览器的Request URL<br><code>http://localhost:6661/admin/blog/giveUpBlog/https:%2F%2Farilia.oss-cn-chengdu.aliyuncs.com%2F2021%2F04%2F24%2F399992eff3694b8c922c92578814bb99asn.png</code><br>一眼看去，Swagger的请求比浏览器发出的要长一些，仔细看就会发现，Swagger发送的请求，将参数中的所有特殊字符按照相应规则进行了转义编码，发现特殊字符不只是有‘/’，只是‘/’连Swagger也无法进行判断帮你转义。<br>所以在前端像后端请求时，参数一定要将其中的所有特殊字符按照相应规则进行转义编码，才能正常发送到后端进行处理。</p>
 <p>进行这样的修改：</p>
-<pre><code class="javascript">//放弃本博客的编写，删掉阿里云中存的封面
-   GiveUp() &#123;
-    let url = this.blogInfo.cover.replace(/\//g, &quot;%2F&quot;);
-    url = url.replace(/\%/g,&quot;%25&quot;)
-    url = url.replace(/\:/g,&quot;%3A&quot;)
-    console.log(url)
-    blogApi.giveUpBlog(url.toString()).then(response =&gt; &#123;
-      this.$message(&#123;
-        type: &#39;success&#39;,
-        message: &quot;博客已放弃编辑！&quot;
-      &#125;)
-      this.$router.push(&#123;
-        path: &#39;./blogList&#39;
-      &#125;)
-    &#125;)
-  &#125;,
-</code></pre>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//放弃本博客的编写，删掉阿里云中存的封面</span>
+   <span class="token function">GiveUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">let</span> url <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>blogInfo<span class="token punctuation">.</span>cover<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\/</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">"%2F"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    url <span class="token operator">=</span> url<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\%</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span><span class="token string">"%25"</span><span class="token punctuation">)</span>
+    url <span class="token operator">=</span> url<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\:</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span><span class="token string">"%3A"</span><span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+    blogApi<span class="token punctuation">.</span><span class="token function">giveUpBlog</span><span class="token punctuation">(</span>url<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        type<span class="token operator">:</span> <span class="token string">'success'</span><span class="token punctuation">,</span>
+        message<span class="token operator">:</span> <span class="token string">"博客已放弃编辑！"</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        path<span class="token operator">:</span> <span class="token string">'./blogList'</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></code></pre>
 <p>这样进行处理后，便可以正常发送请求到后端，正常执行，<br>而且，后端只需要处理‘/’字符的反向转义即可，其他字符均会和Swagger帮你转义一样反向转义回来。。。</p>
 <blockquote>
 <p>同时，在使用Feign远程调用的时候，传入的参数同样不能带有‘/’，需要将它进行转义编码，才能调用远程的服务，否则会发现调用的接口url的前半部分不是要调用的服务IP地址而变成服务名了。。。</p>
@@ -370,7 +366,7 @@ url = url.replace(&quot;%2F&quot;,&quot;/&quot;);
     <ul>
       <li>
         Copyrights &copy;
-        2015-2023
+        2020-2023
         <i class="ri-heart-fill heart_icon"></i> Tokitou Muichirou
       </li>
     </ul>
@@ -726,6 +722,23 @@ url = url.replace(&quot;%2F&quot;,&quot;/&quot;);
 </script>
 
 
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=22707008&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
     
     
 

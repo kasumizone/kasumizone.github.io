@@ -166,35 +166,35 @@
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">官方网站</a>下载并安装 …..((/- -)/</p>
 <p>安装完成后打开命令行输入以下命令查看是否安装成功~</p>
-<pre><code class="bash">node -v
-npm -v
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">node -v
+npm -v</code></pre>
+
 <p>输入以下命令进行淘宝镜像的配置</p>
-<pre><code class="bash">npm install -g cnpm --registry=https://registry.npm.taobao.org
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</code></pre>
+
 <p>接着，下面的命令凡是npm均可替换为cnpm，使用淘宝镜像去下载资源，快了不止一点~</p>
 <h2 id="安装与初始化Hexo"><a href="#安装与初始化Hexo" class="headerlink" title="安装与初始化Hexo"></a>安装与初始化Hexo</h2><blockquote>
 <p>安装</p>
 </blockquote>
-<pre><code class="bash">npm install -g hexo-cli
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">npm install -g hexo-cli</code></pre>
+
 <p>使用<code>hexo -v</code>可查看版本信息</p>
 <blockquote>
 <p>初始化</p>
 </blockquote>
-<pre><code class="bash">hexo init [文件名]
+<pre class="language-bash" data-language="bash"><code class="language-bash">hexo init [文件名]
 # 不写文件名则默认再当前目录进行初始化，且当前目录必须是空目录
 # 加了文件名则会再当前目录创建与文件名相同的文件夹并在生成的文件夹下进行初始化
-npm install
-</code></pre>
+npm install</code></pre>
+
 <blockquote>
 <p>启动Hexo</p>
 </blockquote>
 <p>下面就到第一个验证结果的环节</p>
 <p>先进入到Hexo初始化的文件夹下，执行下面的命令</p>
-<pre><code class="bash">hexo g
-hexo server
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">hexo g
+hexo server</code></pre>
+
 <p>即可启动Hexo服务，默认在本地4000端口启动，现在访问<a href="">localhost:4000</a>即可看到初步的成效~</p>
 <p>大概是这个样子</p>
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210730165938.png" alt="image-20210730165938483"></p>
@@ -374,7 +374,7 @@ hexo server
     <ul>
       <li>
         Copyrights &copy;
-        2015-2023
+        2020-2023
         <i class="ri-heart-fill heart_icon"></i> Tokitou Muichirou
       </li>
     </ul>
@@ -730,6 +730,23 @@ hexo server
 </script>
 
 
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=22707008&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
     
     
 

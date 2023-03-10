@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">3.4k</span>
+            <span class="post-count">3.5k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">14 分钟</span>
+            <span class="post-count">15 分钟</span>
         </span>
     </span>
 </div>
@@ -115,24 +115,24 @@
   <span id="more"></span>
 
 <h1 id="一、入门案例"><a href="#一、入门案例" class="headerlink" title="一、入门案例"></a>一、入门案例</h1><h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h2><p><strong>创建Spring Boot工程（web），引入相关依赖</strong></p>
-<pre><code class="xml">&lt;!--  Spring Security   --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--  Spring Security   --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-security<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+
 <h2 id="2-初步测试"><a href="#2-初步测试" class="headerlink" title="2. 初步测试"></a>2. 初步测试</h2><blockquote>
 <p>写一个controller用于初步测试</p>
 </blockquote>
-<pre><code class="java">@RestController
+<pre class="language-java" data-language="java"><code class="language-java">@RestController
 @RequestMapping(&quot;test&quot;)
 public class TestController &#123;
     @GetMapping(&quot;hello&quot;)
     public String hello()&#123;
         return &quot;hello security!&quot;;
     &#125;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <blockquote>
 <p>启动项目，访问对应接口</p>
 </blockquote>
@@ -184,11 +184,11 @@ public class TestController &#123;
 <p>这个方法的返回值类型是<code>UserDetails</code>，可以自定义一个类，包含用户名，密码，权限等信息，去实现这个接口</p>
 <p>同时，Security框架提供了一个<code>User</code>类，实现了<code>UserDetails</code>接口，所以可以直接返回<code>User</code>对象即可</p>
 <p><code>User.class</code>中的有参构造方法：</p>
-<pre><code class="java">//用户名，密码，权限集合
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;用户名，密码，权限集合
 public User(String username, String password, Collection&lt;? extends GrantedAuthority&gt; authorities) &#123;
     this(username, password, true, true, true, true, authorities);
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <h3 id="PasswordEncoder"><a href="#PasswordEncoder" class="headerlink" title="PasswordEncoder"></a><code>PasswordEncoder</code></h3><blockquote>
 <p>数据加密的接口，用于返回<strong>User对象中密码的加密</strong></p>
 </blockquote>
@@ -198,39 +198,39 @@ public User(String username, String password, Collection&lt;? extends GrantedAut
 </blockquote>
 <h3 id="1-1-三种认证方式"><a href="#1-1-三种认证方式" class="headerlink" title="1.1 三种认证方式"></a>1.1 三种认证方式</h3><blockquote>
 <h3 id="1-通过application-properties-yaml配置文件进行配置"><a href="#1-通过application-properties-yaml配置文件进行配置" class="headerlink" title="1 通过application.properties/yaml配置文件进行配置"></a>1 通过<code>application.properties/yaml</code>配置文件进行配置</h3></blockquote>
-<pre><code class="properties">#设置用户名
-spring.security.user.name=Alice
+<pre class="language-properties" data-language="properties"><code class="language-properties">#设置用户名
+spring.security.user.name&#x3D;Alice
 #设置密码
-spring.security.user.password=123456
-</code></pre>
+spring.security.user.password&#x3D;123456</code></pre>
+
 <p>这样进行配置，启动项目将不再默认生成随机密码，即可使用配置文件中的用户名和密码进行登录</p>
 <blockquote>
 <h3 id="2-通过配置类进行配置"><a href="#2-通过配置类进行配置" class="headerlink" title="2 通过配置类进行配置"></a>2 通过配置类进行配置</h3></blockquote>
 <p>新建一个配置类，继承<code>WebSecurityConfigurerAdapter</code>，重写其中的<code>configure</code>方法，</p>
 <p>进行配置用户名，密码和角色</p>
-<pre><code class="java">@Configuration
+<pre class="language-java" data-language="java"><code class="language-java">@Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter &#123;
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception &#123;
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String password = passwordEncoder.encode(&quot;123123&quot;);
+        BCryptPasswordEncoder passwordEncoder &#x3D; new BCryptPasswordEncoder();
+        String password &#x3D; passwordEncoder.encode(&quot;123123&quot;);
         auth.inMemoryAuthentication().withUser(&quot;lover&quot;).password(password).roles(&quot;admin&quot;);
     &#125;
 
-    //需要创建PasswordEncoder对象，否则会报错
+    &#x2F;&#x2F;需要创建PasswordEncoder对象，否则会报错
     @Bean
     PasswordEncoder password()&#123;
         return new BCryptPasswordEncoder();
     &#125;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p>实际情况下，用户名和密码不会是固定的某个值，而是从数据库中查询，所以以上两种方式均不常用</p>
 <blockquote>
 <h3 id="3-自定义编写实现类（实现UserDetailsService接口）"><a href="#3-自定义编写实现类（实现UserDetailsService接口）" class="headerlink" title="3 自定义编写实现类（实现UserDetailsService接口）"></a>3 自定义编写实现类（实现<code>UserDetailsService</code>接口）</h3></blockquote>
 <p>Security认证过程中，会先查找配置文件和配置类中有没有进行用户名和密码的配置，</p>
 <p>如果找不到，则会找<code>UserDetailsService</code>接口</p>
 <p><strong>第一步：创建配置类，设置使用哪一个<code>UserDetailsService</code>接口的实现类</strong></p>
-<pre><code class="java">@Configuration        //注入到配置类中
+<pre class="language-java" data-language="java"><code class="language-java">@Configuration		&#x2F;&#x2F;注入到配置类中
 public class SecurityUserConfig extends WebSecurityConfigurerAdapter &#123;
 
     @Autowired
@@ -238,126 +238,126 @@ public class SecurityUserConfig extends WebSecurityConfigurerAdapter &#123;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception &#123;
-        //指定使用哪个UserDetailsService实现类
+        &#x2F;&#x2F;指定使用哪个UserDetailsService实现类
         auth.userDetailsService(userDetailsService).passwordEncoder(password());
     &#125;
 
-    //需要创建PasswordEncoder对象，否则会报错
+    &#x2F;&#x2F;需要创建PasswordEncoder对象，否则会报错
     @Bean
     PasswordEncoder password()&#123;
         return new BCryptPasswordEncoder();
     &#125;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p><strong>第二步，编写实现类，返回User对象，User对象中有用户名，密码和操作权限</strong></p>
 <p>查询数据库，得到用户名，密码和操作权限，封装到<code>User</code>对象中，进行返回</p>
 <blockquote>
 <p>固定用户名密码（仅供测试，不实用）</p>
 </blockquote>
-<pre><code class="java">@Service(&quot;userDetailsService&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@Service(&quot;userDetailsService&quot;)
 public class MyUserDetailsService implements UserDetailsService &#123;
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException &#123;
-        //模拟创建一个集合，使用其中的工具类，加角色
-        List&lt;GrantedAuthority&gt; auths = AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;role&quot;);
+        &#x2F;&#x2F;模拟创建一个集合，使用其中的工具类，加角色
+        List&lt;GrantedAuthority&gt; auths &#x3D; AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;role&quot;);
         return new User(&quot;Kaito&quot;,new BCryptPasswordEncoder().encode(&quot;666666&quot;),auths);
     &#125;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <blockquote>
 <p><strong>查询数据库得到用户名密码，完成用户认证</strong></p>
 </blockquote>
 <p>可以使用<code>JDBC</code>，<code>Mybatis</code>，<code>MybatisPlus</code>…</p>
 <p><strong>使用<code>MybatisPlus</code>整合，添加数据源信息</strong></p>
-<pre><code class="yaml">spring:
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml">spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ssmbuild?useSSL=false&amp;serverTimezone=GMT%2B8
+    url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;ssmbuild?useSSL&#x3D;false&amp;serverTimezone&#x3D;GMT%2B8
     username: root
-    password: skrskr666
-</code></pre>
+    password: skrskr666</code></pre>
+
 <p><strong>第一步，引入相关依赖：</strong></p>
-<pre><code class="xml">&lt;!--  MybatisPlus  --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
-    &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;
-    &lt;version&gt;3.4.2&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;!--  Mysql --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;mysql&lt;/groupId&gt;
-    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--  MybatisPlus  --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.baomidou<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mybatis-plus-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.4.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!--  Mysql --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>mysql<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mysql-connector-java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+
 <p><strong>第二步，创建简单的user表，包含用户名和密码字段</strong></p>
 <p><strong>第三步，创建user实体类</strong></p>
-<pre><code class="java">@Data
+<pre class="language-java" data-language="java"><code class="language-java">@Data
 public class User &#123;
     private Integer id;
     private String username;
     private String password;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p><strong>第四步，创建Mapper层，继承BaseMapper</strong></p>
 <p><strong>第五步，在UserDetailService接口的实现类中编写根据用户名查询用户名，密码和角色权限等信息的流程，</strong></p>
 <p><strong>并返回User对象</strong></p>
-<pre><code class="java">@Service(&quot;userDetailsService&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@Service(&quot;userDetailsService&quot;)
 public class MyUserDetailsService implements UserDetailsService &#123;
 
-    //调用Mapper中的方法
+    &#x2F;&#x2F;调用Mapper中的方法
     @Autowired
     private UsersMapper userMapper;
 
-    // String s 为表单传来的用户名
+    &#x2F;&#x2F; String s 为表单传来的用户名
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException &#123;
-        //根据用户名s，电泳UserMapper，查询数据库
-        QueryWrapper&lt;Users&gt; wrapper = new QueryWrapper&lt;&gt;();
+        &#x2F;&#x2F;根据用户名s，电泳UserMapper，查询数据库
+        QueryWrapper&lt;Users&gt; wrapper &#x3D; new QueryWrapper&lt;&gt;();
         wrapper.eq(&quot;username&quot;,s);
-        Users users = userMapper.selectOne(wrapper);
-        //判断
-        //数据库中没有用户名，则认证失败
-        if (users==null)&#123;
+        Users users &#x3D; userMapper.selectOne(wrapper);
+        &#x2F;&#x2F;判断
+        &#x2F;&#x2F;数据库中没有用户名，则认证失败
+        if (users&#x3D;&#x3D;null)&#123;
             throw new UsernameNotFoundException(&quot;用户名不存在&quot;);
         &#125;
 
-        //模拟创建一个集合，使用其中的工具类，加角色
-        List&lt;GrantedAuthority&gt; auths = AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;role&quot;);
-        //从查询数据库返回的的users对象中，得到用户名和密码进行返回
+        &#x2F;&#x2F;模拟创建一个集合，使用其中的工具类，加角色
+        List&lt;GrantedAuthority&gt; auths &#x3D; AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;role&quot;);
+        &#x2F;&#x2F;从查询数据库返回的的users对象中，得到用户名和密码进行返回
         return new User(users.getUsername(),new BCryptPasswordEncoder().encode(users.getPassword()),auths);
     &#125;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <h3 id="2-自定义登录页面和设置不需要认证的请求"><a href="#2-自定义登录页面和设置不需要认证的请求" class="headerlink" title="2. 自定义登录页面和设置不需要认证的请求"></a>2. 自定义登录页面和设置不需要认证的请求</h3><blockquote>
 <p>配置类中实现</p>
 </blockquote>
-<pre><code class="java">@Override
+<pre class="language-java" data-language="java"><code class="language-java">@Override
 protected void configure(HttpSecurity http) throws Exception &#123;
-    //自定义自己编写的登录页面
+    &#x2F;&#x2F;自定义自己编写的登录页面
     http.formLogin()
-            .loginPage(&quot;/login.html&quot;)           //登陆页面设置
-            .loginProcessingUrl(&quot;/user/login&quot;)  //提交登陆后访问的Controller路径，这个Controller不需要我们编写，Security框架已经做到了，只需要随便给定一个路径即可
-            .defaultSuccessUrl(&quot;/test/index&quot;).permitAll()   //登录成功后，要跳转到的路径
+            .loginPage(&quot;&#x2F;login.html&quot;)           &#x2F;&#x2F;登陆页面设置
+            .loginProcessingUrl(&quot;&#x2F;user&#x2F;login&quot;)  &#x2F;&#x2F;提交登陆后访问的Controller路径，这个Controller不需要我们编写，Security框架已经做到了，只需要随便给定一个路径即可
+            .defaultSuccessUrl(&quot;&#x2F;test&#x2F;index&quot;).permitAll()   &#x2F;&#x2F;登录成功后，要跳转到的路径
             .and().authorizeRequests()
-                .antMatchers(&quot;/&quot;,&quot;/test/hello&quot;,&quot;/user/login&quot;).permitAll() //设置访问的哪些路径不需要认证
+                .antMatchers(&quot;&#x2F;&quot;,&quot;&#x2F;test&#x2F;hello&quot;,&quot;&#x2F;user&#x2F;login&quot;).permitAll() &#x2F;&#x2F;设置访问的哪些路径不需要认证
             .anyRequest().authenticated()
-            .and().csrf().disable();            //关闭csrf防护
-&#125;
-</code></pre>
+            .and().csrf().disable();            &#x2F;&#x2F;关闭csrf防护
+&#125;</code></pre>
+
 <blockquote>
 <p>创建相关页面</p>
 </blockquote>
 <p><code>login.html</code></p>
-<pre><code class="html">&lt;body&gt;
-    &lt;!-- action中的路径要写对，和配置类中一样，security框架帮我们实现 --&gt;
-    &lt;form action=&quot;/user/login&quot; method=&quot;post&quot;&gt;    &lt;!-- 这里必须是post提交 --&gt;
-        &lt;!-- 两个输入框的名字必须叫做username和password，否则Security框架得不到提交的数据 --&gt;
-        用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;&lt;br&gt;
-        密码：&lt;input type=&quot;password&quot; name=&quot;password&quot;/&gt;&lt;br&gt;
-        &lt;input type=&quot;submit&quot; value=&quot;login&quot;/&gt;
-    &lt;/form&gt;
-&lt;/body&gt;
-</code></pre>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!-- action中的路径要写对，和配置类中一样，security框架帮我们实现 --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/user/login<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>	<span class="token comment">&lt;!-- 这里必须是post提交 --></span>
+        <span class="token comment">&lt;!-- 两个输入框的名字必须叫做username和password，否则Security框架得不到提交的数据 --></span>
+        用户名：<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
+        密码：<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>login<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span></code></pre>
+
 <h2 id="2-授权"><a href="#2-授权" class="headerlink" title="2. 授权"></a>2. 授权</h2><p><strong>基于<code>角色</code>或<code>权限</code>进行访问控制</strong></p>
 <h3 id="2-1-hasAuthority-方法"><a href="#2-1-hasAuthority-方法" class="headerlink" title="2.1 hasAuthority 方法"></a>2.1 <code>hasAuthority</code> 方法</h3><p><strong>如果当前的主体具有指定的权限，则返回 true,否则返回 false</strong></p>
 <p>比如访问的<code>/index</code>需要用管理员的角色或权限才能访问，</p>
@@ -365,16 +365,16 @@ protected void configure(HttpSecurity http) throws Exception &#123;
 <blockquote>
 <p>1 在配置类中设置当前访问地址需要有哪些权限才能访问</p>
 </blockquote>
-<pre><code class="java">.and().authorizeRequests()
-                    //该路径只有具有 admins 权限的用户才能访问
-                    .antMatchers(&quot;/test/index&quot;).hasAuthority(&quot;admins&quot;)
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">.and().authorizeRequests()
+                    &#x2F;&#x2F;该路径只有具有 admins 权限的用户才能访问
+                    .antMatchers(&quot;&#x2F;test&#x2F;index&quot;).hasAuthority(&quot;admins&quot;)</code></pre>
+
 <blockquote>
 <p>2 在<code>UserDetailsService</code>的实现类中给返回的<code>User</code>对象设置权限</p>
 </blockquote>
-<pre><code class="java">//模拟创建一个集合，使用其中的工具类，加角色
-List&lt;GrantedAuthority&gt; auths = AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;admins&quot;);
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;模拟创建一个集合，使用其中的工具类，加角色
+List&lt;GrantedAuthority&gt; auths &#x3D; AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;admins&quot;);</code></pre>
+
 <p>如果没有权限，则会报 <code>403</code> 错误  <code>(type=Forbidden, status=403)</code></p>
 <p><strong><code>hasAuthority</code> 方法只能做到单个权限的访问限制，多个需要用到<code>hasAnyAuthority</code> 方法</strong></p>
 <h3 id="2-2-hasAnyAuthority-方法"><a href="#2-2-hasAnyAuthority-方法" class="headerlink" title="2.2 hasAnyAuthority 方法"></a>2.2 <code>hasAnyAuthority</code> 方法</h3><p><strong>如果当前的主体有任何提供的角色（给定的作为一个逗号分隔的字符串列表）的话，返回 true</strong></p>
@@ -383,105 +383,107 @@ List&lt;GrantedAuthority&gt; auths = AuthorityUtils.commaSeparatedStringToAuthor
 <blockquote>
 <p>配置类中配置如下</p>
 </blockquote>
-<pre><code class="java">.and().authorizeRequests()
-    //该路径具有 admins,manager 中任意权限的用户才能访问
-    .antMatchers(&quot;/test/index&quot;).hasAnyAuthority(&quot;admins,manager&quot;)
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">.and().authorizeRequests()
+    &#x2F;&#x2F;该路径具有 admins,manager 中任意权限的用户才能访问
+    .antMatchers(&quot;&#x2F;test&#x2F;index&quot;).hasAnyAuthority(&quot;admins,manager&quot;)</code></pre>
+
 <h3 id="2-3-hasRole-方法"><a href="#2-3-hasRole-方法" class="headerlink" title="2.3 hasRole 方法"></a>2.3 <code>hasRole</code> 方法</h3><p><strong>如果当前主体具有指定的角色，则返回 true</strong></p>
 <p><code>hasRole</code>方法的源码中，在<code>role</code>前面有<code>ROLE_</code>，所以在给用户赋予角色时，需要加上<code>ROLE_</code><br><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20211112140024.png" alt="image-20210419134608716-377a9ea74bd44543b335fb3cf8c1f3e1"></p>
 <blockquote>
 <p>配置类中配置如下</p>
 </blockquote>
-<pre><code class="java">.antMatchers(&quot;/test/index&quot;).hasRole(&quot;sale&quot;)
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">.antMatchers(&quot;&#x2F;test&#x2F;index&quot;).hasRole(&quot;sale&quot;)</code></pre>
+
 <blockquote>
 <p>在<code>UserDetailsService</code>的实现类中给返回的<code>User</code>对象设置角色</p>
 </blockquote>
-<pre><code class="java">//模拟创建一个集合，使用其中的工具类，加角色
-List&lt;GrantedAuthority&gt; auths = AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;admins,ROLE_sale&quot;);
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;模拟创建一个集合，使用其中的工具类，加角色
+List&lt;GrantedAuthority&gt; auths &#x3D; AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;admins,ROLE_sale&quot;);</code></pre>
+
 <h3 id="2-4-hasAnyRole-方法"><a href="#2-4-hasAnyRole-方法" class="headerlink" title="2.4 hasAnyRole 方法"></a>2.4 <code>hasAnyRole</code> 方法</h3><p><strong>表示用户具备任何一个条件都可以访问</strong></p>
-<pre><code class="java">.antMatchers(&quot;/test/index&quot;).hasAnyRole(&quot;sale&quot;,&quot;admin&quot;)
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">.antMatchers(&quot;&#x2F;test&#x2F;index&quot;).hasAnyRole(&quot;sale&quot;,&quot;admin&quot;)</code></pre>
+
 <h3 id="2-5-自定义403没有权限访问的页面"><a href="#2-5-自定义403没有权限访问的页面" class="headerlink" title="2.5 自定义403没有权限访问的页面"></a>2.5 自定义<code>403</code>没有权限访问的页面</h3><p>配置类中写如下配置</p>
-<pre><code class="java">protected void configure(HttpSecurity http) throws Exception &#123;
+<pre class="language-java" data-language="java"><code class="language-java">protected void configure(HttpSecurity http) throws Exception &#123;
     ...;
-    //配置没有权限访问跳转的自定义页面
-    http.exceptionHandling().accessDeniedPage(&quot;/unauth.html&quot;);
+    &#x2F;&#x2F;配置没有权限访问跳转的自定义页面
+    http.exceptionHandling().accessDeniedPage(&quot;&#x2F;unauth.html&quot;);
     ...;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <h2 id="3-注解使用"><a href="#3-注解使用" class="headerlink" title="3. 注解使用"></a>3. 注解使用</h2><h3 id="3-1-Secured"><a href="#3-1-Secured" class="headerlink" title="3.1 @Secured"></a>3.1 <code>@Secured</code></h3><p>**判断用户是否具有指定角色，另外需要注意的是这里匹配的字符串需要添加前缀”<code>ROLE_</code>“</p>
 <blockquote>
 <p>1 在启动类/配置类上添加注解<code>@EnableGlobalMethodSecurity(securedEnabled=true)</code>开启注解功能</p>
 </blockquote>
-<pre><code class="java">@EnableGlobalMethodSecurity(securedEnabled = true)
+<pre class="language-java" data-language="java"><code class="language-java">@EnableGlobalMethodSecurity(securedEnabled &#x3D; true)
 @SpringBootApplication
 public class SpringSecurityDemo1Application &#123;
     public static void main(String[] args) &#123;
         SpringApplication.run(SpringSecurityDemo1Application.class, args);
     &#125;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <blockquote>
 <p>2 在<code>Controller</code>方法上使用注解，设置角色</p>
 </blockquote>
-<pre><code class="java">@Secured(&#123;&quot;ROLE_sale&quot;,&quot;ROLE_manager&quot;&#125;)
+<pre class="language-java" data-language="java"><code class="language-java">@Secured(&#123;&quot;ROLE_sale&quot;,&quot;ROLE_manager&quot;&#125;)
 @GetMapping(&quot;update&quot;)
 public String update()&#123;
     return &quot;hello update!&quot;;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <h3 id="3-2-PreAuthorize"><a href="#3-2-PreAuthorize" class="headerlink" title="3.2 @PreAuthorize"></a>3.2 <code>@PreAuthorize</code></h3><p><strong>在进入方法之前进行验证，看有没有权限进行访问</strong></p>
 <blockquote>
 <p>1 启动类/配置类开启注解</p>
 </blockquote>
-<pre><code class="java">@EnableGlobalMethodSecurity(prePostEnabled = true)
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">@EnableGlobalMethodSecurity(prePostEnabled &#x3D; true)</code></pre>
+
 <blockquote>
 <p>2 在<code>Controller</code>方法上使用注解</p>
 </blockquote>
-<pre><code class="java">@PreAuthorize(&quot;hasAnyAuthority(&#39;admins&#39;)&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@PreAuthorize(&quot;hasAnyAuthority(&#39;admins&#39;)&quot;)
 @GetMapping(&quot;update&quot;)
 public String update()&#123;
     return &quot;hello update!&quot;;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <h3 id="3-3-PostAuthorize"><a href="#3-3-PostAuthorize" class="headerlink" title="3.3 @PostAuthorize"></a>3.3 <code>@PostAuthorize</code></h3><p><strong>在方法执行之后进行校验</strong>（不常用）</p>
 <blockquote>
 <p>1 启动类/配置类开启注解</p>
 </blockquote>
-<pre><code class="java">@EnableGlobalMethodSecurity(prePostEnabled = true)
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">@EnableGlobalMethodSecurity(prePostEnabled &#x3D; true)</code></pre>
+
 <blockquote>
 <p>2 在<code>Controller</code>方法上使用注解</p>
 </blockquote>
-<pre><code class="java">@PostAuthorize(&quot;hasAnyAuthority(&#39;admins&#39;)&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@PostAuthorize(&quot;hasAnyAuthority(&#39;admins&#39;)&quot;)
 @GetMapping(&quot;update&quot;)
 public String update()&#123;
     System.out.println(&quot;update......&quot;);
     return &quot;hello update!&quot;;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p>因为是在方法执行之后进行校验，所以如果<strong>没有权限访问，也会执行控制台输出update……的代码</strong><br><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20211112140042.png" alt="image-20210419143800263-e22f3e15006a4bb7a4fdcacc8b263d0f"></p>
 <h3 id="3-4-PostFilter"><a href="#3-4-PostFilter" class="headerlink" title="3.4 @PostFilter"></a>3.4 <code>@PostFilter</code></h3><p><strong>对方法返回的数据进行过滤</strong>（不常用）</p>
 <p>权限验证之后对数据进行过滤 留下用户名是 <code>admin1</code> 的数据</p>
 <p>表达式中的 <code>filterObject</code> 引用的是方法返回值 <code>List</code> 中的某一个元素</p>
-<pre><code class="java">@RequestMapping(&quot;getAll&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@RequestMapping(&quot;getAll&quot;)
 @PreAuthorize(&quot;hasRole(&#39;ROLE_管理员&#39;)&quot;)
-@PostFilter(&quot;filterObject.username == &#39;admin1&#39;&quot;)
+@PostFilter(&quot;filterObject.username &#x3D;&#x3D; &#39;admin1&#39;&quot;)
 @ResponseBody
 public List&lt;UserInfo&gt; getAllUser()&#123;
-    ArrayList&lt;UserInfo&gt; list = new ArrayList&lt;&gt;();
+    ArrayList&lt;UserInfo&gt; list &#x3D; new ArrayList&lt;&gt;();
     list.add(new UserInfo(1l,&quot;admin1&quot;,&quot;6666&quot;));
     list.add(new UserInfo(2l,&quot;admin2&quot;,&quot;888&quot;));
     return list;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
+
+
 <h3 id="3-5-PreFilter"><a href="#3-5-PreFilter" class="headerlink" title="3.5 @PreFilter"></a>3.5 <code>@PreFilter</code></h3><p><strong>对传入方法的数据进行过过滤</strong>（不常用）</p>
-<pre><code class="java">@RequestMapping(&quot;getTestPreFilter&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@RequestMapping(&quot;getTestPreFilter&quot;)
 @PreAuthorize(&quot;hasRole(&#39;ROLE_管理员&#39;)&quot;)
-@PreFilter(value = &quot;filterObject.id%2==0&quot;)
+@PreFilter(value &#x3D; &quot;filterObject.id%2&#x3D;&#x3D;0&quot;)
 @ResponseBody
 public List&lt;UserInfo&gt; getTestPreFilter(@RequestBody List&lt;UserInfo&gt;
                                        list)&#123;
@@ -489,15 +491,15 @@ public List&lt;UserInfo&gt; getTestPreFilter(@RequestBody List&lt;UserInfo&gt;
         System.out.println(t.getId()+&quot;\t&quot;+t.getUsername());
     &#125;);
     return list;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <h2 id="4-用户注销"><a href="#4-用户注销" class="headerlink" title="4. 用户注销"></a>4. 用户注销</h2><blockquote>
 <p>1 在配置类中添加退出映射地址</p>
 </blockquote>
-<pre><code class="java">//退出
-//退出请求的路径随便写，由Security框架做到，和前端退出事件绑定即可
-http.logout().logoutUrl(&quot;/logout&quot;).logoutSuccessUrl(&quot;/test/hello&quot;).permitAll();
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;退出
+&#x2F;&#x2F;退出请求的路径随便写，由Security框架做到，和前端退出事件绑定即可
+http.logout().logoutUrl(&quot;&#x2F;logout&quot;).logoutSuccessUrl(&quot;&#x2F;test&#x2F;hello&quot;).permitAll();</code></pre>
+
 <blockquote>
 <p>2 前端加上退出按钮，且路径为上面配置的<code>logoutUrl</code></p>
 </blockquote>
@@ -506,51 +508,51 @@ http.logout().logoutUrl(&quot;/logout&quot;).logoutSuccessUrl(&quot;/test/hello&
 <p>1 创建数据库表，供存入Token和查询</p>
 <p>（源码中有提供建表语句，如果没有表，会帮我们建表）</p>
 </blockquote>
-<pre><code class="sql">CREATE TABLE `persistent_logins` (
-    `username` varchar(64) NOT NULL,
-    `series` varchar(64) NOT NULL,
-    `token` varchar(64) NOT NULL,
-    `last_used` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE
+<pre class="language-sql" data-language="sql"><code class="language-sql">CREATE TABLE &#96;persistent_logins&#96; (
+    &#96;username&#96; varchar(64) NOT NULL,
+    &#96;series&#96; varchar(64) NOT NULL,
+    &#96;token&#96; varchar(64) NOT NULL,
+    &#96;last_used&#96; timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE
     CURRENT_TIMESTAMP,
-    PRIMARY KEY (`series`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-</code></pre>
+    PRIMARY KEY (&#96;series&#96;)
+) ENGINE&#x3D;InnoDB DEFAULT CHARSET&#x3D;utf8;</code></pre>
+
 <blockquote>
 <p>2 在配置类中配置数据源，配置操作数据库对象</p>
 </blockquote>
-<pre><code class="java">//注入数据源
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;注入数据源
 @Autowired
 private DataSource dataSource;
 
-//配置操作数据库的对象
+&#x2F;&#x2F;配置操作数据库的对象
 @Bean
 public PersistentTokenRepository persistentTokenRepository()&#123;
-    JdbcTokenRepositoryImpl jdbcTokenRepository = new JdbcTokenRepositoryImpl();
+    JdbcTokenRepositoryImpl jdbcTokenRepository &#x3D; new JdbcTokenRepositoryImpl();
     jdbcTokenRepository.setDataSource(dataSource);
-    //jdbcTokenRepository.setCreateTableOnStartup(true);  //自动生成表
+    &#x2F;&#x2F;jdbcTokenRepository.setCreateTableOnStartup(true);  &#x2F;&#x2F;自动生成表
     return jdbcTokenRepository;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <blockquote>
 <p>3 配置类中配置自动登录</p>
 </blockquote>
-<pre><code class="java">.and().rememberMe().tokenRepository(persistentTokenRepository()) //配置操作数据库的对象
-.tokenValiditySeconds(60)       //是、设置Cookie有效时长，秒为单位
-.userDetailsService(userDetailsService) //使用这个注入的userDetailsService操作数据库
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">.and().rememberMe().tokenRepository(persistentTokenRepository()) &#x2F;&#x2F;配置操作数据库的对象
+.tokenValiditySeconds(60)       &#x2F;&#x2F;是、设置Cookie有效时长，秒为单位
+.userDetailsService(userDetailsService) &#x2F;&#x2F;使用这个注入的userDetailsService操作数据库</code></pre>
+
 <blockquote>
 <p>4 登录页面中加记住我复选框，<code>name=remember-me</code></p>
 </blockquote>
-<pre><code class="html">&lt;label&gt;
-    &lt;!-- name必须是remember-me --&gt;
-    记住我&lt;input type=&quot;checkbox&quot; name=&quot;remember-me&quot;&gt;   
-&lt;/label&gt;
-</code></pre>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!-- name必须是remember-me --></span>
+    记住我<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>remember-me<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>   
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span></code></pre>
+
 <h2 id="6-CSRF"><a href="#6-CSRF" class="headerlink" title="6. CSRF"></a>6. CSRF</h2><p><strong>跨站请求伪造</strong></p>
 <p>前面的测试中，将CSRF功能关闭了，这个功能默认是开启的</p>
 <p>将前的</p>
-<pre><code class="java">.and().csrf().disable();            //关闭csrf防护
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">.and().csrf().disable();            &#x2F;&#x2F;关闭csrf防护</code></pre>
+
 <p>注释掉，即可开启CSRF</p>
 <p>使用步骤：</p>
 <blockquote>
@@ -559,9 +561,9 @@ public PersistentTokenRepository persistentTokenRepository()&#123;
 <blockquote>
 <p>2 在登录页面中加上一个隐藏项</p>
 </blockquote>
-<pre><code class="html">&lt;!--  CSRF隐藏向传入Token  --&gt;
-&lt;input type=&quot;hidden&quot; th:if=&quot;$&#123;_csrf&#125;!=null&quot; th:value=&quot;$&#123;_csrf.token&#125;&quot; name=&quot;_csrf&quot;/&gt;
-</code></pre>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--  CSRF隐藏向传入Token  --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;_csrf&#125;!=null<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;_csrf.token&#125;<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>_csrf<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></code></pre>
+
 <p>需要<code>thymeleaf</code>模板支持</p>
 <blockquote>
 <p>continue……</p>
@@ -686,7 +688,7 @@ public PersistentTokenRepository persistentTokenRepository()&#123;
     <ul>
       <li>
         Copyrights &copy;
-        2015-2023
+        2020-2023
         <i class="ri-heart-fill heart_icon"></i> Tokitou Muichirou
       </li>
     </ul>
@@ -1042,6 +1044,23 @@ public PersistentTokenRepository persistentTokenRepository()&#123;
 </script>
 
 
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=22707008&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
     
     
 

@@ -58,11 +58,6 @@
       
 <section class="cover">
     
-      
-      <a class="forkMe" href="https://github.com/Shen-Yu/hexo-theme-ayer"
-        target="_blank"><img width="149" height="149" src="/images/forkme.png"
-          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
-    
   <div class="cover-frame">
     <div class="bg-box">
       <img src="/images/cover1.jpg" alt="image frame" />
@@ -108,22 +103,6 @@
   
 <div id="main">
   <section class="outer">
-  
-  <ul class="ads">
-    
-        <li>
-            <a target="_blank" rel="noopener" href="https://curl.qcloud.com/kvO7hb43">
-                <img src="https://pic.imgdb.cn/item/62174b452ab3f51d912a5ccc.jpg" width="300" alt="云服务器限时秒杀">
-            </a>
-        </li>
-    
-        <li>
-            <a target="_blank" rel="noopener" href="https://www.vultr.com/?ref=8630075">
-                <img src="https://pic.imgdb.cn/item/62174b452ab3f51d912a5cd7.png" width="300" alt="vultr优惠vps">
-            </a>
-        </li>
-    
-</ul>
   
   
   
@@ -206,121 +185,125 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h2 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h2><p>Vue.js</p>
-<pre><code class="html">&lt;!-- 开发环境版本，包含了有帮助的命令行警告 --&gt;
-&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!-- 开发环境版本，包含了有帮助的命令行警告 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/vue/dist/vue.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 
-&lt;!-- 生产环境版本，优化了尺寸和速度 --&gt;
-&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue&quot;&gt;&lt;/script&gt;
-</code></pre>
+<span class="token comment">&lt;!-- 生产环境版本，优化了尺寸和速度 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/vue<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+
 <p>axios</p>
-<pre><code class="html">&lt;script src=&quot;https://unpkg.com/axios/dist/axios.min.js&quot;&gt;&lt;/script&gt;
-</code></pre>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://unpkg.com/axios/dist/axios.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+
 <p>v-model双向数据绑定只有跟表单相关的，才是真正的双向数据绑定</p>
 <p>.vue文件中，<code>&lt;template&gt;</code>标签中只能有一个根节点</p>
 <p>单页面应用，<code>&lt;router-view&gt;&lt;/router-view&gt;</code>根据路由路径切换这里面的内容，其他内容不变，仍然是主页app.vue的内容</p>
-<h1 id="Vue-cli创建项目"><a href="#Vue-cli创建项目" class="headerlink" title="Vue-cli创建项目"></a>Vue-cli创建项目</h1><h2 id="安装node-js淘宝镜像加速器"><a href="#安装node-js淘宝镜像加速器" class="headerlink" title="安装node.js淘宝镜像加速器"></a>安装node.js淘宝镜像加速器</h2><pre><code class="bash">npm install cnpm -g
-</code></pre>
+<h1 id="Vue-cli创建项目"><a href="#Vue-cli创建项目" class="headerlink" title="Vue-cli创建项目"></a>Vue-cli创建项目</h1><h2 id="安装node-js淘宝镜像加速器"><a href="#安装node-js淘宝镜像加速器" class="headerlink" title="安装node.js淘宝镜像加速器"></a>安装node.js淘宝镜像加速器</h2><pre class="language-bash" data-language="bash"><code class="language-bash">npm install cnpm -g</code></pre>
+
 <blockquote>
 <p><em>下载位置：C:\Users\Alice\AppData\Roaming\npm\node_modules</em></p>
 </blockquote>
-<h2 id="安装Vue-cli"><a href="#安装Vue-cli" class="headerlink" title="安装Vue-cli"></a>安装Vue-cli</h2><pre><code class="bash">npm install vue-cli -g
-</code></pre>
+<h2 id="安装Vue-cli"><a href="#安装Vue-cli" class="headerlink" title="安装Vue-cli"></a>安装Vue-cli</h2><pre class="language-bash" data-language="bash"><code class="language-bash">npm install vue-cli -g</code></pre>
+
 <blockquote>
 <p><em>下载位置：C:\Users\Alice\AppData\Roaming\npm\node_modules</em></p>
 </blockquote>
 <p>安装完成后，检查使用 <strong><code>vue list</code></strong></p>
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510195513.png" alt="image-20210313145703691"></p>
-<h2 id="创建第一个Vue项目"><a href="#创建第一个Vue项目" class="headerlink" title="创建第一个Vue项目"></a>创建第一个Vue项目</h2><pre><code class="bash">vue init webpack firstvue
-</code></pre>
+<h2 id="创建第一个Vue项目"><a href="#创建第一个Vue项目" class="headerlink" title="创建第一个Vue项目"></a>创建第一个Vue项目</h2><pre class="language-bash" data-language="bash"><code class="language-bash">vue init webpack firstvue</code></pre>
+
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510195514.png" alt="image-20210313150139112"></p>
-<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><pre><code class="bash">npm install
-</code></pre>
-<h3 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h3><pre><code class="bash">npm run dev
-</code></pre>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><pre class="language-bash" data-language="bash"><code class="language-bash">npm install</code></pre>
+
+<h3 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h3><pre class="language-bash" data-language="bash"><code class="language-bash">npm run dev</code></pre>
+
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510195516.png" alt="image-20210313151017556"></p>
 <h1 id="Vue-router"><a href="#Vue-router" class="headerlink" title="Vue-router"></a>Vue-router</h1><blockquote>
 <p>路由插件，做页面跳转工作</p>
 </blockquote>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code class="bash">npm install vue-router --save-dev
-</code></pre>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre class="language-bash" data-language="bash"><code class="language-bash">npm install vue-router --save-dev</code></pre>
+
 <p><strong><code>--save-dev</code></strong> 含义是将vue-router插件只放在开发环境下</p>
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p><strong>定义一个路由要跳转的简单组件components包下<code>Content.vue</code></strong></p>
-<pre><code class="vue">&lt;template&gt;
-&lt;p&gt;我是内容页&lt;/p&gt;
-&lt;/template&gt;
+<pre class="language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
+&lt;p&gt;我是内容页&lt;&#x2F;p&gt;
+&lt;&#x2F;template&gt;
 
 &lt;script&gt;
 export default &#123;
-  name: &quot;Content&quot;           //这个可有可无
+  name: &quot;Content&quot;           &#x2F;&#x2F;这个可有可无
 &#125;
-&lt;/script&gt;
+&lt;&#x2F;script&gt;
 
 &lt;style scoped&gt;
 
-&lt;/style&gt;
-</code></pre>
+&lt;&#x2F;style&gt;</code></pre>
+
+
+
 <p><strong>定义一个路由配置的JS文件，<code>src/router</code>包下，index.js</strong></p>
-<pre><code class="javascript">import Vue from &#39;vue&#39;
-import VueRouter from &#39;vue-router&#39;                    //这个 VueRouter 名字是自定义的，更下面使用它的名字对应
-import Content from &quot;../components/Content&quot;;        //这是引入一个路由跳转的简单组件 就是上面的那个
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> VueRouter <span class="token keyword">from</span> <span class="token string">'vue-router'</span>					<span class="token comment">//这个 VueRouter 名字是自定义的，更下面使用它的名字对应</span>
+<span class="token keyword">import</span> Content <span class="token keyword">from</span> <span class="token string">"../components/Content"</span><span class="token punctuation">;</span>		<span class="token comment">//这是引入一个路由跳转的简单组件 就是上面的那个</span>
 
-//使用VueRouter
-Vue.use(VueRouter)
+<span class="token comment">//使用VueRouter</span>
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>VueRouter<span class="token punctuation">)</span>
 
-export default new VueRouter(&#123;
-  routes: [
-    &#123;
-      // 路径
-      path:&quot;/content&quot;,
-      //名称
-      name:&quot;content&quot;,                    //这个可有可无
-      //跳转的组件
-      component:Content                    //这个名字必须和上面引入的名字对应起来
-                                        
-    &#125;
-  ]
-&#125;)
-</code></pre>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+      <span class="token comment">// 路径</span>
+      path<span class="token operator">:</span><span class="token string">"/content"</span><span class="token punctuation">,</span>
+      <span class="token comment">//名称</span>
+      name<span class="token operator">:</span><span class="token string">"content"</span><span class="token punctuation">,</span>					<span class="token comment">//这个可有可无</span>
+      <span class="token comment">//跳转的组件</span>
+      component<span class="token operator">:</span>Content					<span class="token comment">//这个名字必须和上面引入的名字对应起来</span>
+										
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span></code></pre>
+
 <p>这个index.js路由配置的作用就是引入定义好的组件，然后将 <u><strong>组件component</strong></u> 和 <strong><u>路径path</u></strong> 绑定，供主页面调用</p>
 <p><strong>在main.js中使用</strong></p>
-<pre><code class="javascript">import Vue from &#39;vue&#39;
-import App from &#39;./App&#39;
-import VueRouter from &quot;vue-router&quot;;   //这个VueRouter名字也自定义
-import router from &quot;./router&quot;   //引入刚刚定义的router配置文件,router包下的所有路由配置都被引用,这里的router名字自定义
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App'</span>
+<span class="token keyword">import</span> VueRouter <span class="token keyword">from</span> <span class="token string">"vue-router"</span><span class="token punctuation">;</span>   <span class="token comment">//这个VueRouter名字也自定义</span>
+<span class="token keyword">import</span> router <span class="token keyword">from</span> <span class="token string">"./router"</span>   <span class="token comment">//引入刚刚定义的router配置文件,router包下的所有路由配置都被引用,这里的router名字自定义</span>
 
-Vue.use(VueRouter);     //使用
-Vue.config.productionTip = false
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>VueRouter<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">//使用</span>
+Vue<span class="token punctuation">.</span>config<span class="token punctuation">.</span>productionTip <span class="token operator">=</span> <span class="token boolean">false</span>
 
-/* eslint-disable no-new */
-new Vue(&#123;
-  el: &#39;#app&#39;,
-  router,             //这个要写
-  components: &#123; App &#125;,
-  template: &#39;&lt;App/&gt;&#39;
-&#125;)
-</code></pre>
+<span class="token comment">/* eslint-disable no-new */</span>
+<span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  el<span class="token operator">:</span> <span class="token string">'#app'</span><span class="token punctuation">,</span>
+  router<span class="token punctuation">,</span>             <span class="token comment">//这个要写</span>
+  components<span class="token operator">:</span> <span class="token punctuation">&#123;</span> App <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  template<span class="token operator">:</span> <span class="token string">'&lt;App/>'</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span></code></pre>
+
+
+
 <p><strong>绑定到主页的vue组件</strong>    <strong>app.vue</strong></p>
-<pre><code class="vue">&lt;template&gt;
-  &lt;div id=&quot;app&quot;&gt;
-    &lt;img src=&quot;./assets/logo.png&quot;&gt;
-&lt;!--    &lt;HelloWorld/&gt;--&gt;
-    &lt;router-link to=&quot;/&quot;&gt;首页&lt;/router-link&gt;
-    &lt;router-link to=&quot;/content&quot;&gt;内容页&lt;/router-link&gt;
+<pre class="language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
+  &lt;div id&#x3D;&quot;app&quot;&gt;
+    &lt;img src&#x3D;&quot;.&#x2F;assets&#x2F;logo.png&quot;&gt;
+&lt;!--    &lt;HelloWorld&#x2F;&gt;--&gt;
+    &lt;router-link to&#x3D;&quot;&#x2F;&quot;&gt;首页&lt;&#x2F;router-link&gt;
+    &lt;router-link to&#x3D;&quot;&#x2F;content&quot;&gt;内容页&lt;&#x2F;router-link&gt;
 &lt;!--    显示路由组件--&gt;
-    &lt;router-view&gt;&lt;/router-view&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
+    &lt;router-view&gt;&lt;&#x2F;router-view&gt;
+  &lt;&#x2F;div&gt;
+&lt;&#x2F;template&gt;
 
 &lt;script&gt;
-// import HelloWorld from &#39;./components/HelloWorld&#39;
+&#x2F;&#x2F; import HelloWorld from &#39;.&#x2F;components&#x2F;HelloWorld&#39;
 
 export default &#123;
   name: &#39;App&#39;,
   components: &#123;
-    // HelloWorld
+    &#x2F;&#x2F; HelloWorld
   &#125;
 &#125;
-&lt;/script&gt;
+&lt;&#x2F;script&gt;
 
 &lt;style&gt;
 #app &#123;
@@ -331,8 +314,10 @@ export default &#123;
   color: #2c3e50;
   margin-top: 60px;
 &#125;
-&lt;/style&gt;
-</code></pre>
+&lt;&#x2F;style&gt;</code></pre>
+
+
+
 <hr>
 <h1 id="简单实战"><a href="#简单实战" class="headerlink" title="简单实战"></a>简单实战</h1><blockquote>
 <p>前后端分离查出comic表中数据，同Layui整合的数据一样</p>
@@ -343,26 +328,26 @@ export default &#123;
 <p>comic_type</p>
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510195450.png" alt="image-20210510195450780"></p>
 <p><strong>引入axios包</strong></p>
-<h2 id="配置路由"><a href="#配置路由" class="headerlink" title="配置路由"></a>配置路由</h2><h2 id="定义comic-vue组件"><a href="#定义comic-vue组件" class="headerlink" title="定义comic.vue组件"></a>定义comic.vue组件</h2><pre><code class="vue">&lt;template&gt;
+<h2 id="配置路由"><a href="#配置路由" class="headerlink" title="配置路由"></a>配置路由</h2><h2 id="定义comic-vue组件"><a href="#定义comic-vue组件" class="headerlink" title="定义comic.vue组件"></a>定义comic.vue组件</h2><pre class="language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
   &lt;div&gt;
     &lt;table&gt;
       &lt;tr&gt;
-        &lt;td&gt;编号&lt;/td&gt;
-        &lt;td&gt;番名&lt;/td&gt;
-        &lt;td&gt;上架时间&lt;/td&gt;
-        &lt;td&gt;类型&lt;/td&gt;
-        &lt;td&gt;描述&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr v-for=&quot;item in comics&quot;&gt;
-        &lt;td&gt;&#123;&#123;item.id&#125;&#125;&lt;/td&gt;
-        &lt;td&gt;&#123;&#123;item.name&#125;&#125;&lt;/td&gt;
-        &lt;td&gt;&#123;&#123;item.issueTime&#125;&#125;&lt;/td&gt;
-        &lt;td&gt;&#123;&#123;item.typeone&#125;&#125;,&#123;&#123;item.typetwo&#125;&#125;,&#123;&#123;item.typethree&#125;&#125;&lt;/td&gt;
-        &lt;td&gt;&#123;&#123;item.message&#125;&#125;&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/table&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
+        &lt;td&gt;编号&lt;&#x2F;td&gt;
+        &lt;td&gt;番名&lt;&#x2F;td&gt;
+        &lt;td&gt;上架时间&lt;&#x2F;td&gt;
+        &lt;td&gt;类型&lt;&#x2F;td&gt;
+        &lt;td&gt;描述&lt;&#x2F;td&gt;
+      &lt;&#x2F;tr&gt;
+      &lt;tr v-for&#x3D;&quot;item in comics&quot;&gt;
+        &lt;td&gt;&#123;&#123;item.id&#125;&#125;&lt;&#x2F;td&gt;
+        &lt;td&gt;&#123;&#123;item.name&#125;&#125;&lt;&#x2F;td&gt;
+        &lt;td&gt;&#123;&#123;item.issueTime&#125;&#125;&lt;&#x2F;td&gt;
+        &lt;td&gt;&#123;&#123;item.typeone&#125;&#125;,&#123;&#123;item.typetwo&#125;&#125;,&#123;&#123;item.typethree&#125;&#125;&lt;&#x2F;td&gt;
+        &lt;td&gt;&#123;&#123;item.message&#125;&#125;&lt;&#x2F;td&gt;
+      &lt;&#x2F;tr&gt;
+    &lt;&#x2F;table&gt;
+  &lt;&#x2F;div&gt;
+&lt;&#x2F;template&gt;
 
 &lt;script&gt;
 
@@ -373,7 +358,7 @@ export default &#123;
   data()&#123;
     return&#123;
       comics:[
-        &#123;                                    //这块是模拟数据，可以不写，后面会被数据库中的内容赋值
+        &#123;									&#x2F;&#x2F;这块是模拟数据，可以不写，后面会被数据库中的内容赋值
           id: 1,
           name: &quot;辉夜大小姐想让我告白&quot;,
           issueTime: 2020-2-2,
@@ -386,45 +371,48 @@ export default &#123;
     &#125;
   &#125;,
   created() &#123;
-      //下面的this_ = this意思是：
-      //这时候的this是全局vue的this，但是一旦进入到axios方法中，this就会变成那个方法，调不到全局的this和this.data
-      //所以这里要用this_ = this把全局的this给到this_，让下面的axios方法可以操作全局this，给data赋值
-    const this_ = this;    
-    axios.get(&quot;http://localhost:8080/data&quot;).then(function (res)&#123;
-      this_.comics=res.data.data
+      &#x2F;&#x2F;下面的this_ &#x3D; this意思是：
+      &#x2F;&#x2F;这时候的this是全局vue的this，但是一旦进入到axios方法中，this就会变成那个方法，调不到全局的this和this.data
+      &#x2F;&#x2F;所以这里要用this_ &#x3D; this把全局的this给到this_，让下面的axios方法可以操作全局this，给data赋值
+    const this_ &#x3D; this;	
+    axios.get(&quot;http:&#x2F;&#x2F;localhost:8080&#x2F;data&quot;).then(function (res)&#123;
+      this_.comics&#x3D;res.data.data
     &#125;)
-    //axios.get(&quot;http://localhost:8181/data/1/3&quot;).then(res=&gt;(this.tableData=res.data.data))也行
+    &#x2F;&#x2F;axios.get(&quot;http:&#x2F;&#x2F;localhost:8181&#x2F;data&#x2F;1&#x2F;3&quot;).then(res&#x3D;&gt;(this.tableData&#x3D;res.data.data))也行
   &#125;
 &#125;
-&lt;/script&gt;
+&lt;&#x2F;script&gt;
 
 &lt;style scoped&gt;
 
-&lt;/style&gt;
+&lt;&#x2F;style&gt;
 </code></pre>
+
 <p><strong>拿数据那部分也可以用箭头函数取拿，就不用切this的作用域了</strong></p>
-<pre><code class="javascript">axios.get(&quot;http://localhost:8181/data/1/3&quot;).then(res=&gt;(this.tableData=res.data.data))
-</code></pre>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">axios<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"http://localhost:8181/data/1/3"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token operator">=></span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>tableData<span class="token operator">=</span>res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+
+
 <hr>
 <h1 id="整和Element-UI"><a href="#整和Element-UI" class="headerlink" title="整和Element UI"></a>整和Element UI</h1><p>安装element ui</p>
-<pre><code class="bash">npm i element-ui -S
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">npm i element-ui -S</code></pre>
+
 <p>安装SASS加载器（编译CSS）</p>
-<pre><code class="bash">cnpm install sass-loader node-sass --sava-dev
-</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">cnpm install sass-loader node-sass --sava-dev</code></pre>
+
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>在 <strong><code>main.js</code></strong> 中写入以下内容：</p>
-<pre><code class="javascript">import Vue from &#39;vue&#39;;
-import ElementUI from &#39;element-ui&#39;;
-import &#39;element-ui/lib/theme-chalk/index.css&#39;;
-import App from &#39;./App.vue&#39;;
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> ElementUI <span class="token keyword">from</span> <span class="token string">'element-ui'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'element-ui/lib/theme-chalk/index.css'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App.vue'</span><span class="token punctuation">;</span>
 
-Vue.use(ElementUI);
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>ElementUI<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-new Vue(&#123;
-  el: &#39;#app&#39;,
-  render: h =&gt; h(App)            //给谁渲染
-&#125;);
-</code></pre>
+<span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  el<span class="token operator">:</span> <span class="token string">'#app'</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">render</span><span class="token operator">:</span> <span class="token parameter">h</span> <span class="token operator">=></span> <span class="token function">h</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span>			<span class="token comment">//给谁渲染</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+
 <blockquote>
 <p><strong>Element UI 后台管理系统主要的标签：</strong></p>
 </blockquote>
@@ -452,102 +440,102 @@ new Vue(&#123;
 </ul>
 </li>
 </ul>
-<h2 id="Vue-router-来动态构建左侧菜单"><a href="#Vue-router-来动态构建左侧菜单" class="headerlink" title="Vue router 来动态构建左侧菜单"></a>Vue router 来动态构建左侧菜单</h2><h2 id="menu-与-router-的绑定"><a href="#menu-与-router-的绑定" class="headerlink" title="menu 与 router 的绑定"></a>menu 与 router 的绑定</h2><h3 id="路由配置"><a href="#路由配置" class="headerlink" title="路由配置"></a>路由配置</h3><pre><code class="javascript">import Vue from &#39;vue&#39;
-import VueRouter from &#39;vue-router&#39;
-import layout from &quot;../components/layout&quot;;
-import pageOne from &quot;../views/pageOne&quot;;
-import pageTwo from &quot;../views/pageTwo&quot;;
-import pageThree from &quot;../views/pageThree&quot;;
-import pageFour from &quot;../views/pageFour&quot;;
+<h2 id="Vue-router-来动态构建左侧菜单"><a href="#Vue-router-来动态构建左侧菜单" class="headerlink" title="Vue router 来动态构建左侧菜单"></a>Vue router 来动态构建左侧菜单</h2><h2 id="menu-与-router-的绑定"><a href="#menu-与-router-的绑定" class="headerlink" title="menu 与 router 的绑定"></a>menu 与 router 的绑定</h2><h3 id="路由配置"><a href="#路由配置" class="headerlink" title="路由配置"></a>路由配置</h3><pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> VueRouter <span class="token keyword">from</span> <span class="token string">'vue-router'</span>
+<span class="token keyword">import</span> layout <span class="token keyword">from</span> <span class="token string">"../components/layout"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> pageOne <span class="token keyword">from</span> <span class="token string">"../views/pageOne"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> pageTwo <span class="token keyword">from</span> <span class="token string">"../views/pageTwo"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> pageThree <span class="token keyword">from</span> <span class="token string">"../views/pageThree"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> pageFour <span class="token keyword">from</span> <span class="token string">"../views/pageFour"</span><span class="token punctuation">;</span>
 
-//使用VueRouter
-Vue.use(VueRouter)
+<span class="token comment">//使用VueRouter</span>
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>VueRouter<span class="token punctuation">)</span>
 
-export default new VueRouter(&#123;
-  routes: [
-    &#123;
-      path:&quot;/&quot;,
-      redirect:&quot;/pageOne&quot;,
-      name:&quot;导航一&quot;,
-      component:layout,                //两个导航，每个嵌套两个页面，component要是layout
-      children:[
-        &#123;
-          path:&quot;/pageOne&quot;,
-          name:&quot;页面一&quot;,
-          component: pageOne
-        &#125;,
-        &#123;
-          path:&quot;/pageTwo&quot;,
-          name:&quot;页面二&quot;,
-          component:pageTwo
-        &#125;,
-      ]
-    &#125;,
-    &#123;
-      path:&quot;/dashing2&quot;,
-      name:&quot;导航二&quot;,
-      component:layout,
-      children:[
-        &#123;
-          path:&quot;/pageThree&quot;,
-          name:&quot;页面三&quot;,
-          component:pageThree
-        &#125;,
-        &#123;
-          path:&quot;/pageFour&quot;,
-          name:&quot;页面四&quot;,
-          component:pageFour
-        &#125;
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+      path<span class="token operator">:</span><span class="token string">"/"</span><span class="token punctuation">,</span>
+      redirect<span class="token operator">:</span><span class="token string">"/pageOne"</span><span class="token punctuation">,</span>
+      name<span class="token operator">:</span><span class="token string">"导航一"</span><span class="token punctuation">,</span>
+      component<span class="token operator">:</span>layout<span class="token punctuation">,</span>				<span class="token comment">//两个导航，每个嵌套两个页面，component要是layout</span>
+      children<span class="token operator">:</span><span class="token punctuation">[</span>
+        <span class="token punctuation">&#123;</span>
+          path<span class="token operator">:</span><span class="token string">"/pageOne"</span><span class="token punctuation">,</span>
+          name<span class="token operator">:</span><span class="token string">"页面一"</span><span class="token punctuation">,</span>
+          component<span class="token operator">:</span> pageOne
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">&#123;</span>
+          path<span class="token operator">:</span><span class="token string">"/pageTwo"</span><span class="token punctuation">,</span>
+          name<span class="token operator">:</span><span class="token string">"页面二"</span><span class="token punctuation">,</span>
+          component<span class="token operator">:</span>pageTwo
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#123;</span>
+      path<span class="token operator">:</span><span class="token string">"/dashing2"</span><span class="token punctuation">,</span>
+      name<span class="token operator">:</span><span class="token string">"导航二"</span><span class="token punctuation">,</span>
+      component<span class="token operator">:</span>layout<span class="token punctuation">,</span>
+      children<span class="token operator">:</span><span class="token punctuation">[</span>
+        <span class="token punctuation">&#123;</span>
+          path<span class="token operator">:</span><span class="token string">"/pageThree"</span><span class="token punctuation">,</span>
+          name<span class="token operator">:</span><span class="token string">"页面三"</span><span class="token punctuation">,</span>
+          component<span class="token operator">:</span>pageThree
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">&#123;</span>
+          path<span class="token operator">:</span><span class="token string">"/pageFour"</span><span class="token punctuation">,</span>
+          name<span class="token operator">:</span><span class="token string">"页面四"</span><span class="token punctuation">,</span>
+          component<span class="token operator">:</span>pageFour
+        <span class="token punctuation">&#125;</span>
 
-      ]
-    &#125;
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">&#125;</span>
     
-  ]
-&#125;)
-</code></pre>
-<h3 id="页面组件layout-vue"><a href="#页面组件layout-vue" class="headerlink" title="页面组件layout.vue"></a>页面组件layout.vue</h3><pre><code class="vue">&lt;template&gt;
-  &lt;el-container style=&quot;height: 500px; border: 1px solid #eee&quot;&gt;
-    &lt;el-aside width=&quot;200px&quot; style=&quot;background-color: rgb(238, 241, 246)&quot;&gt;
+  <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span></code></pre>
+
+<h3 id="页面组件layout-vue"><a href="#页面组件layout-vue" class="headerlink" title="页面组件layout.vue"></a>页面组件layout.vue</h3><pre class="language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
+  &lt;el-container style&#x3D;&quot;height: 500px; border: 1px solid #eee&quot;&gt;
+    &lt;el-aside width&#x3D;&quot;200px&quot; style&#x3D;&quot;background-color: rgb(238, 241, 246)&quot;&gt;
       &lt;el-menu router&gt;
 &lt;!--        读取router配置文件里面的routes数组--&gt;
-        &lt;el-submenu v-for=&quot;(item,index) in $router.options.routes&quot; :index=&quot;index+&#39;&#39;&quot;&gt;
-          &lt;template slot=&quot;title&quot;&gt;&#123;&#123;item.name&#125;&#125;&lt;/template&gt;
-            &lt;el-menu-item v-for=&quot;(item2,index2) in item.children&quot; :index=&quot;item2.path&quot; :class=&quot;$route.path==item2.path ? &#39;is-active&#39;:&#39;&#39;&quot;&gt;&#123;&#123;item2.name&#125;&#125;&lt;/el-menu-item&gt;
-        &lt;/el-submenu&gt;    &lt;!--动态显示选中--&gt;
+        &lt;el-submenu v-for&#x3D;&quot;(item,index) in $router.options.routes&quot; :index&#x3D;&quot;index+&#39;&#39;&quot;&gt;
+          &lt;template slot&#x3D;&quot;title&quot;&gt;&#123;&#123;item.name&#125;&#125;&lt;&#x2F;template&gt;
+            &lt;el-menu-item v-for&#x3D;&quot;(item2,index2) in item.children&quot; :index&#x3D;&quot;item2.path&quot; :class&#x3D;&quot;$route.path&#x3D;&#x3D;item2.path ? &#39;is-active&#39;:&#39;&#39;&quot;&gt;&#123;&#123;item2.name&#125;&#125;&lt;&#x2F;el-menu-item&gt;
+        &lt;&#x2F;el-submenu&gt;	&lt;!--动态显示选中--&gt;
 
-      &lt;/el-menu&gt;
-    &lt;/el-aside&gt;
+      &lt;&#x2F;el-menu&gt;
+    &lt;&#x2F;el-aside&gt;
 
     &lt;el-container&gt;
-      &lt;el-header style=&quot;text-align: right; font-size: 12px&quot;&gt;
+      &lt;el-header style&#x3D;&quot;text-align: right; font-size: 12px&quot;&gt;
         &lt;el-dropdown&gt;
-          &lt;i class=&quot;el-icon-setting&quot; style=&quot;margin-right: 15px&quot;&gt;&lt;/i&gt;
-          &lt;el-dropdown-menu slot=&quot;dropdown&quot;&gt;
-            &lt;el-dropdown-item&gt;查看&lt;/el-dropdown-item&gt;
-            &lt;el-dropdown-item&gt;新增&lt;/el-dropdown-item&gt;
-            &lt;el-dropdown-item&gt;删除&lt;/el-dropdown-item&gt;
-          &lt;/el-dropdown-menu&gt;
-        &lt;/el-dropdown&gt;
-        &lt;span&gt;王小虎&lt;/span&gt;
-      &lt;/el-header&gt;
+          &lt;i class&#x3D;&quot;el-icon-setting&quot; style&#x3D;&quot;margin-right: 15px&quot;&gt;&lt;&#x2F;i&gt;
+          &lt;el-dropdown-menu slot&#x3D;&quot;dropdown&quot;&gt;
+            &lt;el-dropdown-item&gt;查看&lt;&#x2F;el-dropdown-item&gt;
+            &lt;el-dropdown-item&gt;新增&lt;&#x2F;el-dropdown-item&gt;
+            &lt;el-dropdown-item&gt;删除&lt;&#x2F;el-dropdown-item&gt;
+          &lt;&#x2F;el-dropdown-menu&gt;
+        &lt;&#x2F;el-dropdown&gt;
+        &lt;span&gt;王小虎&lt;&#x2F;span&gt;
+      &lt;&#x2F;el-header&gt;
 
       &lt;el-main&gt;
-        &lt;router-view&gt;&lt;/router-view&gt;
-      &lt;/el-main&gt;
-    &lt;/el-container&gt;
-  &lt;/el-container&gt;
+        &lt;router-view&gt;&lt;&#x2F;router-view&gt;
+      &lt;&#x2F;el-main&gt;
+    &lt;&#x2F;el-container&gt;
+  &lt;&#x2F;el-container&gt;
 
-&lt;/template&gt;
+&lt;&#x2F;template&gt;
 
 &lt;script&gt;
 export default &#123;
   name: &quot;layout&quot;,
-  // data() &#123;
-  //
-  // &#125;
+  &#x2F;&#x2F; data() &#123;
+  &#x2F;&#x2F;
+  &#x2F;&#x2F; &#125;
 &#125;
 
-&lt;/script&gt;
+&lt;&#x2F;script&gt;
 
 &lt;style scoped&gt;
 .el-header &#123;
@@ -559,72 +547,72 @@ export default &#123;
 .el-aside &#123;
   color: #333;
 &#125;
-&lt;/style&gt;
-</code></pre>
+&lt;&#x2F;style&gt;</code></pre>
+
 <h2 id="数据表格对接后台接口，并实现分页操作"><a href="#数据表格对接后台接口，并实现分页操作" class="headerlink" title="数据表格对接后台接口，并实现分页操作"></a>数据表格对接后台接口，并实现分页操作</h2><p>vue文件，前端接口仍是comic</p>
-<pre><code class="vue">&lt;template&gt;
+<pre class="language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
   &lt;div&gt;
     &lt;el-table
-      :data=&quot;tableData&quot;
+      :data&#x3D;&quot;tableData&quot;
       border
-      style=&quot;width: 100%&quot;&gt;
+      style&#x3D;&quot;width: 100%&quot;&gt;
       &lt;el-table-column
         fixed
-        prop=&quot;id&quot;
-        label=&quot;编号&quot;
-        width=&quot;50&quot;&gt;
-      &lt;/el-table-column&gt;
+        prop&#x3D;&quot;id&quot;
+        label&#x3D;&quot;编号&quot;
+        width&#x3D;&quot;50&quot;&gt;
+      &lt;&#x2F;el-table-column&gt;
       &lt;el-table-column
-        prop=&quot;name&quot;
-        label=&quot;番名&quot;
-        width=&quot;120&quot;&gt;
-      &lt;/el-table-column&gt;
+        prop&#x3D;&quot;name&quot;
+        label&#x3D;&quot;番名&quot;
+        width&#x3D;&quot;120&quot;&gt;
+      &lt;&#x2F;el-table-column&gt;
 
       &lt;el-table-column
-        prop=&quot;issueTime&quot;
-        label=&quot;诞生时间&quot;
-        width=&quot;200&quot;&gt;
-      &lt;/el-table-column&gt;
+        prop&#x3D;&quot;issueTime&quot;
+        label&#x3D;&quot;诞生时间&quot;
+        width&#x3D;&quot;200&quot;&gt;
+      &lt;&#x2F;el-table-column&gt;
       &lt;el-table-column
-        prop=&quot;typeone&quot;
-        label=&quot;类型一&quot;
-        width=&quot;120&quot;&gt;
-      &lt;/el-table-column&gt;
+        prop&#x3D;&quot;typeone&quot;
+        label&#x3D;&quot;类型一&quot;
+        width&#x3D;&quot;120&quot;&gt;
+      &lt;&#x2F;el-table-column&gt;
       &lt;el-table-column
-        prop=&quot;typetwo&quot;
-        label=&quot;类型二&quot;
-        width=&quot;120&quot;&gt;
-      &lt;/el-table-column&gt;
+        prop&#x3D;&quot;typetwo&quot;
+        label&#x3D;&quot;类型二&quot;
+        width&#x3D;&quot;120&quot;&gt;
+      &lt;&#x2F;el-table-column&gt;
       &lt;el-table-column
-        prop=&quot;typethree&quot;
-        label=&quot;类型三&quot;
-        width=&quot;120&quot;&gt;
-      &lt;/el-table-column&gt;
+        prop&#x3D;&quot;typethree&quot;
+        label&#x3D;&quot;类型三&quot;
+        width&#x3D;&quot;120&quot;&gt;
+      &lt;&#x2F;el-table-column&gt;
       &lt;el-table-column
-        prop=&quot;message&quot;
-        label=&quot;描述&quot;
-        width=&quot;379&quot;&gt;
-      &lt;/el-table-column&gt;
+        prop&#x3D;&quot;message&quot;
+        label&#x3D;&quot;描述&quot;
+        width&#x3D;&quot;379&quot;&gt;
+      &lt;&#x2F;el-table-column&gt;
       &lt;el-table-column
-        fixed=&quot;right&quot;
-        label=&quot;操作&quot;
-        width=&quot;100&quot;&gt;
-        &lt;template slot-scope=&quot;scope&quot;&gt;
-          &lt;el-button @click=&quot;handleClick(scope.row)&quot; type=&quot;text&quot; size=&quot;small&quot;&gt;查看&lt;/el-button&gt;
-          &lt;el-button type=&quot;text&quot; size=&quot;small&quot;&gt;编辑&lt;/el-button&gt;
-        &lt;/template&gt;
-      &lt;/el-table-column&gt;
-    &lt;/el-table&gt;
+        fixed&#x3D;&quot;right&quot;
+        label&#x3D;&quot;操作&quot;
+        width&#x3D;&quot;100&quot;&gt;
+        &lt;template slot-scope&#x3D;&quot;scope&quot;&gt;
+          &lt;el-button @click&#x3D;&quot;handleClick(scope.row)&quot; type&#x3D;&quot;text&quot; size&#x3D;&quot;small&quot;&gt;查看&lt;&#x2F;el-button&gt;
+          &lt;el-button type&#x3D;&quot;text&quot; size&#x3D;&quot;small&quot;&gt;编辑&lt;&#x2F;el-button&gt;
+        &lt;&#x2F;template&gt;
+      &lt;&#x2F;el-table-column&gt;
+    &lt;&#x2F;el-table&gt;
     &lt;el-pagination
       background
-      layout=&quot;prev, pager, next&quot;
-      page-size=&quot;3&quot;
-      :total=&quot;total&quot;
-      @current-change=&quot;page&quot;&gt;
-    &lt;/el-pagination&gt;
-  &lt;/div&gt;
+      layout&#x3D;&quot;prev, pager, next&quot;
+      page-size&#x3D;&quot;3&quot;
+      :total&#x3D;&quot;total&quot;
+      @current-change&#x3D;&quot;page&quot;&gt;
+    &lt;&#x2F;el-pagination&gt;
+  &lt;&#x2F;div&gt;
 
-&lt;/template&gt;
+&lt;&#x2F;template&gt;
 
 &lt;script&gt;
 import axios from &quot;axios&quot;;
@@ -642,78 +630,78 @@ export default &#123;
     handleClick(row) &#123;
       console.log(row);
     &#125;,
-    //分页操作
+    &#x2F;&#x2F;分页操作
     page(currentPage)&#123;
-      axios.get(&quot;http://localhost:8181/data/&quot;+currentPage+&quot;/3&quot;).then(res=&gt;(
-        this.tableData=res.data.data,
-          this.total=res.data.count
+      axios.get(&quot;http:&#x2F;&#x2F;localhost:8181&#x2F;data&#x2F;&quot;+currentPage+&quot;&#x2F;3&quot;).then(res&#x3D;&gt;(
+        this.tableData&#x3D;res.data.data,
+          this.total&#x3D;res.data.count
       ));
     &#125;
   &#125;,
 
-  //获取后台接口数据
+  &#x2F;&#x2F;获取后台接口数据
   created() &#123;
-    // const this_ = this;
-    axios.get(&quot;http://localhost:8181/data/1/3&quot;).then(res=&gt;(
-      this.tableData=res.data.data,
-      this.total=res.data.count
+    &#x2F;&#x2F; const this_ &#x3D; this;
+    axios.get(&quot;http:&#x2F;&#x2F;localhost:8181&#x2F;data&#x2F;1&#x2F;3&quot;).then(res&#x3D;&gt;(
+      this.tableData&#x3D;res.data.data,
+      this.total&#x3D;res.data.count
     ));
   &#125;
 &#125;
-&lt;/script&gt;
-</code></pre>
-<h2 id="实现表单新增数据的操作"><a href="#实现表单新增数据的操作" class="headerlink" title="实现表单新增数据的操作"></a>实现表单新增数据的操作</h2><h3 id="表单页面"><a href="#表单页面" class="headerlink" title="表单页面"></a>表单页面</h3><pre><code class="vue">&lt;template&gt;
-&lt;!--  &lt;el-container&gt;--&gt;            &lt;!--ref与下面的data绑定，rules与下面的规则绑定--&gt;
-    &lt;el-form :model=&quot;ruleForm&quot; :rules=&quot;rules&quot; ref=&quot;ruleForm&quot; label-width=&quot;100px&quot; class=&quot;demo-ruleForm&quot;&gt;
-      &lt;el-form-item label=&quot;番剧名&quot; prop=&quot;name&quot;&gt;
-        &lt;el-input v-model=&quot;ruleForm.name&quot;&gt;&lt;/el-input&gt;        
-                  &lt;!-- v-model 和下面data中的值双向绑定，下面能直接拿到表单中输入的值，传到后端进行处理--&gt;
+&lt;&#x2F;script&gt;</code></pre>
+
+<h2 id="实现表单新增数据的操作"><a href="#实现表单新增数据的操作" class="headerlink" title="实现表单新增数据的操作"></a>实现表单新增数据的操作</h2><h3 id="表单页面"><a href="#表单页面" class="headerlink" title="表单页面"></a>表单页面</h3><pre class="language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
+&lt;!--  &lt;el-container&gt;--&gt;			&lt;!--ref与下面的data绑定，rules与下面的规则绑定--&gt;
+    &lt;el-form :model&#x3D;&quot;ruleForm&quot; :rules&#x3D;&quot;rules&quot; ref&#x3D;&quot;ruleForm&quot; label-width&#x3D;&quot;100px&quot; class&#x3D;&quot;demo-ruleForm&quot;&gt;
+      &lt;el-form-item label&#x3D;&quot;番剧名&quot; prop&#x3D;&quot;name&quot;&gt;
+        &lt;el-input v-model&#x3D;&quot;ruleForm.name&quot;&gt;&lt;&#x2F;el-input&gt;		
+          		&lt;!-- v-model 和下面data中的值双向绑定，下面能直接拿到表单中输入的值，传到后端进行处理--&gt;
           
-      &lt;/el-form-item&gt;
+      &lt;&#x2F;el-form-item&gt;
 
-      &lt;el-form-item label=&quot;诞生时间&quot; required&gt;
-        &lt;el-col :span=&quot;11&quot;&gt;
-          &lt;el-form-item prop=&quot;issueTime&quot;&gt;                    &lt;!--prop的值是下面定义的表单验证的规则--&gt;
-            &lt;el-date-picker type=&quot;date&quot; placeholder=&quot;选择日期&quot; v-model=&quot;ruleForm.issueTime&quot; style=&quot;width: 100%;&quot;&gt;&lt;/el-date-picker&gt;
-          &lt;/el-form-item&gt;
-        &lt;/el-col&gt;
-      &lt;/el-form-item&gt;
+      &lt;el-form-item label&#x3D;&quot;诞生时间&quot; required&gt;
+        &lt;el-col :span&#x3D;&quot;11&quot;&gt;
+          &lt;el-form-item prop&#x3D;&quot;issueTime&quot;&gt;					&lt;!--prop的值是下面定义的表单验证的规则--&gt;
+            &lt;el-date-picker type&#x3D;&quot;date&quot; placeholder&#x3D;&quot;选择日期&quot; v-model&#x3D;&quot;ruleForm.issueTime&quot; style&#x3D;&quot;width: 100%;&quot;&gt;&lt;&#x2F;el-date-picker&gt;
+          &lt;&#x2F;el-form-item&gt;
+        &lt;&#x2F;el-col&gt;
+      &lt;&#x2F;el-form-item&gt;
 
 
-      &lt;el-form-item label=&quot;类型一&quot; prop=&quot;typeone&quot;&gt;                
-        &lt;el-radio-group v-model=&quot;ruleForm.typeone&quot;&gt;
-          &lt;el-radio label=&quot;热血&quot;&gt;&lt;/el-radio&gt;
-          &lt;el-radio label=&quot;搞笑&quot;&gt;&lt;/el-radio&gt;
-          &lt;el-radio label=&quot;恋爱&quot;&gt;&lt;/el-radio&gt;
-        &lt;/el-radio-group&gt;
-      &lt;/el-form-item&gt;
+      &lt;el-form-item label&#x3D;&quot;类型一&quot; prop&#x3D;&quot;typeone&quot;&gt;				
+        &lt;el-radio-group v-model&#x3D;&quot;ruleForm.typeone&quot;&gt;
+          &lt;el-radio label&#x3D;&quot;热血&quot;&gt;&lt;&#x2F;el-radio&gt;
+          &lt;el-radio label&#x3D;&quot;搞笑&quot;&gt;&lt;&#x2F;el-radio&gt;
+          &lt;el-radio label&#x3D;&quot;恋爱&quot;&gt;&lt;&#x2F;el-radio&gt;
+        &lt;&#x2F;el-radio-group&gt;
+      &lt;&#x2F;el-form-item&gt;
 
-      &lt;el-form-item label=&quot;类型二&quot; prop=&quot;typetwo&quot;&gt;
-        &lt;el-radio-group v-model=&quot;ruleForm.typetwo&quot;&gt;
-          &lt;el-radio label=&quot;校园&quot;&gt;&lt;/el-radio&gt;
-          &lt;el-radio label=&quot;日常&quot;&gt;&lt;/el-radio&gt;
-          &lt;el-radio label=&quot;异世界&quot;&gt;&lt;/el-radio&gt;
-        &lt;/el-radio-group&gt;
-      &lt;/el-form-item&gt;
+      &lt;el-form-item label&#x3D;&quot;类型二&quot; prop&#x3D;&quot;typetwo&quot;&gt;
+        &lt;el-radio-group v-model&#x3D;&quot;ruleForm.typetwo&quot;&gt;
+          &lt;el-radio label&#x3D;&quot;校园&quot;&gt;&lt;&#x2F;el-radio&gt;
+          &lt;el-radio label&#x3D;&quot;日常&quot;&gt;&lt;&#x2F;el-radio&gt;
+          &lt;el-radio label&#x3D;&quot;异世界&quot;&gt;&lt;&#x2F;el-radio&gt;
+        &lt;&#x2F;el-radio-group&gt;
+      &lt;&#x2F;el-form-item&gt;
 
-      &lt;el-form-item label=&quot;类型三&quot; prop=&quot;typethree&quot;&gt;
-        &lt;el-select v-model=&quot;ruleForm.typethree&quot; placeholder=&quot;请选择类型三&quot;&gt;
-          &lt;el-option label=&quot;最多追番&quot; value=&quot;最多追番&quot;&gt;&lt;/el-option&gt;
-          &lt;el-option label=&quot;镇站之宝&quot; value=&quot;镇站之宝&quot;&gt;&lt;/el-option&gt;
-          &lt;el-option label=&quot;评分爆表&quot; value=&quot;评分爆表&quot;&gt;&lt;/el-option&gt;
-        &lt;/el-select&gt;
-      &lt;/el-form-item&gt;
-      &lt;el-form-item label=&quot;简介&quot; prop=&quot;message&quot;&gt;
-        &lt;el-input type=&quot;textarea&quot; v-model=&quot;ruleForm.message&quot;&gt;&lt;/el-input&gt;
-      &lt;/el-form-item&gt;
+      &lt;el-form-item label&#x3D;&quot;类型三&quot; prop&#x3D;&quot;typethree&quot;&gt;
+        &lt;el-select v-model&#x3D;&quot;ruleForm.typethree&quot; placeholder&#x3D;&quot;请选择类型三&quot;&gt;
+          &lt;el-option label&#x3D;&quot;最多追番&quot; value&#x3D;&quot;最多追番&quot;&gt;&lt;&#x2F;el-option&gt;
+          &lt;el-option label&#x3D;&quot;镇站之宝&quot; value&#x3D;&quot;镇站之宝&quot;&gt;&lt;&#x2F;el-option&gt;
+          &lt;el-option label&#x3D;&quot;评分爆表&quot; value&#x3D;&quot;评分爆表&quot;&gt;&lt;&#x2F;el-option&gt;
+        &lt;&#x2F;el-select&gt;
+      &lt;&#x2F;el-form-item&gt;
+      &lt;el-form-item label&#x3D;&quot;简介&quot; prop&#x3D;&quot;message&quot;&gt;
+        &lt;el-input type&#x3D;&quot;textarea&quot; v-model&#x3D;&quot;ruleForm.message&quot;&gt;&lt;&#x2F;el-input&gt;
+      &lt;&#x2F;el-form-item&gt;
       &lt;el-form-item&gt;
-        &lt;el-button type=&quot;primary&quot; @click=&quot;submitForm(&#39;ruleForm&#39;)&quot;&gt;立即添加&lt;/el-button&gt;    
+        &lt;el-button type&#x3D;&quot;primary&quot; @click&#x3D;&quot;submitForm(&#39;ruleForm&#39;)&quot;&gt;立即添加&lt;&#x2F;el-button&gt;	
           &lt;!--直接带着表单中的数据传到submitForm方法--&gt;
-        &lt;el-button @click=&quot;resetForm(&#39;ruleForm&#39;)&quot;&gt;重置&lt;/el-button&gt;
-      &lt;/el-form-item&gt;
-    &lt;/el-form&gt;
-&lt;!--  &lt;/el-container&gt;--&gt;
-&lt;/template&gt;
+        &lt;el-button @click&#x3D;&quot;resetForm(&#39;ruleForm&#39;)&quot;&gt;重置&lt;&#x2F;el-button&gt;
+      &lt;&#x2F;el-form-item&gt;
+    &lt;&#x2F;el-form&gt;
+&lt;!--  &lt;&#x2F;el-container&gt;--&gt;
+&lt;&#x2F;template&gt;
 &lt;script&gt;
 import axios from &quot;axios&quot;;
 
@@ -729,9 +717,9 @@ export default &#123;
         message: &#39;&#39;
       &#125;,
       rules: &#123;
-          //每个属性对应一个验证规则
-          //blur 失去焦点提醒
-          //change 发生改变提醒
+          &#x2F;&#x2F;每个属性对应一个验证规则
+          &#x2F;&#x2F;blur 失去焦点提醒
+          &#x2F;&#x2F;change 发生改变提醒
         name: [
           &#123; required: true, message: &#39;请输入番名&#39;, trigger: &#39;blur&#39; &#125;,
           &#123; min: 1, max: 30, message: &#39;长度在 1 到 30 个字符&#39;, trigger: &#39;blur&#39; &#125;
@@ -756,15 +744,15 @@ export default &#123;
   &#125;,
   methods: &#123;
     submitForm(formName) &#123;
-      this.$refs[formName].validate((valid) =&gt; &#123;
-        if (valid) &#123;            //如果通过了所有验证，那么提交数据到后端
-          // 向后端传数据直接在url后面加逗号，然后跟上封装好的数据即可
-          axios.post(&quot;http://localhost:8181/save&quot;,this.ruleForm).then(res=&gt;(
+      this.$refs[formName].validate((valid) &#x3D;&gt; &#123;
+        if (valid) &#123;			&#x2F;&#x2F;如果通过了所有验证，那么提交数据到后端
+          &#x2F;&#x2F; 向后端传数据直接在url后面加逗号，然后跟上封装好的数据即可
+          axios.post(&quot;http:&#x2F;&#x2F;localhost:8181&#x2F;save&quot;,this.ruleForm).then(res&#x3D;&gt;(
             this.$message(&#123;
               message:(&quot;又多了一部番哦，记得按时追哦~~&quot;),
               type:&quot;success&quot;
             &#125;),
-            this.$router.push(&#39;/pageOne&#39;)        //跳转到动漫列表页
+            this.$router.push(&#39;&#x2F;pageOne&#39;)		&#x2F;&#x2F;跳转到动漫列表页
           ))
           console.log(this.ruleForm)
         &#125; else &#123;
@@ -779,118 +767,120 @@ export default &#123;
    
   &#125;
 &#125;
-&lt;/script&gt;
-</code></pre>
+&lt;&#x2F;script&gt;</code></pre>
+
 <h3 id="后端处理添加操作"><a href="#后端处理添加操作" class="headerlink" title="后端处理添加操作"></a>后端处理添加操作</h3><p>ComicService的实现类ComicServiceImpl中</p>
 <blockquote>
 <p>把ComicTypeVO转成comic才能存入数据库，那么跟上次渲染表单相反转换就好</p>
 </blockquote>
-<pre><code class="java">@Override
+<pre class="language-java" data-language="java"><code class="language-java">@Override
 public int saveData(ComicTypeVO comicTypeVO) &#123;
 
-    Comic comic = new Comic();
-    BeanUtils.copyProperties(comicTypeVO, comic);            //comicTypeVO赋值给comic
+    Comic comic &#x3D; new Comic();
+    BeanUtils.copyProperties(comicTypeVO, comic);			&#x2F;&#x2F;comicTypeVO赋值给comic
 
-    QueryWrapper&lt;ComicType&gt; wrapper = new QueryWrapper&lt;&gt;();
+    QueryWrapper&lt;ComicType&gt; wrapper &#x3D; new QueryWrapper&lt;&gt;();
 
     wrapper.eq(&quot;name&quot;, comicTypeVO.getTypeone());
     comic.setTypeoneid(comicTypeMapper.selectOne(wrapper).getId());
 
-    wrapper = new QueryWrapper&lt;&gt;();                            //注意每次都要new一个新的wrapper
+    wrapper &#x3D; new QueryWrapper&lt;&gt;();							&#x2F;&#x2F;注意每次都要new一个新的wrapper
     wrapper.eq(&quot;name&quot;, comicTypeVO.getTypetwo());
     comic.setTypetwoid(comicTypeMapper.selectOne(wrapper).getId());
 
-    wrapper = new QueryWrapper&lt;&gt;();
+    wrapper &#x3D; new QueryWrapper&lt;&gt;();
     wrapper.eq(&quot;name&quot;, comicTypeVO.getTypethree());
     comic.setTypethreeid(comicTypeMapper.selectOne(wrapper).getId());
 
-    //表单做了非空验证，所以这里可以不做非空判断，如果表单传来的数据有控制，会造成空指针异常
-    int res = comicMapper.insert(comic);
+    &#x2F;&#x2F;表单做了非空验证，所以这里可以不做非空判断，如果表单传来的数据有控制，会造成空指针异常
+    int res &#x3D; comicMapper.insert(comic);
     return res;
-&#125;
-</code></pre>
-<h3 id="Controller层暴露接口"><a href="#Controller层暴露接口" class="headerlink" title="Controller层暴露接口"></a>Controller层暴露接口</h3><pre><code class="java">@PostMapping(&quot;/save&quot;)
+&#125;</code></pre>
+
+<h3 id="Controller层暴露接口"><a href="#Controller层暴露接口" class="headerlink" title="Controller层暴露接口"></a>Controller层暴露接口</h3><pre class="language-java" data-language="java"><code class="language-java">@PostMapping(&quot;&#x2F;save&quot;)
 public String saveComic(@RequestBody ComicTypeVO comicTypeVO)&#123;
     
-    //这里很重要的一点
-    //@RequestBody必须加上，前端传来的不是Java对象，而是一个json字符串
-    //这里需要加上@RequestBody把传来的json字符串转为Java对象才能进行后续操作
+    &#x2F;&#x2F;这里很重要的一点
+    &#x2F;&#x2F;@RequestBody必须加上，前端传来的不是Java对象，而是一个json字符串
+    &#x2F;&#x2F;这里需要加上@RequestBody把传来的json字符串转为Java对象才能进行后续操作
     
-    int res = comicService.saveData(comicTypeVO);
-    if (res == 1)&#123;
+    int res &#x3D; comicService.saveData(comicTypeVO);
+    if (res &#x3D;&#x3D; 1)&#123;
         return &quot;success&quot;;
     &#125;else &#123;
         return &quot;error&quot;;
     &#125;
 
-&#125;
-</code></pre>
+&#125;</code></pre>
+
+
+
 <h2 id="实现修改和删除数据"><a href="#实现修改和删除数据" class="headerlink" title="实现修改和删除数据"></a>实现修改和删除数据</h2><h3 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h3><p><strong>点击修改，跳转到修改页面，从根据要修改数据的id，从后端查出对应的数据，传回前端，通过v-model双向绑定渲染到页面中，进行修改。点击提交后，再传到后端，通过id将数据库中的信息完成修改</strong></p>
 <p><strong>完成后再跳到列表页面</strong></p>
 <p>列表页：</p>
-<pre><code class="vue">&lt;template&gt;
+<pre class="language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
   &lt;div&gt;
     &lt;el-table
-      :data=&quot;tableData&quot;
+      :data&#x3D;&quot;tableData&quot;
       border
-      style=&quot;width: 100%;&quot;&gt;
+      style&#x3D;&quot;width: 100%;&quot;&gt;
       &lt;el-table-column
         fixed
-        prop=&quot;id&quot;
-        label=&quot;编号&quot;
-        width=&quot;50&quot;&gt;
-      &lt;/el-table-column&gt;
+        prop&#x3D;&quot;id&quot;
+        label&#x3D;&quot;编号&quot;
+        width&#x3D;&quot;50&quot;&gt;
+      &lt;&#x2F;el-table-column&gt;
       &lt;el-table-column
-        prop=&quot;name&quot;
-        label=&quot;番名&quot;
-        width=&quot;120&quot;&gt;
-      &lt;/el-table-column&gt;
+        prop&#x3D;&quot;name&quot;
+        label&#x3D;&quot;番名&quot;
+        width&#x3D;&quot;120&quot;&gt;
+      &lt;&#x2F;el-table-column&gt;
 
       &lt;el-table-column
-        prop=&quot;issueTime&quot;
-        label=&quot;诞生时间&quot;
-        width=&quot;200&quot;&gt;
-      &lt;/el-table-column&gt;
+        prop&#x3D;&quot;issueTime&quot;
+        label&#x3D;&quot;诞生时间&quot;
+        width&#x3D;&quot;200&quot;&gt;
+      &lt;&#x2F;el-table-column&gt;
       &lt;el-table-column
-        prop=&quot;typeone&quot;
-        label=&quot;类型一&quot;
-        width=&quot;120&quot;&gt;
-      &lt;/el-table-column&gt;
+        prop&#x3D;&quot;typeone&quot;
+        label&#x3D;&quot;类型一&quot;
+        width&#x3D;&quot;120&quot;&gt;
+      &lt;&#x2F;el-table-column&gt;
       &lt;el-table-column
-        prop=&quot;typetwo&quot;
-        label=&quot;类型二&quot;
-        width=&quot;120&quot;&gt;
-      &lt;/el-table-column&gt;
+        prop&#x3D;&quot;typetwo&quot;
+        label&#x3D;&quot;类型二&quot;
+        width&#x3D;&quot;120&quot;&gt;
+      &lt;&#x2F;el-table-column&gt;
       &lt;el-table-column
-        prop=&quot;typethree&quot;
-        label=&quot;类型三&quot;
-        width=&quot;120&quot;&gt;
-      &lt;/el-table-column&gt;
+        prop&#x3D;&quot;typethree&quot;
+        label&#x3D;&quot;类型三&quot;
+        width&#x3D;&quot;120&quot;&gt;
+      &lt;&#x2F;el-table-column&gt;
       &lt;el-table-column
-        prop=&quot;message&quot;
-        label=&quot;描述&quot;
-        width=&quot;379&quot;&gt;
-      &lt;/el-table-column&gt;
+        prop&#x3D;&quot;message&quot;
+        label&#x3D;&quot;描述&quot;
+        width&#x3D;&quot;379&quot;&gt;
+      &lt;&#x2F;el-table-column&gt;
       &lt;el-table-column
-        fixed=&quot;right&quot;
-        label=&quot;操作&quot;
-        width=&quot;100&quot;&gt;
-        &lt;template slot-scope=&quot;scope&quot;&gt;
-          &lt;el-button @click=&quot;edit(scope.row)&quot; type=&quot;text&quot; size=&quot;small&quot;&gt;修改&lt;/el-button&gt;
-          &lt;el-button @click=&quot;deleteById(scope.row.id)&quot; type=&quot;text&quot; size=&quot;small&quot;&gt;删除&lt;/el-button&gt;
-        &lt;/template&gt;
-      &lt;/el-table-column&gt;
-    &lt;/el-table&gt;
+        fixed&#x3D;&quot;right&quot;
+        label&#x3D;&quot;操作&quot;
+        width&#x3D;&quot;100&quot;&gt;
+        &lt;template slot-scope&#x3D;&quot;scope&quot;&gt;
+          &lt;el-button @click&#x3D;&quot;edit(scope.row)&quot; type&#x3D;&quot;text&quot; size&#x3D;&quot;small&quot;&gt;修改&lt;&#x2F;el-button&gt;
+          &lt;el-button @click&#x3D;&quot;deleteById(scope.row.id)&quot; type&#x3D;&quot;text&quot; size&#x3D;&quot;small&quot;&gt;删除&lt;&#x2F;el-button&gt;
+        &lt;&#x2F;template&gt;
+      &lt;&#x2F;el-table-column&gt;
+    &lt;&#x2F;el-table&gt;
     &lt;el-pagination
       background
-      layout=&quot;prev, pager, next&quot;
-      page-size=&quot;5&quot;
-      :total=&quot;total&quot;
-      @current-change=&quot;page&quot;&gt;
-    &lt;/el-pagination&gt;
-  &lt;/div&gt;
+      layout&#x3D;&quot;prev, pager, next&quot;
+      page-size&#x3D;&quot;5&quot;
+      :total&#x3D;&quot;total&quot;
+      @current-change&#x3D;&quot;page&quot;&gt;
+    &lt;&#x2F;el-pagination&gt;
+  &lt;&#x2F;div&gt;
 
-&lt;/template&gt;
+&lt;&#x2F;template&gt;
 
 &lt;script&gt;
 import axios from &quot;axios&quot;;
@@ -906,9 +896,9 @@ export default &#123;
   &#125;,
 
   methods: &#123;
-    edit(row) &#123;                        //通过路由跳转到修改页面，并携带数据id
+    edit(row) &#123;						&#x2F;&#x2F;通过路由跳转到修改页面，并携带数据id
       this.$router.push(&#123;
-        path: &#39;/pageThree&#39;,
+        path: &#39;&#x2F;pageThree&#39;,
         query: &#123;
           id: row.id
         &#125;
@@ -916,91 +906,94 @@ export default &#123;
     &#125;,
 
     deleteById(id)&#123;
-      // alert(id);
-      axios.delete(&quot;http://localhost:8181/delete/&quot;+id).then(res=&gt;(
+      &#x2F;&#x2F; alert(id);
+      axios.delete(&quot;http:&#x2F;&#x2F;localhost:8181&#x2F;delete&#x2F;&quot;+id).then(res&#x3D;&gt;(
         console.log(res),
         this.$message(&#123;
           message:&quot;删除成功-_-#&quot;,
           type:&quot;success&quot;
         &#125;),
-        window.location.reload()        //删除成功后，刷新页面，然删掉的数据不在显示
+        window.location.reload()        &#x2F;&#x2F;删除成功后，刷新页面，然删掉的数据不在显示
       ))
     &#125;,
 
-    //分页操作
+    &#x2F;&#x2F;分页操作
     page(currentPage)&#123;
-      axios.get(&quot;http://localhost:8181/data/&quot;+currentPage+&quot;/&quot;+5).then(res=&gt;(
-        this.tableData=res.data.data,
-          this.total=res.data.count
+      axios.get(&quot;http:&#x2F;&#x2F;localhost:8181&#x2F;data&#x2F;&quot;+currentPage+&quot;&#x2F;&quot;+5).then(res&#x3D;&gt;(
+        this.tableData&#x3D;res.data.data,
+          this.total&#x3D;res.data.count
       ));
     &#125;
   &#125;,
 
-  //获取后台接口数据
+  &#x2F;&#x2F;获取后台接口数据
   created() &#123;
-    // const this_ = this;
-    axios.get(&quot;http://localhost:8181/data/1/5&quot;).then(res=&gt;(
-      this.tableData=res.data.data,
-      this.total=res.data.count
+    &#x2F;&#x2F; const this_ &#x3D; this;
+    axios.get(&quot;http:&#x2F;&#x2F;localhost:8181&#x2F;data&#x2F;1&#x2F;5&quot;).then(res&#x3D;&gt;(
+      this.tableData&#x3D;res.data.data,
+      this.total&#x3D;res.data.count
     ));
   &#125;
 &#125;
-&lt;/script&gt;
+&lt;&#x2F;script&gt;
 </code></pre>
+
+
+
 <p>修改数据页面：</p>
-<pre><code class="vue">&lt;template&gt;
+<pre class="language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
   &lt;!--  &lt;el-container&gt;--&gt;
-  &lt;el-form :model=&quot;ruleForm&quot; :rules=&quot;rules&quot; ref=&quot;ruleForm&quot; label-width=&quot;100px&quot; class=&quot;demo-ruleForm&quot;&gt;
-    &lt;el-form-item label=&quot;编号&quot;&gt;
-      &lt;el-input v-model=&quot;ruleForm.id&quot; readonly&gt;&lt;/el-input&gt;
-    &lt;/el-form-item&gt;
-    &lt;el-form-item label=&quot;番剧名&quot; prop=&quot;name&quot;&gt;
-      &lt;el-input v-model=&quot;ruleForm.name&quot;&gt;&lt;/el-input&gt;
-    &lt;/el-form-item&gt;
+  &lt;el-form :model&#x3D;&quot;ruleForm&quot; :rules&#x3D;&quot;rules&quot; ref&#x3D;&quot;ruleForm&quot; label-width&#x3D;&quot;100px&quot; class&#x3D;&quot;demo-ruleForm&quot;&gt;
+    &lt;el-form-item label&#x3D;&quot;编号&quot;&gt;
+      &lt;el-input v-model&#x3D;&quot;ruleForm.id&quot; readonly&gt;&lt;&#x2F;el-input&gt;
+    &lt;&#x2F;el-form-item&gt;
+    &lt;el-form-item label&#x3D;&quot;番剧名&quot; prop&#x3D;&quot;name&quot;&gt;
+      &lt;el-input v-model&#x3D;&quot;ruleForm.name&quot;&gt;&lt;&#x2F;el-input&gt;
+    &lt;&#x2F;el-form-item&gt;
 
-    &lt;el-form-item label=&quot;诞生时间&quot; required&gt;
-      &lt;el-col :span=&quot;11&quot;&gt;
-        &lt;el-form-item prop=&quot;issueTime&quot;&gt;
-          &lt;el-date-picker type=&quot;date&quot; placeholder=&quot;选择日期&quot; v-model=&quot;ruleForm.issueTime&quot; style=&quot;width: 100%;&quot;&gt;&lt;/el-date-picker&gt;
-        &lt;/el-form-item&gt;
-      &lt;/el-col&gt;
-    &lt;/el-form-item&gt;
+    &lt;el-form-item label&#x3D;&quot;诞生时间&quot; required&gt;
+      &lt;el-col :span&#x3D;&quot;11&quot;&gt;
+        &lt;el-form-item prop&#x3D;&quot;issueTime&quot;&gt;
+          &lt;el-date-picker type&#x3D;&quot;date&quot; placeholder&#x3D;&quot;选择日期&quot; v-model&#x3D;&quot;ruleForm.issueTime&quot; style&#x3D;&quot;width: 100%;&quot;&gt;&lt;&#x2F;el-date-picker&gt;
+        &lt;&#x2F;el-form-item&gt;
+      &lt;&#x2F;el-col&gt;
+    &lt;&#x2F;el-form-item&gt;
 
 
-    &lt;el-form-item label=&quot;类型一&quot; prop=&quot;typeone&quot;&gt;
-      &lt;el-radio-group v-model=&quot;ruleForm.typeone&quot;&gt;
-        &lt;el-radio label=&quot;热血&quot;&gt;&lt;/el-radio&gt;
-        &lt;el-radio label=&quot;搞笑&quot;&gt;&lt;/el-radio&gt;
-        &lt;el-radio label=&quot;恋爱&quot;&gt;&lt;/el-radio&gt;
-      &lt;/el-radio-group&gt;
-    &lt;/el-form-item&gt;
+    &lt;el-form-item label&#x3D;&quot;类型一&quot; prop&#x3D;&quot;typeone&quot;&gt;
+      &lt;el-radio-group v-model&#x3D;&quot;ruleForm.typeone&quot;&gt;
+        &lt;el-radio label&#x3D;&quot;热血&quot;&gt;&lt;&#x2F;el-radio&gt;
+        &lt;el-radio label&#x3D;&quot;搞笑&quot;&gt;&lt;&#x2F;el-radio&gt;
+        &lt;el-radio label&#x3D;&quot;恋爱&quot;&gt;&lt;&#x2F;el-radio&gt;
+      &lt;&#x2F;el-radio-group&gt;
+    &lt;&#x2F;el-form-item&gt;
 
-    &lt;el-form-item label=&quot;类型二&quot; prop=&quot;typetwo&quot;&gt;
-      &lt;el-radio-group v-model=&quot;ruleForm.typetwo&quot;&gt;
-        &lt;el-radio label=&quot;校园&quot;&gt;&lt;/el-radio&gt;
-        &lt;el-radio label=&quot;日常&quot;&gt;&lt;/el-radio&gt;
-        &lt;el-radio label=&quot;异世界&quot;&gt;&lt;/el-radio&gt;
-      &lt;/el-radio-group&gt;
-    &lt;/el-form-item&gt;
+    &lt;el-form-item label&#x3D;&quot;类型二&quot; prop&#x3D;&quot;typetwo&quot;&gt;
+      &lt;el-radio-group v-model&#x3D;&quot;ruleForm.typetwo&quot;&gt;
+        &lt;el-radio label&#x3D;&quot;校园&quot;&gt;&lt;&#x2F;el-radio&gt;
+        &lt;el-radio label&#x3D;&quot;日常&quot;&gt;&lt;&#x2F;el-radio&gt;
+        &lt;el-radio label&#x3D;&quot;异世界&quot;&gt;&lt;&#x2F;el-radio&gt;
+      &lt;&#x2F;el-radio-group&gt;
+    &lt;&#x2F;el-form-item&gt;
 
-    &lt;el-form-item label=&quot;类型三&quot; prop=&quot;typethree&quot;&gt;
-      &lt;el-select v-model=&quot;ruleForm.typethree&quot; placeholder=&quot;请选择类型三&quot;&gt;
-        &lt;el-option label=&quot;最多追番&quot; value=&quot;最多追番&quot;&gt;&lt;/el-option&gt;
-        &lt;el-option label=&quot;镇站之宝&quot; value=&quot;镇站之宝&quot;&gt;&lt;/el-option&gt;
-        &lt;el-option label=&quot;评分爆表&quot; value=&quot;评分爆表&quot;&gt;&lt;/el-option&gt;
-      &lt;/el-select&gt;
-    &lt;/el-form-item&gt;
-    &lt;el-form-item label=&quot;简介&quot; prop=&quot;message&quot;&gt;
-      &lt;el-input type=&quot;textarea&quot; v-model=&quot;ruleForm.message&quot;&gt;&lt;/el-input&gt;
-    &lt;/el-form-item&gt;
+    &lt;el-form-item label&#x3D;&quot;类型三&quot; prop&#x3D;&quot;typethree&quot;&gt;
+      &lt;el-select v-model&#x3D;&quot;ruleForm.typethree&quot; placeholder&#x3D;&quot;请选择类型三&quot;&gt;
+        &lt;el-option label&#x3D;&quot;最多追番&quot; value&#x3D;&quot;最多追番&quot;&gt;&lt;&#x2F;el-option&gt;
+        &lt;el-option label&#x3D;&quot;镇站之宝&quot; value&#x3D;&quot;镇站之宝&quot;&gt;&lt;&#x2F;el-option&gt;
+        &lt;el-option label&#x3D;&quot;评分爆表&quot; value&#x3D;&quot;评分爆表&quot;&gt;&lt;&#x2F;el-option&gt;
+      &lt;&#x2F;el-select&gt;
+    &lt;&#x2F;el-form-item&gt;
+    &lt;el-form-item label&#x3D;&quot;简介&quot; prop&#x3D;&quot;message&quot;&gt;
+      &lt;el-input type&#x3D;&quot;textarea&quot; v-model&#x3D;&quot;ruleForm.message&quot;&gt;&lt;&#x2F;el-input&gt;
+    &lt;&#x2F;el-form-item&gt;
     &lt;el-form-item&gt;
-      &lt;el-button type=&quot;primary&quot; @click=&quot;update(&#39;ruleForm&#39;)&quot;&gt;立即更新&lt;/el-button&gt;
-      &lt;el-button @click=&quot;resetForm(&#39;ruleForm&#39;)&quot;&gt;重置&lt;/el-button&gt;
-      &lt;!--        &lt;el-button v-on:click=&quot;test&quot;&gt;&lt;/el-button&gt;--&gt;
-    &lt;/el-form-item&gt;
-  &lt;/el-form&gt;
-  &lt;!--  &lt;/el-container&gt;--&gt;
-&lt;/template&gt;
+      &lt;el-button type&#x3D;&quot;primary&quot; @click&#x3D;&quot;update(&#39;ruleForm&#39;)&quot;&gt;立即更新&lt;&#x2F;el-button&gt;
+      &lt;el-button @click&#x3D;&quot;resetForm(&#39;ruleForm&#39;)&quot;&gt;重置&lt;&#x2F;el-button&gt;
+      &lt;!--        &lt;el-button v-on:click&#x3D;&quot;test&quot;&gt;&lt;&#x2F;el-button&gt;--&gt;
+    &lt;&#x2F;el-form-item&gt;
+  &lt;&#x2F;el-form&gt;
+  &lt;!--  &lt;&#x2F;el-container&gt;--&gt;
+&lt;&#x2F;template&gt;
 &lt;script&gt;
 import axios from &quot;axios&quot;;
 
@@ -1021,7 +1014,7 @@ export default &#123;
           &#123; min: 1, max: 30, message: &#39;长度在 1 到 30 个字符&#39;, trigger: &#39;blur&#39; &#125;
         ],
         issueTime: [
-          &#123; required: true, message: &#39;请选择日期&#39;, trigger: &#39;change&#39; &#125;        //注意这里把date限制去掉
+          &#123; required: true, message: &#39;请选择日期&#39;, trigger: &#39;change&#39; &#125;		&#x2F;&#x2F;注意这里把date限制去掉
         ],
         typeone: [
           &#123; required: true, message: &#39;请选择番剧类型&#39;, trigger: &#39;change&#39; &#125;
@@ -1040,18 +1033,18 @@ export default &#123;
   &#125;,
   methods: &#123;
     update(formName) &#123;
-      this.$refs[formName].validate((valid) =&gt; &#123;
+      this.$refs[formName].validate((valid) &#x3D;&gt; &#123;
         if (valid) &#123;
-          // alert(&#39;submit!&#39;);
-          // 向后端传数据直接在url后面加逗号，然后跟上封装好的数据即可
-          axios.post(&quot;http://localhost:8181/updateData&quot;,this.ruleForm).then(res=&gt;(
+          &#x2F;&#x2F; alert(&#39;submit!&#39;);
+          &#x2F;&#x2F; 向后端传数据直接在url后面加逗号，然后跟上封装好的数据即可
+          axios.post(&quot;http:&#x2F;&#x2F;localhost:8181&#x2F;updateData&quot;,this.ruleForm).then(res&#x3D;&gt;(
             this.$message(&#123;
               message:(&quot;成功修改了番剧信息~^_^~&quot;),
               type:&quot;success&quot;
             &#125;),
-              this.$router.push(&#39;/pageOne&#39;)
+              this.$router.push(&#39;&#x2F;pageOne&#39;)
           ))
-          // console.log(this.ruleForm)
+          &#x2F;&#x2F; console.log(this.ruleForm)
         &#125; else &#123;
           console.log(&#39;error submit!!&#39;);
           return false;
@@ -1064,130 +1057,140 @@ export default &#123;
 
   &#125;,
   created() &#123;
-    const id = this.$route.query.id;
-    axios.get(&quot;http://localhost:8181/updateData/&quot;+id).then(res=&gt;(
-      this.ruleForm=res.data,
+    const id &#x3D; this.$route.query.id;
+    axios.get(&quot;http:&#x2F;&#x2F;localhost:8181&#x2F;updateData&#x2F;&quot;+id).then(res&#x3D;&gt;(
+      this.ruleForm&#x3D;res.data,
       console.log(res.data)
     ))
   &#125;
 &#125;
-&lt;/script&gt;
+&lt;&#x2F;script&gt;
 </code></pre>
-<h4 id="主要操作"><a href="#主要操作" class="headerlink" title="主要操作"></a>主要操作</h4><pre><code class="js">edit(row) &#123;                        //通过路由跳转到修改页面，并携带数据id
-    this.$router.push(&#123;
-        path: &#39;/pageThree&#39;,
-        query: &#123;
-            id: row.id
-        &#125;
-    &#125;)
+
+
+
+<h4 id="主要操作"><a href="#主要操作" class="headerlink" title="主要操作"></a>主要操作</h4><pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">edit</span><span class="token punctuation">(</span><span class="token parameter">row</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>						<span class="token comment">//通过路由跳转到修改页面，并携带数据id</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        path<span class="token operator">:</span> <span class="token string">'/pageThree'</span><span class="token punctuation">,</span>
+        query<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            id<span class="token operator">:</span> row<span class="token punctuation">.</span>id
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
     
     
     
-created() &#123;
-    const id = this.$route.query.id;        //拿到上面通过路由跳转传来的数据
-    axios.get(&quot;http://localhost:8181/updateData/&quot;+id).then(res=&gt;(
-      this.ruleForm=res.data,
-      console.log(res.data)
-    ))
-  &#125;
+<span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> id <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>query<span class="token punctuation">.</span>id<span class="token punctuation">;</span>		<span class="token comment">//拿到上面通过路由跳转传来的数据</span>
+    axios<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"http://localhost:8181/updateData/"</span><span class="token operator">+</span>id<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token operator">=></span><span class="token punctuation">(</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>ruleForm<span class="token operator">=</span>res<span class="token punctuation">.</span>data<span class="token punctuation">,</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>data<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span>
  
 
-/路由跳转和传数据    $router   跳转到后拿数据  $route
+<span class="token operator">/</span>路由跳转和传数据	$router   跳转到后拿数据  $route
 </code></pre>
+
+
+
+
+
 <p>根据id查询和修改处理：</p>
 <p>Service层：</p>
-<pre><code class="java">//根据id拿到要修改的数据
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;根据id拿到要修改的数据
 @Override
 public ComicTypeVO getDataById(Integer id) &#123;
 
-    Comic comic = comicMapper.selectById(id);
-    ComicTypeVO comicTypeVO = new ComicTypeVO();
+    Comic comic &#x3D; comicMapper.selectById(id);
+    ComicTypeVO comicTypeVO &#x3D; new ComicTypeVO();
     BeanUtils.copyProperties(comic,comicTypeVO);
 
-    QueryWrapper&lt;ComicType&gt; wrapper = new QueryWrapper&lt;&gt;();
+    QueryWrapper&lt;ComicType&gt; wrapper &#x3D; new QueryWrapper&lt;&gt;();
     wrapper.eq(&quot;id&quot;,comic.getTypeoneid());
     comicTypeVO.setTypeone(comicTypeMapper.selectOne(wrapper).getName());
 
-    wrapper=new QueryWrapper&lt;&gt;();
+    wrapper&#x3D;new QueryWrapper&lt;&gt;();
     wrapper.eq(&quot;id&quot;,comic.getTypetwoid());
     comicTypeVO.setTypetwo(comicTypeMapper.selectOne(wrapper).getName());
 
-    wrapper = new QueryWrapper&lt;&gt;();
+    wrapper &#x3D; new QueryWrapper&lt;&gt;();
     wrapper.eq(&quot;id&quot;,comic.getTypethreeid());
     comicTypeVO.setTypethree(comicTypeMapper.selectOne(wrapper).getName());
 
     return comicTypeVO;
 &#125;
 
-//传回对象，根据对象的id修改数据
+&#x2F;&#x2F;传回对象，根据对象的id修改数据
 @Override
 public int doUpdate(ComicTypeVO comicTypeVO) &#123;
-    Comic comic = new Comic();
+    Comic comic &#x3D; new Comic();
     BeanUtils.copyProperties(comicTypeVO, comic);
 
-    QueryWrapper&lt;ComicType&gt; wrapper = new QueryWrapper&lt;&gt;();
+    QueryWrapper&lt;ComicType&gt; wrapper &#x3D; new QueryWrapper&lt;&gt;();
 
     wrapper.eq(&quot;name&quot;, comicTypeVO.getTypeone());
     System.out.println(comicTypeVO.getTypeone());
     comic.setTypeoneid(comicTypeMapper.selectOne(wrapper).getId());
 
-    wrapper = new QueryWrapper&lt;&gt;();
+    wrapper &#x3D; new QueryWrapper&lt;&gt;();
     wrapper.eq(&quot;name&quot;, comicTypeVO.getTypetwo());
     comic.setTypetwoid(comicTypeMapper.selectOne(wrapper).getId());
 
-    wrapper = new QueryWrapper&lt;&gt;();
+    wrapper &#x3D; new QueryWrapper&lt;&gt;();
     wrapper.eq(&quot;name&quot;, comicTypeVO.getTypethree());
     comic.setTypethreeid(comicTypeMapper.selectOne(wrapper).getId());
 
     System.out.println(&quot;最后是+++&quot;+comic);
 
-    int res = comicMapper.updateById(comic);
+    int res &#x3D; comicMapper.updateById(comic);
     return res;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p>Controller层：</p>
-<pre><code class="java">@GetMapping(&quot;/updateData/&#123;id&#125;&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@GetMapping(&quot;&#x2F;updateData&#x2F;&#123;id&#125;&quot;)
 public ComicTypeVO updataData(@PathVariable Integer id)&#123;
     return comicService.getDataById(id);
 &#125;
 
-@PostMapping(&quot;/updateData&quot;)
+@PostMapping(&quot;&#x2F;updateData&quot;)
 public String doUpdate(@RequestBody ComicTypeVO comicTypeVO)&#123;
-    int res = comicService.doUpdate(comicTypeVO);
-    if (res == 1)&#123;
+    int res &#x3D; comicService.doUpdate(comicTypeVO);
+    if (res &#x3D;&#x3D; 1)&#123;
         return &quot;success&quot;;
     &#125;else &#123;
         return &quot;error&quot;;
     &#125;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
+
+
 <h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><p>列表页面JS前端处理删除操作：</p>
-<pre><code class="html">&lt;el-button @click=&quot;deleteById(scope.row.id)&quot; type=&quot;text&quot; size=&quot;small&quot;&gt;删除&lt;/el-button&gt;
-</code></pre>
-<pre><code class="js">deleteById(id)&#123;
-  // alert(id);
-  axios.delete(&quot;http://localhost:8181/delete/&quot;+id).then(res=&gt;(
-    console.log(res),
-    this.$message(&#123;
-      message:&quot;删除成功-_-#&quot;,
-      type:&quot;success&quot;
-    &#125;),
-    window.location.reload()        //删除成功后，刷新页面，然删掉的数据不在显示
-  ))
-&#125;,
-</code></pre>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>deleteById(scope.row.id)<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>small<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>删除<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">></span></span></code></pre>
+
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">deleteById</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+  <span class="token comment">// alert(id);</span>
+  axios<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token string">"http://localhost:8181/delete/"</span><span class="token operator">+</span>id<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token operator">=></span><span class="token punctuation">(</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      message<span class="token operator">:</span><span class="token string">"删除成功-_-#"</span><span class="token punctuation">,</span>
+      type<span class="token operator">:</span><span class="token string">"success"</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    window<span class="token punctuation">.</span>location<span class="token punctuation">.</span><span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span>        <span class="token comment">//删除成功后，刷新页面，然删掉的数据不在显示</span>
+  <span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span></code></pre>
+
+
+
 <p>后端处理：</p>
-<pre><code class="java">@DeleteMapping(&quot;/delete/&#123;id&#125;&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@DeleteMapping(&quot;&#x2F;delete&#x2F;&#123;id&#125;&quot;)
 public String deleteById(@PathVariable Integer id)&#123;
-    int res = comicMapper.deleteById(id);
-    if (res==1)&#123;
+    int res &#x3D; comicMapper.deleteById(id);
+    if (res&#x3D;&#x3D;1)&#123;
         return &quot;success&quot;;
     &#125;else &#123;
         return &quot;error&quot;;
     &#125;
-&#125;
-</code></pre>
- 
+&#125;</code></pre> 
       <!-- reward -->
       
     </div>
@@ -1258,20 +1261,20 @@ public String deleteById(@PathVariable Integer id)&#123;
 </ol>
 <h1 id="二、Shiro运行机制"><a href="#二、Shiro运行机制" class="headerlink" title="二、Shiro运行机制"></a>二、Shiro运行机制</h1><p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510192248.png" alt="image-20210312131717372"></p>
 <hr>
-<h1 id="三、Spring-boot整合Shiro"><a href="#三、Spring-boot整合Shiro" class="headerlink" title="三、Spring boot整合Shiro"></a>三、Spring boot整合Shiro</h1><h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h2><h3 id="2-1-引入相关依赖"><a href="#2-1-引入相关依赖" class="headerlink" title="2.1 引入相关依赖"></a>2.1 引入相关依赖</h3><pre><code class="xml">&lt;!--Shiro-Spring--&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.apache.shiro&lt;/groupId&gt;
-    &lt;artifactId&gt;shiro-spring&lt;/artifactId&gt;
-    &lt;version&gt;1.7.1&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
+<h1 id="三、Spring-boot整合Shiro"><a href="#三、Spring-boot整合Shiro" class="headerlink" title="三、Spring boot整合Shiro"></a>三、Spring boot整合Shiro</h1><h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h2><h3 id="2-1-引入相关依赖"><a href="#2-1-引入相关依赖" class="headerlink" title="2.1 引入相关依赖"></a>2.1 引入相关依赖</h3><pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--Shiro-Spring--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.shiro<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>shiro-spring<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.7.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+
 <blockquote>
 <p>mvn clean install        构建项目检查</p>
 </blockquote>
 <h3 id="2-2-配置数据源"><a href="#2-2-配置数据源" class="headerlink" title="2.2 配置数据源"></a>2.2 配置数据源</h3><p>数据库：表名Account</p>
 <p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210510192459.png" alt="image-20210510192459186"></p>
 <h3 id="2-3-创建实体类"><a href="#2-3-创建实体类" class="headerlink" title="2.3 创建实体类"></a>2.3 创建实体类</h3><h2 id="2-自定义Shiro过滤器"><a href="#2-自定义Shiro过滤器" class="headerlink" title="2. 自定义Shiro过滤器"></a>2. 自定义Shiro过滤器</h2><p>在realm包下创建AccountRealm类</p>
-<pre><code class="java">package lover.alice.realm;
+<pre class="language-java" data-language="java"><code class="language-java">package lover.alice.realm;
 
 import lover.alice.entity.Account;
 import lover.alice.service.AccountService;
@@ -1281,45 +1284,45 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class AccountRealm extends AuthorizingRealm &#123;        //继承这个类，并且实现其中的两个方法
+public class AccountRealm extends AuthorizingRealm &#123;		&#x2F;&#x2F;继承这个类，并且实现其中的两个方法
 
     @Autowired
     AccountService accountService;
-    /**
+    &#x2F;**
      * 授权
-     */
+     *&#x2F;
     @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection)     &#123;
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) 	&#123;
         return null;
     &#125;
     
-    /**
+    &#x2F;**
      * 认证
      * 登录验证
-     */
+     *&#x2F;
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException &#123;
 
-        //拿到一个token，封装拿到的username和password，
-        //这个token已经传进来了就是authenticationToken，给他强转成UsernamePasswordToken。
-        UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
-        //拿到token中传来的username，在数据库中查出对应的Account
-        Account account = accountService.getAccountByName(token.getUsername());
-        if (account!=null)&#123;       //判断用户名存在
-            /**
+        &#x2F;&#x2F;拿到一个token，封装拿到的username和password，
+        &#x2F;&#x2F;这个token已经传进来了就是authenticationToken，给他强转成UsernamePasswordToken。
+        UsernamePasswordToken token &#x3D; (UsernamePasswordToken) authenticationToken;
+        &#x2F;&#x2F;拿到token中传来的username，在数据库中查出对应的Account
+        Account account &#x3D; accountService.getAccountByName(token.getUsername());
+        if (account!&#x3D;null)&#123;       &#x2F;&#x2F;判断用户名存在
+            &#x2F;**
              * 进行密码验证，用这个方法 SimpleAuthenticationInfo() 直接进行密码验证，直接返回这个对象
              * 参数一：通过用户名查出来的对象
              * 参数二：正确的密码
              * 参数三：getName()
-             */
+             *&#x2F;
             return new SimpleAuthenticationInfo(account,account.getPassword(),getName());
         &#125;
         return null;
     &#125;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <h2 id="3-配置类config"><a href="#3-配置类config" class="headerlink" title="3. 配置类config"></a>3. 配置类config</h2><p>进行配置才能生效</p>
-<pre><code class="java">package lover.alice.config;
+<pre class="language-java" data-language="java"><code class="language-java">package lover.alice.config;
 
 import lover.alice.realm.AccountRealm;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -1331,36 +1334,36 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ShiroConfig &#123;
 
-    /**
+    &#x2F;**
      * 创建一个AccountRealm对象并且通过 @Bean 把他放到IOC容器中
      * 因为开发者自定义的Realm需要注入到 DefaultWebSecurityManager 进行管理才能生效。
      * 所以下一步
-     */
+     *&#x2F;
     @Bean
     public AccountRealm accountRealm()&#123;
         return new AccountRealm();
     &#125;
 
-    /**
+    &#x2F;**
      * @param accountRealm  上一步注册到IOC中的对象，现在通过 @Qualifier 取出来并且注入到DefaultWebSecurityManager中
      * @Qualifier 通过对象的名字，从容器中取出需要的对象，名字默认是方法名
      * 同样要把它注入到IOC容器中，供最后干事的 ShiroFilterFactoryBean 使用
      * 所以下一步
-     */
+     *&#x2F;
     @Bean
     public DefaultWebSecurityManager securityManager(@Qualifier(&quot;accountRealm&quot;) AccountRealm accountRealm)&#123;
-        DefaultWebSecurityManager manager = new DefaultWebSecurityManager();
+        DefaultWebSecurityManager manager &#x3D; new DefaultWebSecurityManager();
         manager.setRealm(accountRealm);
         return manager;
     &#125;
 
-    /**
+    &#x2F;**
      * @Qualifier 同样通过它拿到 securityManager ，
      * 注入进 ShiroFilterFactoryBean 即可
-     */
+     *&#x2F;
     @Bean
     public ShiroFilterFactoryBean shiroFilterFactoryBean(@Qualifier(&quot;securityManager&quot;) DefaultWebSecurityManager securityManager)&#123;
-        ShiroFilterFactoryBean factoryBean = new ShiroFilterFactoryBean();
+        ShiroFilterFactoryBean factoryBean &#x3D; new ShiroFilterFactoryBean();
         factoryBean.setSecurityManager(securityManager);
         return factoryBean;
     &#125;
@@ -1368,6 +1371,7 @@ public class ShiroConfig &#123;
 
 &#125;
 </code></pre>
+
 <h2 id="4-认证和授权"><a href="#4-认证和授权" class="headerlink" title="4. 认证和授权"></a>4. 认证和授权</h2><blockquote>
 <p>认证过滤器：</p>
 </blockquote>
@@ -1392,54 +1396,54 @@ public class ShiroConfig &#123;
 </blockquote>
 <h3 id="5-1-配置类中配置"><a href="#5-1-配置类中配置" class="headerlink" title="5.1 配置类中配置"></a>5.1 配置类中配置</h3><p><strong>在config配置类中</strong>，对访问三个页面的 <strong>请求</strong> 进行限制</p>
 <p>操作的是**<code>ShiroFilterFactoryBean</code><strong>方法中的</strong><code>factoryBean</code>**对象</p>
-<pre><code class="java">@Bean
+<pre class="language-java" data-language="java"><code class="language-java">@Bean
 public ShiroFilterFactoryBean shiroFilterFactoryBean(@Qualifier(&quot;securityManager&quot;) DefaultWebSecurityManager securityManager)&#123;
-    ShiroFilterFactoryBean factoryBean = new ShiroFilterFactoryBean();
+    ShiroFilterFactoryBean factoryBean &#x3D; new ShiroFilterFactoryBean();
     factoryBean.setSecurityManager(securityManager);
 
-    //权限设置，限制请求的访问权限
-    Map&lt;String,String&gt; map = new HashMap&lt;&gt;();               //规则存放在HashMap中
-    map.put(&quot;/main&quot;,&quot;authc&quot;);                               
-    //必须登录才能访问 main.html(&quot;/main&quot;请求)
-    map.put(&quot;/manager&quot;,&quot;perms[manager]&quot;);                   
-    //当前用户必须拥有 manage 授权才能访问 manage.html(&quot;/manager&quot;请求)
-    map.put(&quot;/administrator&quot;,&quot;roles[administrator]&quot;);       
-    //当前用户必须拥有 administrator 角色才能访问 administrator.html(&quot;/administrator&quot;请求)
-    factoryBean.setFilterChainDefinitionMap(map);           //把定义好的规则放进去
+    &#x2F;&#x2F;权限设置，限制请求的访问权限
+    Map&lt;String,String&gt; map &#x3D; new HashMap&lt;&gt;();               &#x2F;&#x2F;规则存放在HashMap中
+    map.put(&quot;&#x2F;main&quot;,&quot;authc&quot;);                               
+    &#x2F;&#x2F;必须登录才能访问 main.html(&quot;&#x2F;main&quot;请求)
+    map.put(&quot;&#x2F;manager&quot;,&quot;perms[manager]&quot;);                   
+    &#x2F;&#x2F;当前用户必须拥有 manage 授权才能访问 manage.html(&quot;&#x2F;manager&quot;请求)
+    map.put(&quot;&#x2F;administrator&quot;,&quot;roles[administrator]&quot;);       
+    &#x2F;&#x2F;当前用户必须拥有 administrator 角色才能访问 administrator.html(&quot;&#x2F;administrator&quot;请求)
+    factoryBean.setFilterChainDefinitionMap(map);           &#x2F;&#x2F;把定义好的规则放进去
     
-    //设置登录页面
-    factoryBean.setLoginUrl(&quot;/login&quot;);
+    &#x2F;&#x2F;设置登录页面
+    factoryBean.setLoginUrl(&quot;&#x2F;login&quot;);
     
     return factoryBean;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p>这样就对访问这三个页面的<strong>请求</strong>进行了限制</p>
 <p>这样再访问的话，就会默认自动跳转到 login.jsp 页面，但是我们没有这样的页面，</p>
 <p><strong>需要定制一个login页面并且把没有权限访问的请求自动跳转到我们定制的login页面</strong></p>
 <p>要写一个login页面，Controller要有一个”/login”请求到这个页面，</p>
 <p>然后配置</p>
-<pre><code class="java">factoryBean.setLoginUrl(&quot;/login&quot;);
-</code></pre>
-<h3 id="5-2-处理login登录验证的Controller"><a href="#5-2-处理login登录验证的Controller" class="headerlink" title="5.2 处理login登录验证的Controller"></a>5.2 处理login登录验证的Controller</h3><pre><code class="java">@GetMapping(&quot;&#123;url&#125;&quot;)                            //转到页面的处理
+<pre class="language-java" data-language="java"><code class="language-java">factoryBean.setLoginUrl(&quot;&#x2F;login&quot;);</code></pre>
+
+<h3 id="5-2-处理login登录验证的Controller"><a href="#5-2-处理login登录验证的Controller" class="headerlink" title="5.2 处理login登录验证的Controller"></a>5.2 处理login登录验证的Controller</h3><pre class="language-java" data-language="java"><code class="language-java">@GetMapping(&quot;&#123;url&#125;&quot;)                            &#x2F;&#x2F;转到页面的处理
 public String tourl(@PathVariable String url)&#123;
     return url;
 &#125;
 
-@PostMapping(&quot;/login&quot;)
+@PostMapping(&quot;&#x2F;login&quot;)
 public String login(String username, String password, Model model)&#123;
-    //使用 Shiro 进行处理
-    //拿到Subject： Shiro的一个抽象概念，包含了用户信息。
-    Subject subject = SecurityUtils.getSubject();
-    //把用户输入的信息传到token中封装
-    UsernamePasswordToken token = new UsernamePasswordToken(username,password);
-    /**
+    &#x2F;&#x2F;使用 Shiro 进行处理
+    &#x2F;&#x2F;拿到Subject： Shiro的一个抽象概念，包含了用户信息。
+    Subject subject &#x3D; SecurityUtils.getSubject();
+    &#x2F;&#x2F;把用户输入的信息传到token中封装
+    UsernamePasswordToken token &#x3D; new UsernamePasswordToken(username,password);
+    &#x2F;**
      * 执行了下面这一步，就会把登录请求交给Shiro去做，
      * 进入到 AccountRealm 中，对拿到的token，对比数据库，执行登录验证的操作，
      * 在 AccountRealm 中执行时，
      * 用户名错误，也就是根据用户名查不到数据库中对应的对象，会返回UnknownAccountException异常
      * 密码错误，返回IncorrectCredentialsException异常
      * 我们可以在这里捕获异常，并返回给登录页面错误信息提示
-     */
+     *&#x2F;
     try &#123;
         subject.login(token);
         return &quot;index&quot;;
@@ -1453,113 +1457,115 @@ public String login(String username, String password, Model model)&#123;
         return &quot;login&quot;;
     &#125;
 
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <h3 id="5-3-授权"><a href="#5-3-授权" class="headerlink" title="5.3 授权"></a>5.3 授权</h3><blockquote>
 <p>使用Set集合，防止重复。</p>
 </blockquote>
-<pre><code class="java">    /**
+<pre class="language-java" data-language="java"><code class="language-java">	&#x2F;**
      * 授权
-     */
+     *&#x2F;
 @Override
 protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) &#123;
 
-    //获取当前登录的用户信息
-    Subject subject = SecurityUtils.getSubject();
-    Account account = (Account) subject.getPrincipal();                 
-    //把认证时传进去的 account 对象拿出来，这是登陆成功才会传进去的对象
+    &#x2F;&#x2F;获取当前登录的用户信息
+    Subject subject &#x3D; SecurityUtils.getSubject();
+    Account account &#x3D; (Account) subject.getPrincipal();                 
+    &#x2F;&#x2F;把认证时传进去的 account 对象拿出来，这是登陆成功才会传进去的对象
 
-    //设置角色
-    Set&lt;String&gt; roles = new HashSet&lt;&gt;();
-    roles.add(account.getRole());                  //获取数据库中存放的用户的角色信息，加到集合中
-    SimpleAuthorizationInfo info = new SimpleAuthorizationInfo(roles);  
-    //将用户的角色信息上传到SimpleAuthorizationInfo中
+    &#x2F;&#x2F;设置角色
+    Set&lt;String&gt; roles &#x3D; new HashSet&lt;&gt;();
+    roles.add(account.getRole());                  &#x2F;&#x2F;获取数据库中存放的用户的角色信息，加到集合中
+    SimpleAuthorizationInfo info &#x3D; new SimpleAuthorizationInfo(roles);  
+    &#x2F;&#x2F;将用户的角色信息上传到SimpleAuthorizationInfo中
 
-    //设置权限
-    info.addStringPermission(account.getPerms());   //获取数据库中的权限信息，上传到SimpleAuthorizationInfo中
+    &#x2F;&#x2F;设置权限
+    info.addStringPermission(account.getPerms());   &#x2F;&#x2F;获取数据库中的权限信息，上传到SimpleAuthorizationInfo中
 
-    //上传
+    &#x2F;&#x2F;上传
     return info;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
+
+
 <h3 id="5-补充操作"><a href="#5-补充操作" class="headerlink" title="5.+ 补充操作"></a>5.+ 补充操作</h3><p>==登陆成功后，拿已登录用户的数据，从 <strong>Subject</strong> 中拿==</p>
 <p>==Subject自带Session对象，不用HttpSession获取，直接用==</p>
 <h4 id="1）未授权页面"><a href="#1）未授权页面" class="headerlink" title="1）未授权页面"></a>1）未授权页面</h4><p>如果登录的用户没有对页面的访问权限，返回到未授权页面。</p>
 <p>config中添加配置</p>
-<pre><code class="java">//设置未授权页面，没权限访问的话，跳到这个请求
-factoryBean.setUnauthorizedUrl(&quot;/unauth&quot;);
-</code></pre>
+<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;设置未授权页面，没权限访问的话，跳到这个请求
+factoryBean.setUnauthorizedUrl(&quot;&#x2F;unauth&quot;);</code></pre>
+
 <p>Controller中处理</p>
-<pre><code class="java">@GetMapping(&quot;/unauth&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@GetMapping(&quot;&#x2F;unauth&quot;)
 @ResponseBody
 public String unauth()&#123;
     return &quot;未授权，无法访问！&quot;;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <h4 id="2）显示当前登录用户操作"><a href="#2）显示当前登录用户操作" class="headerlink" title="2）显示当前登录用户操作"></a>2）显示当前登录用户操作</h4><p>登录成功后，向Subject中自带的Session对象中存入已登录的用户，主页通过取Session中的数据显示</p>
 <p>Controller进行修改</p>
-<pre><code class="java">try &#123;
+<pre class="language-java" data-language="java"><code class="language-java">try &#123;
     subject.login(token);
 
-    //拿到登录成功的用户的信息，存到Session中
-    Account account = (Account) subject.getPrincipal();
+    &#x2F;&#x2F;拿到登录成功的用户的信息，存到Session中
+    Account account &#x3D; (Account) subject.getPrincipal();
     subject.getSession().setAttribute(&quot;account&quot;,account);
 
     return &quot;index&quot;;
-&#125;
-</code></pre>
+&#125;</code></pre>
+
 <p>主页显示</p>
-<pre><code class="html">&lt;span th:text=&quot;$&#123;session.account.username&#125;+&#39;欢迎回来！&#39;&quot;&gt;&lt;/span&gt;
-</code></pre>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;session.account.username&#125;+<span class="token punctuation">'</span>欢迎回来！<span class="token punctuation">'</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></code></pre>
+
 <h4 id="3）退出已登录用户"><a href="#3）退出已登录用户" class="headerlink" title="3）退出已登录用户"></a>3）退出已登录用户</h4><p>退出已登录用户，然后返回到登陆页面</p>
-<pre><code class="html">a href=&quot;/logout&quot;&gt;退出&lt;/a&gt;
-</code></pre>
+<pre class="language-markup" data-language="markup"><code class="language-markup">a href="/logout">退出<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span></code></pre>
+
 <p>Controller如下</p>
-<pre><code class="java">@GetMapping(&quot;/logout&quot;)
+<pre class="language-java" data-language="java"><code class="language-java">@GetMapping(&quot;&#x2F;logout&quot;)
     public String logout()&#123;
-        Subject subject = SecurityUtils.getSubject();
-//        subject.getSession().removeAttribute(&quot;account&quot;);
-        subject.logout();  //直接调这个方法 ，直接销毁Session
+        Subject subject &#x3D; SecurityUtils.getSubject();
+&#x2F;&#x2F;        subject.getSession().removeAttribute(&quot;account&quot;);
+        subject.logout();  &#x2F;&#x2F;直接调这个方法 ，直接销毁Session
         return &quot;login&quot;;
-    &#125;
-</code></pre>
-<h2 id="6-Shiro整合thymeleaf"><a href="#6-Shiro整合thymeleaf" class="headerlink" title="6. Shiro整合thymeleaf"></a>6. Shiro整合thymeleaf</h2><h3 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a><strong>引入依赖</strong></h3><pre><code class="xml">&lt;dependency&gt;
-    &lt;groupId&gt;com.github.theborakompanioni&lt;/groupId&gt;
-    &lt;artifactId&gt;thymeleaf-extras-shiro&lt;/artifactId&gt;
-    &lt;version&gt;2.0.0&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
-<h3 id="配置方言ShiroDialect"><a href="#配置方言ShiroDialect" class="headerlink" title="配置方言ShiroDialect"></a>配置方言ShiroDialect</h3><pre><code class="java">@Bean
+    &#125;</code></pre>
+
+<h2 id="6-Shiro整合thymeleaf"><a href="#6-Shiro整合thymeleaf" class="headerlink" title="6. Shiro整合thymeleaf"></a>6. Shiro整合thymeleaf</h2><h3 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a><strong>引入依赖</strong></h3><pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.github.theborakompanioni<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>thymeleaf-extras-shiro<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.0.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+
+<h3 id="配置方言ShiroDialect"><a href="#配置方言ShiroDialect" class="headerlink" title="配置方言ShiroDialect"></a>配置方言ShiroDialect</h3><pre class="language-java" data-language="java"><code class="language-java">@Bean
 public ShiroDialect shiroDialect()&#123;
     return new ShiroDialect();
-&#125;
-</code></pre>
-<p>配置的方言Bean，thymeleaf模板才能识别Shiro的方言配置</p>
-<h3 id="引入命名空间"><a href="#引入命名空间" class="headerlink" title="引入命名空间"></a>引入命名空间</h3><pre><code class="html">xmlns:shiro=&quot;http://www.pollix.at/thymeleaf/shiro&quot;
-</code></pre>
-<h3 id="主页编写"><a href="#主页编写" class="headerlink" title="主页编写"></a>主页编写</h3><pre><code class="html">&lt;a href=&quot;/main&quot;&gt;main&lt;/a&gt; &lt;br/&gt;
-&lt;div shiro:hasPermission=&quot;manage&quot;&gt;             &lt;!--有对应权限才显示该标签--&gt;
-    &lt;a href=&quot;manage&quot;&gt;manage&lt;/a&gt; &lt;br/&gt;
-&lt;/div&gt;
-&lt;div shiro:hasRole=&quot;administrator&quot;&gt;             &lt;!--有对应角色才显示该标签--&gt;
-    &lt;a href=&quot;/administrator&quot;&gt;administrator&lt;/a&gt;
-&lt;/div&gt;
-</code></pre>
-<h1 id="四、核心代码总结"><a href="#四、核心代码总结" class="headerlink" title="四、核心代码总结"></a>四、核心代码总结</h1><h2 id="1-pom依赖"><a href="#1-pom依赖" class="headerlink" title="1. pom依赖"></a>1. pom依赖</h2><pre><code class="xml">&lt;!-- Shiro-thymeleaf  --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;com.github.theborakompanioni&lt;/groupId&gt;
-    &lt;artifactId&gt;thymeleaf-extras-shiro&lt;/artifactId&gt;
-    &lt;version&gt;2.0.0&lt;/version&gt;
-&lt;/dependency&gt;
+&#125;</code></pre>
 
-&lt;!--Shiro-Spring--&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.apache.shiro&lt;/groupId&gt;
-    &lt;artifactId&gt;shiro-spring&lt;/artifactId&gt;
-    &lt;version&gt;1.7.1&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
-<h2 id="2-Realm类"><a href="#2-Realm类" class="headerlink" title="2. Realm类"></a>2. Realm类</h2><pre><code class="java">package lover.alice.realm;
+<p>配置的方言Bean，thymeleaf模板才能识别Shiro的方言配置</p>
+<h3 id="引入命名空间"><a href="#引入命名空间" class="headerlink" title="引入命名空间"></a>引入命名空间</h3><pre class="language-markup" data-language="markup"><code class="language-markup">xmlns:shiro="http://www.pollix.at/thymeleaf/shiro"</code></pre>
+
+<h3 id="主页编写"><a href="#主页编写" class="headerlink" title="主页编写"></a>主页编写</h3><pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/main<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>main<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name"><span class="token namespace">shiro:</span>hasPermission</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>manage<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>             <span class="token comment">&lt;!--有对应权限才显示该标签--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>manage<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>manage<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name"><span class="token namespace">shiro:</span>hasRole</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>administrator<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>             <span class="token comment">&lt;!--有对应角色才显示该标签--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/administrator<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>administrator<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+
+<h1 id="四、核心代码总结"><a href="#四、核心代码总结" class="headerlink" title="四、核心代码总结"></a>四、核心代码总结</h1><h2 id="1-pom依赖"><a href="#1-pom依赖" class="headerlink" title="1. pom依赖"></a>1. pom依赖</h2><pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!-- Shiro-thymeleaf  --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.github.theborakompanioni<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>thymeleaf-extras-shiro<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.0.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+
+<span class="token comment">&lt;!--Shiro-Spring--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.shiro<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>shiro-spring<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.7.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+
+<h2 id="2-Realm类"><a href="#2-Realm类" class="headerlink" title="2. Realm类"></a>2. Realm类</h2><pre class="language-java" data-language="java"><code class="language-java">package lover.alice.realm;
 
 import lover.alice.entity.Account;
 import lover.alice.service.AccountService;
@@ -1579,54 +1585,55 @@ public class AccountRealm extends AuthorizingRealm &#123;
 
     @Autowired
     AccountService accountService;
-    /**
+    &#x2F;**
      * 授权
-     */
+     *&#x2F;
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) &#123;
 
-        //获取当前登录的用户信息
-        Subject subject = SecurityUtils.getSubject();
-        Account account = (Account) subject.getPrincipal();                 //把认证时传进去的 account 对象拿出来，这是登陆成功才会传进去的对象
+        &#x2F;&#x2F;获取当前登录的用户信息
+        Subject subject &#x3D; SecurityUtils.getSubject();
+        Account account &#x3D; (Account) subject.getPrincipal();                 &#x2F;&#x2F;把认证时传进去的 account 对象拿出来，这是登陆成功才会传进去的对象
 
-        //设置角色
-        Set&lt;String&gt; roles = new HashSet&lt;&gt;();
-        roles.add(account.getRole());                  //获取数据库中存放的用户的角色信息，加到集合中
-        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo(roles);  //将用户的角色信息上传到SimpleAuthorizationInfo中
+        &#x2F;&#x2F;设置角色
+        Set&lt;String&gt; roles &#x3D; new HashSet&lt;&gt;();
+        roles.add(account.getRole());                  &#x2F;&#x2F;获取数据库中存放的用户的角色信息，加到集合中
+        SimpleAuthorizationInfo info &#x3D; new SimpleAuthorizationInfo(roles);  &#x2F;&#x2F;将用户的角色信息上传到SimpleAuthorizationInfo中
 
-        //设置权限
-        info.addStringPermission(account.getPerms());   //获取数据库中的权限信息，上传到SimpleAuthorizationInfo中
+        &#x2F;&#x2F;设置权限
+        info.addStringPermission(account.getPerms());   &#x2F;&#x2F;获取数据库中的权限信息，上传到SimpleAuthorizationInfo中
 
-        //上传
+        &#x2F;&#x2F;上传
         return info;
     &#125;
 
-    /**
+    &#x2F;**
      * 认证
      * 登录验证
-     */
+     *&#x2F;
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException &#123;
 
-        //拿到一个token，封装拿到的username和password，
-        //这个token已经传进来了就是authenticationToken，给他强转成UsernamePasswordToken。
-        UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
-        //拿到token中传来的username，在数据库中查出对应的Account
-        Account account = accountService.getAccountByName(token.getUsername());
-        if (account!=null)&#123;       //判断用户名存在
-            /**
+        &#x2F;&#x2F;拿到一个token，封装拿到的username和password，
+        &#x2F;&#x2F;这个token已经传进来了就是authenticationToken，给他强转成UsernamePasswordToken。
+        UsernamePasswordToken token &#x3D; (UsernamePasswordToken) authenticationToken;
+        &#x2F;&#x2F;拿到token中传来的username，在数据库中查出对应的Account
+        Account account &#x3D; accountService.getAccountByName(token.getUsername());
+        if (account!&#x3D;null)&#123;       &#x2F;&#x2F;判断用户名存在
+            &#x2F;**
              * 进行密码验证，用这个方法 SimpleAuthenticationInfo() 直接进行密码验证，直接返回这个对象
              * 参数一：被验证的对象
              * 参数二：正确的密码
              * 参数三：getName()
-             */
+             *&#x2F;
             return new SimpleAuthenticationInfo(account,account.getPassword(),getName());
         &#125;
         return null;
     &#125;
 &#125;
 </code></pre>
-<h2 id="3-config配置类"><a href="#3-config配置类" class="headerlink" title="3. config配置类"></a>3. config配置类</h2><pre><code class="java">package lover.alice.config;
+
+<h2 id="3-config配置类"><a href="#3-config配置类" class="headerlink" title="3. config配置类"></a>3. config配置类</h2><pre class="language-java" data-language="java"><code class="language-java">package lover.alice.config;
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import lover.alice.realm.AccountRealm;
@@ -1642,49 +1649,49 @@ import java.util.Map;
 @Configuration
 public class ShiroConfig &#123;
 
-    /**
+    &#x2F;**
      * 创建一个AccountRealm对象并且通过 @Bean 把他放到IOC容器中
      * 因为开发者自定义的Realm需要注入到 DefaultWebSecurityManager 进行管理才能生效。
      * 所以下一步
-     */
+     *&#x2F;
     @Bean
     public AccountRealm accountRealm()&#123;
         return new AccountRealm();
     &#125;
 
-    /**
+    &#x2F;**
      * @param accountRealm  上一步注册到IOC中的对象，现在通过 @Qualifier 取出来并且注入到DefaultWebSecurityManager中
      * @Qualifier 通过对象的名字，从容器中取出需要的对象，名字默认是方法名
      * 同样要把它注入到IOC容器中，供最后干事的 ShiroFilterFactoryBean 使用
      * 所以下一步
-     */
+     *&#x2F;
     @Bean
     public DefaultWebSecurityManager securityManager(@Qualifier(&quot;accountRealm&quot;) AccountRealm accountRealm)&#123;
-        DefaultWebSecurityManager manager = new DefaultWebSecurityManager();
+        DefaultWebSecurityManager manager &#x3D; new DefaultWebSecurityManager();
         manager.setRealm(accountRealm);
         return manager;
     &#125;
 
-    /**
+    &#x2F;**
      * @Qualifier 同样通过它拿到 securityManager ，
      * 注入进 ShiroFilterFactoryBean 即可
-     */
+     *&#x2F;
     @Bean
     public ShiroFilterFactoryBean shiroFilterFactoryBean(@Qualifier(&quot;securityManager&quot;) DefaultWebSecurityManager securityManager)&#123;
-        ShiroFilterFactoryBean factoryBean = new ShiroFilterFactoryBean();
+        ShiroFilterFactoryBean factoryBean &#x3D; new ShiroFilterFactoryBean();
         factoryBean.setSecurityManager(securityManager);
 
-        //权限设置，限制请求的访问权限
-        Map&lt;String,String&gt; map = new HashMap&lt;&gt;();               //规则存放在HashMap中
-        map.put(&quot;/main&quot;,&quot;authc&quot;);                               //必须登录才能访问 main.html(&quot;/main&quot;请求)
-        map.put(&quot;/manage&quot;,&quot;perms[manage]&quot;);                     //当前用户必须拥有 manage 授权才能访问 manage.html(&quot;/manager&quot;请求)
-        map.put(&quot;/administrator&quot;,&quot;roles[administrator]&quot;);       //当前用户必须拥有 administrator 角色才能访问 administrator.html(&quot;/administrator&quot;请求)
-        factoryBean.setFilterChainDefinitionMap(map);           //把定义好的规则放进去
-        //设置登录页面
-        factoryBean.setLoginUrl(&quot;/login&quot;);
+        &#x2F;&#x2F;权限设置，限制请求的访问权限
+        Map&lt;String,String&gt; map &#x3D; new HashMap&lt;&gt;();               &#x2F;&#x2F;规则存放在HashMap中
+        map.put(&quot;&#x2F;main&quot;,&quot;authc&quot;);                               &#x2F;&#x2F;必须登录才能访问 main.html(&quot;&#x2F;main&quot;请求)
+        map.put(&quot;&#x2F;manage&quot;,&quot;perms[manage]&quot;);                     &#x2F;&#x2F;当前用户必须拥有 manage 授权才能访问 manage.html(&quot;&#x2F;manager&quot;请求)
+        map.put(&quot;&#x2F;administrator&quot;,&quot;roles[administrator]&quot;);       &#x2F;&#x2F;当前用户必须拥有 administrator 角色才能访问 administrator.html(&quot;&#x2F;administrator&quot;请求)
+        factoryBean.setFilterChainDefinitionMap(map);           &#x2F;&#x2F;把定义好的规则放进去
+        &#x2F;&#x2F;设置登录页面
+        factoryBean.setLoginUrl(&quot;&#x2F;login&quot;);
 
-        //设置未授权页面，没权限访问的话，跳到这
-        factoryBean.setUnauthorizedUrl(&quot;/unauth&quot;);
+        &#x2F;&#x2F;设置未授权页面，没权限访问的话，跳到这
+        factoryBean.setUnauthorizedUrl(&quot;&#x2F;unauth&quot;);
 
         return factoryBean;
     &#125;
@@ -1695,9 +1702,9 @@ public class ShiroConfig &#123;
     &#125;
 
 
-&#125;
-</code></pre>
-<h2 id="4-Controller层"><a href="#4-Controller层" class="headerlink" title="4. Controller层"></a>4. Controller层</h2><pre><code class="java">package lover.alice.controller;
+&#125;</code></pre>
+
+<h2 id="4-Controller层"><a href="#4-Controller层" class="headerlink" title="4. Controller层"></a>4. Controller层</h2><pre class="language-java" data-language="java"><code class="language-java">package lover.alice.controller;
 
 import lover.alice.entity.Account;
 import org.apache.shiro.SecurityUtils;
@@ -1712,31 +1719,31 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ShiroController &#123;
-    @GetMapping(&quot;&#123;url&#125;&quot;)                            //转到页面的处理
+    @GetMapping(&quot;&#123;url&#125;&quot;)                            &#x2F;&#x2F;转到页面的处理
     public String tourl(@PathVariable String url)&#123;
         return url;
     &#125;
 
-    @PostMapping(&quot;/login&quot;)
+    @PostMapping(&quot;&#x2F;login&quot;)
     public String login(String username, String password, Model model)&#123;
-        //使用 Shiro 进行处理
-        //拿到Subject： Shiro的一个抽象概念，包含了用户信息。
-        Subject subject = SecurityUtils.getSubject();
-        //把用户输入的信息传到token中封装
-        UsernamePasswordToken token = new UsernamePasswordToken(username,password);
-        /**
+        &#x2F;&#x2F;使用 Shiro 进行处理
+        &#x2F;&#x2F;拿到Subject： Shiro的一个抽象概念，包含了用户信息。
+        Subject subject &#x3D; SecurityUtils.getSubject();
+        &#x2F;&#x2F;把用户输入的信息传到token中封装
+        UsernamePasswordToken token &#x3D; new UsernamePasswordToken(username,password);
+        &#x2F;**
          * 执行了下面这一步，就会把登录请求交给Shiro去做，
          * 进入到 AccountRealm 中，对拿到的token，对比数据库，执行登录验证的操作，
          * 在 AccountRealm 中执行时，
          * 用户名错误，也就是根据用户名查不到数据库中对应的对象，会返回UnknownAccountException异常
          * 密码错误，返回IncorrectCredentialsException异常
          * 我们可以在这里捕获异常，并返回给登录页面错误信息提示
-         */
+         *&#x2F;
         try &#123;
             subject.login(token);
 
-            //拿到登录成功的用户的信息，存到Session中
-            Account account = (Account) subject.getPrincipal();
+            &#x2F;&#x2F;拿到登录成功的用户的信息，存到Session中
+            Account account &#x3D; (Account) subject.getPrincipal();
             subject.getSession().setAttribute(&quot;account&quot;,account);
 
             return &quot;index&quot;;
@@ -1752,23 +1759,23 @@ public class ShiroController &#123;
 
     &#125;
 
-    @GetMapping(&quot;/unauth&quot;)
+    @GetMapping(&quot;&#x2F;unauth&quot;)
     @ResponseBody
     public String unauth()&#123;
         return &quot;未授权，无法访问！&quot;;
     &#125;
 
 
-    @GetMapping(&quot;/logout&quot;)
+    @GetMapping(&quot;&#x2F;logout&quot;)
     public String logout()&#123;
-        Subject subject = SecurityUtils.getSubject();
-//        subject.getSession().removeAttribute(&quot;account&quot;);
-        subject.logout();  //直接调这个方法 ，直接销毁Session
+        Subject subject &#x3D; SecurityUtils.getSubject();
+&#x2F;&#x2F;        subject.getSession().removeAttribute(&quot;account&quot;);
+        subject.logout();  &#x2F;&#x2F;直接调这个方法 ，直接销毁Session
         return &quot;login&quot;;
     &#125;
 
-&#125;
-</code></pre>
+&#125;</code></pre>
+
  
       <!-- reward -->
       
@@ -1869,7 +1876,7 @@ public class ShiroController &#123;
     <ul>
       <li>
         Copyrights &copy;
-        2015-2023
+        2020-2023
         <i class="ri-heart-fill heart_icon"></i> Tokitou Muichirou
       </li>
     </ul>
@@ -2209,6 +2216,23 @@ public class ShiroController &#123;
 </script>
 
 
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=22707008&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
     
     
 
