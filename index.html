@@ -157,68 +157,6 @@
     
     
     <article
-  id="post-apple"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2021/12/24/apple/"
-    >送给杨逸春的超级甜的苹果🍎(*^▽^*)</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2021/12/24/apple/" class="article-date">
-  <time datetime="2021-12-24T12:05:20.000Z" itemprop="datePublished">2021-12-24</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%8B%AC%E4%B8%80%E6%97%A0%E4%BA%8C%E7%9A%84%E5%88%86%E7%B1%BB/">独一无二的分类</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <blockquote>
-<h1 id="BEST"><a href="#BEST" class="headerlink" title="BEST"></a>BEST</h1><h2 id="BEST-1"><a href="#BEST-1" class="headerlink" title="BEST"></a>BEST</h2><h3 id="BEST-2"><a href="#BEST-2" class="headerlink" title="BEST"></a>BEST</h3><h1 id="WISHES"><a href="#WISHES" class="headerlink" title="WISHES"></a>WISHES</h1><h2 id="TO-YOU✧-≖-◡-≖✿"><a href="#TO-YOU✧-≖-◡-≖✿" class="headerlink" title="TO YOU✧(≖ ◡ ≖✿)"></a>TO YOU✧(≖ ◡ ≖✿)</h2></blockquote>
-
-    <div id="aplayer-CsuivynI" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="7137869957" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#FF4081"
-    ></div> 
-      <a class="article-more-link" href="/2021/12/24/apple/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lovely/" rel="tag">lovely</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
   id="post-Docker基础学习笔记"
   class="article article-type-post"
   itemscope
@@ -250,11 +188,675 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <p>123456</p> 
-      <a class="article-more-link" href="/2021/09/18/Docker%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
-        >阅读更多...</a
-      >
-       
+  <span id="more"></span>
+
+<p>Docker：<a target="_blank" rel="noopener" href="https://hub.docker.com/">hub.docker.com</a></p>
+<p>参考视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1CJ411T7BK">黑马程序员Docker容器化技术，从零学会Docker教程</a></p>
+<h1 id="Ⅰ、初始Docker"><a href="#Ⅰ、初始Docker" class="headerlink" title="Ⅰ、初始Docker"></a>Ⅰ、初始Docker</h1><h2 id="一、安装Docker"><a href="#一、安装Docker" class="headerlink" title="一、安装Docker"></a>一、安装Docker</h2><pre class="language-bash" data-language="bash"><code class="language-bash"># 1、yum 包更新到最新 
+yum update
+# 2、安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的 
+yum install -y yum-utils device-mapper-persistent-data lvm2
+# 3、 设置yum源
+yum-config-manager --add-repo https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;centos&#x2F;docker-ce.repo
+# 4、 安装docker，出现输入的界面都按 y 
+yum install -y docker-ce
+# 5、 查看docker版本，验证是否验证成功
+docker -v</code></pre>
+
+<h2 id="二、Docker架构"><a href="#二、Docker架构" class="headerlink" title="二、Docker架构"></a>二、Docker架构</h2><p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210914191429.png" alt="image-20210914191422158"></p>
+<ul>
+<li><p><strong>镜像（Image）：Docker 镜像（Image），就相当于是一个 root 文件系统。比如官方镜像 ubuntu:16.04 就包含了完整的一套 Ubuntu16.04 最小系统的 root 文件系统。</strong></p>
+</li>
+<li><p><strong>容器（Container）：镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的类和对象一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。</strong></p>
+</li>
+<li><p><strong>仓库（Repository）：仓库可看成一个代码控制中心，用来保存镜像。</strong></p>
+</li>
+</ul>
+<h2 id="三、配置镜像加速器"><a href="#三、配置镜像加速器" class="headerlink" title="三、配置镜像加速器"></a>三、配置镜像加速器</h2><p>默认情况下，将来从docker hub（<a target="_blank" rel="noopener" href="https://hub.docker.com/%EF%BC%89%E4%B8%8A%E4%B8%8B%E8%BD%BDdocker%E9%95%9C%E5%83%8F">https://hub.docker.com/）上下载docker镜像</a></p>
+<p>速度慢，配置镜像加速器↓</p>
+<p><strong>阿里云容器镜像服务</strong></p>
+<hr>
+<h1 id="Ⅱ、Docker命令"><a href="#Ⅱ、Docker命令" class="headerlink" title="Ⅱ、Docker命令"></a>Ⅱ、Docker命令</h1><h2 id="一、服务相关命令"><a href="#一、服务相关命令" class="headerlink" title="一、服务相关命令"></a>一、服务相关命令</h2><pre class="language-bash" data-language="bash"><code class="language-bash">#启动docker服务:
+systemctl start docker 
+
+#停止docker服务:
+systemctl stop docker 
+
+#重启docker服务:
+systemctl restart docker
+
+#查看docker服务状态:
+systemctl status docker
+
+#设置开机启动docker服务:
+systemctl enable docker</code></pre>
+
+<h2 id="二、镜像相关命令"><a href="#二、镜像相关命令" class="headerlink" title="二、镜像相关命令"></a>二、镜像相关命令</h2><pre class="language-bash" data-language="bash"><code class="language-bash">#查看镜像: 查看本地所有的镜像
+docker images
+docker images –q # 查看所用镜像的id
+
+#搜索镜像:从网络中查找需要的镜像
+docker search 镜像名称
+
+#拉取镜像:从Docker仓库下载镜像到本地，镜像名称格式为 名称:版本号，如果版本号不指定则是最新的版本。如果不知道镜像版本，可以去docker hub 搜索对应镜像查看。
+docker pull 镜像名称
+
+#删除镜像: 删除本地镜像
+docker rmi 镜像id # 删除指定本地镜像
+docker rmi &#96;docker images -q&#96;  # 删除所有本地镜像</code></pre>
+
+<h2 id="三、容器相关命令"><a href="#三、容器相关命令" class="headerlink" title="三、容器相关命令"></a>三、容器相关命令</h2><pre class="language-bash" data-language="bash"><code class="language-bash">#查看容器
+docker ps # 查看正在运行的容器
+docker ps –a # 查看所有容器
+docker ps -aq #查看所有容器id
+
+#创建并启动容器
+docker run 参数
+
+#参数说明：
+-i：保持容器运行。通常与 -t 同时使用。加入it这两个参数后，容器创建后自动进入容器中，退出容器后，容器自动关闭。
+-t：为容器重新分配一个伪输入终端，通常与 -i 同时使用。
+-d：以守护（后台）模式运行容器。创建一个容器在后台运行，需要使用docker exec 进入容器。退出后，容器不会关闭。
+-it 创建的容器一般称为交互式容器，-id 创建的容器一般称为守护式容器
+--name：为创建的容器命名。</code></pre>
+
+
+
+<pre class="language-bash" data-language="bash"><code class="language-bash">#进入容器
+docker exec 参数 # 退出容器，容器不会关闭
+#example
+docker exec -it c_mysql &#x2F;bin&#x2F;bash
+
+#停止容器
+docker stop 容器名称
+
+#启动容器
+docker start 容器名称
+
+#删除容器：如果容器是运行状态则删除失败，需要停止容器才能删除
+docker rm 容器名称
+docker rm &#96;docker ps -aq&#96; #删除所有容器（不能删除正在运行的容器）
+
+#查看容器信息
+docker inspect 容器名称</code></pre>
+
+<h1 id="Ⅲ、Docker容器数据卷"><a href="#Ⅲ、Docker容器数据卷" class="headerlink" title="Ⅲ、Docker容器数据卷"></a>Ⅲ、Docker容器数据卷</h1><h2 id="一、数据卷概念及作用"><a href="#一、数据卷概念及作用" class="headerlink" title="一、数据卷概念及作用"></a>一、数据卷概念及作用</h2><p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210915102658.png" alt="image-20210915102651733"></p>
+<blockquote>
+<p>Docker 容器删除后，在容器中产生的数据也会随之销毁</p>
+</blockquote>
+<p>可以使用数据卷与容器中的文件挂载，同步容器中的文件，这样容器中的数据销毁，但会在数据卷中保留。</p>
+<blockquote>
+<p>Docker 容器和外部机器可以直接交换文件吗？</p>
+</blockquote>
+<p>不可以，但可以通过数据加与容器中的文件挂载，间接与外部交换文件</p>
+<blockquote>
+<p>容器之间想要进行数据交互？</p>
+</blockquote>
+<p>两个容器同时挂载一个数据卷，实现容器间的数据交互。</p>
+<h3 id="1-数据卷概念"><a href="#1-数据卷概念" class="headerlink" title="1. 数据卷概念"></a>1. 数据卷概念</h3><ol>
+<li><p>数据卷是宿主机中的一个目录或文件</p>
+</li>
+<li><p>当容器目录和数据卷目录绑定后，对方的修改会立即同步</p>
+</li>
+<li><p>一个数据卷可以被多个容器同时挂载</p>
+</li>
+<li><p>一个容器也可以被挂载多个数据卷</p>
+</li>
+</ol>
+<h3 id="2-数据卷作用"><a href="#2-数据卷作用" class="headerlink" title="2. 数据卷作用"></a>2. 数据卷作用</h3><ol>
+<li><p>容器数据持久化</p>
+</li>
+<li><p>外部机器和容器间接通信</p>
+</li>
+<li><p>容器之间数据交换</p>
+</li>
+</ol>
+<h2 id="二、配置数据卷"><a href="#二、配置数据卷" class="headerlink" title="二、配置数据卷"></a>二、配置数据卷</h2><pre class="language-bash" data-language="bash"><code class="language-bash">#创建启动容器时，使用 –v 参数 设置数据卷
+docker run ... –v 宿主机目录(文件):容器内目录(文件) ... 
+#example
+docker run -it --name&#x3D;c1 -v ~&#x2F;data:&#x2F;root&#x2F;data_container centos:7</code></pre>
+
+<p>注意事项：</p>
+<ol>
+<li><p>目录必须是绝对路径</p>
+</li>
+<li><p>如果目录不存在，会自动创建</p>
+</li>
+<li><p>可以挂载多个数据卷</p>
+</li>
+</ol>
+<blockquote>
+<p>多容器间进行数据交换</p>
+<ol>
+<li>多个容器挂载同一个数据卷</li>
+<li><strong>数据卷容器</strong></li>
+</ol>
+</blockquote>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210915113955.png" alt="image-20210915113955757"></p>
+<h2 id="三、数据卷容器"><a href="#三、数据卷容器" class="headerlink" title="三、数据卷容器"></a>三、数据卷容器</h2><p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210915114217.png" alt="image-20210915114217142"></p>
+<blockquote>
+<p>配置数据卷容器</p>
+</blockquote>
+<ol>
+<li>创建启动c3数据卷容器，使用 –v 参数 设置数据卷</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker run –it --name&#x3D;c3 –v &#x2F;volume centos:7 &#x2F;bin&#x2F;bash 
+#会默认在宿主机创建一个文件夹作为数据卷</code></pre>
+
+<ol start="2">
+<li>创建启动 c1 c2 容器，使用 –-volumes-from 参数 设置数据卷</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker run –it --name&#x3D;c1 --volumes-from c3 centos:7 &#x2F;bin&#x2F;bash
+
+docker run –it --name&#x3D;c2 --volumes-from c3 centos:7 &#x2F;bin&#x2F;bash  </code></pre>
+
+<p>这样三个容器会绑定同一个数据卷</p>
+<p><strong>创建一个容器，挂载一个目录，让其他容器继承自该容器（–volume-from）</strong></p>
+<hr>
+<h1 id="Ⅳ、Docker应用部署"><a href="#Ⅳ、Docker应用部署" class="headerlink" title="Ⅳ、Docker应用部署"></a>Ⅳ、Docker应用部署</h1><h2 id="一、MySQL部署"><a href="#一、MySQL部署" class="headerlink" title="一、MySQL部署"></a>一、MySQL部署</h2><ol>
+<li>搜索mysql镜像</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker search mysql</code></pre>
+
+<ol start="2">
+<li>拉取mysql镜像</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker pull mysql:5.6</code></pre>
+
+<ol start="3">
+<li>创建容器，设置端口映射、目录映射</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash"># 在&#x2F;root目录下创建mysql目录用于存储mysql数据信息
+mkdir ~&#x2F;mysql
+cd ~&#x2F;mysql</code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker run -id \
+-p 3307:3306 \						# 端口映射：通常会将3306映射3306
+--name&#x3D;c_mysql \					# 容器名称
+-v $PWD&#x2F;conf:&#x2F;etc&#x2F;mysql&#x2F;conf.d \	# 这里$PWD 就是&#x2F;root&#x2F;mysql 这里是配置文件目录映射，在这里修改配置
+-v $PWD&#x2F;logs:&#x2F;logs \				# 这里是日志文件目录映射
+-v $PWD&#x2F;data:&#x2F;var&#x2F;lib&#x2F;mysql \		# 这里是数据文件目录映射
+-e MYSQL_ROOT_PASSWORD&#x3D;123456 \		# MySQL对应环境变量，设置MySQL root用户的密码
+mysql:5.6							# 使用MySQL镜像，版本5.6</code></pre>
+
+<ul>
+<li>参数说明：<ul>
+<li><strong>-p 3307:3306</strong>：将容器的 3306 端口映射到宿主机的 3307 端口。</li>
+<li><strong>-v $PWD/conf:/etc/mysql/conf.d</strong>：将主机当前目录下的 conf/my.cnf 挂载到容器的 /etc/mysql/my.cnf。配置目录</li>
+<li><strong>-v $PWD/logs:/logs</strong>：将主机当前目录下的 logs 目录挂载到容器的 /logs。日志目录</li>
+<li><strong>-v $PWD/data:/var/lib/mysql</strong> ：将主机当前目录下的data目录挂载到容器的 /var/lib/mysql 。数据目录</li>
+<li><strong>-e MYSQL_ROOT_PASSWORD=123456：</strong>初始化 root 用户的密码。</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li>进入容器，操作mysql</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker exec –it c_mysql &#x2F;bin&#x2F;bash</code></pre>
+
+<h2 id="二、Tomcat部署"><a href="#二、Tomcat部署" class="headerlink" title="二、Tomcat部署"></a>二、Tomcat部署</h2><h3 id=""><a href="#" class="headerlink" title=""></a></h3><ol>
+<li>搜索tomcat镜像</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker search tomcat</code></pre>
+
+<ol start="2">
+<li>拉取tomcat镜像</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker pull tomcat</code></pre>
+
+<ol start="3">
+<li>创建容器，设置端口映射、目录映射</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash"># 在&#x2F;root目录下创建tomcat目录用于存储tomcat数据信息
+mkdir ~&#x2F;tomcat
+cd ~&#x2F;tomcat</code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker run -id --name&#x3D;c_tomcat \
+-p 8080:8080 \							# 端口映射
+-v $PWD:&#x2F;usr&#x2F;local&#x2F;tomcat&#x2F;webapps \		#这里是把宿主机的~&#x2F;tomcat目录映射到容器中的webapps目录
+tomcat </code></pre>
+
+<ul>
+<li><p>参数说明：</p>
+<ul>
+<li><p><strong>-p 8080:8080：</strong>将容器的8080端口映射到主机的8080端口</p>
+<p><strong>-v $PWD:/usr/local/tomcat/webapps：</strong>将主机中当前目录挂载到容器的webapps</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="三、Nginx部署"><a href="#三、Nginx部署" class="headerlink" title="三、Nginx部署"></a>三、Nginx部署</h2><ol>
+<li>搜索nginx镜像</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker search nginx</code></pre>
+
+<ol start="2">
+<li>拉取nginx镜像</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker pull nginx</code></pre>
+
+<ol start="3">
+<li>创建容器，设置端口映射、目录映射</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash"># 在&#x2F;root目录下创建nginx目录用于存储nginx数据信息
+mkdir ~&#x2F;nginx
+cd ~&#x2F;nginx
+mkdir conf
+cd conf
+# 在~&#x2F;nginx&#x2F;conf&#x2F;下创建nginx.conf文件,粘贴下面内容
+vim nginx.conf</code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash">user  nginx;
+worker_processes  1;
+
+error_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;error.log warn;
+pid        &#x2F;var&#x2F;run&#x2F;nginx.pid;
+
+
+events &#123;
+    worker_connections  1024;
+&#125;
+
+
+http &#123;
+    include       &#x2F;etc&#x2F;nginx&#x2F;mime.types;
+    default_type  application&#x2F;octet-stream;
+
+    log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;
+                      &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;
+                      &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;
+
+    access_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    include &#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;*.conf;
+&#125;
+
+</code></pre>
+
+
+
+
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker run -id --name&#x3D;c_nginx \
+-p 80:80 \
+-v $PWD&#x2F;conf&#x2F;nginx.conf:&#x2F;etc&#x2F;nginx&#x2F;nginx.conf \
+-v $PWD&#x2F;logs:&#x2F;var&#x2F;log&#x2F;nginx \
+-v $PWD&#x2F;html:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html \
+nginx</code></pre>
+
+<ul>
+<li>参数说明：<ul>
+<li><strong>-p 80:80</strong>：将容器的 80端口映射到宿主机的 80 端口。</li>
+<li><strong>-v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf</strong>：将主机当前目录下的 /conf/nginx.conf 挂载到容器的 :/etc/nginx/nginx.conf。配置目录</li>
+<li><strong>-v $PWD/logs:/var/log/nginx</strong>：将主机当前目录下的 logs 目录挂载到容器的/var/log/nginx。日志目录</li>
+</ul>
+</li>
+</ul>
+<h2 id="四、Redis部署"><a href="#四、Redis部署" class="headerlink" title="四、Redis部署"></a>四、Redis部署</h2><ol>
+<li>搜索redis镜像</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker search redis</code></pre>
+
+<ol start="2">
+<li>拉取redis镜像</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker pull redis:5.0</code></pre>
+
+<ol start="3">
+<li>创建容器，设置端口映射</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker run -id --name&#x3D;c_redis -p 6379:6379 redis:5.0</code></pre>
+
+<ol start="4">
+<li>使用外部机器连接redis</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">.&#x2F;redis-cli.exe -h 192.168.199.133 -p 6379</code></pre>
+
+
+
+<hr>
+<h1 id="Ⅴ、Dockerfile"><a href="#Ⅴ、Dockerfile" class="headerlink" title="Ⅴ、Dockerfile"></a>Ⅴ、Dockerfile</h1><h2 id="一、Docker镜像原理"><a href="#一、Docker镜像原理" class="headerlink" title="一、Docker镜像原理"></a>一、Docker镜像原理</h2><h3 id="1-Linux文件系统"><a href="#1-Linux文件系统" class="headerlink" title="1. Linux文件系统"></a>1. Linux文件系统</h3><p>Linux文件系统由bootfs和rootfs两部分组成</p>
+<ul>
+<li><p>bootfs：包含bootloader（引导加载程序）和 kernel（内核）</p>
+</li>
+<li><p>rootfs： root文件系统，包含的就是典型 Linux 系统中的/dev，/proc，/bin，/etc等标准目录和文件</p>
+</li>
+<li><p>不同的linux发行版，bootfs基本一样，而rootfs不同，如ubuntu，centos等</p>
+</li>
+</ul>
+<h3 id="2-镜像原理"><a href="#2-镜像原理" class="headerlink" title="2. 镜像原理"></a>2. 镜像原理</h3><ul>
+<li><p>Docker镜像是由特殊的文件系统叠加而成</p>
+</li>
+<li><p>最底端是 bootfs，并使用宿主机的bootfs </p>
+</li>
+<li><p>第二层是 root文件系统rootfs,称为base image</p>
+</li>
+<li><p>然后再往上可以叠加其他的镜像文件</p>
+</li>
+<li><p>统一文件系统（Union File System）技术能够将不同的层整合成一个文件系统，为这些层提供了一个统一的视角，这样就隐藏了多层的存在，在用户的角度看来，只存在一个文件系统。</p>
+</li>
+<li><p>一个镜像可以放在另一个镜像的上面。位于下面的镜像称为父镜像，最底部的镜像成为基础镜像。</p>
+</li>
+<li><p>当从一个镜像启动容器时，Docker会在最顶层加载一个读写文件系统作为容器</p>
+</li>
+</ul>
+<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210916131332.png" alt="image-20210916131325818" style="zoom:67%;" />
+
+
+
+
+
+<blockquote>
+<p>Docker 镜像本质是什么？</p>
+</blockquote>
+<ul>
+<li>是一个分层文件系统</li>
+</ul>
+<blockquote>
+<p>Docker 中一个centos镜像为什么只有200MB，而一个centos操作系统的iso文件要几个个G？</p>
+</blockquote>
+<ul>
+<li>Centos的iso镜像文件包含bootfs和rootfs，而docker的centos镜像复用操作系统的bootfs，只有rootfs和其他镜像层</li>
+</ul>
+<blockquote>
+<p>Docker 中一个tomcat镜像为什么有500MB，而一个tomcat安装包只有70多MB？</p>
+</blockquote>
+<ul>
+<li>由于docker中镜像是分层的，tomcat虽然只有70多MB，但他需要依赖于父镜像和基础镜像，所有整个对外暴露的tomcat镜像大小500多MB</li>
+</ul>
+<h3 id="3-镜像制作"><a href="#3-镜像制作" class="headerlink" title="3. 镜像制作"></a>3. 镜像制作</h3><p>Docker 镜像如何制作？</p>
+<blockquote>
+<p><strong>容器转为镜像</strong>(挂载不生效)</p>
+</blockquote>
+<p><strong>docker commit 容器id 镜像名称:版本号</strong></p>
+<p><strong>docker save -o 压缩文件名称 镜像名称:版本号</strong></p>
+<p><strong>docker load –i 压缩文件名称</strong></p>
+<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210916155843.png" alt="image-20210916155843898" style="zoom:67%;" />
+
+<h2 id="二、Dockerfile"><a href="#二、Dockerfile" class="headerlink" title="二、Dockerfile"></a>二、Dockerfile</h2><ul>
+<li><p>Dockerfile 是一个<strong>文本文件</strong></p>
+</li>
+<li><p>包含了一条条的<strong>指令</strong></p>
+</li>
+<li><p>每一条指令构建一层，<strong>基于基础镜像，最终构建出一个新的镜像</strong></p>
+</li>
+<li><p>对于开发人员：可以为开发团队提供一个<strong>完全一致的开发环境</strong></p>
+</li>
+<li><p>对于测试人员：可以直接拿开发时所构建的镜像或者通过Dockerfile文件<strong>构建一个新的镜像</strong>开始工作了</p>
+</li>
+<li><p>对于运维人员：在部署时，可以实现应用的<strong>无缝移植</strong></p>
+</li>
+</ul>
+<blockquote>
+<p>Dockerfile关键字</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>作用</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FROM</td>
+<td>指定父镜像</td>
+<td>指定dockerfile基于那个image构建</td>
+</tr>
+<tr>
+<td>MAINTAINER</td>
+<td>作者信息</td>
+<td>用来标明这个dockerfile谁写的</td>
+</tr>
+<tr>
+<td>LABEL</td>
+<td>标签</td>
+<td>用来标明dockerfile的标签 可以使用Label代替Maintainer 最终都是在docker image基本信息中可以查看</td>
+</tr>
+<tr>
+<td>RUN</td>
+<td>执行命令</td>
+<td>执行一段命令 默认是/bin/sh 格式: RUN command 或者 RUN [“command” , “param1”,”param2”]</td>
+</tr>
+<tr>
+<td>CMD</td>
+<td>容器启动命令</td>
+<td>提供启动容器时候的默认命令 和ENTRYPOINT配合使用.格式 CMD command param1 param2 或者 CMD [“command” , “param1”,”param2”]</td>
+</tr>
+<tr>
+<td>ENTRYPOINT</td>
+<td>入口</td>
+<td>一般在制作一些执行就关闭的容器中会使用</td>
+</tr>
+<tr>
+<td>COPY</td>
+<td>复制文件</td>
+<td>build的时候复制文件到image中</td>
+</tr>
+<tr>
+<td>ADD</td>
+<td>添加文件</td>
+<td>build的时候添加文件到image中 不仅仅局限于当前build上下文 可以来源于远程服务</td>
+</tr>
+<tr>
+<td>ENV</td>
+<td>环境变量</td>
+<td>指定build时候的环境变量 可以在启动的容器的时候 通过-e覆盖 格式ENV name=value</td>
+</tr>
+<tr>
+<td>ARG</td>
+<td>构建参数</td>
+<td>构建参数 只在构建的时候使用的参数 如果有ENV 那么ENV的相同名字的值始终覆盖arg的参数</td>
+</tr>
+<tr>
+<td>VOLUME</td>
+<td>定义外部可以挂载的数据卷</td>
+<td>指定build的image那些目录可以启动的时候挂载到文件系统中 启动容器的时候使用 -v 绑定 格式 VOLUME [“目录”]</td>
+</tr>
+<tr>
+<td>EXPOSE</td>
+<td>暴露端口</td>
+<td>定义容器运行的时候监听的端口 启动容器的使用-p来绑定暴露端口 格式: EXPOSE 8080 或者 EXPOSE 8080/udp</td>
+</tr>
+<tr>
+<td>WORKDIR</td>
+<td>工作目录</td>
+<td>指定容器内部的工作目录 如果没有创建则自动创建 如果指定/ 使用的是绝对地址 如果不是/开头那么是在上一条workdir的路径的相对路径</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>指定执行用户</td>
+<td>指定build或者启动的时候 用户 在RUN CMD ENTRYPONT执行的时候的用户</td>
+</tr>
+<tr>
+<td>HEALTHCHECK</td>
+<td>健康检查</td>
+<td>指定监测当前容器的健康监测的命令 基本上没用 因为很多时候 应用本身有健康监测机制</td>
+</tr>
+<tr>
+<td>ONBUILD</td>
+<td>触发器</td>
+<td>当存在ONBUILD关键字的镜像作为基础镜像的时候 当执行FROM完成之后 会执行 ONBUILD的命令 但是不影响当前镜像 用处也不怎么大</td>
+</tr>
+<tr>
+<td>STOPSIGNAL</td>
+<td>发送信号量到宿主机</td>
+<td>该STOPSIGNAL指令设置将发送到容器的系统调用信号以退出。</td>
+</tr>
+<tr>
+<td>SHELL</td>
+<td>指定执行脚本的shell</td>
+<td>指定RUN CMD ENTRYPOINT 执行命令的时候 使用的shell</td>
+</tr>
+</tbody></table>
+<h2 id="三、Dockerfile案例"><a href="#三、Dockerfile案例" class="headerlink" title="三、Dockerfile案例"></a>三、Dockerfile案例</h2><blockquote>
+<p>需求</p>
+</blockquote>
+<p>自定义centos7镜像。要求：</p>
+<ol>
+<li><p>默认登录路径为 /usr</p>
+</li>
+<li><p>可以使用vim</p>
+</li>
+</ol>
+<blockquote>
+<p>实现步骤</p>
+</blockquote>
+<ol>
+<li><p>定义父镜像：FROM java:8</p>
+</li>
+<li><p>定义作者信息：MAINTAINER  Tokitou &lt;<a href="mailto:&#84;&#x6f;&#x6b;&#x69;&#116;&#x6f;&#117;&#x40;&#x61;&#x6c;&#105;&#x79;&#117;&#110;&#46;&#x63;&#x6f;&#109;">&#84;&#x6f;&#x6b;&#x69;&#116;&#x6f;&#117;&#x40;&#x61;&#x6c;&#105;&#x79;&#117;&#110;&#46;&#x63;&#x6f;&#109;</a>&gt;</p>
+</li>
+<li><p>将jar包添加到容器： ADD springboot.jar app.jar</p>
+</li>
+<li><p>定义容器启动执行的命令：CMD java–jar app.jar</p>
+</li>
+<li><p>通过dockerfile构建镜像：docker bulid –f dockerfile文件路径 –t 镜像名称:版本</p>
+</li>
+</ol>
+<hr>
+<h1 id="Ⅵ、Docker服务编排"><a href="#Ⅵ、Docker服务编排" class="headerlink" title="Ⅵ、Docker服务编排"></a>Ⅵ、Docker服务编排</h1><h2 id="一、服务编排概述"><a href="#一、服务编排概述" class="headerlink" title="一、服务编排概述"></a>一、服务编排概述</h2><p>微服务架构的应用系统中一般包含若干个微服务，每个微服务一般都会部署多个实例，如果每个微服务都要手动启停，维护的工作量会很大。</p>
+<ul>
+<li><p>要从Dockerfile build image 或者去dockerhub拉取image</p>
+</li>
+<li><p>要创建多个container</p>
+</li>
+<li><p>要管理这些container（启动停止删除）</p>
+</li>
+</ul>
+<p><strong>服务编排：按照一定的业务规则批量管理容器</strong></p>
+<h2 id="二、Docker-Compose"><a href="#二、Docker-Compose" class="headerlink" title="二、Docker Compose"></a>二、Docker Compose</h2><p>Docker Compose是一个编排多容器分布式部署的工具，提供命令集管理容器化应用的完整开发周期，包括服务构建，启动和停止。使用步骤：</p>
+<ol>
+<li><p>利用 Dockerfile 定义运行环境镜像</p>
+</li>
+<li><p>使用 docker-compose.yml 定义组成应用的各服务</p>
+</li>
+<li><p>运行 docker-compose up 启动应用</p>
+</li>
+</ol>
+<h3 id="1-安装Docker-Compose"><a href="#1-安装Docker-Compose" class="headerlink" title="1. 安装Docker Compose"></a>1. 安装Docker Compose</h3><pre class="language-bash" data-language="bash"><code class="language-bash"># Compose目前已经完全支持Linux、Mac OS和Windows，在我们安装Compose之前，需要先安装Docker。下面我 们以编译好的二进制包方式安装在Linux系统中。 
+curl -L https:&#x2F;&#x2F;github.com&#x2F;docker&#x2F;compose&#x2F;releases&#x2F;download&#x2F;1.22.0&#x2F;docker-compose-&#96;uname -s&#96;-&#96;uname -m&#96; -o &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose
+# 设置文件可执行权限 
+chmod +x &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose
+# 查看版本信息 
+docker-compose -version</code></pre>
+
+<h3 id="2-卸载Docker-Compose"><a href="#2-卸载Docker-Compose" class="headerlink" title="2. 卸载Docker Compose"></a>2. 卸载Docker Compose</h3><pre class="language-bash" data-language="bash"><code class="language-bash"># 二进制包方式安装的，删除二进制文件即可
+rm &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose</code></pre>
+
+
+
+<h3 id="3-案例"><a href="#3-案例" class="headerlink" title="3. 案例"></a>3. 案例</h3><blockquote>
+<p>使用docker compose编排nginx+springboot项目</p>
+</blockquote>
+<ol>
+<li>创建docker-compose目录</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">mkdir ~&#x2F;docker-compose
+cd ~&#x2F;docker-compose</code></pre>
+
+<ol start="2">
+<li>编写 docker-compose.yml 文件</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">version: &#39;3&#39;
+services:
+  nginx:
+   image: nginx
+   ports:
+    - 80:80
+   links:
+    - app
+   volumes:
+    - .&#x2F;nginx&#x2F;conf.d:&#x2F;etc&#x2F;nginx&#x2F;conf.d
+  app:
+    image: app
+    expose:
+      - &quot;8080&quot;</code></pre>
+
+<ol start="3">
+<li>创建./nginx/conf.d目录</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">mkdir -p .&#x2F;nginx&#x2F;conf.d</code></pre>
+
+<ol start="4">
+<li>在./nginx/conf.d目录下 编写itheima.conf文件</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">server &#123;
+    listen 80;
+    access_log off;
+
+    location &#x2F; &#123;
+        proxy_pass http:&#x2F;&#x2F;app:8080;
+    &#125;
+   
+&#125;</code></pre>
+
+<ol start="5">
+<li>在~/docker-compose 目录下 使用docker-compose 启动容器</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker-compose up</code></pre>
+
+<ol start="6">
+<li>测试访问</li>
+</ol>
+<hr>
+<h1 id="Ⅶ、Docker私有仓库"><a href="#Ⅶ、Docker私有仓库" class="headerlink" title="Ⅶ、Docker私有仓库"></a>Ⅶ、Docker私有仓库</h1><p>​        Docker官方的Docker hub（<a target="_blank" rel="noopener" href="https://hub.docker.com)是一个用于管理公共镜像的仓库,我们可以从上面拉取镜像/">https://hub.docker.com）是一个用于管理公共镜像的仓库，我们可以从上面拉取镜像</a> 到本地，也可以把我们自己的镜像推送上去。但是，有时候我们的服务器无法访问互联网，或者你不希望将自己的镜 像放到公网当中，那么我们就需要搭建自己的私有仓库来存储和管理自己的镜像。</p>
+<h2 id="一、搭建私有仓库"><a href="#一、搭建私有仓库" class="headerlink" title="一、搭建私有仓库"></a>一、搭建私有仓库</h2><pre class="language-bash" data-language="bash"><code class="language-bash"># 1、拉取私有仓库镜像 
+docker pull registry
+# 2、启动私有仓库容器 
+docker run -id --name&#x3D;registry -p 5000:5000 registry
+# 3、打开浏览器 输入地址http:&#x2F;&#x2F;私有仓库服务器ip:5000&#x2F;v2&#x2F;_catalog，看到&#123;&quot;repositories&quot;:[]&#125; 表示私有仓库 搭建成功
+# 4、修改daemon.json   
+vim &#x2F;etc&#x2F;docker&#x2F;daemon.json    
+# 在上述文件中添加一个key，保存退出。此步用于让 docker 信任私有仓库地址；注意将私有仓库服务器ip修改为自己私有仓库服务器真实ip 
+&#123;&quot;insecure-registries&quot;:[&quot;私有仓库服务器ip:5000&quot;]&#125; 
+# 5、重启docker 服务 
+systemctl restart docker
+docker start registry</code></pre>
+
+<h2 id="二、上传镜像到私有仓库"><a href="#二、上传镜像到私有仓库" class="headerlink" title="二、上传镜像到私有仓库"></a>二、上传镜像到私有仓库</h2><pre class="language-bash" data-language="bash"><code class="language-bash"># 1、标记镜像为私有仓库的镜像     
+docker tag centos:7 私有仓库服务器IP:5000&#x2F;centos:7
+ 
+# 2、上传标记的镜像     
+docker push 私有仓库服务器IP:5000&#x2F;centos:7</code></pre>
+
+<h2 id="三、从私有仓库拉去镜像"><a href="#三、从私有仓库拉去镜像" class="headerlink" title="三、从私有仓库拉去镜像"></a>三、从私有仓库拉去镜像</h2><pre class="language-bash" data-language="bash"><code class="language-bash">#拉取镜像 
+docker pull 私有仓库服务器ip:5000&#x2F;centos:7</code></pre>
+
+<h1 id="Ⅷ、Docker相关概念"><a href="#Ⅷ、Docker相关概念" class="headerlink" title="Ⅷ、Docker相关概念"></a>Ⅷ、Docker相关概念</h1><blockquote>
+<p>docker容器虚拟化 与 传统虚拟机比较</p>
+</blockquote>
+<p>容器就是<strong>将软件打包成标准化单元</strong>，以用于开发、交付和部署。</p>
+<ul>
+<li><p>容器镜像是轻量的、可执行的独立软件包 ，包含软件运行所需的所有内容：代码、运行时环境、系统工具、系统库和设置。</p>
+</li>
+<li><p>容器化软件在任何环境中都能够始终如一地运行。</p>
+</li>
+<li><p>容器赋予了软件独立性，使其免受外在环境差异的影响，从而有助于减少团队间在相同基础设施上运行不同软件时的冲突。</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210918155851.png" alt="image-20210918155844490"></p>
+<p><strong>相同：</strong></p>
+<ul>
+<li>容器和虚拟机具有相似的资源隔离和分配优势</li>
+</ul>
+<p><strong>不同：</strong></p>
+<ul>
+<li><p>容器虚拟化的是操作系统，虚拟机虚拟化的是硬件。</p>
+</li>
+<li><p>传统虚拟机可以运行不同的操作系统，容器只能运行同一类型操作系统</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210918155927.png" alt="image-20210918155927478"></p>
+<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210918160414.png" alt="image-20210918155932212"  />
+
+ 
       <!-- reward -->
       
     </div>
@@ -307,7 +909,7 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <div id="aplayer-fWnwdsrm" class="aplayer aplayer-tag-marker meting-tag-marker"
+  <div id="aplayer-wCtwNrjY" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="6897059777" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#FF4081"
     ></div>
 
@@ -430,7 +1032,11 @@
 <p><del>开门见山~废话不多的「建站博文」</del></p>
 </blockquote>
 <p>本文专为急于拥有个人网站的成功人士「量身定制」，秉承着绝不耽误读者大人时间的理念创作，将直接从最为核心的作者的降世之日说起，跳过繁杂的盘古开天辟地到上世纪末的发展历史，保证让您在「有生之年」完成建站！</p>
-<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210802183447.png" alt="image-20210802183447444" style="zoom:67%;" />
+<img src="https://s2.loli.net/2023/03/10/VkTujIv7UJ9oWrw.png" alt="image-20210802183447444" style="zoom:67%;" />
+
+
+
+
 
 <h2 id="内容简介"><a href="#内容简介" class="headerlink" title="内容简介"></a>内容简介</h2><blockquote>
 <p><del>其实，这是一段心路历程</del></p>
@@ -553,463 +1159,11 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <span id="more"></span>
-
-<h1 id="一、入门案例"><a href="#一、入门案例" class="headerlink" title="一、入门案例"></a>一、入门案例</h1><h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h2><p><strong>创建Spring Boot工程（web），引入相关依赖</strong></p>
-<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--  Spring Security   --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-security<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
-
-<h2 id="2-初步测试"><a href="#2-初步测试" class="headerlink" title="2. 初步测试"></a>2. 初步测试</h2><blockquote>
-<p>写一个controller用于初步测试</p>
-</blockquote>
-<pre class="language-java" data-language="java"><code class="language-java">@RestController
-@RequestMapping(&quot;test&quot;)
-public class TestController &#123;
-    @GetMapping(&quot;hello&quot;)
-    public String hello()&#123;
-        return &quot;hello security!&quot;;
-    &#125;
-&#125;</code></pre>
-
-<blockquote>
-<p>启动项目，访问对应接口</p>
-</blockquote>
-<p>跳转到 <code>/login</code><br><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20211112135727.png" alt="image-20210418153817077-a7d8c909ec844970bcbce70842a53fe2"><br>说明security引入成功，<strong>用户名</strong>默认为user，<strong>密码</strong>在控制台有输出一个随机密码<br><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20211112135755.png" alt="image-20210418154241396-4ea76226b05740178fd2749ef4028a1b"><br><code>Using generated security password: 4a9af78e-64d9-4196-93e6-c414db4d8435</code></p>
-<p>输入正确即可进入controller对应的接口看到输出的内容</p>
-<h1 id="二、基本原理"><a href="#二、基本原理" class="headerlink" title="二、基本原理"></a>二、基本原理</h1><p>Spring Security 本质是一个过滤器链</p>
-<h2 id="1-过滤器"><a href="#1-过滤器" class="headerlink" title="1. 过滤器"></a>1. 过滤器</h2><p><code>FilterSecurityInterceptor</code></p>
-<p>方法级的权限过滤器，基本位于过滤连的最底部</p>
-<p><code>ExceptionTranslationFilter</code></p>
-<p>异常过滤器，用于处理在认证授权过程中抛出的异常</p>
-<p><code>UsernamePasswordAuthenticationFilter</code></p>
-<p>对于用户名，密码进行校验的过滤器</p>
-<p>…</p>
-<h3 id="1-1-过滤器的加载过程"><a href="#1-1-过滤器的加载过程" class="headerlink" title="1.1 过滤器的加载过程"></a>1.1 过滤器的加载过程</h3><blockquote>
-<p><code>DelegatingFilterProxy</code></p>
-</blockquote>
-<p>这个过滤器中的<code>doFilter</code>方法：<br><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20211112135819.png" alt="image-20210418160414761-494e129cedc245c68c24e07d002cbe87"><br><code>doFilter</code>方法中执行的<code>init</code>方法<br><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20211112135838.png" alt="image-20210418160625325-9acb758cf2f841589e8736b9485df18c"><br>该方法调用了<code>FilterChainProxy</code>过滤器</p>
-<blockquote>
-<p><code>FilterChainProxy</code></p>
-</blockquote>
-<p>在<code>doFilter</code>方法中调用<code>doFilterInternal</code>方法<br><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20211112135912.png" alt="image-20210418161000430-ad540c0c0e72463a844ce7ac48a8ac99"><br><code>doFilterInternal</code>方法中有<code>getFilters</code>方法<br><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20211112135937.png" alt="image-20210418161157252-a9ee6cef52dd4f6d90e6c7d04a3da998"><br><code>getFilters</code>方法，得到所有的过滤器，加载到过滤连中</p>
-<p><code>getFilters</code>方法是<code>SecurityFilterChain</code>接口中定义的<br><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20211112135957.png" alt="image-20210418161319875-53d01d3c61954870a81655bcac6d83ed"><br>以上过程，非Spring Boot项目则需要手动进行</p>
-<h2 id="2-两个接口"><a href="#2-两个接口" class="headerlink" title="2. 两个接口"></a>2. 两个接口</h2><h3 id="UserDetailsService"><a href="#UserDetailsService" class="headerlink" title="UserDetailsService"></a><code>UserDetailsService</code></h3><blockquote>
-<p>实现该接口进行<strong>数据库中用户名密码的查询</strong></p>
-</blockquote>
-<p>实际项目中，我们需要查询数据库，得到用户信息，做登录验证，而不是用Security框架提供的默认用户名和随机密码，所以需要：</p>
-<ul>
-<li><p>自定义一个过滤器类，继承<code>UsernamePasswordAuthenticationFilter</code>类</p>
-<p>重写其中的3个方法：</p>
-<ul>
-<li><code>attemptAuthentication</code>：得到请求中的用户名和密码，进行验证</li>
-</ul>
-<p>和它的父类<code>AbstractAuthenticationProcessingFilter</code>中的：</p>
-<ul>
-<li><p><code>successfulAuthentication</code>：验证成功</p>
-</li>
-<li><p><code>unsuccessfulAuthentication</code>：验证失败</p>
-</li>
-</ul>
-</li>
-<li><p>下面需要写<strong>查询数据库中的用户名和密码</strong>并返回数据的方法</p>
-<p>写一个类实现<code>UserDetailsService</code>接口，编写查询数据库的过程，返回<strong>User</strong>对象，这个<strong>User</strong>对象是Security框架提供的对象。</p>
-</li>
-</ul>
-<blockquote>
-<p><code>UserDetailsService</code>接口中<code>loadUserByUsername</code>方法的返回值</p>
-</blockquote>
-<p>实现<code>UserDetailsService</code>接口需要重写<code>loadUserByUsername</code>方法，在这里面根据用户名进行操作，</p>
-<p>这个方法的返回值类型是<code>UserDetails</code>，可以自定义一个类，包含用户名，密码，权限等信息，去实现这个接口</p>
-<p>同时，Security框架提供了一个<code>User</code>类，实现了<code>UserDetails</code>接口，所以可以直接返回<code>User</code>对象即可</p>
-<p><code>User.class</code>中的有参构造方法：</p>
-<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;用户名，密码，权限集合
-public User(String username, String password, Collection&lt;? extends GrantedAuthority&gt; authorities) &#123;
-    this(username, password, true, true, true, true, authorities);
-&#125;</code></pre>
-
-<h3 id="PasswordEncoder"><a href="#PasswordEncoder" class="headerlink" title="PasswordEncoder"></a><code>PasswordEncoder</code></h3><blockquote>
-<p>数据加密的接口，用于返回<strong>User对象中密码的加密</strong></p>
-</blockquote>
-<p><code>BCryptPasswordEncoder</code>类实现了该接口</p>
-<h1 id="三、Web权限方案"><a href="#三、Web权限方案" class="headerlink" title="三、Web权限方案"></a>三、Web权限方案</h1><h2 id="1-认证"><a href="#1-认证" class="headerlink" title="1. 认证"></a>1. 认证</h2><blockquote>
-<p>设置登录的用户名和密码</p>
-</blockquote>
-<h3 id="1-1-三种认证方式"><a href="#1-1-三种认证方式" class="headerlink" title="1.1 三种认证方式"></a>1.1 三种认证方式</h3><blockquote>
-<h3 id="1-通过application-properties-yaml配置文件进行配置"><a href="#1-通过application-properties-yaml配置文件进行配置" class="headerlink" title="1 通过application.properties/yaml配置文件进行配置"></a>1 通过<code>application.properties/yaml</code>配置文件进行配置</h3></blockquote>
-<pre class="language-properties" data-language="properties"><code class="language-properties">#设置用户名
-spring.security.user.name&#x3D;Alice
-#设置密码
-spring.security.user.password&#x3D;123456</code></pre>
-
-<p>这样进行配置，启动项目将不再默认生成随机密码，即可使用配置文件中的用户名和密码进行登录</p>
-<blockquote>
-<h3 id="2-通过配置类进行配置"><a href="#2-通过配置类进行配置" class="headerlink" title="2 通过配置类进行配置"></a>2 通过配置类进行配置</h3></blockquote>
-<p>新建一个配置类，继承<code>WebSecurityConfigurerAdapter</code>，重写其中的<code>configure</code>方法，</p>
-<p>进行配置用户名，密码和角色</p>
-<pre class="language-java" data-language="java"><code class="language-java">@Configuration
-public class SecurityConfig extends WebSecurityConfigurerAdapter &#123;
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception &#123;
-        BCryptPasswordEncoder passwordEncoder &#x3D; new BCryptPasswordEncoder();
-        String password &#x3D; passwordEncoder.encode(&quot;123123&quot;);
-        auth.inMemoryAuthentication().withUser(&quot;lover&quot;).password(password).roles(&quot;admin&quot;);
-    &#125;
-
-    &#x2F;&#x2F;需要创建PasswordEncoder对象，否则会报错
-    @Bean
-    PasswordEncoder password()&#123;
-        return new BCryptPasswordEncoder();
-    &#125;
-&#125;</code></pre>
-
-<p>实际情况下，用户名和密码不会是固定的某个值，而是从数据库中查询，所以以上两种方式均不常用</p>
-<blockquote>
-<h3 id="3-自定义编写实现类（实现UserDetailsService接口）"><a href="#3-自定义编写实现类（实现UserDetailsService接口）" class="headerlink" title="3 自定义编写实现类（实现UserDetailsService接口）"></a>3 自定义编写实现类（实现<code>UserDetailsService</code>接口）</h3></blockquote>
-<p>Security认证过程中，会先查找配置文件和配置类中有没有进行用户名和密码的配置，</p>
-<p>如果找不到，则会找<code>UserDetailsService</code>接口</p>
-<p><strong>第一步：创建配置类，设置使用哪一个<code>UserDetailsService</code>接口的实现类</strong></p>
-<pre class="language-java" data-language="java"><code class="language-java">@Configuration		&#x2F;&#x2F;注入到配置类中
-public class SecurityUserConfig extends WebSecurityConfigurerAdapter &#123;
-
-    @Autowired
-    UserDetailsService userDetailsService;
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception &#123;
-        &#x2F;&#x2F;指定使用哪个UserDetailsService实现类
-        auth.userDetailsService(userDetailsService).passwordEncoder(password());
-    &#125;
-
-    &#x2F;&#x2F;需要创建PasswordEncoder对象，否则会报错
-    @Bean
-    PasswordEncoder password()&#123;
-        return new BCryptPasswordEncoder();
-    &#125;
-&#125;</code></pre>
-
-<p><strong>第二步，编写实现类，返回User对象，User对象中有用户名，密码和操作权限</strong></p>
-<p>查询数据库，得到用户名，密码和操作权限，封装到<code>User</code>对象中，进行返回</p>
-<blockquote>
-<p>固定用户名密码（仅供测试，不实用）</p>
-</blockquote>
-<pre class="language-java" data-language="java"><code class="language-java">@Service(&quot;userDetailsService&quot;)
-public class MyUserDetailsService implements UserDetailsService &#123;
-    @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException &#123;
-        &#x2F;&#x2F;模拟创建一个集合，使用其中的工具类，加角色
-        List&lt;GrantedAuthority&gt; auths &#x3D; AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;role&quot;);
-        return new User(&quot;Kaito&quot;,new BCryptPasswordEncoder().encode(&quot;666666&quot;),auths);
-    &#125;
-&#125;</code></pre>
-
-<blockquote>
-<p><strong>查询数据库得到用户名密码，完成用户认证</strong></p>
-</blockquote>
-<p>可以使用<code>JDBC</code>，<code>Mybatis</code>，<code>MybatisPlus</code>…</p>
-<p><strong>使用<code>MybatisPlus</code>整合，添加数据源信息</strong></p>
-<pre class="language-yaml" data-language="yaml"><code class="language-yaml">spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;ssmbuild?useSSL&#x3D;false&amp;serverTimezone&#x3D;GMT%2B8
-    username: root
-    password: skrskr666</code></pre>
-
-<p><strong>第一步，引入相关依赖：</strong></p>
-<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--  MybatisPlus  --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.baomidou<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mybatis-plus-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.4.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
-<span class="token comment">&lt;!--  Mysql --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>mysql<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mysql-connector-java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
-
-<p><strong>第二步，创建简单的user表，包含用户名和密码字段</strong></p>
-<p><strong>第三步，创建user实体类</strong></p>
-<pre class="language-java" data-language="java"><code class="language-java">@Data
-public class User &#123;
-    private Integer id;
-    private String username;
-    private String password;
-&#125;</code></pre>
-
-<p><strong>第四步，创建Mapper层，继承BaseMapper</strong></p>
-<p><strong>第五步，在UserDetailService接口的实现类中编写根据用户名查询用户名，密码和角色权限等信息的流程，</strong></p>
-<p><strong>并返回User对象</strong></p>
-<pre class="language-java" data-language="java"><code class="language-java">@Service(&quot;userDetailsService&quot;)
-public class MyUserDetailsService implements UserDetailsService &#123;
-
-    &#x2F;&#x2F;调用Mapper中的方法
-    @Autowired
-    private UsersMapper userMapper;
-
-    &#x2F;&#x2F; String s 为表单传来的用户名
-    @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException &#123;
-        &#x2F;&#x2F;根据用户名s，电泳UserMapper，查询数据库
-        QueryWrapper&lt;Users&gt; wrapper &#x3D; new QueryWrapper&lt;&gt;();
-        wrapper.eq(&quot;username&quot;,s);
-        Users users &#x3D; userMapper.selectOne(wrapper);
-        &#x2F;&#x2F;判断
-        &#x2F;&#x2F;数据库中没有用户名，则认证失败
-        if (users&#x3D;&#x3D;null)&#123;
-            throw new UsernameNotFoundException(&quot;用户名不存在&quot;);
-        &#125;
-
-        &#x2F;&#x2F;模拟创建一个集合，使用其中的工具类，加角色
-        List&lt;GrantedAuthority&gt; auths &#x3D; AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;role&quot;);
-        &#x2F;&#x2F;从查询数据库返回的的users对象中，得到用户名和密码进行返回
-        return new User(users.getUsername(),new BCryptPasswordEncoder().encode(users.getPassword()),auths);
-    &#125;
-&#125;</code></pre>
-
-<h3 id="2-自定义登录页面和设置不需要认证的请求"><a href="#2-自定义登录页面和设置不需要认证的请求" class="headerlink" title="2. 自定义登录页面和设置不需要认证的请求"></a>2. 自定义登录页面和设置不需要认证的请求</h3><blockquote>
-<p>配置类中实现</p>
-</blockquote>
-<pre class="language-java" data-language="java"><code class="language-java">@Override
-protected void configure(HttpSecurity http) throws Exception &#123;
-    &#x2F;&#x2F;自定义自己编写的登录页面
-    http.formLogin()
-            .loginPage(&quot;&#x2F;login.html&quot;)           &#x2F;&#x2F;登陆页面设置
-            .loginProcessingUrl(&quot;&#x2F;user&#x2F;login&quot;)  &#x2F;&#x2F;提交登陆后访问的Controller路径，这个Controller不需要我们编写，Security框架已经做到了，只需要随便给定一个路径即可
-            .defaultSuccessUrl(&quot;&#x2F;test&#x2F;index&quot;).permitAll()   &#x2F;&#x2F;登录成功后，要跳转到的路径
-            .and().authorizeRequests()
-                .antMatchers(&quot;&#x2F;&quot;,&quot;&#x2F;test&#x2F;hello&quot;,&quot;&#x2F;user&#x2F;login&quot;).permitAll() &#x2F;&#x2F;设置访问的哪些路径不需要认证
-            .anyRequest().authenticated()
-            .and().csrf().disable();            &#x2F;&#x2F;关闭csrf防护
-&#125;</code></pre>
-
-<blockquote>
-<p>创建相关页面</p>
-</blockquote>
-<p><code>login.html</code></p>
-<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-    <span class="token comment">&lt;!-- action中的路径要写对，和配置类中一样，security框架帮我们实现 --></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/user/login<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>	<span class="token comment">&lt;!-- 这里必须是post提交 --></span>
-        <span class="token comment">&lt;!-- 两个输入框的名字必须叫做username和password，否则Security框架得不到提交的数据 --></span>
-        用户名：<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
-        密码：<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>login<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span></code></pre>
-
-<h2 id="2-授权"><a href="#2-授权" class="headerlink" title="2. 授权"></a>2. 授权</h2><p><strong>基于<code>角色</code>或<code>权限</code>进行访问控制</strong></p>
-<h3 id="2-1-hasAuthority-方法"><a href="#2-1-hasAuthority-方法" class="headerlink" title="2.1 hasAuthority 方法"></a>2.1 <code>hasAuthority</code> 方法</h3><p><strong>如果当前的主体具有指定的权限，则返回 true,否则返回 false</strong></p>
-<p>比如访问的<code>/index</code>需要用管理员的角色或权限才能访问，</p>
-<p>那么这个用户有该角色或权限，则返回<strong>true</strong>，否则返回<strong>false</strong></p>
-<blockquote>
-<p>1 在配置类中设置当前访问地址需要有哪些权限才能访问</p>
-</blockquote>
-<pre class="language-java" data-language="java"><code class="language-java">.and().authorizeRequests()
-                    &#x2F;&#x2F;该路径只有具有 admins 权限的用户才能访问
-                    .antMatchers(&quot;&#x2F;test&#x2F;index&quot;).hasAuthority(&quot;admins&quot;)</code></pre>
-
-<blockquote>
-<p>2 在<code>UserDetailsService</code>的实现类中给返回的<code>User</code>对象设置权限</p>
-</blockquote>
-<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;模拟创建一个集合，使用其中的工具类，加角色
-List&lt;GrantedAuthority&gt; auths &#x3D; AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;admins&quot;);</code></pre>
-
-<p>如果没有权限，则会报 <code>403</code> 错误  <code>(type=Forbidden, status=403)</code></p>
-<p><strong><code>hasAuthority</code> 方法只能做到单个权限的访问限制，多个需要用到<code>hasAnyAuthority</code> 方法</strong></p>
-<h3 id="2-2-hasAnyAuthority-方法"><a href="#2-2-hasAnyAuthority-方法" class="headerlink" title="2.2 hasAnyAuthority 方法"></a>2.2 <code>hasAnyAuthority</code> 方法</h3><p><strong>如果当前的主体有任何提供的角色（给定的作为一个逗号分隔的字符串列表）的话，返回 true</strong></p>
-<p>比如当前访问的<code>/index</code>需要有<code>admins</code>，<code>manager</code>任意一个权限就能够访问，</p>
-<p>如果用户有其中任意一个权限，则返回<strong>true</strong>，否则返回<strong>false</strong></p>
-<blockquote>
-<p>配置类中配置如下</p>
-</blockquote>
-<pre class="language-java" data-language="java"><code class="language-java">.and().authorizeRequests()
-    &#x2F;&#x2F;该路径具有 admins,manager 中任意权限的用户才能访问
-    .antMatchers(&quot;&#x2F;test&#x2F;index&quot;).hasAnyAuthority(&quot;admins,manager&quot;)</code></pre>
-
-<h3 id="2-3-hasRole-方法"><a href="#2-3-hasRole-方法" class="headerlink" title="2.3 hasRole 方法"></a>2.3 <code>hasRole</code> 方法</h3><p><strong>如果当前主体具有指定的角色，则返回 true</strong></p>
-<p><code>hasRole</code>方法的源码中，在<code>role</code>前面有<code>ROLE_</code>，所以在给用户赋予角色时，需要加上<code>ROLE_</code><br><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20211112140024.png" alt="image-20210419134608716-377a9ea74bd44543b335fb3cf8c1f3e1"></p>
-<blockquote>
-<p>配置类中配置如下</p>
-</blockquote>
-<pre class="language-java" data-language="java"><code class="language-java">.antMatchers(&quot;&#x2F;test&#x2F;index&quot;).hasRole(&quot;sale&quot;)</code></pre>
-
-<blockquote>
-<p>在<code>UserDetailsService</code>的实现类中给返回的<code>User</code>对象设置角色</p>
-</blockquote>
-<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;模拟创建一个集合，使用其中的工具类，加角色
-List&lt;GrantedAuthority&gt; auths &#x3D; AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;admins,ROLE_sale&quot;);</code></pre>
-
-<h3 id="2-4-hasAnyRole-方法"><a href="#2-4-hasAnyRole-方法" class="headerlink" title="2.4 hasAnyRole 方法"></a>2.4 <code>hasAnyRole</code> 方法</h3><p><strong>表示用户具备任何一个条件都可以访问</strong></p>
-<pre class="language-java" data-language="java"><code class="language-java">.antMatchers(&quot;&#x2F;test&#x2F;index&quot;).hasAnyRole(&quot;sale&quot;,&quot;admin&quot;)</code></pre>
-
-<h3 id="2-5-自定义403没有权限访问的页面"><a href="#2-5-自定义403没有权限访问的页面" class="headerlink" title="2.5 自定义403没有权限访问的页面"></a>2.5 自定义<code>403</code>没有权限访问的页面</h3><p>配置类中写如下配置</p>
-<pre class="language-java" data-language="java"><code class="language-java">protected void configure(HttpSecurity http) throws Exception &#123;
-    ...;
-    &#x2F;&#x2F;配置没有权限访问跳转的自定义页面
-    http.exceptionHandling().accessDeniedPage(&quot;&#x2F;unauth.html&quot;);
-    ...;
-&#125;</code></pre>
-
-<h2 id="3-注解使用"><a href="#3-注解使用" class="headerlink" title="3. 注解使用"></a>3. 注解使用</h2><h3 id="3-1-Secured"><a href="#3-1-Secured" class="headerlink" title="3.1 @Secured"></a>3.1 <code>@Secured</code></h3><p>**判断用户是否具有指定角色，另外需要注意的是这里匹配的字符串需要添加前缀”<code>ROLE_</code>“</p>
-<blockquote>
-<p>1 在启动类/配置类上添加注解<code>@EnableGlobalMethodSecurity(securedEnabled=true)</code>开启注解功能</p>
-</blockquote>
-<pre class="language-java" data-language="java"><code class="language-java">@EnableGlobalMethodSecurity(securedEnabled &#x3D; true)
-@SpringBootApplication
-public class SpringSecurityDemo1Application &#123;
-    public static void main(String[] args) &#123;
-        SpringApplication.run(SpringSecurityDemo1Application.class, args);
-    &#125;
-&#125;</code></pre>
-
-<blockquote>
-<p>2 在<code>Controller</code>方法上使用注解，设置角色</p>
-</blockquote>
-<pre class="language-java" data-language="java"><code class="language-java">@Secured(&#123;&quot;ROLE_sale&quot;,&quot;ROLE_manager&quot;&#125;)
-@GetMapping(&quot;update&quot;)
-public String update()&#123;
-    return &quot;hello update!&quot;;
-&#125;</code></pre>
-
-<h3 id="3-2-PreAuthorize"><a href="#3-2-PreAuthorize" class="headerlink" title="3.2 @PreAuthorize"></a>3.2 <code>@PreAuthorize</code></h3><p><strong>在进入方法之前进行验证，看有没有权限进行访问</strong></p>
-<blockquote>
-<p>1 启动类/配置类开启注解</p>
-</blockquote>
-<pre class="language-java" data-language="java"><code class="language-java">@EnableGlobalMethodSecurity(prePostEnabled &#x3D; true)</code></pre>
-
-<blockquote>
-<p>2 在<code>Controller</code>方法上使用注解</p>
-</blockquote>
-<pre class="language-java" data-language="java"><code class="language-java">@PreAuthorize(&quot;hasAnyAuthority(&#39;admins&#39;)&quot;)
-@GetMapping(&quot;update&quot;)
-public String update()&#123;
-    return &quot;hello update!&quot;;
-&#125;</code></pre>
-
-<h3 id="3-3-PostAuthorize"><a href="#3-3-PostAuthorize" class="headerlink" title="3.3 @PostAuthorize"></a>3.3 <code>@PostAuthorize</code></h3><p><strong>在方法执行之后进行校验</strong>（不常用）</p>
-<blockquote>
-<p>1 启动类/配置类开启注解</p>
-</blockquote>
-<pre class="language-java" data-language="java"><code class="language-java">@EnableGlobalMethodSecurity(prePostEnabled &#x3D; true)</code></pre>
-
-<blockquote>
-<p>2 在<code>Controller</code>方法上使用注解</p>
-</blockquote>
-<pre class="language-java" data-language="java"><code class="language-java">@PostAuthorize(&quot;hasAnyAuthority(&#39;admins&#39;)&quot;)
-@GetMapping(&quot;update&quot;)
-public String update()&#123;
-    System.out.println(&quot;update......&quot;);
-    return &quot;hello update!&quot;;
-&#125;</code></pre>
-
-<p>因为是在方法执行之后进行校验，所以如果<strong>没有权限访问，也会执行控制台输出update……的代码</strong><br><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20211112140042.png" alt="image-20210419143800263-e22f3e15006a4bb7a4fdcacc8b263d0f"></p>
-<h3 id="3-4-PostFilter"><a href="#3-4-PostFilter" class="headerlink" title="3.4 @PostFilter"></a>3.4 <code>@PostFilter</code></h3><p><strong>对方法返回的数据进行过滤</strong>（不常用）</p>
-<p>权限验证之后对数据进行过滤 留下用户名是 <code>admin1</code> 的数据</p>
-<p>表达式中的 <code>filterObject</code> 引用的是方法返回值 <code>List</code> 中的某一个元素</p>
-<pre class="language-java" data-language="java"><code class="language-java">@RequestMapping(&quot;getAll&quot;)
-@PreAuthorize(&quot;hasRole(&#39;ROLE_管理员&#39;)&quot;)
-@PostFilter(&quot;filterObject.username &#x3D;&#x3D; &#39;admin1&#39;&quot;)
-@ResponseBody
-public List&lt;UserInfo&gt; getAllUser()&#123;
-    ArrayList&lt;UserInfo&gt; list &#x3D; new ArrayList&lt;&gt;();
-    list.add(new UserInfo(1l,&quot;admin1&quot;,&quot;6666&quot;));
-    list.add(new UserInfo(2l,&quot;admin2&quot;,&quot;888&quot;));
-    return list;
-&#125;</code></pre>
-
-
-
-<h3 id="3-5-PreFilter"><a href="#3-5-PreFilter" class="headerlink" title="3.5 @PreFilter"></a>3.5 <code>@PreFilter</code></h3><p><strong>对传入方法的数据进行过过滤</strong>（不常用）</p>
-<pre class="language-java" data-language="java"><code class="language-java">@RequestMapping(&quot;getTestPreFilter&quot;)
-@PreAuthorize(&quot;hasRole(&#39;ROLE_管理员&#39;)&quot;)
-@PreFilter(value &#x3D; &quot;filterObject.id%2&#x3D;&#x3D;0&quot;)
-@ResponseBody
-public List&lt;UserInfo&gt; getTestPreFilter(@RequestBody List&lt;UserInfo&gt;
-                                       list)&#123;
-    list.forEach(t-&gt; &#123;
-        System.out.println(t.getId()+&quot;\t&quot;+t.getUsername());
-    &#125;);
-    return list;
-&#125;</code></pre>
-
-<h2 id="4-用户注销"><a href="#4-用户注销" class="headerlink" title="4. 用户注销"></a>4. 用户注销</h2><blockquote>
-<p>1 在配置类中添加退出映射地址</p>
-</blockquote>
-<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;退出
-&#x2F;&#x2F;退出请求的路径随便写，由Security框架做到，和前端退出事件绑定即可
-http.logout().logoutUrl(&quot;&#x2F;logout&quot;).logoutSuccessUrl(&quot;&#x2F;test&#x2F;hello&quot;).permitAll();</code></pre>
-
-<blockquote>
-<p>2 前端加上退出按钮，且路径为上面配置的<code>logoutUrl</code></p>
-</blockquote>
-<h2 id="5-记住我（自动登录）"><a href="#5-记住我（自动登录）" class="headerlink" title="5. 记住我（自动登录）"></a>5. 记住我（自动登录）</h2><p><strong>流程</strong><br><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20211112140101.png" alt="RememberMe-45091bede8154a63a966fd1832889818"></p>
-<blockquote>
-<p>1 创建数据库表，供存入Token和查询</p>
-<p>（源码中有提供建表语句，如果没有表，会帮我们建表）</p>
-</blockquote>
-<pre class="language-sql" data-language="sql"><code class="language-sql">CREATE TABLE &#96;persistent_logins&#96; (
-    &#96;username&#96; varchar(64) NOT NULL,
-    &#96;series&#96; varchar(64) NOT NULL,
-    &#96;token&#96; varchar(64) NOT NULL,
-    &#96;last_used&#96; timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE
-    CURRENT_TIMESTAMP,
-    PRIMARY KEY (&#96;series&#96;)
-) ENGINE&#x3D;InnoDB DEFAULT CHARSET&#x3D;utf8;</code></pre>
-
-<blockquote>
-<p>2 在配置类中配置数据源，配置操作数据库对象</p>
-</blockquote>
-<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F;注入数据源
-@Autowired
-private DataSource dataSource;
-
-&#x2F;&#x2F;配置操作数据库的对象
-@Bean
-public PersistentTokenRepository persistentTokenRepository()&#123;
-    JdbcTokenRepositoryImpl jdbcTokenRepository &#x3D; new JdbcTokenRepositoryImpl();
-    jdbcTokenRepository.setDataSource(dataSource);
-    &#x2F;&#x2F;jdbcTokenRepository.setCreateTableOnStartup(true);  &#x2F;&#x2F;自动生成表
-    return jdbcTokenRepository;
-&#125;</code></pre>
-
-<blockquote>
-<p>3 配置类中配置自动登录</p>
-</blockquote>
-<pre class="language-java" data-language="java"><code class="language-java">.and().rememberMe().tokenRepository(persistentTokenRepository()) &#x2F;&#x2F;配置操作数据库的对象
-.tokenValiditySeconds(60)       &#x2F;&#x2F;是、设置Cookie有效时长，秒为单位
-.userDetailsService(userDetailsService) &#x2F;&#x2F;使用这个注入的userDetailsService操作数据库</code></pre>
-
-<blockquote>
-<p>4 登录页面中加记住我复选框，<code>name=remember-me</code></p>
-</blockquote>
-<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">></span></span>
-    <span class="token comment">&lt;!-- name必须是remember-me --></span>
-    记住我<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>remember-me<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>   
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span></code></pre>
-
-<h2 id="6-CSRF"><a href="#6-CSRF" class="headerlink" title="6. CSRF"></a>6. CSRF</h2><p><strong>跨站请求伪造</strong></p>
-<p>前面的测试中，将CSRF功能关闭了，这个功能默认是开启的</p>
-<p>将前的</p>
-<pre class="language-java" data-language="java"><code class="language-java">.and().csrf().disable();            &#x2F;&#x2F;关闭csrf防护</code></pre>
-
-<p>注释掉，即可开启CSRF</p>
-<p>使用步骤：</p>
-<blockquote>
-<p>1 在配置类中开启CSRF，默认开启</p>
-</blockquote>
-<blockquote>
-<p>2 在登录页面中加上一个隐藏项</p>
-</blockquote>
-<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--  CSRF隐藏向传入Token  --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;_csrf&#125;!=null<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">th:</span>value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;_csrf.token&#125;<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>_csrf<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></code></pre>
-
-<p>需要<code>thymeleaf</code>模板支持</p>
-<blockquote>
-<p>continue……</p>
-</blockquote>
- 
+  <p>1</p> 
+      <a class="article-more-link" href="/2021/04/18/Spring%20Security%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(1)/"
+        >阅读更多...</a
+      >
+       
       <!-- reward -->
       
     </div>
@@ -1564,143 +1718,11 @@ public class SentinelConfiguration &#123;
       
     <div class="article-entry" itemprop="articleBody">
        
-  <blockquote>
-<p>今天在使用<code>阿里云OSS对象存储</code>，删除bucket中文图片时，发现问题。</p>
-</blockquote>
-<p>在前端页面使用axios发送请求到后端，传递的参数是要删除的图片的url，前端（vue项目）代码如下：<br>api目录下的js文件的方法声明：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//放弃，阿里云OSS 删封面</span>
-<span class="token function">giveUpBlog</span><span class="token punctuation">(</span><span class="token parameter">url</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-  <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-    url<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/admin/blog/giveUpBlog/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>url<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
-    method<span class="token operator">:</span><span class="token string">'post'</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">,</span></code></pre>
-<p>前端页面的调用部分：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//放弃本博客的编写，删掉阿里云中存的封面</span>
-  <span class="token function">GiveUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>blogInfo<span class="token punctuation">.</span>cover<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\/</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">"%2F"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span>
-    blogApi<span class="token punctuation">.</span><span class="token function">giveUpBlog</span><span class="token punctuation">(</span>url<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-        type<span class="token operator">:</span> <span class="token string">'success'</span><span class="token punctuation">,</span>
-        message<span class="token operator">:</span> <span class="token string">"博客已放弃编辑！"</span>
-      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-      <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-        path<span class="token operator">:</span> <span class="token string">'./blogList'</span>
-      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></code></pre>
-<p>后端对‘/’字符进行反向的转义</p>
-<pre class="language-java" data-language="java"><code class="language-java">&#x2F;&#x2F; 将前端替换的替换回
-url &#x3D; url.replace(&quot;%2F&quot;,&quot;&#x2F;&quot;);</code></pre>
-<p>传递的参数字符串是<br><code>https:%2F%2Farilia.oss-cn-chengdu.aliyuncs.com%2F2021%2F04%2F24%2F399992eff3694b8c922c92578814bb99asn.png</code><br>对于url，处理了里面的‘/’字符，转换成了对应的url转义编码。<br>这样进行处理，使用Swagger进行测试时，是正常运行不会报错的，阿里云中的视频也能正常删除掉。<br>但是这样的处理直接使用浏览器点击事件，调用方法发送请求，却无法正常执行，报错如下：<br><img src="http://47.108.156.251:8090/upload/2021/04/image-57b282f6717a47d8b3dd32e0011e46b7.png" alt="image.png"><br>这里参数http:…后面还有很长<br>swagger测试，输入和这里一样转换过‘/’的字符串是正确的，但是这里总是报错。。。</p>
-<p>我这里将Swagger和浏览器请求的Request URL截取做了对比，发现是不一样的<br>这里是Swagger的Request URL<br><code>http://localhost:6661/admin/blog/giveUpBlog/https%3A%252F%252Farilia.oss-cn-chengdu.aliyuncs.com%252F2021%252F04%252F24%252F399992eff3694b8c922c92578814bb99asn.png</code><br>这里是浏览器的Request URL<br><code>http://localhost:6661/admin/blog/giveUpBlog/https:%2F%2Farilia.oss-cn-chengdu.aliyuncs.com%2F2021%2F04%2F24%2F399992eff3694b8c922c92578814bb99asn.png</code><br>一眼看去，Swagger的请求比浏览器发出的要长一些，仔细看就会发现，Swagger发送的请求，将参数中的所有特殊字符按照相应规则进行了转义编码，发现特殊字符不只是有‘/’，只是‘/’连Swagger也无法进行判断帮你转义。<br>所以在前端像后端请求时，参数一定要将其中的所有特殊字符按照相应规则进行转义编码，才能正常发送到后端进行处理。</p>
-<p>进行这样的修改：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//放弃本博客的编写，删掉阿里云中存的封面</span>
-   <span class="token function">GiveUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">let</span> url <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>blogInfo<span class="token punctuation">.</span>cover<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\/</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">"%2F"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    url <span class="token operator">=</span> url<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\%</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span><span class="token string">"%25"</span><span class="token punctuation">)</span>
-    url <span class="token operator">=</span> url<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\:</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span><span class="token string">"%3A"</span><span class="token punctuation">)</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span>
-    blogApi<span class="token punctuation">.</span><span class="token function">giveUpBlog</span><span class="token punctuation">(</span>url<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-        type<span class="token operator">:</span> <span class="token string">'success'</span><span class="token punctuation">,</span>
-        message<span class="token operator">:</span> <span class="token string">"博客已放弃编辑！"</span>
-      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-      <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-        path<span class="token operator">:</span> <span class="token string">'./blogList'</span>
-      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></code></pre>
-<p>这样进行处理后，便可以正常发送请求到后端，正常执行，<br>而且，后端只需要处理‘/’字符的反向转义即可，其他字符均会和Swagger帮你转义一样反向转义回来。。。</p>
-<blockquote>
-<p>同时，在使用Feign远程调用的时候，传入的参数同样不能带有‘/’，需要将它进行转义编码，才能调用远程的服务，否则会发现调用的接口url的前半部分不是要调用的服务IP地址而变成服务名了。。。</p>
-</blockquote>
-<p>(o゜▽゜)o☆[BINGO!]<br>虽然是因为知识掌握不全面造成的小错误，但是还是修改和研究了一小会儿，做个简短的排错记录，并且附上常见转义编码规则：</p>
-<table>
-<thead>
-<tr>
-<th>字符</th>
-<th>URL编码值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>空格</td>
-<td>%20</td>
-</tr>
-<tr>
-<td>“</td>
-<td>%22</td>
-</tr>
-<tr>
-<td>#</td>
-<td>%23</td>
-</tr>
-<tr>
-<td>%</td>
-<td>%25</td>
-</tr>
-<tr>
-<td>&amp;</td>
-<td>%26</td>
-</tr>
-<tr>
-<td>(</td>
-<td>%28</td>
-</tr>
-<tr>
-<td>)</td>
-<td>%29</td>
-</tr>
-<tr>
-<td>+</td>
-<td>%2B</td>
-</tr>
-<tr>
-<td>,</td>
-<td>%2C</td>
-</tr>
-<tr>
-<td>/</td>
-<td>%2F</td>
-</tr>
-<tr>
-<td>:</td>
-<td>%3A</td>
-</tr>
-<tr>
-<td>;</td>
-<td>%3B</td>
-</tr>
-<tr>
-<td>&lt;</td>
-<td>%3C</td>
-</tr>
-<tr>
-<td>=</td>
-<td>%3D</td>
-</tr>
-<tr>
-<td>&gt;</td>
-<td>%3E</td>
-</tr>
-<tr>
-<td>?</td>
-<td>%3F</td>
-</tr>
-<tr>
-<td>@</td>
-<td>%40</td>
-</tr>
-<tr>
-<td>\</td>
-<td>%5C</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>记住它，再接再厉</p>
-</blockquote>
- 
+  <p>1</p> 
+      <a class="article-more-link" href="/2021/03/16/URL%E4%B8%8E%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/"
+        >阅读更多...</a
+      >
+       
       <!-- reward -->
       
     </div>
@@ -2465,6 +2487,63 @@ public R pageCourseCondition(@PathVariable Integer current, @PathVariable Intege
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mybatis-Plus/" rel="tag">Mybatis-Plus</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-SpringBoot_Vue整合"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/01/31/SpringBoot_Vue%E6%95%B4%E5%90%88/"
+    >Spring Boot+Vue的简单整合</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/01/31/SpringBoot_Vue%E6%95%B4%E5%90%88/" class="article-date">
+  <time datetime="2021-01-31T09:27:20.000Z" itemprop="datePublished">2021-01-31</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>1</p> 
+      <a class="article-more-link" href="/2021/01/31/SpringBoot_Vue%E6%95%B4%E5%90%88/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Element-UI/" rel="tag">Element UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
 
     </footer>
   </div>

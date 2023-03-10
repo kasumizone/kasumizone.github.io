@@ -7,7 +7,11 @@
 <p><del>开门见山~废话不多的「建站博文」</del></p>
 </blockquote>
 <p>本文专为急于拥有个人网站的成功人士「量身定制」，秉承着绝不耽误读者大人时间的理念创作，将直接从最为核心的作者的降世之日说起，跳过繁杂的盘古开天辟地到上世纪末的发展历史，保证让您在「有生之年」完成建站！</p>
-<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210802183447.png" alt="image-20210802183447444" style="zoom:67%;" />
+<img src="https://s2.loli.net/2023/03/10/VkTujIv7UJ9oWrw.png" alt="image-20210802183447444" style="zoom:67%;" />
+
+
+
+
 
 <h2 id="内容简介"><a href="#内容简介" class="headerlink" title="内容简介"></a>内容简介</h2><blockquote>
 <p><del>其实，这是一段心路历程</del></p>
@@ -16,16 +20,23 @@
 
 
 
+<blockquote>
+<p>2023/3/10更新</p>
+</blockquote>
+<p>很久没有关心过博客了，前些时间（应该挺久了，并且经历了莫名其妙的人生经历）腾讯云一直发消息说是要改变收费方案，CloudBase从之前的按流量收取费用改成了要先购买基础套餐，基础套餐中的流量用完后，再按照用超的流量收费。</p>
+<p>好比我的博客，几乎没有任何访问量，之前的收费方案下，每天只需要支付0.01元，充值了5元，打算用五百天再来看，简直是又接近于免费访问速度又快。</p>
+<p>改变了收费方案后，最低的个人版也要每月19.9元，对于我这个几乎没有任何访问量的小博客来说，确实没必要，所以就改用了Github Pages。（真的蛮想用Gitee Pages，可是一直一直在维护，前不久刚可以开通了，还没审核通过，就又开始维护。。。）</p>
+<p>So 访问量不大的个人博客就不建议使用CloudBase啦。</p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>为兑现承诺，决定先把最不重要的建站步骤说完，长话短说，立刻开始~</p>
 <h1 id="静态网站托管服务选择"><a href="#静态网站托管服务选择" class="headerlink" title="静态网站托管服务选择"></a>静态网站托管服务选择</h1><p>说起静态网站托管服务，我想有了解过Hexo和静态博客，有建站打算的人儿们都有了解过：Github Page，Gitee Page…等</p>
 <p>我们下面针对这两种基于Git的远程仓库提供的静态网站托管服务进行优劣的简单分析和服务选择~</p>
 <h2 id="Gitee-Page"><a href="#Gitee-Page" class="headerlink" title="Gitee Page"></a>Gitee Page</h2><p>作为国内的Github，稳定性和速度都毋庸置疑</p>
 <p>↓</p>
-<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210730142859.png" alt="image-20210730142852069"></p>
-<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210730143408.png" alt="image-20210730143408344" style="zoom:50%;" />
+<p><img src="https://s2.loli.net/2023/03/10/yK1r3ClUvMXNk5R.png" alt="image-20210730142852069"></p>
+<img src="https://s2.loli.net/2023/03/10/fOPWeLBwploIYAg.png" alt="image-20210730143408344" style="zoom:50%;" />
 
 <p>由于没有尝试过，博主不做过多评价，如果服务开放，必可做为搭建静态网页的首选服务~、</p>
-<h2 id="Github-Page"><a href="#Github-Page" class="headerlink" title="Github Page"></a>Github Page</h2><p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210730143832.png" alt="image-20210730143832217"></p>
+<h2 id="Github-Page"><a href="#Github-Page" class="headerlink" title="Github Page"></a>Github Page</h2><p><img src="https://s2.loli.net/2023/03/10/agtnU6pEKXHkAlD.png" alt="image-20210730143832217"></p>
 <p>作为世界上最大的“同性交友网站”，对国内来说相当不稳定，有些地区甚至完全无法访问，各种网络限制也很严重，需要大家都能够科学上网，才能勉强使用~</p>
 <p>糟心~</p>
 <p>建议优先考虑Gitee Page</p>
@@ -36,7 +47,7 @@
 <p>总之就是非常不错~</p>
 <p><a href="https://cloud.tencent.com/document/product/876">官方文档</a>写的也很细腻，感兴趣的人儿可以去看一下</p>
 <p>最细的是还有专门<a href="https://cloud.tencent.com/document/product/876/47006">针对Hexo的搭建的保姆级教学~</a></p>
-<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210730161434.png" alt="image-20210730161434885"></p>
+<p><img src="https://s2.loli.net/2023/03/10/ujlbLWZYwr1UVzp.png" alt="image-20210730161434885"></p>
 <h1 id="Hexo简介"><a href="#Hexo简介" class="headerlink" title="Hexo简介"></a>Hexo简介</h1><p><em><a href="https://hexo.io/zh-cn/">Hexo</a></em> 是一个基于nodejs的静态博客网站生成器，是目前非常流行的静态博客，想必想搭博客的小伙伴应该早有耳闻~</p>
 <p>Hexo的优势很明显，即可以很好的部署在静态网站托管服务上，无需购买服务器；再者，静态博客框架中，Hexo有着悠久的历史和庞大的用户量，所以质量肯定没话说，主题也是相当之多，官方的主题库，大神自己写的主题，都相当华丽，定能够满足大多数人的喜好~</p>
 <p><a href="https://hexo.io/zh-cn/docs/">Hexo使用文档</a></p>
@@ -88,7 +99,7 @@ hexo server</code></pre>
 
 <p>即可启动Hexo服务，默认在本地4000端口启动，现在访问<a href="">localhost:4000</a>即可看到初步的成效~</p>
 <p>大概是这个样子</p>
-<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210730165938.png" alt="image-20210730165938483"></p>
+<p><img src="https://s2.loli.net/2023/03/10/VsTBUOk9r5vizdb.png" alt="image-20210730165938483"></p>
 <p><strong>觉得丑的不用忍，直接换主题</strong>，部署过后再换主题还要更新部署~~</p>
 <p><a href="https://hexo.io/themes/">官方主题仓库</a></p>
 <p>没有喜欢的可以在网上找大神写的主题，都很不错~</p>
@@ -111,20 +122,20 @@ hexo server</code></pre>
 </blockquote>
 <p>自定义域名时，需要提供域名的SSL证书，使域名可以用HTTPS进行访问，SSL证书的购买是很贵的，<del>（很惭愧这方面我也不是特别了解）</del>，我的方法是这样：</p>
 <p>首先去到<a href="https://www.aliyun.com/product/cas">SSL证书的首页</a></p>
-<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210730171820.png" alt="image-20210730171820477"></p>
+<p><img src="https://s2.loli.net/2023/03/10/l45UHPTZhxIzcgA.png" alt="image-20210730171820477"></p>
 <p>点击选购SSL证书</p>
-<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210730171847.png" alt="image-20210730171846979"></p>
+<p><img src="https://s2.loli.net/2023/03/10/cwl1DS7OI9TxnhN.png" alt="image-20210730171846979"></p>
 <p>点击如图所示的免费试用，然后一路点击购买即可，均是免费的，并且秒签发，非常给力~</p>
 <p>随后进入SSL证书控制台，按如下步骤进行签发申请和下载操作，一路行云流水~</p>
-<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210730172250.png" alt="image-20210730172250410"></p>
+<p><img src="https://s2.loli.net/2023/03/10/BDfyjFOVSrvWmiQ.png" alt="image-20210730172250410"></p>
 <p>随后入腾讯云的SSL证书控制台，将刚刚下载下来的证书上传，按照下图所示进行填写即可~</p>
-<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210730172842.png" alt="image-20210730172842836" style="zoom: 67%;" />
+<img src="https://s2.loli.net/2023/03/10/xc4CwoGBZYPW2A3.png" alt="image-20210730172842836" style="zoom: 67%;" />
 
 <p>接着按照官方文档的指示，添加自定义域名，域名输入后，会自动识别填充证书~</p>
-<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210730173020.png" alt="image-20210730173020039" style="zoom:67%;" />
+<img src="https://s2.loli.net/2023/03/10/f7nwl4JICMxP8VL.png" alt="image-20210730173020039" style="zoom:67%;" />
 
 <p>接着根据提示，拿到.cdn.dnsv1.com结尾的域名，前往阿里云域名控制台配置CNAME域名解析</p>
-<img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210730173442.png" alt="image-20210730173442164" style="zoom:67%;" />
+<img src="https://s2.loli.net/2023/03/10/Yua9XAwiPjKcykM.png" alt="image-20210730173442164" style="zoom:67%;" />
 
 <p>最后等待部署完成，即可通过自己的域名访问Hexo了，具体Hexo的使用及主题，参考官方文档即可~</p>
 <p><del>为啥引用那么多官方文档？</del></p>
@@ -140,11 +151,11 @@ hexo server</code></pre>
 <h1 id="小结（假）"><a href="#小结（假）" class="headerlink" title="小结（假）"></a><del>小结（假）</del></h1><p>以上内容更多的记录博主的Hexo博客搭建历程，内容有不完整，错误或不明白的地方，可以联系博主进行修改和询问*<del>（直接来评论区对线，谁怕谁？别..别太伤人..）</del>*</p>
 <p>如果以上内容有帮到大家的地方，万分荣幸~</p>
 <p>(＾Ｕ＾)ノ~ＹＯ</p>
-<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210802183735.png" alt="image-20210802183735638"></p>
-<h1 id="正片！"><a href="#正片！" class="headerlink" title="正片！"></a>正片！</h1><p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210802183600.png" alt="image-20210802183600410"></p>
+<p><img src="https://s2.loli.net/2023/03/10/ImiMfgbwKhnC5Y6.png" alt="image-20210802183735638"></p>
+<h1 id="正片！"><a href="#正片！" class="headerlink" title="正片！"></a>正片！</h1><p><img src="https://s2.loli.net/2023/03/10/thqmJHe8DY9ocIV.png" alt="image-20210802183600410"></p>
 <p>阿巴阿巴~</p>
 <p>阿巴阿巴~</p>
-<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20210802183811.png" alt="image-20210802183811445"></p>
+<p><img src="https://s2.loli.net/2023/03/10/lrNaudQzxqiH2mV.png" alt="image-20210802183811445"></p>
 ]]></content>
       <categories>
         <category>兴趣使然</category>
@@ -503,7 +514,10 @@ produces &#x3D; &quot;application&#x2F;json;charset&#x3D;utf-8&quot;)</code></pr
   <entry>
     <title>URL传参中的特殊字符</title>
     <url>/2021/03/16/URL%E4%B8%8E%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js"></script><blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js"></script><p>1</p>
+<span id="more"></span>
+
+<blockquote>
 <p>今天在使用<code>阿里云OSS对象存储</code>，删除bucket中文图片时，发现问题。</p>
 </blockquote>
 <p>在前端页面使用axios发送请求到后端，传递的参数是要删除的图片的url，前端（vue项目）代码如下：<br>api目录下的js文件的方法声明：</p>
@@ -651,27 +665,6 @@ url &#x3D; url.replace(&quot;%2F&quot;,&quot;&#x2F;&quot;);</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>送给杨逸春的超级甜的苹果🍎(*^▽^*)</title>
-    <url>/2021/12/24/apple/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js"></script><blockquote>
-<h1 id="BEST"><a href="#BEST" class="headerlink" title="BEST"></a>BEST</h1><h2 id="BEST-1"><a href="#BEST-1" class="headerlink" title="BEST"></a>BEST</h2><h3 id="BEST-2"><a href="#BEST-2" class="headerlink" title="BEST"></a>BEST</h3><h1 id="WISHES"><a href="#WISHES" class="headerlink" title="WISHES"></a>WISHES</h1><h2 id="TO-YOU✧-≖-◡-≖✿"><a href="#TO-YOU✧-≖-◡-≖✿" class="headerlink" title="TO YOU✧(≖ ◡ ≖✿)"></a>TO YOU✧(≖ ◡ ≖✿)</h2></blockquote>
-
-    <div id="aplayer-CsuivynI" class="aplayer aplayer-tag-marker meting-tag-marker"
-         data-id="7137869957" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#FF4081"
-    ></div>
-
-<span id="more"></span>
-
-<p><img src="https://gitee.com/KaitoKID1412/MyPicGo/raw/master/img/20211224170405.PNG" alt="IMG_9334(20211224-165542)"></p>
-]]></content>
-      <categories>
-        <category>独一无二的分类</category>
-      </categories>
-      <tags>
-        <tag>lovely</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【你的名字】致曾来过的你 | 有来世 甘愿再与你相遇</title>
     <url>/2021/08/03/to-bilibili/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js"></script><span id="more"></span>
@@ -689,7 +682,7 @@ url &#x3D; url.replace(&quot;%2F&quot;,&quot;&#x2F;&quot;);</code></pre>
     <title>测试aplayer~其实是分享</title>
     <url>/2021/08/03/toaplayer/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js"></script>
-    <div id="aplayer-fWnwdsrm" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-wCtwNrjY" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="6897059777" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#FF4081"
     ></div>
 
@@ -716,8 +709,7 @@ url &#x3D; url.replace(&quot;%2F&quot;,&quot;&#x2F;&quot;);</code></pre>
   <entry>
     <title>Docker基础学习笔记（Delete）</title>
     <url>/2021/09/18/Docker%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js"></script><p>123456</p>
-<span id="more"></span>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js"></script><span id="more"></span>
 
 <p>Docker：<a href="https://hub.docker.com/">hub.docker.com</a></p>
 <p>参考视频：<a href="https://www.bilibili.com/video/BV1CJ411T7BK">黑马程序员Docker容器化技术，从零学会Docker教程</a></p>
@@ -3122,7 +3114,8 @@ public class SentinelConfiguration &#123;
   <entry>
     <title>Spring Security学习笔记(1)</title>
     <url>/2021/04/18/Spring%20Security%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(1)/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js"></script><span id="more"></span>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js"></script><p>1</p>
+<span id="more"></span>
 
 <h1 id="一、入门案例"><a href="#一、入门案例" class="headerlink" title="一、入门案例"></a>一、入门案例</h1><h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h2><p><strong>创建Spring Boot工程（web），引入相关依赖</strong></p>
 <pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--  Spring Security   --></span>
@@ -3591,7 +3584,10 @@ public PersistentTokenRepository persistentTokenRepository()&#123;
   <entry>
     <title>Spring Boot+Vue的简单整合</title>
     <url>/2021/01/31/SpringBoot_Vue%E6%95%B4%E5%90%88/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js"></script><h2 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h2><p>Vue.js</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js"></script><p>1</p>
+<span id="more"></span>
+
+<h2 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h2><p>Vue.js</p>
 <pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!-- 开发环境版本，包含了有帮助的命令行警告 --></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/vue/dist/vue.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 
