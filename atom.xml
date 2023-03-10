@@ -47,7 +47,7 @@
     <updated>2021-09-18T10:50:07.385Z</updated>
     
     
-    <summary type="html">&lt;div id=&quot;aplayer-QdueWSJf&quot; class=&quot;aplayer aplayer-tag-marker meting-tag-marker&quot;
+    <summary type="html">&lt;div id=&quot;aplayer-UZOzxxfb&quot; class=&quot;aplayer aplayer-tag-marker meting-tag-marker&quot;
          data-id=&quot;6897059777&quot; data-server=&quot;netease&quot; data-type=&quot;playlist&quot; data-mode=&quot;circulation&quot; data-autoplay=&quot;false&quot; data-mutex=&quot;true&quot; data-listmaxheight=&quot;340px&quot; data-preload=&quot;auto&quot; data-theme=&quot;#FF4081&quot;
     &gt;&lt;/div&gt;
 
@@ -237,9 +237,9 @@
     
     <category term="Java" scheme="https://kasumizone.github.io/tags/Java/"/>
     
-    <category term="Spring Boot" scheme="https://kasumizone.github.io/tags/Spring-Boot/"/>
-    
     <category term="MySQL" scheme="https://kasumizone.github.io/tags/MySQL/"/>
+    
+    <category term="Spring Boot" scheme="https://kasumizone.github.io/tags/Spring-Boot/"/>
     
     <category term="Mybatis-Plus" scheme="https://kasumizone.github.io/tags/Mybatis-Plus/"/>
     
@@ -287,9 +287,9 @@
     
     <category term="Java" scheme="https://kasumizone.github.io/tags/Java/"/>
     
-    <category term="Shiro" scheme="https://kasumizone.github.io/tags/Shiro/"/>
-    
     <category term="Spring Boot" scheme="https://kasumizone.github.io/tags/Spring-Boot/"/>
+    
+    <category term="Shiro" scheme="https://kasumizone.github.io/tags/Shiro/"/>
     
     <category term="Thymeleaf" scheme="https://kasumizone.github.io/tags/Thymeleaf/"/>
     
