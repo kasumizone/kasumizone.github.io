@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="1023 Have Fun with Numbers"/>
+
+
+
+
+  <meta name="keywords" content="算法,PAT甲级," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="TokitouのBlog" >
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://example.com/2023/03/14/1023/"/>
+
+
+<meta name="description" content="PAT甲级第1023题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1023 Have Fun with Numbers">
+<meta property="og:url" content="http://example.com/2023/03/14/1023/index.html">
+<meta property="og:site_name" content="TokitouのBlog">
+<meta property="og:description" content="PAT甲级第1023题">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-14T06:41:27.000Z">
+<meta property="article:modified_time" content="2023-03-14T06:44:31.541Z">
+<meta property="article:author" content="Tokitou">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="PAT甲级">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: true
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> 1023 Have Fun with Numbers - TokitouのBlog </title>
+  <meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">TokitouのBlog</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          1023 Have Fun with Numbers
+        
+      </h1>
+
+      <time class="post-time">
+          Mar 14 2023
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <p>PAT甲级第1023题</p>
+<span id="more"></span>
+
+<h1 id="1023-Have-Fun-with-Numbers"><a href="#1023-Have-Fun-with-Numbers" class="headerlink" title="1023 Have Fun with Numbers"></a><strong>1023 Have Fun with Numbers</strong></h1><blockquote>
+<p>Method 1（笨）</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	string str ;</span><br><span class="line">	string resstr;</span><br><span class="line">	cin&gt;&gt;str;</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> num;</span><br><span class="line">	<span class="type">bool</span> jinwei = <span class="literal">false</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=str.<span class="built_in">size</span>()<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">		num = str[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">		<span class="keyword">if</span>(jinwei)&#123;</span><br><span class="line">			<span class="keyword">if</span>(num * <span class="number">2</span> + <span class="number">1</span>&gt;=<span class="number">10</span>)&#123;</span><br><span class="line">				jinwei = <span class="literal">true</span>;</span><br><span class="line">				resstr.<span class="built_in">append</span>(<span class="built_in">to_string</span>(num*<span class="number">2</span>+<span class="number">1</span><span class="number">-10</span>));</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				jinwei = <span class="literal">false</span>;</span><br><span class="line">				resstr.<span class="built_in">append</span>(<span class="built_in">to_string</span>(num*<span class="number">2</span>+<span class="number">1</span>));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(num * <span class="number">2</span>&gt;=<span class="number">10</span>)&#123;</span><br><span class="line">				jinwei = <span class="literal">true</span>;</span><br><span class="line">				resstr.<span class="built_in">append</span>(<span class="built_in">to_string</span>(num*<span class="number">2</span><span class="number">-10</span>));</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				jinwei = <span class="literal">false</span>;</span><br><span class="line">				resstr.<span class="built_in">append</span>(<span class="built_in">to_string</span>(num*<span class="number">2</span>));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(i == <span class="number">0</span>&amp;&amp;jinwei)&#123;</span><br><span class="line">			resstr.<span class="built_in">append</span>(<span class="built_in">to_string</span>(<span class="number">1</span>));</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">reverse</span>(resstr.<span class="built_in">begin</span>(),resstr.<span class="built_in">end</span>());</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> count[<span class="number">10</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="type">int</span> count2[<span class="number">10</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;resstr.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">		<span class="keyword">switch</span> (resstr[i]) &#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;0&#x27;</span>:</span><br><span class="line">			count[<span class="number">0</span>]++;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;1&#x27;</span>:</span><br><span class="line">			count[<span class="number">1</span>]++;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;2&#x27;</span>:</span><br><span class="line">			count[<span class="number">2</span>]++;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;3&#x27;</span>:</span><br><span class="line">			count[<span class="number">3</span>]++;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;4&#x27;</span>:</span><br><span class="line">			count[<span class="number">4</span>]++;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;5&#x27;</span>:</span><br><span class="line">			count[<span class="number">5</span>]++;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;6&#x27;</span>:</span><br><span class="line">			count[<span class="number">6</span>]++;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;7&#x27;</span>:</span><br><span class="line">			count[<span class="number">7</span>]++;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;8&#x27;</span>:</span><br><span class="line">			count[<span class="number">8</span>]++;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;9&#x27;</span>:</span><br><span class="line">			count[<span class="number">9</span>]++;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;str.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">		<span class="keyword">switch</span> (str[i]) &#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;0&#x27;</span>:</span><br><span class="line">			count2[<span class="number">0</span>]++;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;1&#x27;</span>:</span><br><span class="line">			count2[<span class="number">1</span>]++;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;2&#x27;</span>:</span><br><span class="line">			count2[<span class="number">2</span>]++;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;3&#x27;</span>:</span><br><span class="line">			count2[<span class="number">3</span>]++;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;4&#x27;</span>:</span><br><span class="line">			count2[<span class="number">4</span>]++;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;5&#x27;</span>:</span><br><span class="line">			count2[<span class="number">5</span>]++;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;6&#x27;</span>:</span><br><span class="line">			count2[<span class="number">6</span>]++;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;7&#x27;</span>:</span><br><span class="line">			count2[<span class="number">7</span>]++;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;8&#x27;</span>:</span><br><span class="line">			count2[<span class="number">8</span>]++;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&#x27;9&#x27;</span>:</span><br><span class="line">			count2[<span class="number">9</span>]++;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="type">bool</span> b = <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(count[i] != count2[i])&#123;</span><br><span class="line">			b = <span class="literal">false</span>;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(b)&#123;</span><br><span class="line">		cout&lt;&lt;<span class="string">&quot;Yes&quot;</span>&lt;&lt;endl;</span><br><span class="line">		cout&lt;&lt;resstr&lt;&lt;endl;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		cout&lt;&lt;<span class="string">&quot;No&quot;</span>&lt;&lt;endl;</span><br><span class="line">		cout&lt;&lt;resstr&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Method 2</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> number[<span class="number">10</span>] = &#123;<span class="number">0</span>&#125;;	<span class="comment">//初始化一个数组，存放输入的数字字符串每个数字出现的次数</span></span><br><span class="line">	string input,output ;	<span class="comment">//定义输入输出字符串</span></span><br><span class="line">	cin&gt;&gt;input;</span><br><span class="line">	<span class="type">int</span> jinwei = <span class="number">0</span>;		    <span class="comment">//进位</span></span><br><span class="line">	<span class="comment">//把输入的字符串统计出现的数字个数</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=input.<span class="built_in">length</span>()<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">		number[input[i]-<span class="string">&#x27;0&#x27;</span>]++;		<span class="comment">//字符转为int，用字符-&#x27;0&#x27;，减0的ASCLL码刚好是对应字符的int</span></span><br><span class="line">		<span class="keyword">if</span>((input[i]-<span class="string">&#x27;0&#x27;</span>)*<span class="number">2</span> + jinwei&gt;=<span class="number">10</span>)&#123;</span><br><span class="line">           	 <span class="comment">//字符串首部加数据，注意这里只能是0，字符串长度未知，不能加到其他位置</span></span><br><span class="line">			output.<span class="built_in">insert</span>(<span class="number">0</span>,<span class="built_in">to_string</span>((input[i]-<span class="string">&#x27;0&#x27;</span>)*<span class="number">2</span> + jinwei<span class="number">-10</span>));	</span><br><span class="line">			jinwei = <span class="number">1</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			output.<span class="built_in">insert</span>(<span class="number">0</span>,<span class="built_in">to_string</span>((input[i]-<span class="string">&#x27;0&#x27;</span>)*<span class="number">2</span> + jinwei));</span><br><span class="line">			jinwei = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> x:output)&#123;</span><br><span class="line">		number[x-<span class="string">&#x27;0&#x27;</span>]--;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(jinwei)&#123;</span><br><span class="line">		output.<span class="built_in">insert</span>(<span class="number">0</span>,<span class="string">&quot;1&quot;</span>);	<span class="comment">//最高位还有进位加一</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> x:number)&#123;</span><br><span class="line">		<span class="keyword">if</span>(x!=<span class="number">0</span>)&#123;</span><br><span class="line">			flag = <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//统计*2后</span></span><br><span class="line">	string res = flag?<span class="string">&quot;Yes&quot;</span>:<span class="string">&quot;No&quot;</span>;</span><br><span class="line">	cout&lt;&lt;res&lt;&lt;endl;</span><br><span class="line">	cout&lt;&lt;output&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+		  
+			<a href="/tags/PAT%E7%94%B2%E7%BA%A7/">PAT甲级</a>
+		  
+		</div>
+		
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2023/03/15/1008/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">1008 Elevator</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2023/03/14/1002/">
+        <span class="next-text nav-default">1002 A+B for Polynomials</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2020 -
+    
+    2023
+    <span class="footer-author">Tokitou.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> and <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>

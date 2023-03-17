@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="1002 A+B for Polynomials"/>
+
+
+
+
+  <meta name="keywords" content="算法,PAT甲级," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="TokitouのBlog" >
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://example.com/2023/03/14/1002/"/>
+
+
+<meta name="description" content="PAT甲级第1002题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1002 A+B for Polynomials">
+<meta property="og:url" content="http://example.com/2023/03/14/1002/index.html">
+<meta property="og:site_name" content="TokitouのBlog">
+<meta property="og:description" content="PAT甲级第1002题">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-14T06:41:26.000Z">
+<meta property="article:modified_time" content="2023-03-14T06:44:35.867Z">
+<meta property="article:author" content="Tokitou">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="PAT甲级">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: true
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> 1002 A+B for Polynomials - TokitouのBlog </title>
+  <meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">TokitouのBlog</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          1002 A+B for Polynomials
+        
+      </h1>
+
+      <time class="post-time">
+          Mar 14 2023
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <p>PAT甲级第1002题</p>
+<span id="more"></span>
+
+<h1 id="1002-A-B-for-Polynomials"><a href="#1002-A-B-for-Polynomials" class="headerlink" title="1002 A+B for Polynomials"></a><strong>1002 A+B for Polynomials</strong></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iomanip&gt;</span>		<span class="comment">//C++输出保留指定位的小数</span></span></span><br><span class="line"><span class="comment">//#include &lt;cstdio&gt;		//C语言输入输出</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//系数为1到1000</span></span><br><span class="line">	<span class="type">double</span> xishu[<span class="number">1001</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="type">int</span> k;</span><br><span class="line">	cin&gt;&gt;k;		<span class="comment">//输入系数非零项个数</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(k--)&#123;</span><br><span class="line">		<span class="type">int</span> x;</span><br><span class="line">		<span class="type">double</span> a;</span><br><span class="line">		cin&gt;&gt;x&gt;&gt;a;</span><br><span class="line">		xishu[x]+=a;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> k2;</span><br><span class="line">	cin&gt;&gt;k2;</span><br><span class="line">	<span class="keyword">while</span>(k2--)&#123;</span><br><span class="line">		<span class="type">int</span> x;</span><br><span class="line">		<span class="type">double</span> a;</span><br><span class="line">		cin&gt;&gt;x&gt;&gt;a;</span><br><span class="line">		xishu[x]+=a;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">	<span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">	map&lt;<span class="type">int</span>,<span class="type">double</span>&gt; m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1001</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(xishu[i]!=<span class="number">0</span>)&#123;</span><br><span class="line">			sum++;</span><br><span class="line">			m.<span class="built_in">insert</span>(<span class="built_in">pair</span>&lt;<span class="type">int</span>,<span class="type">double</span>&gt;(i,xishu[i]));	<span class="comment">//非零的存到Map里等下遍历，Map可以自动排序</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	cout&lt;&lt;sum;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(map&lt;<span class="type">int</span>,<span class="type">double</span>&gt;::reverse_iterator it = m.<span class="built_in">rbegin</span>();it!=m.<span class="built_in">rend</span>();it++)&#123;</span><br><span class="line">         <span class="comment">//保留一位小数输出的方法</span></span><br><span class="line">		<span class="comment">//printf(&quot; %d %.1f&quot;,it-&gt;first,it-&gt;second);	//C语言输出</span></span><br><span class="line">		cout&lt;&lt;fixed&lt;&lt;<span class="built_in">setprecision</span>(<span class="number">1</span>)&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;(*it).first&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;it-&gt;second;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+		  
+			<a href="/tags/PAT%E7%94%B2%E7%BA%A7/">PAT甲级</a>
+		  
+		</div>
+		
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2023/03/14/1023/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">1023 Have Fun with Numbers</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2023/03/14/1001/">
+        <span class="next-text nav-default">1001 A+B Format</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2020 -
+    
+    2023
+    <span class="footer-author">Tokitou.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> and <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
