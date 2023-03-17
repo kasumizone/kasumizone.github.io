@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="1036 Boys vs Girls"/>
+
+
+
+
+  <meta name="keywords" content="算法,PAT甲级," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="TokitouのBlog" >
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://example.com/2023/03/17/1036/"/>
+
+
+<meta name="description" content="PAT甲级第1036题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1036 Boys vs Girls">
+<meta property="og:url" content="http://example.com/2023/03/17/1036/index.html">
+<meta property="og:site_name" content="TokitouのBlog">
+<meta property="og:description" content="PAT甲级第1036题">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-17T10:00:27.000Z">
+<meta property="article:modified_time" content="2023-03-17T09:57:41.294Z">
+<meta property="article:author" content="Tokitou">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="PAT甲级">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: true
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> 1036 Boys vs Girls - TokitouのBlog </title>
+  <meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">TokitouのBlog</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          1036 Boys vs Girls
+        
+      </h1>
+
+      <time class="post-time">
+          Mar 17 2023
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <p>PAT甲级第1036题</p>
+<span id="more"></span>
+
+<h1 id="1036-Boys-vs-Girls"><a href="#1036-Boys-vs-Girls" class="headerlink" title="1036 Boys vs Girls"></a><strong>1036 Boys vs Girls</strong></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//结构体</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	<span class="type">int</span> high = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> low = <span class="number">100</span>;</span><br><span class="line">	<span class="type">int</span> highIndex = <span class="number">-1</span>;</span><br><span class="line">	<span class="type">int</span> lowIndex = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">typedef</span> <span class="keyword">struct</span>&#123;</span><br><span class="line">		string name;</span><br><span class="line">		string id;</span><br><span class="line">		string gender;</span><br><span class="line">		<span class="type">int</span> grade;</span><br><span class="line">	&#125;StuInfo;</span><br><span class="line">	</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	</span><br><span class="line">	StuInfo stus[n];</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		cin&gt;&gt;stus[i].name&gt;&gt;stus[i].gender&gt;&gt;stus[i].id&gt;&gt;stus[i].grade;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(stus[i].gender == <span class="string">&quot;M&quot;</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(stus[i].grade&lt;low)&#123;</span><br><span class="line">				low = stus[i].grade;</span><br><span class="line">				lowIndex = i;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(stus[i].grade&gt;high)&#123;</span><br><span class="line">				high = stus[i].grade;</span><br><span class="line">				highIndex = i;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(highIndex&lt;<span class="number">0</span>)&#123;</span><br><span class="line">		cout&lt;&lt;<span class="string">&quot;Absent&quot;</span>&lt;&lt;endl;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		cout&lt;&lt;stus[highIndex].name&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;stus[highIndex].id&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(lowIndex&lt;<span class="number">0</span>)&#123;</span><br><span class="line">		cout&lt;&lt;<span class="string">&quot;Absent&quot;</span>&lt;&lt;endl;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		cout&lt;&lt;stus[lowIndex].name&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;stus[lowIndex].id&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(highIndex&lt;<span class="number">0</span>||lowIndex&lt;<span class="number">0</span>)&#123;</span><br><span class="line">		cout&lt;&lt;<span class="string">&quot;NA&quot;</span>&lt;&lt;endl;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		cout&lt;&lt;high - low&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+		  
+			<a href="/tags/PAT%E7%94%B2%E7%BA%A7/">PAT甲级</a>
+		  
+		</div>
+		
+
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2023/03/17/1019/">
+        <span class="next-text nav-default">1019 General Palindromic Number</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2020 -
+    
+    2023
+    <span class="footer-author">Tokitou.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> and <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
